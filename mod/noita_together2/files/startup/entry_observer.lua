@@ -1,9 +1,11 @@
 -- Bounded observational source extension. No globals/save writes, seed command,
 -- mode inference or authority. Callback order is evidence, not a classifier.
 local M={}
-function M.new()
+function M.new(enabled)
+ if enabled==false then return {record=function()end,replay=function()end,update=function()end} end
  local count,updates,emitted,dropped,print_errors=0,0,0,0,0
  local buffer={}
+ local replayed,last_dropped=0,0
  local function value(fn,fallback)
   local ok,v=pcall(fn);if not ok then return fallback end
   if type(v)=='number' and v==v and v~=math.huge and v~=-math.huge then return tostring(v):sub(1,80) end
@@ -19,9 +21,11 @@ function M.new()
   buffer[#buffer+1]=table.concat(fields,'|')
  end
  function observer:replay()
-  if emitted+#buffer+1>2048 then return end
-  for _,line in ipairs(buffer) do emitted=emitted+1;if not pcall(print,line) then print_errors=print_errors+1 end end
-  emitted=emitted+1;pcall(print,'NT2_STARTUP_ENTRY_COVERAGE|v=2|last='..count..'|dropped='..dropped..'|print_errors='..print_errors..'|emitted='..emitted)
+  if replayed==#buffer and last_dropped==dropped then return end
+   if emitted+(#buffer-replayed)+1>2048 then return end
+  for i=replayed+1,#buffer do emitted=emitted+1;if not pcall(print,buffer[i]) then print_errors=print_errors+1 end end
+  replayed,last_dropped=#buffer,dropped
+   emitted=emitted+1;pcall(print,'NT2_STARTUP_ENTRY_COVERAGE|v=2|last='..count..'|dropped='..dropped..'|print_errors='..print_errors..'|emitted='..emitted)
  end
  function observer:update(native,ffi) updates=updates+1;if updates==1 or updates==60 or updates==650 then self:record('preupdate'..updates,native,ffi);self:replay() end end
  return observer

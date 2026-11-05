@@ -53,115 +53,6 @@ local function scan_due()
 end
 local released,release_blocked=false,false
 local inventory_types={"InventoryGuiComponent","Inventory2Component","ItemPickUpperComponent"}
--- NT2_POTION_DIAGNOSTIC_BEGIN
--- Inlined only into the separate diagnostic entry. Every engine call is a getter.
-local potion_trace=(function()
-    local m={}
-    local seen,tracked,tracked_set={}, {}, {}
-    local samples,spawn_frame,subject=0,nil,nil
-    local calls,errors,budget_hit=0,0,false
-    local function read(name,...)
-        if calls>=512 then budget_hit=true;return nil end
-        calls=calls+1
-        local fn=_G[name]
-        if type(fn)~="function" then errors=errors+1;return nil end
-        local ok,a,b=pcall(fn,...)
-        if not ok then errors=errors+1;return nil end
-        return a,b
-    end
-    local function scalar(value)
-        if value==true then return "1" end
-        if value==false then return "0" end
-        if type(value)=="number" and value==value and math.abs(value)<=1000000000 then return string.format("%.2f",value) end
-        return "?" -- no arbitrary strings, names, paths or error text in output
-    end
-    local function id(value)
-        if type(value)=="number" and value==math.floor(value) and value>=0 and value<=4294967295 then return string.format("%.0f",value) end
-        return "?"
-    end
-    local function component(entity,kind)
-        local c=read("EntityGetFirstComponentIncludingDisabled",entity,kind)
-        if type(c)=="number" and c>0 then return c end
-    end
-    local function enabled(c) return c and scalar(read("ComponentGetIsEnabled",c)) or "-" end
-    local function value(c,field) return c and scalar(read("ComponentGetValue2",c,field)) or "-" end
-    local function tags(entity)
-        local out={}
-        -- Fixed whitelist, in this order; never log arbitrary mod tag strings.
-        for _,tag in ipairs({"potion","wand","item_pickup","item_physics","hittable","teleportable_NOT"}) do out[#out+1]=scalar(read("EntityHasTag",entity,tag)) end
-        return table.concat(out,"")
-    end
-    local function remember(entity)
-        if not tracked_set[entity] and #tracked<4 and read("EntityHasTag",entity,"potion")==true then tracked[#tracked+1]=entity;tracked_set[entity]=true end
-    end
-    local function snapshot(phase,p)
-        calls,errors,budget_hit=0,0,false
-        local frame=read("GameGetFrameNum")
-        if not spawn_frame then spawn_frame=frame end
-        subject=p
-        local controls=component(p,"ControlsComponent")
-        local inventory=component(p,"Inventory2Component")
-        local gui_component=component(p,"InventoryGuiComponent")
-        local pickup=component(p,"ItemPickUpperComponent")
-        local quick,children,child_rows=nil,nil,{}
-        local player_children=read("EntityGetAllChildren",p)
-        if type(player_children)=="table" then
-            for i=1,math.min(#player_children,16) do
-                local child=player_children[i]
-                if read("EntityGetName",child)=="inventory_quick" then quick=child;break end
-            end
-        end
-        if quick then children=read("EntityGetAllChildren",quick) end
-        if type(children)=="table" then
-            for i=1,math.min(#children,12) do
-                local child=children[i];remember(child)
-                local item=component(child,"ItemComponent")
-                child_rows[#child_rows+1]=id(child)..","..id(read("EntityGetParent",child))..","..id(read("EntityGetRootEntity",child))..","..tags(child)..","..enabled(item)
-            end
-        end
-        local potion_rows={}
-        for _,entity in ipairs(tracked) do
-            local alive=read("EntityGetIsAlive",entity)
-            if alive==true then
-                local item=component(entity,"ItemComponent")
-                local material=component(entity,"MaterialInventoryComponent")
-                local physics=component(entity,"PhysicsBodyComponent")
-                local physics2=component(entity,"PhysicsBody2Component")
-                local damage=component(entity,"DamageModelComponent")
-                local potion=component(entity,"PotionComponent")
-                local x,y=read("EntityGetTransform",entity)
-                local slot_x,slot_y
-                if item then slot_x,slot_y=read("ComponentGetValue2",item,"inventory_slot") end
-                potion_rows[#potion_rows+1]=table.concat({id(entity),scalar(alive),id(read("EntityGetParent",entity)),id(read("EntityGetRootEntity",entity)),scalar(x),scalar(y),tags(entity),enabled(item),value(item,"drinkable"),value(item,"is_pickable"),value(item,"has_been_picked_by_player"),scalar(slot_x),scalar(slot_y),enabled(material),id(read("GetMaterialInventoryMainMaterial",entity)),enabled(physics),enabled(physics2),value(physics2,"mInitialized"),enabled(damage),enabled(potion)},",")
-            else potion_rows[#potion_rows+1]=id(entity)..","..scalar(alive) end
-        end
-        local line="NT2_POTION|v=1|phase="..phase.."|frame="..id(frame).."|player="..id(p).."|controls="..value(controls,"enabled").."|inventory="..enabled(inventory).."|initialized="..value(inventory,"mInitialized").."|gui="..enabled(gui_component).."|pickup="..enabled(pickup).."|quick="..id(quick).."|child_count="..(type(children)=="table" and id(#children) or "?").."|children=["..table.concat(child_rows,";").."]|tracked=["..table.concat(potion_rows,";").."]|calls="..calls.."|errors="..errors.."|budget="..(budget_hit and "1" or "0")
-        line=line.."|player_child_count="..(type(player_children)=="table" and id(#player_children) or "?").."|limits=16,12,4"
-        if #line>4070 then line=line:sub(1,4070).."|output_truncated=1" end
-        if type(_G.print)=="function" then pcall(_G.print,line) end
-    end
-    function m:sample(phase,p)
-        if not logging_enabled then return end
-        if seen[phase] or samples>=8 or type(p)~="number" or p<=0 then return end
-        seen[phase]=true;samples=samples+1
-        -- Diagnostic failure must never escape into the entry's authority path.
-        local ok=pcall(snapshot,phase,p)
-        if not ok and type(_G.print)=="function" then pcall(_G.print,"NT2_POTION|v=1|phase="..phase.."|diagnostic_unavailable=1") end
-    end
-    function m:frame(waiting)
-        if not logging_enabled then return end
-        if not subject or samples>=8 or seen.waiting_after_60_frames then return end
-        if not seen.first_post_update then self:sample("first_post_update",subject);return end
-        if not waiting or type(spawn_frame)~="number" then return end
-        -- Only this cheap documented frame getter runs between the two samples.
-        local fn=_G.GameGetFrameNum
-        if type(fn)~="function" then return end
-        local ok,frame=pcall(fn)
-        if ok and type(frame)=="number" and frame>=spawn_frame+60 then self:sample("waiting_after_60_frames",subject) end
-    end
-    return m
-end)()
--- NT2_POTION_DIAGNOSTIC_END
 local function log(event,detail)if logging_enabled then print("NT2_G2|event="..event.."|frame="..tostring(GameGetFrameNum()).."|detail="..tostring(detail))end end
 -- Legacy waiting approach: inventory keeps its engine initialization/update.
 -- Only owned drinkable flags are changed; item-local markers survive a held save.
@@ -435,7 +326,7 @@ function OnModPreInit()
         entry_observer:record("duplicate_preinit");return
     end
     reset_entry();local bootstrap_ready=pcall(function()loot_policy.saved();testing_loadout:saved()end) -- init-only inert bootstrap reset, no saved loot write
-    entry_observer=dofile("mods/noita_together2/files/startup/entry_observer.lua").new()
+    entry_observer=dofile("mods/noita_together2/files/startup/entry_observer.lua").new(logging_enabled)
     entry_kind,entry_receipt=entry_scope.consume();entry_started=true;entry_activity=false
     for _,event in ipairs(entry_scope.observations()) do entry_observer:record(event) end
     entry_observer:record("preinit");entry_observer:record("scope_"..entry_kind)
@@ -654,7 +545,6 @@ function OnPlayerSpawned(p)
     if loaded or player or hold then refresh_player(p);return end
     entry_activity=true
     entry_observer:record("spawn")
-    potion_trace:sample("spawn_before",p) -- NT2_POTION_DIAGNOSTIC_HOOK
     -- A saved waiting world can be continued solo without inheriting our temporary controls/effect.
     for _,component in ipairs(EntityGetComponentIncludingDisabled(p,"VariableStorageComponent") or {}) do
         if ComponentGetValue2(component,"name")=="nt2_g3_recovery" then
@@ -674,7 +564,6 @@ function OnPlayerSpawned(p)
     end
     if c1_enabled then dofile('mods/noita_together2/files/g3/c1_local.lua').recover(_G,p)end
     recover_potions(p)
-    if not seed or loaded then potion_trace:sample("unbound_after_recovery",p) end -- NT2_POTION_DIAGNOSTIC_HOOK
     if not seed then
         player=p
         saved_world=true;continue_pending=not fresh_failed
@@ -691,7 +580,6 @@ function OnPlayerSpawned(p)
     local ok,err=pcall(protect,p)
     if not ok then close();log("protection_failed",err);return end
     testing_loadout:spawn(p)
-    potion_trace:sample("spawn_after_protect",p) -- NT2_POTION_DIAGNOSTIC_HOOK
     entry_observer:record("hold");entry_observer:replay()
     if accepted then loaded=bridge.nt2_g3_world_loaded(context)==1 end
     log("world_loaded",tostring(loaded)..";seed="..seed)
@@ -781,11 +669,9 @@ function OnWorldPreUpdate()
     if status==2 then
         if hold then restore();released=true;log("released",seed);entry_observer:record("release");entry_observer:replay();observe() end
         composer_lock.recover(_G,player,true,social_gameplay and social_gameplay.renderer.lock.lease)
-        potion_trace:sample("start_restored",player) -- NT2_POTION_DIAGNOSTIC_HOOK
     else
         local ok,err=pcall(protect,player)
         if not ok then close();log("protection_failed",err) end
-        if released and hold then potion_trace:sample("reprotected",player) end -- NT2_POTION_DIAGNOSTIC_HOOK
         if hold then
             if hold.controls then ComponentSetValue2(hold.controls,"enabled",false)end
             EntitySetTransform(player,hold.x,hold.y)
@@ -811,7 +697,6 @@ function OnWorldPreUpdate()
 end
 function OnWorldPostUpdate()
     if social_gameplay then social_gameplay:post_update() end
-    potion_trace:frame(hold~=nil) -- NT2_POTION_DIAGNOSTIC_HOOK
     if not hold or offline then return end
     if not gui then gui=GuiCreate() end
     GuiStartFrame(gui)
@@ -826,7 +711,6 @@ function OnWorldPostUpdate()
         -- Explicit user opt-out only; server loses this selected game's lease.
         if recovery and recovery.record then recovery:offline() else GlobalsSetValue('nt2_rejoin_local_world_v1_offline','1');if bridge then bridge.nt2_g3_offline_choice() end;close();restore();if c1_enabled and player then dofile('mods/noita_together2/files/g3/c1_local.lua').recover(_G,player)end;offline=true end
         log("offline_opt_out",seed)
-        potion_trace:sample("offline_restored",player) -- NT2_POTION_DIAGNOSTIC_HOOK
     end
 end
 

@@ -158,6 +158,8 @@ fn persist_bank_session(dir:&Path,root:&Path,app:&Envelope,module:&mut Envelope,
 }
 fn writer(root:PathBuf,config:PathBuf,runtime:String,sha:String,development:bool,rx:mpsc::Receiver<Message>,enabled:Arc<AtomicBool>,failed:Arc<AtomicBool>,dropped:Arc<AtomicU64>){
  let mut session=uuid::Uuid::new_v4().to_string();let runtime_root=root.join("app").join(&runtime);let mut dir=runtime_root.join(&session);let mut app=envelope("app",&runtime,&sha,&session);let mut module=envelope("mod",&runtime,&sha,&session);module.reason="missing-mod".into();module.enabled=false;let env=environment(std::env::var("NT2_DEBUG_DIAGNOSTICS").ok().as_deref());let mut last_config=Instant::now()-Duration::from_secs(2);let mut last_flush=last_config;let mut finish=false;let mut lock=None;let mut selection_scope=Scope::default();let mut dirty=false;let mut bank_data:Option<bank::BankData>=None;
+ // Captures allow 60 seconds of age; idle selection metadata needs only a 10-second heartbeat.
+ let mut selection_key:Option<(Scope,String,bool,String)>=None;let mut selection_written=Instant::now();
  loop{
   if last_config.elapsed()>=Duration::from_secs(1){let selected=settings(&config);let(on,reason)=match selected{Ok(v)=>choice(v,env,development),Err(_)=>(false,"invalid-setting")};enabled.store(on,Ordering::Release);dirty|=app.enabled!=on||app.reason!=reason;app.enabled=on;app.reason=reason.into();if !on{module.enabled=false;module.reason=reason.into();}last_config=Instant::now();}
   match rx.recv_timeout(Duration::from_millis(100)){
@@ -196,7 +198,12 @@ fn writer(root:PathBuf,config:PathBuf,runtime:String,sha:String,development:bool
     // Off creates only essential current-selection metadata, never a new
     // gameplay session or new samples. Previously recorded sessions survive.
     if dirty||finish{persist_bank_session(&dir,&runtime_root,&app,&mut module,&mut lock,bank_data.as_ref())?;}
-    atomic(&runtime_root.join("selection.json"),&Selection{revision:REVISION.into(),runtime_id:runtime.clone(),runtime_sha256:sha.clone(),session_id:session.clone(),scope:selection_scope.clone(),updated_at_utc_ms:now,enabled:app.enabled,reason:app.reason.clone()})
+    let key=(selection_scope.clone(),session.clone(),app.enabled,app.reason.clone());
+     if finish||selection_key.as_ref()!=Some(&key)||selection_written.elapsed()>=Duration::from_secs(10){
+      atomic(&runtime_root.join("selection.json"),&Selection{revision:REVISION.into(),runtime_id:runtime.clone(),runtime_sha256:sha.clone(),session_id:session.clone(),scope:selection_scope.clone(),updated_at_utc_ms:now,enabled:app.enabled,reason:app.reason.clone()})?;
+      selection_key=Some(key);selection_written=Instant::now();
+     }
+     Ok::<(),std::io::Error>(())
    })();
    if result.is_err(){failed.store(true,Ordering::Release)}else{dirty=false}last_flush=Instant::now();
   }if finish{break}
@@ -244,6 +251,17 @@ fn writer(root:PathBuf,config:PathBuf,runtime:String,sha:String,development:bool
  }
  #[test]fn normal_departure_is_not_unexpected_loss_and_scope_isolated(){
   let root=root();let mut h=recording(root.clone(),root.join("settings.json"),"test".into(),"a".repeat(64),true).unwrap();h.observe(&view("Playing",2),scope(),None);h.observe(&view("Offline",0),scope(),None);h.finish();let e:Envelope=serde_json::from_slice(&std::fs::read(session(&root).join("app.json")).unwrap()).unwrap();assert!(e.first_loss.is_none());assert!(e.recent.iter().any(|r|r.kind=="expected_departure"));
+ }
+ #[test]fn idle_selection_heartbeat_and_scope_change_are_bounded(){
+  let root=root();let config=root.join("settings.json");atomic(&config,&Settings{debug_diagnostics:Some(false)}).unwrap();
+  let mut h=Handle::start(root.clone(),config,"test".into(),"a".repeat(64),true).unwrap();let path=root.join("app/test/selection.json");
+  let read=||std::fs::read(&path).ok().and_then(|b|serde_json::from_slice::<Selection>(&b).ok());
+  let wait=|predicate:&dyn Fn(&Selection)->bool|{let until=Instant::now()+Duration::from_secs(12);loop{if let Some(s)=read(){if predicate(&s){break s}}assert!(Instant::now()<until,"selection metadata not published");std::thread::sleep(Duration::from_millis(20));}};
+  h.observe(&view("Playing",1),scope(),None);let first=wait(&|s|s.scope==scope());
+  std::thread::sleep(Duration::from_millis(1200));assert_eq!(read().unwrap().updated_at_utc_ms,first.updated_at_utc_ms,"idle selection rewritten before heartbeat");
+  let heartbeat=wait(&|s|s.updated_at_utc_ms>first.updated_at_utc_ms);assert!(heartbeat.updated_at_utc_ms-first.updated_at_utc_ms>=10000);assert!(heartbeat.updated_at_utc_ms-first.updated_at_utc_ms<60000);
+  let mut other=scope();other.profile_tag=Some("e".repeat(16));h.observe(&view("Playing",1),other.clone(),None);let began=Instant::now();let changed=wait(&|s|s.scope==other);assert!(began.elapsed()<Duration::from_secs(2));assert!(!changed.enabled);
+  h.finish();assert!(!session(&root).exists());assert!(read().unwrap().scope==other);
  }
  #[test]fn off_writes_only_selection_and_unwritable_does_not_block_producer(){
   let root=root();let config=root.join("settings.json");atomic(&config,&Settings{debug_diagnostics:Some(false)}).unwrap();let mut h=Handle::start(root.clone(),config,"test".into(),"a".repeat(64),true).unwrap();h.observe(&view("Playing",1),scope(),None);h.finish();assert!(!session(&root).exists());let s:Selection=serde_json::from_slice(&std::fs::read(root.join("app/test/selection.json")).unwrap()).unwrap();assert!(!s.enabled);assert_eq!(s.scope.profile_tag,scope().profile_tag);

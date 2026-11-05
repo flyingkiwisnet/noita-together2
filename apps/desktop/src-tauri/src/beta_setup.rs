@@ -4,7 +4,7 @@
 use std::{path::{Path,PathBuf},collections::BTreeSet};
 use serde_json::{Value,json};
 use sha2::{Digest,Sha256};
-pub const VERSION:&str="0.1.0-beta.3";
+pub const VERSION:&str="0.1.0-beta.4";
 pub const NAME:&str="Noita Together 2 - Beta";
 const MOD_XML:&[u8]=include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"),"/../../../mod/noita_together2/mod.xml"));
 fn hash_bytes(b:&[u8])->String{format!("{:x}",Sha256::digest(b))}

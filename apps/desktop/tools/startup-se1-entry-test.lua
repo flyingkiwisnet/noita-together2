@@ -4,6 +4,13 @@ local total=0
 local function scenario(name,o)
  local filter=os.getenv('NT2_SE1_FILTER');if filter and filter~='' and not name:find(filter,1,true) then return end
  o=o or {};raw(repo..'/apps/desktop/tools/mod-protection-stubs.lua');local s=NT2_FIXTURE
+ -- Noita returns nil for an absent component, not the old stub's boolean false.
+ local component=EntityGetFirstComponentIncludingDisabled
+ EntityGetFirstComponentIncludingDisabled=function(...)return component(...)or nil end
+ local preferences=raw(repo..'/mod/noita_together2/files/g3/social_preferences.lua');local preference_values={}
+ for key,value in pairs(preferences.defaults)do preference_values[preferences.prefix..key]=value end
+ preference_values[preferences.prefix..'NT_ENABLE_LOGGER']=not o.logging_off
+ ModSettingGet=function(key)return preference_values[key]end
  local ffi=require('ffi');local registry={};local virtual={['mods/noita_together2/files/loot/run-policy.txt']='new:shared:1:999'}
  local world,claims,nonces,seeds,resumes,closes,mode=0,0,0,0,0,{},nil
  local token=string.rep('A',16);local saved={};local printlines={};local reports={};local report_attempts={};local actual='424242';local status=1;local clicked=false;local engine_clock=0
@@ -28,7 +35,9 @@ local function scenario(name,o)
   ffi.fill(b,n);ffi.copy(c,token,16);local w=ffi.cast('uint32_t*',b)
   w[0]=0x3247544e;w[1]=9;w[2]=16;w[3]=1;w[5]=o.policy==2 and 0 or 424242;w[6]=o.policy or 5;w[7]=1;w[8]=1000;w[9]=2
   w[44]=o.provisional and 1 or 0
-  ffi.copy(b+48,token,16);ffi.copy(b+64,o.provisional and string.rep('B',16) or token,16);ffi.copy(b+80,string.rep('d',32),32);ffi.copy(b+112,string.rep('c',32),32);ffi.copy(b+192,'{}',2);return 1
+  local world_bytes=o.provisional and string.rep('B',16)or token;local hex=(world_bytes:gsub('.',function(c)return string.format('%02x',c:byte())end));local world_id=hex:sub(1,8)..'-'..hex:sub(9,12)..'-'..hex:sub(13,16)..'-'..hex:sub(17,20)..'-'..hex:sub(21)
+  local snapshot=assert(raw(repo..'/mod/noita_together2/files/g3/bank_json.lua').encode({version=1,scope={config_digest=string.rep('63',32)},config={settings={}},local_world=world_id,bundle_digest=string.rep('64',32),generation=1,seed=tonumber(w[5]),policy=tonumber(w[6])}));w[9]=#snapshot
+  ffi.copy(b+48,token,16);ffi.copy(b+64,world_bytes,16);ffi.copy(b+80,string.rep('d',32),32);ffi.copy(b+112,string.rep('c',32),32);ffi.copy(b+192,snapshot,#snapshot);return 1
  end
  native.nt2_g3_startup_diagnostic=function(b,n) ffi.fill(b,n);local w=ffi.cast('uint32_t*',b);w[0]=0x3154534e;w[1]=1;w[2]=1;w[37]=10;ffi.copy(b+48,token,16);return 256 end
  native.nt2_g3_seed_known=function(c) return ffi.string(c,16)==token and 1 or 0 end
@@ -54,14 +63,16 @@ local function scenario(name,o)
   return set_component(id,key,value)
  end
  dofile=function(path)
-  if path:find('/g3/native_owner.lua',1,true) or path:find('/g3/social_native.lua',1,true) then return {new=function() return {tick=function() end,close=function() end} end} end
+  if path:find('/g3/native_owner.lua',1,true) or path:find('/g3/social_native.lua',1,true) then return {new=function() return {tick=function() end,post_update=function()end,close=function() end,before_protect=function()end,renderer={lock={}},a3={before_hold=function()end,visual={clear_colour=function()end}}} end} end
   return raw(repo..'/'..path:gsub('^mods/','mod/'))
  end
  -- Settings and init have different _G and separate dofile/module instances.
  local env=setmetatable({_G=false},{__index=_G});env._G=env
  env.ModIsEnabled=function(id) assert(id=='noita_together2');return not o.disabled end
  if o.noappend then env.ModLuaFileAppend=function() error('settings append unavailable') end end
- env.ModSettingSet=function() error('No persisted startup flag allowed') end
+ env.ModSettingSet=function(key,value) assert(key==preferences.prefix..'_version' or preferences.defaults[key:sub(#preferences.prefix+1)]~=nil,'No persisted startup flag allowed');preference_values[key]=value end
+ env.ModSettingSetNextValue=function(key,value,default) if not default or preference_values[key]==nil then env.ModSettingSet(key,value)end end
+ env.ModSettingGetNextValue=ModSettingGet
  env.dofile=function(path)
   if path=='data/scripts/lib/utilities.lua' then return end
   local p=path=='data/scripts/lib/mod_settings.lua' and out..'/mod_settings.lua' or repo..'/'..path:gsub('^mods/','mod/')
@@ -132,9 +143,13 @@ local function scenario(name,o)
   registry={};world=43;saved.nt2_seed_loot_policy_v1='individual:0';OnWorldPreUpdate();assert(saved.nt2_seed_loot_policy_v1=='individual:0' and claims==before,'stale context wrote loaded loot')
  end
  if o.fail or o.lateimage then local before_nonce=nonces;OnModPreInit();OnPlayerSpawned(99);assert(claims==before and nonces==before_nonce,'late duplicate escaped original failure') end
- if applied then local joined=table.concat(printlines,'\n');assert(joined:find('|event=settings_new|',1,true) and joined:find('|event=claim|',1,true),'buffered scope/claim observations missing') end
+ local joined=table.concat(printlines,'\n');assert(not joined:find('NT2_POTION|',1,true),'retired potion tracer still active')
+ if o.logging_off then assert(not joined:find('NT2_STARTUP_ENTRY',1,true),'startup reset bypassed logger opt-out') end
+ if applied and not o.logging_off then local joined=table.concat(printlines,'\n');assert(joined:find('|event=settings_new|',1,true) and joined:find('|event=claim|',1,true),'buffered scope/claim observations missing') end
  print=original_print;total=total+1;print('SE1_PASS '..name..' claims='..claims..' nonce='..nonces..' seeds='..seeds..' resume='..resumes..' injected_engine=true')
 end
+scenario('logger-disabled-fresh',{logging_off=true})
+scenario('logger-disabled-continue',{logging_off=true,continue=true})
 scenario('fresh-with-old-save',{menu=true,duppreinit=true,frame=17777})
 scenario('fresh-intent-app-offline',{fresh_intent='offline'})
 scenario('fresh-intent-held-app-offline',{fresh_intent='offline',hold=true})
@@ -173,3 +188,14 @@ scenario('replacement-registry-reset',{replacement=true})
 scenario('replacement-with-stale-registry-held',{replayed=true})
 scenario('retained-missing-scope-no-stale-loot',{retainedmissing=true})
 print('SE1_TOTAL '..total..' passed; real shipped settings framework; engine/native/canonical facts injected')
+
+-- Exercise the real observer separately: no engine reads while off, no duplicate replay.
+local observer_module=raw(repo..'/mod/noita_together2/files/startup/entry_observer.lua')
+local old_print=print;local rows={};print=function(line) rows[#rows+1]=line end
+local old_frame=GameGetFrameNum;GameGetFrameNum=function() error('disabled observer read engine') end
+local off=observer_module.new(false);off:record('ignored');off:update();off:replay();assert(#rows==0)
+GameGetFrameNum=old_frame
+local observer=observer_module.new(true);observer:record('one');observer:replay();local first=#rows;observer:replay();assert(#rows==first)
+observer:record('two');observer:replay();assert(#rows==first+2)
+local one,two=0,0;for _,row in ipairs(rows)do if row:find('|event=one|',1,true)then one=one+1 end;if row:find('|event=two|',1,true)then two=two+1 end end
+assert(one==1 and two==1);print=old_print;print('STARTUP_DEBUG disabled observer and incremental replay passed')
