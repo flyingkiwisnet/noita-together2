@@ -1,0 +1,89 @@
+{
+  "revision": "g3-nemesis-provenance-internal-1",
+  "status": "INTERNAL isolated fixture/audit DTO only; NOT an RPC wire schema",
+  "realEarningEnabled": false,
+  "realOfferingEnabled": false,
+  "catalogueRevision": "nt2-nemesis-builtins-2",
+  "sourcePins": [
+    {
+      "file": "noita_mod/nemesis/files/events.lua",
+      "sha256": "a5300a44ba783a4929260715bcfa10dbf1a6da0dfb0062dae7404387ab66d026"
+    },
+    {
+      "file": "noita_mod/nemesis/files/append/disable_mail.lua",
+      "sha256": "37ada7e9cb3365fc882e5fca8145c13f66f2e0a0cd38d89e97da64d69266e83a"
+    },
+    {
+      "file": "noita_mod/nemesis/files/scripts/buy_ability.lua",
+      "sha256": "23ecda80bade391118076b668b27a0b83c4904e1d124f70b1e65f591a9d73511"
+    },
+    {
+      "file": "noita_mod/nemesis/files/death.lua",
+      "sha256": "2e2a14271443d18fbe1315851d8290352dd14a8b2814b9965a64d99fd06919de"
+    },
+    {
+      "file": "noita_mod/nemesis/files/store.lua",
+      "sha256": "5a43eb5495ae5663c4a39329933153838402f6fd02b341196d3f17c13acac001"
+    }
+  ],
+  "initialPoints": 0,
+  "hpEncoding": "16 lower-case hexadecimal big-endian IEEE754 binary64 bits; finite nonnegative max_hp; no negative zero; component-to-Lua conversion adapter pending",
+  "rounding": "IEEE754 binary64 max_hp times10 rounded to nearest-even THEN floor; NOT rational product floor",
+  "killIdentity": "UUID original per run; victim UUID unique per run; client entity-number/incarnation mapping pending; no invented anti-cheat proof",
+  "killReportFields": [
+    "killId",
+    "victimId",
+    "playerEntityId",
+    "responsibleEntityId",
+    "responsibleParentId",
+    "maxHpBits",
+    "nemesisEnemy"
+  ],
+  "creditRule": "responsible==player OR direct responsible parent==player; missing DamageModel ->0; credited before NEMESIS_ENEMY broadcast exclusion; unrelated attribution retained at0",
+  "retention": {
+    "killsPerRun": 2048,
+    "shopsPerRun": 256,
+    "noEviction": true,
+    "pointsMax": 4294967295,
+    "status": "provisional operational bounds, not long-run parity"
+  },
+  "funding": "new append-only credits, initial0 minus existing canonical immutable purchase debits; mutually exclusive with108 arbitrary fixture funding; internal fixture purchase seam only;108 no-increase guard unchanged",
+  "shopReportFields": [
+    "groupId",
+    "spawnKind",
+    "xBits",
+    "yBits",
+    "choices"
+  ],
+  "shopRule": "eater x+2,spitter x-2; slot Y=spawnY-3-i*25; each level=floor(slotY/512), exact catalogue tier and price; persistent per-context tier pool,20/25 share tier6; selected positive weight IDs removed without replacement",
+  "rngVerified": false,
+  "rngDependency": "Original SetRandomSeed/random_create/pick_random_from_table_weighted, Lua pairs order and actual game seed adapter not verified; no service RNG or canonical offer issuance from this audit",
+  "closure": "same local source context, all recorded nearby shop offers within radius1000 around(purchasedX,purchasedY-25), including purchased ID; geometry plan only; actual engine offers/proximity/suppression pending",
+  "recipientCoordinateKey": "NEMESIS_USED_ABILITY_<floor(x)>_<floor(y)> global per recipient regardless sender; no world application implied",
+  "killDigestVector": {
+    "context": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "attachmentId": "00000000-0000-4000-8000-000000000003",
+      "worldToken": "世界-😀",
+      "roomId": "00000000-0000-4000-8000-000000000004",
+      "runId": "00000000-0000-4000-8000-000000000005",
+      "runEpoch": "00000000-0000-4000-8000-000000000006",
+      "configRevision": 1
+    },
+    "evidence": {
+      "killId": "00000000-0000-4000-8000-000000000007",
+      "victimId": "00000000-0000-4000-8000-000000000008",
+      "playerEntityId": "00000000-0000-4000-8000-000000000009",
+      "responsibleEntityId": "00000000-0000-4000-8000-000000000009",
+      "responsibleParentId": null,
+      "maxHpBits": "3fd3333333333333",
+      "nemesisEnemy": true
+    },
+    "canonicalJson": "{\"evidence\":{\"killId\":\"00000000-0000-4000-8000-000000000007\",\"maxHpBits\":\"3fd3333333333333\",\"nemesisEnemy\":true,\"playerEntityId\":\"00000000-0000-4000-8000-000000000009\",\"responsibleEntityId\":\"00000000-0000-4000-8000-000000000009\",\"responsibleParentId\":null,\"victimId\":\"00000000-0000-4000-8000-000000000008\"},\"revision\":\"g3-nemesis-provenance-internal-1\",\"source\":{\"attachmentId\":\"00000000-0000-4000-8000-000000000003\",\"configRevision\":1,\"gameSessionId\":\"00000000-0000-4000-8000-000000000002\",\"principalId\":\"00000000-0000-4000-8000-000000000001\",\"roomId\":\"00000000-0000-4000-8000-000000000004\",\"runEpoch\":\"00000000-0000-4000-8000-000000000006\",\"runId\":\"00000000-0000-4000-8000-000000000005\",\"worldToken\":\"世界-😀\"}}",
+    "utf8Hex": "7b2265766964656e6365223a7b226b696c6c4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303037222c226d6178487042697473223a2233666433333333333333333333333333222c226e656d65736973456e656d79223a747275652c22706c61796572456e746974794964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303039222c22726573706f6e7369626c65456e746974794964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303039222c22726573706f6e7369626c65506172656e744964223a6e756c6c2c2276696374696d4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303038227d2c227265766973696f6e223a2267332d6e656d657369732d70726f76656e616e63652d696e7465726e616c2d31222c22736f75726365223a7b226174746163686d656e744964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303033222c22636f6e6669675265766973696f6e223a312c2267616d6553657373696f6e4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303032222c227072696e636970616c4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303031222c22726f6f6d4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303034222c2272756e45706f6368223a2230303030303030302d303030302d343030302d383030302d303030303030303030303036222c2272756e4964223a2230303030303030302d303030302d343030302d383030302d303030303030303030303035222c22776f726c64546f6b656e223a22e4b896e7958c2df09f9880227d7d",
+    "sha256": "20e6ab3103c17a45c6d38dbc94efebc6528d67e50c6125afe3de9aa604a3cdc2",
+    "points": 3,
+    "enemyBroadcastEligible": false
+  }
+}

@@ -1,0 +1,1 @@
+-- Inert process-local registry target. Never dofile this file or its appends.

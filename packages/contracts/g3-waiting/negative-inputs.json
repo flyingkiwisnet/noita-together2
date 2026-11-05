@@ -1,0 +1,215 @@
+[
+  {
+    "type": "EntryPreview",
+    "json": {
+      "scope": {
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+        "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+        "deviceId": "g3-fixture-sam",
+        "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+        "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+        "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+        "configRevision": 1,
+        "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+        "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+        "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true,
+        "actualSeed": "2199723734"
+      },
+      "sample": {
+        "originRequestId": "b37fedd3-8af9-427c-8ea9-b5840271641e",
+        "channel": "entry-http",
+        "credentialId": "5e779dc0-7e7f-425f-9c3e-c88b7d53292d",
+        "sampleKey": "692bd249d799f3c71411ae6197f1e6b54e0db4da5a1b125c044e677b01efeb53"
+      },
+      "reviewRemainingMs": 1797150,
+      "mayPlay": true
+    },
+    "reason": "preview is never play authority"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryCancel": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        },
+        "recoveryProof": "sssssssssssssssssssssssssssssssssssssssssss",
+        "worldOffline": false
+      }
+    },
+    "reason": "explicit world offline required"
+  },
+  {
+    "type": "EntryScope",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+      "deviceId": "g3-fixture-sam",
+      "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+      "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+      "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+      "configRevision": 1,
+      "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+      "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+      "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+      "seedPolicy": "shared-random",
+      "randomizeLoot": true,
+      "actualSeed": "2199723734",
+      "originalStartId": "invented"
+    },
+    "reason": "new world cannot carry an inherited Start"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryActivate": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        },
+        "recoveryProof": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "gameVersion": "synthetic-game",
+        "modVersion": "synthetic-mod",
+        "bridgeVersion": "synthetic-bridge",
+        "capabilities": [],
+        "observation": {
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "gameInstanceId": "synthetic-B-loaded",
+          "observationRevision": 1,
+          "actualSeed": "2199723734",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2"
+          ],
+          "inventoryComplete": true,
+          "collectorFailure": "",
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "synthetic-mod",
+          "bridgeVersion": "synthetic-bridge",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      }
+    },
+    "reason": "proof bound"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryActivate": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        },
+        "recoveryProof": "sssssssssssssssssssssssssssssssssssssssssss",
+        "gameVersion": "synthetic-game",
+        "modVersion": "synthetic-mod",
+        "bridgeVersion": "synthetic-bridge",
+        "capabilities": [],
+        "observation": {
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "gameInstanceId": "synthetic-B-loaded",
+          "observationRevision": 1,
+          "actualSeed": "2199723734",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2"
+          ],
+          "inventoryComplete": true,
+          "collectorFailure": "",
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "synthetic-mod",
+          "bridgeVersion": "synthetic-bridge",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      },
+      "entryPreview": {
+        "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68"
+      }
+    },
+    "reason": "one operation only"
+  }
+]

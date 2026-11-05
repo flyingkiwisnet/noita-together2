@@ -1,0 +1,1575 @@
+{
+  "revision": "g3-draft-4",
+  "major": 1,
+  "limits": {
+    "bytes": 262144,
+    "fields": 32768,
+    "depth": 12
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "STALE_EPOCH",
+    "CONFLICT",
+    "CAPACITY",
+    "INSUFFICIENT_FUNDS",
+    "INVALID_STATE",
+    "ROOM_DELETED",
+    "UNSUPPORTED_CONTENT",
+    "INCOMPATIBLE_CATALOGUE",
+    "BANK_FULL",
+    "CLAIM_LOST",
+    "POLICY_DISABLED",
+    "BATCH_TOO_LARGE"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "MovementFrame": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "xMilli": {
+          "id": 2,
+          "type": "string",
+          "max": 12
+        },
+        "yMilli": {
+          "id": 3,
+          "type": "string",
+          "max": 12
+        },
+        "vxMilli": {
+          "id": 4,
+          "type": "string",
+          "max": 12
+        },
+        "vyMilli": {
+          "id": 5,
+          "type": "string",
+          "max": 12
+        },
+        "facingLeft": {
+          "id": 6,
+          "type": "bool"
+        }
+      }
+    },
+    "Movement": {
+      "fields": {
+        "frames": {
+          "id": 1,
+          "type": "MovementFrame",
+          "repeated": true,
+          "max": 4
+        }
+      }
+    },
+    "GoldIntent": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "direction": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        },
+        "amount": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "GoldStatus": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "GoldReceipt": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "deliveryId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "payloadDigest": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "receiptId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "outcome": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "evidenceDigest": {
+          "id": 6,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Operation": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "principalId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "attachmentId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "direction": {
+          "id": 6,
+          "type": "string",
+          "max": 16
+        },
+        "amount": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "payloadDigest": {
+          "id": 8,
+          "type": "string",
+          "max": 64
+        },
+        "deliveryId": {
+          "id": 9,
+          "type": "string",
+          "max": 80
+        },
+        "state": {
+          "id": 10,
+          "type": "string",
+          "max": 24
+        },
+        "balance": {
+          "id": 11,
+          "type": "uint32"
+        },
+        "localOutcome": {
+          "id": 12,
+          "type": "string",
+          "max": 16
+        },
+        "provenance": {
+          "id": 13,
+          "type": "string",
+          "max": 40
+        },
+        "originalScope": {
+          "id": 14,
+          "type": "Scope"
+        },
+        "balanceVersion": {
+          "id": 15,
+          "type": "string",
+          "max": 20
+        },
+        "effectAllowed": {
+          "id": 16,
+          "type": "bool"
+        },
+        "savePersistence": {
+          "id": 17,
+          "type": "string",
+          "max": 16
+        }
+      }
+    },
+    "Ghost": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "frames": {
+          "id": 4,
+          "type": "MovementFrame",
+          "repeated": true,
+          "max": 4
+        },
+        "capturedAt": {
+          "id": 5,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "GhostList": {
+      "fields": {}
+    },
+    "GameEvent": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "catalogId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "count": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "targetGameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "OutboxList": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "limit": {
+          "id": 2,
+          "type": "uint32"
+        }
+      }
+    },
+    "OutboxEntry": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "operation": {
+          "id": 3,
+          "type": "Operation"
+        },
+        "event": {
+          "id": 4,
+          "type": "TrustedEvent"
+        },
+        "notice": {
+          "id": 5,
+          "type": "GoldNotice"
+        },
+        "itemOperation": {
+          "id": 6,
+          "type": "ItemOperation"
+        },
+        "itemNotice": {
+          "id": 7,
+          "type": "ItemNotice"
+        }
+      }
+    },
+    "StatisticsList": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "limit": {
+          "id": 2,
+          "type": "uint32"
+        }
+      }
+    },
+    "StatisticsAggregate": {
+      "fields": {}
+    },
+    "StatisticsDelete": {
+      "fields": {}
+    },
+    "Statistic": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "version": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "kind": {
+          "id": 3,
+          "type": "string",
+          "max": 40
+        },
+        "principalId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "count": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 7,
+          "type": "string",
+          "max": 40
+        },
+        "capturedAt": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Aggregate": {
+      "fields": {
+        "kind": {
+          "id": 1,
+          "type": "string",
+          "max": 40
+        },
+        "count": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "provenance": {
+          "id": 3,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "movement": {
+          "id": 20,
+          "type": "Movement"
+        },
+        "ghostList": {
+          "id": 21,
+          "type": "GhostList"
+        },
+        "goldIntent": {
+          "id": 22,
+          "type": "GoldIntent"
+        },
+        "goldStatus": {
+          "id": 23,
+          "type": "GoldStatus"
+        },
+        "goldReceipt": {
+          "id": 24,
+          "type": "GoldReceipt"
+        },
+        "gameEvent": {
+          "id": 25,
+          "type": "GameEvent"
+        },
+        "outboxList": {
+          "id": 26,
+          "type": "OutboxList"
+        },
+        "statisticsList": {
+          "id": 27,
+          "type": "StatisticsList"
+        },
+        "statisticsAggregate": {
+          "id": 28,
+          "type": "StatisticsAggregate"
+        },
+        "statisticsDelete": {
+          "id": 29,
+          "type": "StatisticsDelete"
+        },
+        "currentScope": {
+          "id": 8,
+          "type": "Scope"
+        },
+        "goldBank": {
+          "id": 30,
+          "type": "GoldBank"
+        },
+        "itemDeposit": {
+          "id": 31,
+          "type": "ItemDeposit"
+        },
+        "itemClaim": {
+          "id": 32,
+          "type": "ItemClaim"
+        },
+        "itemStatus": {
+          "id": 33,
+          "type": "ItemStatus"
+        },
+        "itemReceipt": {
+          "id": 34,
+          "type": "ItemReceipt"
+        },
+        "itemInspect": {
+          "id": 35,
+          "type": "ItemInspect"
+        },
+        "itemBank": {
+          "id": 36,
+          "type": "ItemBank"
+        },
+        "inventoryPublish": {
+          "id": 37,
+          "type": "InventoryPublish"
+        },
+        "inventoryInspect": {
+          "id": 38,
+          "type": "InventoryInspect"
+        },
+        "bankBatch": {
+          "id": 39,
+          "type": "BankBatch"
+        }
+      },
+      "oneof": [
+        "movement",
+        "ghostList",
+        "goldIntent",
+        "goldStatus",
+        "goldReceipt",
+        "gameEvent",
+        "outboxList",
+        "statisticsList",
+        "statisticsAggregate",
+        "statisticsDelete",
+        "goldBank",
+        "itemDeposit",
+        "itemClaim",
+        "itemStatus",
+        "itemReceipt",
+        "itemInspect",
+        "itemBank",
+        "inventoryPublish",
+        "inventoryInspect",
+        "bankBatch"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "operation": {
+          "id": 6,
+          "type": "Operation"
+        },
+        "ghosts": {
+          "id": 7,
+          "type": "Ghost",
+          "repeated": true,
+          "max": 32
+        },
+        "outbox": {
+          "id": 8,
+          "type": "OutboxEntry",
+          "repeated": true,
+          "max": 32
+        },
+        "statistics": {
+          "id": 9,
+          "type": "Statistic",
+          "repeated": true,
+          "max": 32
+        },
+        "aggregates": {
+          "id": 10,
+          "type": "Aggregate",
+          "repeated": true,
+          "max": 16
+        },
+        "nextSequence": {
+          "id": 11,
+          "type": "string",
+          "max": 20
+        },
+        "error": {
+          "id": 12,
+          "type": "Error"
+        },
+        "bank": {
+          "id": 13,
+          "type": "GoldBankSnapshot"
+        },
+        "itemOperation": {
+          "id": 14,
+          "type": "ItemOperation"
+        },
+        "itemBank": {
+          "id": 15,
+          "type": "ItemBankSnapshot"
+        },
+        "itemDetail": {
+          "id": 16,
+          "type": "ItemDetail"
+        },
+        "inventory": {
+          "id": 17,
+          "type": "InventoryView"
+        },
+        "bankRevision": {
+          "id": 18,
+          "type": "string",
+          "max": 20
+        },
+        "bankBatch": {
+          "id": 19,
+          "type": "BankBatchResult"
+        }
+      }
+    },
+    "TrustedEvent": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "catalogId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "principalId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "targetGameSessionId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "count": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "GoldBank": {
+      "fields": {
+        "afterNoticeSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "afterOperationId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "GoldNotice": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "principalId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "amount": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "balance": {
+          "id": 5,
+          "type": "uint32"
+        },
+        "balanceVersion": {
+          "id": 6,
+          "type": "string",
+          "max": 20
+        },
+        "acceptedAt": {
+          "id": 7,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "GoldBankSnapshot": {
+      "fields": {
+        "availableBalance": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "balanceVersion": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "sendGoldEnabled": {
+          "id": 3,
+          "type": "bool"
+        },
+        "notices": {
+          "id": 4,
+          "type": "GoldNotice",
+          "max": 8,
+          "repeated": true
+        },
+        "noticeSequence": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        },
+        "noticeReset": {
+          "id": 6,
+          "type": "bool"
+        },
+        "operations": {
+          "id": 7,
+          "type": "Operation",
+          "max": 8,
+          "repeated": true
+        },
+        "nextOperationId": {
+          "id": 8,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "ItemSpell": {
+      "fields": {
+        "actionId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "usesRemaining": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        }
+      }
+    },
+    "ItemCard": {
+      "fields": {
+        "slot": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "spell": {
+          "id": 2,
+          "type": "ItemSpell"
+        }
+      }
+    },
+    "ItemWand": {
+      "fields": {
+        "named": {
+          "id": 1,
+          "type": "bool"
+        },
+        "uiName": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "spriteId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "gripX": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "gripY": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        },
+        "tipX": {
+          "id": 6,
+          "type": "string",
+          "max": 64
+        },
+        "tipY": {
+          "id": 7,
+          "type": "string",
+          "max": 64
+        },
+        "manaMax": {
+          "id": 8,
+          "type": "string",
+          "max": 64
+        },
+        "manaChargeSpeed": {
+          "id": 9,
+          "type": "string",
+          "max": 64
+        },
+        "reloadTime": {
+          "id": 10,
+          "type": "string",
+          "max": 16
+        },
+        "actionsPerRound": {
+          "id": 11,
+          "type": "string",
+          "max": 16
+        },
+        "deckCapacity": {
+          "id": 12,
+          "type": "string",
+          "max": 16
+        },
+        "shuffleDeckWhenEmpty": {
+          "id": 13,
+          "type": "bool"
+        },
+        "spreadDegrees": {
+          "id": 14,
+          "type": "string",
+          "max": 64
+        },
+        "speedMultiplier": {
+          "id": 15,
+          "type": "string",
+          "max": 64
+        },
+        "fireRateWait": {
+          "id": 16,
+          "type": "string",
+          "max": 16
+        },
+        "deck": {
+          "id": 17,
+          "type": "ItemCard",
+          "repeated": true,
+          "max": 1024
+        },
+        "permanent": {
+          "id": 18,
+          "type": "ItemCard",
+          "repeated": true,
+          "max": 256
+        }
+      }
+    },
+    "ItemMaterial": {
+      "fields": {
+        "materialId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "amount": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "ItemContainer": {
+      "fields": {
+        "containerType": {
+          "id": 1,
+          "type": "string",
+          "max": 16
+        },
+        "color": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        },
+        "contents": {
+          "id": 3,
+          "type": "ItemMaterial",
+          "repeated": true,
+          "max": 1024
+        }
+      }
+    },
+    "ItemObject": {
+      "fields": {
+        "objectId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "ItemDescriptor": {
+      "fields": {
+        "catalogueRevision": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "spell": {
+          "id": 2,
+          "type": "ItemSpell"
+        },
+        "wand": {
+          "id": 3,
+          "type": "ItemWand"
+        },
+        "container": {
+          "id": 4,
+          "type": "ItemContainer"
+        },
+        "object": {
+          "id": 5,
+          "type": "ItemObject"
+        }
+      },
+      "oneof": [
+        "spell",
+        "wand",
+        "container",
+        "object"
+      ]
+    },
+    "ItemDeposit": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "item": {
+          "id": 2,
+          "type": "ItemDescriptor"
+        }
+      }
+    },
+    "ItemClaim": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "itemId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "expectedRevision": {
+          "id": 3,
+          "type": "string",
+          "max": 20
+        }
+      }
+    },
+    "ItemStatus": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "ItemReceipt": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "deliveryId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "payloadDigest": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "receiptId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "outcome": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "evidenceDigest": {
+          "id": 6,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "ItemInspect": {
+      "fields": {
+        "itemId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "ItemBank": {
+      "fields": {
+        "tab": {
+          "id": 1,
+          "type": "string",
+          "max": 16
+        },
+        "search": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "spellTypes": {
+          "id": 3,
+          "type": "uint32",
+          "repeated": true,
+          "max": 8
+        },
+        "wandSort": {
+          "id": 4,
+          "type": "string",
+          "repeated": true,
+          "max": 8,
+          "itemMax": 32
+        },
+        "sort": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "page": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "afterNoticeSequence": {
+          "id": 7,
+          "type": "string",
+          "max": 20
+        },
+        "afterOperationId": {
+          "id": 8,
+          "type": "string",
+          "max": 80
+        },
+        "useFilters": {
+          "id": 10,
+          "type": "bool"
+        }
+      }
+    },
+    "ItemOperation": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "principalId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "originalScope": {
+          "id": 3,
+          "type": "Scope"
+        },
+        "direction": {
+          "id": 4,
+          "type": "string",
+          "max": 16
+        },
+        "itemId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "deliveryId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "payloadDigest": {
+          "id": 7,
+          "type": "string",
+          "max": 64
+        },
+        "state": {
+          "id": 8,
+          "type": "string",
+          "max": 24
+        },
+        "localOutcome": {
+          "id": 9,
+          "type": "string",
+          "max": 16
+        },
+        "item": {
+          "id": 10,
+          "type": "ItemDescriptor"
+        },
+        "effectAllowed": {
+          "id": 11,
+          "type": "bool"
+        },
+        "savePersistence": {
+          "id": 12,
+          "type": "string",
+          "max": 16
+        },
+        "bankRevision": {
+          "id": 13,
+          "type": "string",
+          "max": 20
+        }
+      }
+    },
+    "ItemSummary": {
+      "fields": {
+        "itemId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 24
+        },
+        "revision": {
+          "id": 4,
+          "type": "string",
+          "max": 20
+        },
+        "displayName": {
+          "id": 5,
+          "type": "string",
+          "max": 256
+        },
+        "nameKey": {
+          "id": 6,
+          "type": "string",
+          "max": 160
+        },
+        "iconId": {
+          "id": 7,
+          "type": "string",
+          "max": 80
+        },
+        "usesRemaining": {
+          "id": 8,
+          "type": "string",
+          "max": 16
+        },
+        "spellType": {
+          "id": 9,
+          "type": "uint32"
+        },
+        "senderId": {
+          "id": 10,
+          "type": "string",
+          "max": 80
+        },
+        "senderName": {
+          "id": 11,
+          "type": "string",
+          "max": 80
+        },
+        "claimAllowed": {
+          "id": 12,
+          "type": "bool"
+        }
+      }
+    },
+    "ItemDetail": {
+      "fields": {
+        "summary": {
+          "id": 1,
+          "type": "ItemSummary"
+        },
+        "item": {
+          "id": 2,
+          "type": "ItemDescriptor"
+        }
+      }
+    },
+    "ItemNotice": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "principalId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "count": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "kind": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "acceptedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "ItemBankSnapshot": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "items": {
+          "id": 2,
+          "type": "ItemSummary",
+          "repeated": true,
+          "max": 40
+        },
+        "total": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "page": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "pageCount": {
+          "id": 5,
+          "type": "uint32"
+        },
+        "notices": {
+          "id": 6,
+          "type": "ItemNotice",
+          "repeated": true,
+          "max": 8
+        },
+        "noticeSequence": {
+          "id": 7,
+          "type": "string",
+          "max": 20
+        },
+        "noticeReset": {
+          "id": 8,
+          "type": "bool"
+        },
+        "operations": {
+          "id": 9,
+          "type": "ItemOperation",
+          "repeated": true,
+          "max": 8
+        },
+        "nextOperationId": {
+          "id": 10,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "InventoryWand": {
+      "fields": {
+        "slot": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "wand": {
+          "id": 2,
+          "type": "ItemWand"
+        },
+        "unavailableReason": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "InventoryPublish": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "wands": {
+          "id": 2,
+          "type": "InventoryWand",
+          "repeated": true,
+          "max": 8
+        },
+        "heldSlot": {
+          "id": 3,
+          "type": "string",
+          "max": 16
+        }
+      }
+    },
+    "InventoryInspect": {
+      "fields": {
+        "gameSessionId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "slot": {
+          "id": 2,
+          "type": "uint32"
+        }
+      }
+    },
+    "InventoryView": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "revision": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "wands": {
+          "id": 4,
+          "type": "InventoryWand",
+          "repeated": true,
+          "max": 1
+        },
+        "heldWandSpriteId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "totalSlots": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "nextSlot": {
+          "id": 7,
+          "type": "string",
+          "max": 16
+        },
+        "state": {
+          "id": 9,
+          "type": "string",
+          "max": 24
+        },
+        "unavailableReason": {
+          "id": 10,
+          "type": "string",
+          "max": 80
+        },
+        "heldSlot": {
+          "id": 11,
+          "type": "string",
+          "max": 16
+        }
+      }
+    },
+    "BankBatchEntry": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "Scope"
+        },
+        "currentScope": {
+          "id": 2,
+          "type": "Scope"
+        },
+        "goldIntent": {
+          "id": 3,
+          "type": "GoldIntent"
+        },
+        "goldStatus": {
+          "id": 4,
+          "type": "GoldStatus"
+        },
+        "goldReceipt": {
+          "id": 5,
+          "type": "GoldReceipt"
+        },
+        "itemDeposit": {
+          "id": 6,
+          "type": "ItemDeposit"
+        },
+        "itemClaim": {
+          "id": 7,
+          "type": "ItemClaim"
+        },
+        "itemStatus": {
+          "id": 8,
+          "type": "ItemStatus"
+        },
+        "itemReceipt": {
+          "id": 9,
+          "type": "ItemReceipt"
+        }
+      },
+      "oneof": [
+        "goldIntent",
+        "goldStatus",
+        "goldReceipt",
+        "itemDeposit",
+        "itemClaim",
+        "itemStatus",
+        "itemReceipt"
+      ]
+    },
+    "BankBatch": {
+      "fields": {
+        "entries": {
+          "id": 1,
+          "type": "BankBatchEntry",
+          "repeated": true,
+          "max": 4
+        }
+      }
+    },
+    "BankBatchEntryResult": {
+      "fields": {
+        "index": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "operationId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "operation": {
+          "id": 3,
+          "type": "Operation"
+        },
+        "itemOperation": {
+          "id": 4,
+          "type": "ItemOperation"
+        },
+        "error": {
+          "id": 5,
+          "type": "Error"
+        }
+      },
+      "oneof": [
+        "operation",
+        "itemOperation",
+        "error"
+      ]
+    },
+    "BankBatchResult": {
+      "fields": {
+        "entries": {
+          "id": 1,
+          "type": "BankBatchEntryResult",
+          "repeated": true,
+          "max": 4
+        }
+      }
+    }
+  }
+}

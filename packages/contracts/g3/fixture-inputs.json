@@ -1,0 +1,258 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "service-epoch",
+      "sessionEpoch": "game-epoch",
+      "requestId": "request-a",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "attachmentId": "attachment-a",
+        "worldToken": "world-a"
+      },
+      "movement": {
+        "frames": [
+          {
+            "sequence": 1,
+            "xMilli": "-1250",
+            "yMilli": "2000",
+            "vxMilli": "0",
+            "vyMilli": "-10",
+            "facingLeft": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "service-epoch",
+      "sessionEpoch": "game-epoch",
+      "requestId": "request-a",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "attachmentId": "attachment-a",
+        "worldToken": "world-a"
+      },
+      "goldIntent": {
+        "operationId": "operation-a",
+        "direction": "withdraw",
+        "amount": 10
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "service-epoch",
+      "sessionEpoch": "game-epoch",
+      "requestId": "request-a",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "attachmentId": "attachment-a",
+        "worldToken": "world-a"
+      },
+      "goldReceipt": {
+        "operationId": "operation-a",
+        "deliveryId": "delivery-a",
+        "payloadDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "receiptId": "receipt-a",
+        "outcome": "uncertain",
+        "evidenceDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "service-epoch",
+      "sessionEpoch": "game-epoch",
+      "requestId": "request-a",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "attachmentId": "attachment-a",
+        "worldToken": "world-a"
+      },
+      "gameEvent": {
+        "eventId": "event-a",
+        "catalogId": "player.death",
+        "count": 1
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "gold-fixture",
+      "serviceEpoch": "epoch",
+      "requestId": "bank",
+      "bank": {
+        "availableBalance": 0,
+        "balanceVersion": "0",
+        "sendGoldEnabled": true,
+        "noticeSequence": "0",
+        "noticeReset": false,
+        "notices": [],
+        "operations": []
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "gold-fixture",
+      "serviceEpoch": "current-epoch",
+      "requestId": "deleted-original-status",
+      "error": {
+        "code": "ROOM_DELETED"
+      }
+    }
+  },
+  {
+    "type": "ItemDescriptor",
+    "json": {
+      "catalogueRevision": "nt2-items-base-2",
+      "wand": {
+        "named": true,
+        "uiName": "My wand",
+        "spriteId": "wand_e2ce0d0df0b4fb1d",
+        "gripX": "2",
+        "gripY": "5",
+        "tipX": "21",
+        "tipY": "5",
+        "manaMax": "100",
+        "manaChargeSpeed": "35.5",
+        "reloadTime": "-10",
+        "actionsPerRound": "2",
+        "deckCapacity": "120",
+        "shuffleDeckWhenEmpty": false,
+        "spreadDegrees": "-4.5",
+        "speedMultiplier": "1.25",
+        "fireRateWait": "-2",
+        "deck": [
+          {
+            "slot": 0,
+            "spell": {
+              "actionId": "LIGHT_BULLET",
+              "usesRemaining": "0"
+            }
+          },
+          {
+            "slot": 3,
+            "spell": {
+              "actionId": "BOMB",
+              "usesRemaining": "2"
+            }
+          }
+        ],
+        "permanent": [
+          {
+            "slot": 0,
+            "spell": {
+              "actionId": "LIGHT_BULLET",
+              "usesRemaining": "-1"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ItemDescriptor",
+    "json": {
+      "catalogueRevision": "nt2-items-base-2",
+      "container": {
+        "containerType": "powder",
+        "color": "4294967295",
+        "contents": []
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000007",
+      "requestId": "bank-batch-example",
+      "sessionEpoch": "10000000-0000-4000-8000-000000000008",
+      "scope": {
+        "roomId": "10000000-0000-4000-8000-000000000001",
+        "runId": "10000000-0000-4000-8000-000000000002",
+        "runEpoch": "10000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "10000000-0000-4000-8000-000000000004",
+        "worldToken": "10000000-0000-4000-8000-000000000005"
+      },
+      "bankBatch": {
+        "entries": [
+          {
+            "scope": {
+              "roomId": "10000000-0000-4000-8000-000000000001",
+              "runId": "10000000-0000-4000-8000-000000000002",
+              "runEpoch": "10000000-0000-4000-8000-000000000003",
+              "configRevision": 1,
+              "attachmentId": "10000000-0000-4000-8000-000000000004",
+              "worldToken": "10000000-0000-4000-8000-000000000005"
+            },
+            "itemStatus": {
+              "operationId": "10000000-0000-4000-8000-000000000006"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-draft-4",
+      "serviceId": "g3-fixture",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000007",
+      "requestId": "bank-batch-example",
+      "bankRevision": "42",
+      "bankBatch": {
+        "entries": [
+          {
+            "index": 0,
+            "operationId": "10000000-0000-4000-8000-000000000006",
+            "error": {
+              "code": "NOT_FOUND"
+            }
+          }
+        ]
+      }
+    }
+  }
+]

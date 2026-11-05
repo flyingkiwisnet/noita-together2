@@ -1,0 +1,302 @@
+{
+  "revision": "g3-draft-4",
+  "fixtures": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "service-epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "request-a",
+        "scope": {
+          "roomId": "room-a",
+          "runId": "run-a",
+          "runEpoch": "run-epoch",
+          "configRevision": 1,
+          "attachmentId": "attachment-a",
+          "worldToken": "world-a"
+        },
+        "movement": {
+          "frames": [
+            {
+              "sequence": 1,
+              "xMilli": "-1250",
+              "yMilli": "2000",
+              "vxMilli": "0",
+              "vyMilli": "-10"
+            }
+          ]
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265220d736572766963652d65706f63682a0a67616d652d65706f63683209726571756573742d613a330a06726f6f6d2d61120572756e2d611a0972756e2d65706f636820012a0c6174746163686d656e742d613207776f726c642d61a201190a17080112052d313235301a04323030302201302a032d3130"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "service-epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "request-a",
+        "scope": {
+          "roomId": "room-a",
+          "runId": "run-a",
+          "runEpoch": "run-epoch",
+          "configRevision": 1,
+          "attachmentId": "attachment-a",
+          "worldToken": "world-a"
+        },
+        "goldIntent": {
+          "operationId": "operation-a",
+          "direction": "withdraw",
+          "amount": 10
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265220d736572766963652d65706f63682a0a67616d652d65706f63683209726571756573742d613a330a06726f6f6d2d61120572756e2d611a0972756e2d65706f636820012a0c6174746163686d656e742d613207776f726c642d61b201190a0b6f7065726174696f6e2d6112087769746864726177180a"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "service-epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "request-a",
+        "scope": {
+          "roomId": "room-a",
+          "runId": "run-a",
+          "runEpoch": "run-epoch",
+          "configRevision": 1,
+          "attachmentId": "attachment-a",
+          "worldToken": "world-a"
+        },
+        "goldReceipt": {
+          "operationId": "operation-a",
+          "deliveryId": "delivery-a",
+          "payloadDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "receiptId": "receipt-a",
+          "outcome": "uncertain",
+          "evidenceDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265220d736572766963652d65706f63682a0a67616d652d65706f63683209726571756573742d613a330a06726f6f6d2d61120572756e2d611a0972756e2d65706f636820012a0c6174746163686d656e742d613207776f726c642d61c201b3010a0b6f7065726174696f6e2d61120a64656c69766572792d611a40616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161612209726563656970742d612a09756e6365727461696e324062626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "service-epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "request-a",
+        "scope": {
+          "roomId": "room-a",
+          "runId": "run-a",
+          "runEpoch": "run-epoch",
+          "configRevision": 1,
+          "attachmentId": "attachment-a",
+          "worldToken": "world-a"
+        },
+        "gameEvent": {
+          "eventId": "event-a",
+          "catalogId": "player.death",
+          "count": 1
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265220d736572766963652d65706f63682a0a67616d652d65706f63683209726571756573742d613a330a06726f6f6d2d61120572756e2d611a0972756e2d65706f636820012a0c6174746163686d656e742d613207776f726c642d61ca01190a076576656e742d61120c706c617965722e64656174681801"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "gold-fixture",
+        "serviceEpoch": "epoch",
+        "requestId": "bank",
+        "bank": {
+          "balanceVersion": "0",
+          "sendGoldEnabled": true,
+          "noticeSequence": "0"
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0c676f6c642d66697874757265220565706f63682a0462616e6b6a0812013018012a0130"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "gold-fixture",
+        "serviceEpoch": "current-epoch",
+        "requestId": "deleted-original-status",
+        "error": {
+          "code": "ROOM_DELETED"
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0c676f6c642d66697874757265220d63757272656e742d65706f63682a1764656c657465642d6f726967696e616c2d737461747573620e0a0c524f4f4d5f44454c45544544"
+    },
+    {
+      "type": "ItemDescriptor",
+      "json": {
+        "catalogueRevision": "nt2-items-base-2",
+        "wand": {
+          "named": true,
+          "uiName": "My wand",
+          "spriteId": "wand_e2ce0d0df0b4fb1d",
+          "gripX": "2",
+          "gripY": "5",
+          "tipX": "21",
+          "tipY": "5",
+          "manaMax": "100",
+          "manaChargeSpeed": "35.5",
+          "reloadTime": "-10",
+          "actionsPerRound": "2",
+          "deckCapacity": "120",
+          "spreadDegrees": "-4.5",
+          "speedMultiplier": "1.25",
+          "fireRateWait": "-2",
+          "deck": [
+            {
+              "spell": {
+                "actionId": "LIGHT_BULLET",
+                "usesRemaining": "0"
+              }
+            },
+            {
+              "slot": 3,
+              "spell": {
+                "actionId": "BOMB",
+                "usesRemaining": "2"
+              }
+            }
+          ],
+          "permanent": [
+            {
+              "spell": {
+                "actionId": "LIGHT_BULLET",
+                "usesRemaining": "-1"
+              }
+            }
+          ]
+        }
+      },
+      "hex": "0a106e74322d6974656d732d626173652d321a9501080112074d792077616e641a1577616e645f653263653064306466306234666231642201322a0135320232313a013542033130304a0433352e3552032d31305a0132620331323072042d342e357a04312e32358201022d328a011312110a0c4c494748545f42554c4c45541201308a010d080312090a04424f4d4212013292011412120a0c4c494748545f42554c4c455412022d31"
+    },
+    {
+      "type": "ItemDescriptor",
+      "json": {
+        "catalogueRevision": "nt2-items-base-2",
+        "container": {
+          "containerType": "powder",
+          "color": "4294967295"
+        }
+      },
+      "hex": "0a106e74322d6974656d732d626173652d3222140a06706f77646572120a34323934393637323935"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "10000000-0000-4000-8000-000000000007",
+        "sessionEpoch": "10000000-0000-4000-8000-000000000008",
+        "requestId": "bank-batch-example",
+        "scope": {
+          "roomId": "10000000-0000-4000-8000-000000000001",
+          "runId": "10000000-0000-4000-8000-000000000002",
+          "runEpoch": "10000000-0000-4000-8000-000000000003",
+          "configRevision": 1,
+          "attachmentId": "10000000-0000-4000-8000-000000000004",
+          "worldToken": "10000000-0000-4000-8000-000000000005"
+        },
+        "bankBatch": {
+          "entries": [
+            {
+              "scope": {
+                "roomId": "10000000-0000-4000-8000-000000000001",
+                "runId": "10000000-0000-4000-8000-000000000002",
+                "runEpoch": "10000000-0000-4000-8000-000000000003",
+                "configRevision": 1,
+                "attachmentId": "10000000-0000-4000-8000-000000000004",
+                "worldToken": "10000000-0000-4000-8000-000000000005"
+              },
+              "itemStatus": {
+                "operationId": "10000000-0000-4000-8000-000000000006"
+              }
+            }
+          ]
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265222431303030303030302d303030302d343030302d383030302d3030303030303030303030372a2431303030303030302d303030302d343030302d383030302d303030303030303030303038321262616e6b2d62617463682d6578616d706c653ac0010a2431303030303030302d303030302d343030302d383030302d303030303030303030303031122431303030303030302d303030302d343030302d383030302d3030303030303030303030321a2431303030303030302d303030302d343030302d383030302d30303030303030303030303320012a2431303030303030302d303030302d343030302d383030302d303030303030303030303034322431303030303030302d303030302d343030302d383030302d303030303030303030303035ba02ee010aeb010ac0010a2431303030303030302d303030302d343030302d383030302d303030303030303030303031122431303030303030302d303030302d343030302d383030302d3030303030303030303030321a2431303030303030302d303030302d343030302d383030302d30303030303030303030303320012a2431303030303030302d303030302d343030302d383030302d303030303030303030303034322431303030303030302d303030302d343030302d383030302d30303030303030303030303542260a2431303030303030302d303030302d343030302d383030302d303030303030303030303036"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "serviceId": "g3-fixture",
+        "serviceEpoch": "10000000-0000-4000-8000-000000000007",
+        "requestId": "bank-batch-example",
+        "bankRevision": "42",
+        "bankBatch": {
+          "entries": [
+            {
+              "operationId": "10000000-0000-4000-8000-000000000006",
+              "error": {
+                "code": "NOT_FOUND"
+              }
+            }
+          ]
+        }
+      },
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265222431303030303030302d303030302d343030302d383030302d3030303030303030303030372a1262616e6b2d62617463682d6578616d706c6592010234329a01350a33122431303030303030302d303030302d343030302d383030302d3030303030303030303030362a0b0a094e4f545f464f554e44"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-draft-4",
+        "goldStatus": {
+          "operationId": "op"
+        },
+        "movement": {
+          "frames": []
+        }
+      }
+    },
+    {
+      "type": "Movement",
+      "json": {
+        "frames": [
+          {
+            "sequence": 1
+          },
+          {
+            "sequence": 1
+          },
+          {
+            "sequence": 1
+          },
+          {
+            "sequence": 1
+          },
+          {
+            "sequence": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "Request",
+      "hex": "0801120a67332d64726166742d341a0a67332d66697874757265220d736572766963652d65706f63682a0a67616d652d65706f63683209726571756573742d613a330a06726f6f6d2d61120572756e2d611a0972756e2d65706f636820012a0c6174746163686d656e742d613207776f726c642d61a201190a17080112052d313235301a04323030302201302a032d3130f80701"
+    }
+  ]
+}

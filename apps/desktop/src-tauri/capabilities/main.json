@@ -1,0 +1,7 @@
+{
+  "identifier": "main",
+  "description": "Local named G1 client commands only; no filesystem, shell, HTTP or opener plugins.",
+  "windows": ["main"],
+  "permissions": ["allow-g1-status", "allow-g1-login", "allow-g1-action", "allow-g1-logout", "allow-g3-original-status", "allow-g1-browse-game", "allow-g1-beta-setup", "allow-g1-beta-discover", "allow-g1-beta-export"]
+}
+

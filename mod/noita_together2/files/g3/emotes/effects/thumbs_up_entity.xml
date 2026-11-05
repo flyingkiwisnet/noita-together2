@@ -1,0 +1,10 @@
+<Entity name="heart_entity" serialize="0">
+
+    <SpriteComponent
+        image_file="mods/noita_together2/files/g3/emotes/thumbs_up_entity.png"
+        alpha="0" />
+
+    <LuaComponent 
+        execute_every_n_frame="3"
+        script_source_file="mods/noita_together2/files/g3/emotes/effects/thumbs_up_entity.lua" />
+</Entity>

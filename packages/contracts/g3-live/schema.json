@@ -1,0 +1,516 @@
+{
+  "revision": "g3-live-cr2-4",
+  "major": 1,
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 8
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "STALE_EPOCH",
+    "CAPACITY",
+    "EXPIRED",
+    "REAUTH_REQUIRED",
+    "RETIRED"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "roomId": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "configRevision": {
+          "id": 7,
+          "type": "uint32",
+          "required": true
+        },
+        "attachmentId": {
+          "id": 8,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "worldToken": {
+          "id": 9,
+          "type": "string",
+          "max": 80,
+          "required": true
+        }
+      }
+    },
+    "Pose": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "xMilli": {
+          "id": 2,
+          "type": "string",
+          "max": 12,
+          "required": true
+        },
+        "yMilli": {
+          "id": 3,
+          "type": "string",
+          "max": 12,
+          "required": true
+        },
+        "vxMilli": {
+          "id": 4,
+          "type": "string",
+          "max": 12,
+          "required": true
+        },
+        "vyMilli": {
+          "id": 5,
+          "type": "string",
+          "max": 12,
+          "required": true
+        },
+        "facingLeft": {
+          "id": 6,
+          "type": "bool",
+          "required": false
+        }
+      }
+    },
+    "Empty": {
+      "fields": {}
+    },
+    "Authenticate": {
+      "fields": {
+        "accessToken": {
+          "id": 1,
+          "type": "string",
+          "max": 4096,
+          "required": true
+        }
+      }
+    },
+    "Reauthenticate": {
+      "fields": {
+        "accessToken": {
+          "id": 1,
+          "type": "string",
+          "max": 4096,
+          "required": true
+        },
+        "authRevision": {
+          "id": 2,
+          "type": "uint32",
+          "required": true
+        }
+      }
+    },
+    "Welcome": {
+      "fields": {
+        "authRevision": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "accessExpiresAt": {
+          "id": 2,
+          "type": "string",
+          "max": 24,
+          "required": true
+        },
+        "authorityUntil": {
+          "id": 3,
+          "type": "string",
+          "max": 24,
+          "required": true
+        },
+        "poseHz": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "snapshotHz": {
+          "id": 5,
+          "type": "uint32",
+          "required": true
+        }
+      }
+    },
+    "Peer": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "worldToken": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "poses": {
+          "id": 5,
+          "type": "Pose",
+          "repeated": true,
+          "max": 4,
+          "required": true
+        },
+        "acceptedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 24,
+          "required": true
+        },
+        "peerAgeMsAtSend": {
+          "id": 7,
+          "type": "uint32",
+          "maxValue": 2000,
+          "required": true
+        },
+        "poseAgesMsAtSend": {
+          "id": 8,
+          "type": "uint32",
+          "maxValue": 2000,
+          "repeated": true,
+          "max": 4,
+          "required": true
+        }
+      }
+    },
+    "Snapshot": {
+      "fields": {
+        "peers": {
+          "id": 1,
+          "type": "Peer",
+          "repeated": true,
+          "max": 31,
+          "required": false
+        },
+        "acceptedAt": {
+          "id": 2,
+          "type": "string",
+          "max": 24,
+          "required": true
+        }
+      }
+    },
+    "Retire": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "retryAfterMs": {
+          "id": 2,
+          "type": "uint32",
+          "maxValue": 60000,
+          "required": false
+        }
+      }
+    },
+    "RoomSemantics": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "requiredCapabilities": {
+          "id": 3,
+          "type": "string",
+          "repeated": true,
+          "max": 4,
+          "itemMax": 32,
+          "required": true
+        }
+      }
+    },
+    "ClientFrame": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "connectionId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "clientGeneration": {
+          "id": 6,
+          "type": "uint32",
+          "required": true
+        },
+        "authorityGeneration": {
+          "id": 7,
+          "type": "uint32",
+          "required": false
+        },
+        "sequence": {
+          "id": 8,
+          "type": "uint32",
+          "required": true
+        },
+        "scope": {
+          "id": 9,
+          "type": "Scope",
+          "required": true
+        },
+        "authenticate": {
+          "id": 10,
+          "type": "Authenticate",
+          "required": false
+        },
+        "reauthenticate": {
+          "id": 11,
+          "type": "Reauthenticate",
+          "required": false
+        },
+        "pose": {
+          "id": 12,
+          "type": "Pose",
+          "required": false
+        },
+        "ping": {
+          "id": 13,
+          "type": "Empty",
+          "required": false
+        }
+      },
+      "oneof": [
+        "authenticate",
+        "reauthenticate",
+        "pose",
+        "ping"
+      ]
+    },
+    "ServerFrame": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "connectionId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "clientGeneration": {
+          "id": 6,
+          "type": "uint32",
+          "required": true
+        },
+        "authorityGeneration": {
+          "id": 7,
+          "type": "uint32",
+          "required": true
+        },
+        "sequence": {
+          "id": 8,
+          "type": "uint32",
+          "required": true
+        },
+        "scope": {
+          "id": 9,
+          "type": "Scope",
+          "required": true
+        },
+        "welcome": {
+          "id": 10,
+          "type": "Welcome",
+          "required": false
+        },
+        "snapshot": {
+          "id": 11,
+          "type": "Snapshot",
+          "required": false
+        },
+        "retire": {
+          "id": 12,
+          "type": "Retire",
+          "required": false
+        },
+        "pong": {
+          "id": 13,
+          "type": "Empty",
+          "required": false
+        },
+        "ackClientSequence": {
+          "id": 14,
+          "type": "uint32",
+          "required": true
+        },
+        "authorityRemainingMs": {
+          "id": 15,
+          "type": "uint32",
+          "maxValue": 30000,
+          "required": true
+        },
+        "accessRemainingMs": {
+          "id": 16,
+          "type": "uint32",
+          "maxValue": 900000,
+          "required": true
+        },
+        "credentialId": {
+          "id": 17,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "bankChanged": {
+          "id": 18,
+          "type": "BankChanged",
+          "required": false
+        },
+        "c1Changed": {
+          "id": 19,
+          "type": "C1Changed",
+          "required": false
+        },
+        "c2Changed": {
+          "id": 20,
+          "type": "C2Changed",
+          "required": false
+        }
+      },
+      "oneof": [
+        "welcome",
+        "snapshot",
+        "retire",
+        "pong",
+        "bankChanged",
+        "c1Changed",
+        "c2Changed"
+      ]
+    },
+    "BankChanged": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "string",
+          "max": 20,
+          "required": true
+        }
+      }
+    },
+    "C1Changed": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20,
+          "required": true
+        }
+      }
+    },
+    "C2Changed": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20,
+          "required": true
+        }
+      }
+    }
+  }
+}

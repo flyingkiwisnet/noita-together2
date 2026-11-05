@@ -1,0 +1,22 @@
+-- Source identifiers are one-way digests of the server-resolved peer address.
+ALTER TABLE account_signin_attempts ADD COLUMN source_hash text;
+ALTER TABLE auth1_flows ADD COLUMN source_hash text;
+CREATE INDEX signin_source_pending ON account_signin_attempts(source_hash,expires_at) WHERE state IN ('pending','completed');
+CREATE INDEX flow_source_pending ON auth1_flows(source_hash,expires_at) WHERE consumed_at IS NULL;
+CREATE TABLE auth1_admission_sources (source_hash text PRIMARY KEY, starts integer NOT NULL, until_at timestamptz NOT NULL);
+CREATE INDEX auth1_admission_expiry ON auth1_admission_sources(until_at);
+CREATE INDEX auth1_login_limit_expiry ON auth1_login_limits(until_at);
+ALTER TABLE auth1_provider_sessions ADD COLUMN failures integer NOT NULL DEFAULT 0;
+ALTER TABLE auth1_provider_sessions ADD COLUMN next_check_at timestamptz NOT NULL DEFAULT now();
+UPDATE auth1_provider_sessions SET next_check_at=LEAST(checked_at+interval '30 minutes',valid_until-interval '15 minutes');
+CREATE INDEX auth1_provider_due ON auth1_provider_sessions(next_check_at,family_id) WHERE revoked_at IS NULL;
+CREATE INDEX auth_requests_retention ON auth_requests(recovery_until);
+CREATE INDEX access_expiry ON access_tokens(expires_at,id);
+CREATE INDEX access_session_latest ON access_tokens(session_id,expires_at DESC,id DESC);
+CREATE INDEX refresh_expiry ON refresh_tokens(expires_at,hash);
+CREATE INDEX refresh_recovery_payload ON refresh_tokens(recovery_until) WHERE spent_at IS NOT NULL AND recovery_ciphertext IS NOT NULL;
+CREATE INDEX web_session_expiry ON auth1_web_sessions(expires_at);
+ALTER TABLE command_results DROP CONSTRAINT command_results_operation_check;
+ALTER TABLE command_results ADD CONSTRAINT command_results_operation_check CHECK(operation IN ('foundation','chat','routine'));
+CREATE INDEX command_routine_retention ON command_results(created_at,scope,request_id) WHERE operation='routine';
+INSERT INTO schema_migrations(version) VALUES(133);

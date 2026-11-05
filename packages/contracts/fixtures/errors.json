@@ -1,0 +1,13 @@
+{
+  "mock":true, "contractRevision":"g0-json-1", "serverId":"nt2-g0-local",
+  "cases":[
+    {"trigger":"No Authorization bearer header or expired fixture session", "error":{"code":"UNAUTHENTICATED"}},
+    {"trigger":"Guest issues run.start or browser asserts game.seedAccepted", "error":{"code":"FORBIDDEN"}},
+    {"trigger":"Command uses an older room revision", "error":{"code":"STALE_REVISION"}},
+    {"trigger":"Command carries an old connectionEpoch", "error":{"code":"STALE_EPOCH"}},
+    {"trigger":"Command carries another runId", "error":{"code":"WRONG_RUN"}},
+    {"trigger":"Request ID reused with different envelope", "error":{"code":"CONFLICT"}},
+    {"trigger":"Any transfer.status operation", "error":{"code":"UNSUPPORTED_G0"}}
+  ],
+  "reconnect":"Reauthenticate the existing unexpired fixture token on a new socket, subscribe to the same public fixture room and receive its latest snapshot. Session ownership takeover and durable reconnect are not implemented."
+}

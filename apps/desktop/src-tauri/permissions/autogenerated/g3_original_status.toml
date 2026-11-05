@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g3-original-status"
+description = "Enables the g3_original_status command without any pre-configured scope."
+commands.allow = ["g3_original_status"]
+
+[[permission]]
+identifier = "deny-g3-original-status"
+description = "Denies the g3_original_status command without any pre-configured scope."
+commands.deny = ["g3_original_status"]

@@ -1,0 +1,515 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "publish": {
+        "eventId": "00000000-0000-4000-8000-000000000010",
+        "sequence": 1,
+        "hud": {
+          "hpMilli": 100000,
+          "maxHpMilli": 100000,
+          "sampo": false,
+          "hpKnown": true,
+          "sampoKnown": true
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "publish": {
+        "eventId": "00000000-0000-4000-8000-000000000011",
+        "sequence": 2,
+        "emote": {
+          "emoteId": "wave",
+          "active": true
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "publish": {
+        "eventId": "00000000-0000-4000-8000-000000000012",
+        "sequence": 3,
+        "emote": {
+          "emoteId": "wave",
+          "active": false
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "publish": {
+        "eventId": "00000000-0000-4000-8000-000000000013",
+        "sequence": 4,
+        "cosmetic": {
+          "robeId": "purple",
+          "hat": false,
+          "amulet": true,
+          "gem": false
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "publish": {
+        "eventId": "00000000-0000-4000-8000-000000000014",
+        "sequence": 5,
+        "poi": {
+          "text": "Hello 雪",
+          "xMilli": "1000",
+          "yMilli": "-10000"
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "poiSnapshot": {
+        "afterSequence": "0",
+        "limit": 32
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "request-1",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "acceptedEventId": "00000000-0000-4000-8000-000000000010",
+      "duplicate": false
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "a2-roster",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "roster": {}
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "requestId": "a2-roster",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "players": [],
+      "rosterComplete": true
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "serviceId": "nt2-g3-candidate",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000005",
+      "sessionEpoch": "00000000-0000-4000-8000-000000000006",
+      "requestId": "a2-outcome",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "poiOutcome": {
+        "eventId": "00000000-0000-4000-8000-000000000010"
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-social-draft-5",
+      "requestId": "a2-outcome",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000001",
+        "runId": "00000000-0000-4000-8000-000000000002",
+        "runEpoch": "00000000-0000-4000-8000-000000000003",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000004",
+        "worldToken": "world-雪"
+      },
+      "poiOutcome": {
+        "eventId": "00000000-0000-4000-8000-000000000010",
+        "status": "not-found"
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "principal-a",
+      "gameSessionId": "current-session",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "epoch-a",
+        "attachmentId": "current-attachment",
+        "worldToken": "stable-world",
+        "configRevision": 1
+      },
+      "displayName": "Player",
+      "capturedAt": "2026-10-22T00:00:00.000Z",
+      "hudStateRevision": 7,
+      "provenance": "validated-client-report",
+      "hud": {
+        "hpKnown": true,
+        "hpMilli": 0,
+        "maxHpMilli": 1000,
+        "sampoKnown": true,
+        "sampo": false,
+        "biome": "$biome_coalmine"
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "principal-a",
+      "gameSessionId": "current-session",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "epoch-a",
+        "attachmentId": "current-attachment",
+        "worldToken": "stable-world",
+        "configRevision": 1
+      },
+      "displayName": "Player",
+      "capturedAt": "2026-10-22T00:00:00.000Z",
+      "hudStateRevision": 7,
+      "provenance": "validated-client-report",
+      "hud": {
+        "hpKnown": false,
+        "sampoKnown": false
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "principal-a",
+      "gameSessionId": "current-session",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "epoch-a",
+        "attachmentId": "current-attachment",
+        "worldToken": "stable-world",
+        "configRevision": 1
+      },
+      "displayName": "Player",
+      "capturedAt": "2026-10-22T00:00:00.000Z",
+      "hudStateRevision": 8,
+      "provenance": "validated-client-report",
+      "hud": {
+        "hpKnown": true,
+        "hpMilli": 800,
+        "maxHpMilli": 1000,
+        "biome": "$biome_mountain"
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "principal-a",
+      "gameSessionId": "current-session",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "epoch-a",
+        "attachmentId": "current-attachment",
+        "worldToken": "stable-world",
+        "configRevision": 1
+      },
+      "displayName": "Player",
+      "capturedAt": "2026-10-22T00:00:00.000Z",
+      "hudStateRevision": 8,
+      "provenance": "validated-client-report",
+      "hud": {
+        "hpKnown": false,
+        "sampoKnown": false
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "principal-a",
+      "gameSessionId": "current-session",
+      "scope": {
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "epoch-a",
+        "attachmentId": "current-attachment",
+        "worldToken": "stable-world",
+        "configRevision": 1
+      },
+      "displayName": "Player",
+      "capturedAt": "2026-10-22T00:00:00.000Z",
+      "hudStateRevision": 8,
+      "provenance": "validated-client-report",
+      "hud": {
+        "hpKnown": true,
+        "hpMilli": 800,
+        "maxHpMilli": 1000,
+        "biome": "_EMPTY_"
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000003",
+        "runId": "00000000-0000-4000-8000-000000000004",
+        "runEpoch": "00000000-0000-4000-8000-000000000005",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000006",
+        "worldToken": "a3-world"
+      },
+      "eventId": "00000000-0000-8000-8000-000000000007",
+      "sequence": 7,
+      "presentationRevision": 3,
+      "provenance": "validated-client-report",
+      "emote": {
+        "emoteId": "wave",
+        "active": true,
+        "durationFrames": 0,
+        "ageMs": 31000
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000003",
+        "runId": "00000000-0000-4000-8000-000000000004",
+        "runEpoch": "00000000-0000-4000-8000-000000000005",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000006",
+        "worldToken": "a3-world"
+      },
+      "eventId": "00000000-0000-8000-8000-000000000007",
+      "sequence": 7,
+      "presentationRevision": 3,
+      "provenance": "validated-client-report",
+      "emote": {
+        "emoteId": "heart",
+        "active": true,
+        "durationFrames": 101,
+        "ageMs": 500
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000003",
+        "runId": "00000000-0000-4000-8000-000000000004",
+        "runEpoch": "00000000-0000-4000-8000-000000000005",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000006",
+        "worldToken": "a3-world"
+      },
+      "eventId": "00000000-0000-8000-8000-000000000007",
+      "sequence": 7,
+      "presentationRevision": 3,
+      "provenance": "validated-client-report",
+      "emote": {
+        "emoteId": "heart",
+        "active": false,
+        "durationFrames": 101,
+        "ageMs": 2000
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000003",
+        "runId": "00000000-0000-4000-8000-000000000004",
+        "runEpoch": "00000000-0000-4000-8000-000000000005",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000006",
+        "worldToken": "a3-world"
+      },
+      "eventId": "00000000-0000-8000-8000-000000000007",
+      "sequence": 7,
+      "presentationRevision": 3,
+      "provenance": "validated-client-report",
+      "emote": {
+        "emoteId": "wave",
+        "active": false,
+        "durationFrames": 0,
+        "ageMs": 0
+      }
+    }
+  },
+  {
+    "type": "Projection",
+    "json": {
+      "principalId": "00000000-0000-4000-8000-000000000001",
+      "gameSessionId": "00000000-0000-4000-8000-000000000002",
+      "scope": {
+        "roomId": "00000000-0000-4000-8000-000000000003",
+        "runId": "00000000-0000-4000-8000-000000000004",
+        "runEpoch": "00000000-0000-4000-8000-000000000005",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000006",
+        "worldToken": "a3-world"
+      },
+      "eventId": "00000000-0000-8000-8000-000000000007",
+      "sequence": 7,
+      "presentationRevision": 3,
+      "provenance": "validated-client-report",
+      "cosmetic": {
+        "robeId": "orange",
+        "hat": true,
+        "amulet": true,
+        "gem": true
+      }
+    }
+  }
+]

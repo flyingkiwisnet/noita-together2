@@ -1,0 +1,21 @@
+pub(super) fn item_original()->Original{
+ let v:serde_json::Value=serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/../../../packages/contracts/g3-items/operation-digest.json"))).unwrap();let value=&v["vectors"][0]["original"];
+ Original{item:Some(crate::g3_items::Original{kind:"deposit".into(),payload_json:value["payload"].to_string()}),principal_id:value["principalId"].as_str().unwrap().into(),scope_json:value["scope"].to_string(),direction:"deposit".into(),amount:1,..original()}
+}
+pub(super) fn item_operation(o:&Original)->wire::ItemOperation{wire::ItemOperation{operation_id:Some(o.operation_id.clone()),principal_id:Some(o.principal_id.clone()),original_scope:Some(serde_json::from_str(&o.scope_json).unwrap()),direction:Some("deposit".into()),item_id:Some(uuid::Uuid::new_v4().to_string()),delivery_id:Some(uuid::Uuid::new_v4().to_string()),payload_digest:Some(operation_digest(o).unwrap()),item:Some(serde_json::from_str(&o.item.as_ref().unwrap().payload_json).unwrap()),state:Some("awaiting_local".into()),effect_allowed:Some(true),save_persistence:Some("unproven".into()),..Default::default()}}
+#[test]fn item_durable_prefix_recovery_fences_every_post_effect_phase(){
+ for phase in [Phase::Requested,Phase::ServerAccepted,Phase::EffectIntent,Phase::AppliedSession,Phase::Uncertain]{
+  let f=Fixture::new();let o=item_original();let id=o.operation_id.clone();let op=item_operation(&o);let mut j=Journal::open(&f.path).unwrap();j.begin(o).unwrap();if phase!=Phase::Requested{j.accept_item_operation(&op).unwrap();}if matches!(phase,Phase::EffectIntent|Phase::AppliedSession|Phase::Uncertain){let p=j.prepare_effect(&id).unwrap();if phase!=Phase::EffectIntent{j.finish_session_effect(p,phase==Phase::AppliedSession).unwrap();}}drop(j);
+  let mut j=Journal::open(&f.path).unwrap();assert!(j.prepare_effect(&id).is_err());let before=std::fs::read(&f.path).unwrap();j.validate_item_status(&op).unwrap();assert_eq!(before,std::fs::read(&f.path).unwrap());
+  if matches!(phase,Phase::Requested|Phase::ServerAccepted){j.recover_item_unissued(&op).unwrap();let p=j.prepare_effect(&id).unwrap();assert!(j.prepare_effect(&id).is_err());j.finish_session_effect(p,true).unwrap();}else{assert!(j.recover_item_unissued(&op).is_err());}
+ }
+}
+#[test]fn item_large_original_written_once_transitions_reopen_and_reject_substitution(){
+ let f=Fixture::new();let mut o=item_original();let mut value:serde_json::Value=serde_json::from_str(&o.item.as_ref().unwrap().payload_json).unwrap();value["wand"]["deck"]=serde_json::json!((0..1024).map(|slot|serde_json::json!({"slot":slot,"spell":{"actionId":"LIGHT_BULLET","usesRemaining":"-1"}})).collect::<Vec<_>>());o.item.as_mut().unwrap().payload_json=value.to_string();let op=item_operation(&o);
+ let mut j=Journal::open(&f.path).unwrap();j.begin(o.clone()).unwrap();let first=std::fs::metadata(&f.path).unwrap().len();assert!(first>8192);j.accept_item_operation(&op).unwrap();let p=j.prepare_effect(&o.operation_id).unwrap();j.finish_session_effect(p,true).unwrap();let last=std::fs::metadata(&f.path).unwrap().len();assert!(last-first<4096,"Transitions must not duplicate a128KiB descriptor");
+ for field in ["principalId","itemId","payloadDigest","deliveryId","direction"]{let mut bad=serde_json::to_value(&op).unwrap();bad[field]=serde_json::json!("substitution");assert!(j.validate_item_status(&serde_json::from_value(bad).unwrap()).is_err());}
+ drop(j);let j=Journal::open(&f.path).unwrap();assert_eq!(j.pending().count(),1);assert_eq!(j.pending().next().unwrap().record.original,o);assert!(j.uncertain(&o.operation_id));
+}
+#[test]fn item_lobby_delete_keeps_other_lobby_gold_and_fences_late_permit(){
+ let f=Fixture::new();let o=item_original();let key=LobbyIdentity::from_original(&o).unwrap();let op=item_operation(&o);let kept=original();let mut j=Journal::open(&f.path).unwrap();j.begin(o.clone()).unwrap();j.begin(kept.clone()).unwrap();j.accept_item_operation(&op).unwrap();let p=j.prepare_effect(&o.operation_id).unwrap();assert_eq!(j.retire_lobby(DeletedLobby::authenticated(key).unwrap()).unwrap(),1);assert!(j.finish_session_effect(p,true).is_err());assert_eq!(j.pending().next().unwrap().record.original,kept);drop(j);let j=Journal::open(&f.path).unwrap();assert_eq!(j.pending().count(),1);assert!(j.validate_item_status(&op).is_err());
+}

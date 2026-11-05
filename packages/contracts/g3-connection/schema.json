@@ -1,0 +1,732 @@
+{
+  "major": 1,
+  "revision": "g3-connection-cr2-1",
+  "limits": {
+    "bytes": 65536,
+    "fields": 2048,
+    "depth": 12
+  },
+  "messages": {
+    "Empty": {
+      "fields": {}
+    },
+    "ConnectionScope": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "roomId": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "configRevision": {
+          "id": 7,
+          "type": "uint32",
+          "required": true
+        },
+        "attachmentId": {
+          "id": 8,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "worldToken": {
+          "id": 9,
+          "type": "string",
+          "max": 80,
+          "required": true
+        }
+      }
+    },
+    "ConnectionOwner": {
+      "fields": {
+        "familyId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionInspection": {
+      "fields": {
+        "desktopId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "observationRevision": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "contentDigest": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capturedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 8,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "actualSeed": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "seedPolicy": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "randomizeLoot": {
+          "id": 13,
+          "type": "bool"
+        }
+      }
+    },
+    "ConnectionStart": {
+      "fields": {
+        "requestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 3,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionImmutable": {
+      "fields": {
+        "authorizationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "startRequestId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 4,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionReport": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32",
+          "required": false
+        },
+        "contentDigest": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "capturedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "complete": {
+          "id": 4,
+          "type": "bool",
+          "required": true
+        },
+        "loaded": {
+          "id": 5,
+          "type": "bool",
+          "required": true
+        },
+        "protected": {
+          "id": 6,
+          "type": "bool",
+          "required": true
+        },
+        "contentValid": {
+          "id": 7,
+          "type": "bool",
+          "required": true
+        }
+      }
+    },
+    "ConnectionDecision": {
+      "fields": {
+        "authorized": {
+          "id": 1,
+          "type": "bool",
+          "required": true
+        },
+        "playing": {
+          "id": 2,
+          "type": "bool",
+          "required": true
+        },
+        "terminal": {
+          "id": 3,
+          "type": "bool",
+          "required": true
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "remainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 30000,
+          "required": true
+        },
+        "initialReviewRemainingMs": {
+          "id": 6,
+          "type": "uint32",
+          "maxValue": 3600000,
+          "required": true
+        }
+      }
+    },
+    "ConnectionSample": {
+      "fields": {
+        "originRequestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "channel": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "credentialId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionCredential": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "credentialId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accessRemainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 900000,
+          "required": true
+        },
+        "originRequestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionAdmission": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "participantId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "generation": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "scope": {
+          "id": 5,
+          "type": "ConnectionScope",
+          "required": true
+        },
+        "owner": {
+          "id": 6,
+          "type": "ConnectionOwner",
+          "required": true
+        },
+        "originalStart": {
+          "id": 7,
+          "type": "ConnectionStart",
+          "required": true
+        },
+        "immutable": {
+          "id": 8,
+          "type": "ConnectionImmutable",
+          "required": true
+        },
+        "currentReport": {
+          "id": 9,
+          "type": "ConnectionReport",
+          "required": true
+        },
+        "decision": {
+          "id": 10,
+          "type": "ConnectionDecision",
+          "required": true
+        },
+        "sample": {
+          "id": 11,
+          "type": "ConnectionSample",
+          "required": true
+        }
+      }
+    },
+    "OriginalOperation": {
+      "fields": {
+        "requestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "fingerprint": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "originalSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalSessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalOwnerGeneration": {
+          "id": 6,
+          "type": "uint32",
+          "required": true
+        },
+        "participantId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "roomId": {
+          "id": 8,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runId": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "configRevision": {
+          "id": 11,
+          "type": "uint32",
+          "required": true
+        },
+        "originalServiceEpoch": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accountId": {
+          "id": 13,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 14,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "Outcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "OriginalOperation",
+          "required": true
+        },
+        "originalOutcome": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "coverage": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "currentDisposition": {
+          "id": 4,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "currentReason": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "currentGeneration": {
+          "id": 6,
+          "type": "uint32",
+          "required": true
+        },
+        "effectId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "retryAfterMs": {
+          "id": 8,
+          "type": "uint32",
+          "maxValue": 60000,
+          "required": true
+        }
+      }
+    },
+    "AdmissionRead": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "participantId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "retryAfterMs": {
+          "id": 2,
+          "type": "uint32",
+          "maxValue": 60000,
+          "required": true
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "admission": {
+          "id": 10,
+          "type": "AdmissionRead",
+          "required": false
+        },
+        "outcome": {
+          "id": 11,
+          "type": "OriginalOperation",
+          "required": false
+        }
+      },
+      "oneof": [
+        "admission",
+        "outcome"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "admission": {
+          "id": 10,
+          "type": "ConnectionAdmission",
+          "required": false
+        },
+        "outcome": {
+          "id": 11,
+          "type": "Outcome",
+          "required": false
+        },
+        "error": {
+          "id": 12,
+          "type": "Error",
+          "required": false
+        },
+        "credentialValidity": {
+          "id": 13,
+          "type": "ConnectionCredential",
+          "required": false
+        }
+      }
+    }
+  }
+}

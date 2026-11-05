@@ -1,0 +1,27 @@
+{
+  "compatibility": {
+    "gameVersion": "Noita-Jan25-2025",
+    "modVersion": "nt2-g3-c2-dev-1",
+    "bridgeVersion": "g3-c2-ipc-1",
+    "capabilities": [
+      "core.seed",
+      "core.ghost",
+      "core.hud",
+      "core.poi",
+      "core.seed-policy.v1",
+      "core.randomize-loot.v1",
+      "core.emotes",
+      "core.cosmetics"
+    ],
+    "modes": [
+      "core"
+    ],
+    "settingKeys": [
+      "NT_send_gold",
+      "NT_send_wands",
+      "NT_send_flasks",
+      "NT_send_items",
+      "NT_testing_mode"
+    ]
+  }
+}

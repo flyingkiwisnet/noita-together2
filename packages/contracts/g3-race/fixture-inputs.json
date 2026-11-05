@@ -1,0 +1,113 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-race-1",
+      "requestId": "race-read",
+      "read": {
+        "locator": "10000000-0000-4000-8000-000000000001",
+        "limit": 8
+      }
+    }
+  },
+  {
+    "type": "Commit",
+    "json": {
+      "eventId": "10000000-0000-4000-8000-000000000002",
+      "sequence": 1,
+      "observations": [
+        {
+          "kind": "gold",
+          "value": "10000"
+        }
+      ],
+      "terminal": "none"
+    }
+  },
+  {
+    "type": "Commit",
+    "json": {
+      "eventId": "20000000-0000-4000-8000-000000000001",
+      "sequence": 2,
+      "observations": [
+        {
+          "kind": "max_hp",
+          "value": "500"
+        },
+        {
+          "kind": "ending",
+          "ending": "classic"
+        }
+      ],
+      "terminal": "dead"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-race-1",
+      "serviceId": "fixture",
+      "serviceEpoch": "epoch",
+      "requestId": "race-terminal",
+      "receipt": {
+        "eventId": "20000000-0000-4000-8000-000000000001",
+        "sequence": 2,
+        "acceptedAtMs": "1500",
+        "revision": "3",
+        "status": "finished",
+        "completedGoals": 1,
+        "finishOrder": 1
+      }
+    }
+  },
+  {
+    "type": "Snapshot",
+    "json": {
+      "locator": "10000000-0000-4000-8000-000000000001",
+      "lobbyMode": "race",
+      "runKey": "10000000-0000-4000-8000-000000000002",
+      "revision": "3",
+      "registryRevision": "race-goals-1",
+      "config": {
+        "registryRevision": "race-goals-1",
+        "durationMs": 60000,
+        "goals": [
+          {
+            "instanceId": "hp500",
+            "id": "reach_max_hp",
+            "target": 500
+          }
+        ]
+      },
+      "status": "running",
+      "startedAt": "2026-11-05T00:00:00Z",
+      "deadlineAt": "2026-11-05T00:01:00Z",
+      "elapsedMs": "1500",
+      "collectionState": "available",
+      "entrants": [
+        {
+          "rowKey": "10000000-0000-4000-8000-000000000003",
+          "displayName": "Fixture",
+          "status": "finished",
+          "completedGoals": 1,
+          "finishOrder": 1,
+          "rank": 1,
+          "acceptedSequence": 2,
+          "finalCountAtMs": "1500",
+          "progress": [
+            {
+              "instanceId": "hp500",
+              "value": "500",
+              "currentValue": "500",
+              "target": "500",
+              "complete": true,
+              "completedAtMs": "1500"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

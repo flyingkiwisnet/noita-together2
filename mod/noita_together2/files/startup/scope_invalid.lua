@@ -1,0 +1,1 @@
+-- Inert ambiguous/duplicate scope tag. Never authorizes fresh entry.

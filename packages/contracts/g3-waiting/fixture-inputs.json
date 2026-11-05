@@ -1,0 +1,1693 @@
+[
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "f2986c77-5266-4a99-8758-4513c3dc0df2",
+      "requestId": "2fd378a2-dc24-472f-b3c7-b207164b1585",
+      "waiting": {
+        "intent": {
+          "waitingId": "cb5c360e-e396-4f8f-bdc8-6c491a5ec80e",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "accountId": "e5432979-48fd-4dcc-a81a-ddc096205e55",
+          "deviceId": "g3-fixture-alex",
+          "preparationId": "357ad04d-862b-4da9-beaa-8768b5254a27",
+          "originalAttachmentId": "9796028e-0cfd-4d18-bbd5-8396af1e9a18",
+          "originalAttachRequestId": "ba4dacb4-ecdb-4a07-bcf7-2f0434ecbe5d",
+          "originalAttachFingerprint": "df8a1860b1872725391aa973704c3cf0cf28af652c32916f8e093b406d9fd856",
+          "originalDesktopId": "12e657c4-eca3-403f-a38f-30bdd859febe",
+          "originalDesktopEpoch": "efc2fce9-4378-462a-a62c-396d61516dac",
+          "roomId": "4c2818e1-27c0-459a-b9f2-5bfc60ff2f59",
+          "runId": "bb4bf617-fb8e-4369-b286-8d0d4994ed17",
+          "runEpoch": "986cc377-c5e2-4fc2-8c52-e7083e756c0a",
+          "preparationServiceEpoch": "f2986c77-5266-4a99-8758-4513c3dc0df2",
+          "configDigest": "41a38aa2ca7de176dbfe5bb3dd93e67590ac2eee6b3bac0b4793555010277d6b",
+          "worldToken": "g3-fixture-world-0",
+          "actualSeed": "424632049",
+          "seedPolicy": "shared-random",
+          "originalGameInstanceId": "g3-fixture-game-0",
+          "contextId": "fixture-original-context",
+          "contentDigest": "273a32fc5032b804e9ea25e078f310a266d19ce81d01c56a3d6acf9e8ae556e7",
+          "configRevision": 1,
+          "randomizeLoot": true,
+          "originalObservationRevision": 3
+        },
+        "generation": 1,
+        "owner": {
+          "familyId": "03eb240b-94e5-4ac7-8bc4-ff430c5df62c",
+          "desktopId": "12e657c4-eca3-403f-a38f-30bdd859febe",
+          "desktopSessionEpoch": "efc2fce9-4378-462a-a62c-396d61516dac",
+          "gameSessionId": "b339c808-46f2-4cc4-be2e-2a82ff23081d",
+          "gameSessionEpoch": "6b45c3cd-efca-4c5a-ae75-2dfb1c42d0fc",
+          "attachmentId": "9796028e-0cfd-4d18-bbd5-8396af1e9a18",
+          "gameInstanceId": "g3-fixture-game-0"
+        },
+        "state": "waiting",
+        "reason": "awaiting_host_start",
+        "reviewRemainingMs": 1794150,
+        "ownerRemainingMs": 26250,
+        "mayPlay": false,
+        "sample": {
+          "originRequestId": "2fd378a2-dc24-472f-b3c7-b207164b1585",
+          "channel": "waiting-http",
+          "credentialId": "833a04f3-e6f9-4706-8b29-12d54f74b245",
+          "sampleKey": "df1f4c3a7e84732c507f578371a2a3f415e4987f47f0e57c402ee2b4139a3edb"
+        },
+        "currentReport": {
+          "revision": 3,
+          "contentDigest": "273a32fc5032b804e9ea25e078f310a266d19ce81d01c56a3d6acf9e8ae556e7",
+          "capturedAt": "2026-10-16T08:53:23.323Z",
+          "complete": true,
+          "loaded": true,
+          "protected": true,
+          "contentValid": true
+        },
+        "currentContextId": "fixture-original-context"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000001",
+      "sessionEpoch": "10000000-0000-4000-8000-000000000001",
+      "requestId": "enroll-original",
+      "enroll": {
+        "preparationId": "10000000-0000-4000-8000-000000000001",
+        "attachmentId": "10000000-0000-4000-8000-000000000001",
+        "originalAttachRequestId": "attach-original",
+        "originalAttachFingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+        "worldToken": "fixture-saved-waiting-world",
+        "gameInstanceId": "original-context",
+        "observationRevision": 1,
+        "contentDigest": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contextId": "local-reference"
+      }
+    }
+  },
+  {
+    "type": "WaitingState",
+    "json": {
+      "intent": {
+        "runId": "e0bdb000-1e54-4f96-8fec-e57b4b8cc528",
+        "roomId": "66facb8c-63e5-4954-af1e-4ec1240eca87",
+        "deviceId": "g3-fixture-alex",
+        "runEpoch": "af800daa-0ae2-428c-8a63-939cf88857e4",
+        "accountId": "85346e7c-ecf3-4b20-8511-299f0bad0337",
+        "contextId": "fixture-original-context",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "waitingId": "b1123d75-f3ce-430a-9e18-770c1d443acf",
+        "actualSeed": "3160304723",
+        "seedPolicy": "shared-random",
+        "worldToken": "g3-fixture-world-0",
+        "configDigest": "6366416a8975d548cf7a9a4fa38219b164122edd113f1a9c6a761bf2ac7adfce",
+        "contentDigest": "f7a230d658efde3bd26bcd488b6d8ea1999f315ebc3091b9c2f1838128174edb",
+        "preparationId": "3e98c2cb-581a-4027-894d-083f06ac6f4e",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "12959142-8238-45b8-ae10-9fe5cf0a4ebc",
+        "originalAttachmentId": "6169c349-dee2-46b1-bd18-57fbd53ce34a",
+        "originalDesktopEpoch": "50b67e9a-e519-4760-9d0b-945f9f5b70ec",
+        "originalGameInstanceId": "g3-fixture-game-0",
+        "originalAttachRequestId": "57c59ddc-794c-43bd-866a-3a1611a7253b",
+        "preparationServiceEpoch": "3805a2e1-be85-499b-87c2-54e0b77baea8",
+        "originalAttachFingerprint": "6931dfae32d4c8949cc495781aa36db8076c149b2c6dafca929ed4b0af23fdc4",
+        "originalObservationRevision": 1
+      },
+      "generation": 2,
+      "currentContextId": "fixture-return-context",
+      "owner": {
+        "familyId": "0a660eac-c83e-4c6a-8ecc-f1fc06184089",
+        "desktopId": "12959142-8238-45b8-ae10-9fe5cf0a4ebc",
+        "desktopSessionEpoch": "50b67e9a-e519-4760-9d0b-945f9f5b70ec",
+        "gameSessionId": "e762125d-2a8c-48fb-a677-e45b34da18ac",
+        "gameSessionEpoch": "f91607b8-4b9c-4bfd-ba7b-108dd721b1b6",
+        "attachmentId": "54070f31-12df-4382-88ba-f70e29b2b550",
+        "gameInstanceId": "fixture-return-e6a1b698-d12d-468c-b76a-3140bcd46072"
+      },
+      "state": "waiting",
+      "reason": "awaiting_host_start",
+      "mayPlay": false,
+      "reviewRemainingMs": 1760150,
+      "ownerRemainingMs": 30000,
+      "sample": {
+        "originRequestId": "c5400c6d-2647-4523-b4f7-eb8524ae636f",
+        "channel": "waiting-http",
+        "credentialId": "84a282a0-7da0-4598-86a6-de753c0e3b7f",
+        "sampleKey": "5e1ba815447d7297d6a3271484f8a80b6cf955467f34f9d1963c8b5f785819a7"
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "f7a230d658efde3bd26bcd488b6d8ea1999f315ebc3091b9c2f1838128174edb",
+        "capturedAt": "2026-10-16T08:53:59.391Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      }
+    }
+  },
+  {
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "3805a2e1-be85-499b-87c2-54e0b77baea8",
+      "participantId": "acc3ded7-9bc4-43d3-9b6e-a848e67f528e",
+      "generation": 1,
+      "scope": {
+        "principalId": "85346e7c-ecf3-4b20-8511-299f0bad0337",
+        "sessionId": "e762125d-2a8c-48fb-a677-e45b34da18ac",
+        "sessionEpoch": "f91607b8-4b9c-4bfd-ba7b-108dd721b1b6",
+        "roomId": "66facb8c-63e5-4954-af1e-4ec1240eca87",
+        "runId": "e0bdb000-1e54-4f96-8fec-e57b4b8cc528",
+        "runEpoch": "af800daa-0ae2-428c-8a63-939cf88857e4",
+        "configRevision": 1,
+        "attachmentId": "54070f31-12df-4382-88ba-f70e29b2b550",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "0a660eac-c83e-4c6a-8ecc-f1fc06184089",
+        "desktopId": "12959142-8238-45b8-ae10-9fe5cf0a4ebc",
+        "desktopSessionEpoch": "50b67e9a-e519-4760-9d0b-945f9f5b70ec",
+        "gameSessionId": "e762125d-2a8c-48fb-a677-e45b34da18ac",
+        "gameSessionEpoch": "f91607b8-4b9c-4bfd-ba7b-108dd721b1b6",
+        "attachmentId": "54070f31-12df-4382-88ba-f70e29b2b550",
+        "gameInstanceId": "fixture-return-e6a1b698-d12d-468c-b76a-3140bcd46072"
+      },
+      "originalStart": {
+        "requestId": "b8be901b-e517-49dc-a167-b8b036785f3a",
+        "authorizedAt": "2026-10-16T08:54:01.591+00:00",
+        "selectedInspection": {
+          "desktopId": "12959142-8238-45b8-ae10-9fe5cf0a4ebc",
+          "actualSeed": "3160304723",
+          "capturedAt": "2026-10-16T08:53:59.391Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "54070f31-12df-4382-88ba-f70e29b2b550",
+          "contentDigest": "f7a230d658efde3bd26bcd488b6d8ea1999f315ebc3091b9c2f1838128174edb",
+          "gameSessionId": "e762125d-2a8c-48fb-a677-e45b34da18ac",
+          "randomizeLoot": true,
+          "gameInstanceId": "fixture-return-e6a1b698-d12d-468c-b76a-3140bcd46072",
+          "gameSessionEpoch": "f91607b8-4b9c-4bfd-ba7b-108dd721b1b6",
+          "desktopSessionEpoch": "50b67e9a-e519-4760-9d0b-945f9f5b70ec",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "f7e00f2e-4b31-46df-b546-37f7a921fe61",
+        "startRequestId": "b8be901b-e517-49dc-a167-b8b036785f3a",
+        "authorizedAt": "2026-10-16T08:54:01.591Z",
+        "selectedInspection": {
+          "desktopId": "12959142-8238-45b8-ae10-9fe5cf0a4ebc",
+          "actualSeed": "3160304723",
+          "capturedAt": "2026-10-16T08:53:59.391Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "54070f31-12df-4382-88ba-f70e29b2b550",
+          "contentDigest": "f7a230d658efde3bd26bcd488b6d8ea1999f315ebc3091b9c2f1838128174edb",
+          "gameSessionId": "e762125d-2a8c-48fb-a677-e45b34da18ac",
+          "randomizeLoot": true,
+          "gameInstanceId": "fixture-return-e6a1b698-d12d-468c-b76a-3140bcd46072",
+          "gameSessionEpoch": "f91607b8-4b9c-4bfd-ba7b-108dd721b1b6",
+          "desktopSessionEpoch": "50b67e9a-e519-4760-9d0b-945f9f5b70ec",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "f7a230d658efde3bd26bcd488b6d8ea1999f315ebc3091b9c2f1838128174edb",
+        "capturedAt": "2026-10-16T08:53:59.391Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      },
+      "decision": {
+        "authorized": true,
+        "playing": false,
+        "terminal": false,
+        "reason": "",
+        "remainingMs": 27550,
+        "initialReviewRemainingMs": 1757700
+      },
+      "sample": {
+        "originRequestId": "1f7bb32e-ca01-4b13-ab45-526eb1c64fc5",
+        "channel": "http",
+        "credentialId": "e76f8713-09bc-4b11-b92d-212250b5c0ce",
+        "sampleKey": "a955f69952d54ec52cd3ef5e9baf34fea880ca85cc7c2c448b2b610800af5ea8"
+      }
+    }
+  },
+  {
+    "type": "WaitingOutcome",
+    "json": {
+      "original": {
+        "accountId": "e5432979-48fd-4dcc-a81a-ddc096205e55",
+        "deviceId": "g3-fixture-alex",
+        "originalSessionId": "12e657c4-eca3-403f-a38f-30bdd859febe",
+        "originalSessionEpoch": "efc2fce9-4378-462a-a62c-396d61516dac",
+        "originalServiceEpoch": "f2986c77-5266-4a99-8758-4513c3dc0df2",
+        "requestId": "2fd378a2-dc24-472f-b3c7-b207164b1585",
+        "kind": "enroll",
+        "fingerprint": "b4477788e291233ce6ddb62a69a4a3a1d40ca8c661338cefe06e7adbd5349a82"
+      },
+      "originalOutcome": "committed",
+      "coverage": "exact_durable_record",
+      "waitingId": "cb5c360e-e396-4f8f-bdc8-6c491a5ec80e",
+      "effectId": "9796028e-0cfd-4d18-bbd5-8396af1e9a18",
+      "currentDisposition": "waiting",
+      "retryAfterMs": 0
+    }
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+        "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+        "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+        "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+        "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+        "configRevision": 1,
+        "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+        "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "deviceId": "g3-fixture-sam",
+        "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+        "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+        "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+        "contextId": "app-persisted-attempt-context",
+        "seedPolicy": "individual-random",
+        "randomizeLoot": false
+      },
+      "generation": 1,
+      "state": "pending",
+      "reason": "fresh_inspection_required",
+      "mayPlay": false,
+      "sample": {
+        "originRequestId": "af74dc77-5f7d-4ddf-8e96-6e92ccbafa62",
+        "channel": "pending-http",
+        "credentialId": "fb540a05-f67a-441d-b711-55814fb9f99a",
+        "sampleKey": "1ad7b13f2408eeadbe72728e290a20937deba00f82194f6764be8e14fd3aaf85"
+      },
+      "preparationRemainingMs": 599450,
+      "reviewRemainingMs": 1798650,
+      "preparationState": "issued"
+    },
+    "label": "startup-repair pre-generation unknown individual seed"
+  },
+  {
+    "type": "WaitingState",
+    "json": {
+      "intent": {
+        "waitingId": "f593dbba-36e8-4336-b94f-027babd178d7",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "deviceId": "g3-fixture-sam",
+        "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+        "originalAttachmentId": "d4653e8d-89b2-4492-bd0a-3162d328beea",
+        "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+        "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+        "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+        "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+        "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+        "preparationServiceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+        "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+        "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+        "actualSeed": "18446744073709551615",
+        "seedPolicy": "individual-random",
+        "originalGameInstanceId": "repair-return-game",
+        "contextId": "app-persisted-attempt-context",
+        "contentDigest": "5efb538f4b68701bff072a2f0b1ef13dd12e59f456c3dec58a2b9ea1b212e9ba",
+        "configRevision": 1,
+        "randomizeLoot": false,
+        "originalObservationRevision": 1,
+        "pendingReservationId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e"
+      },
+      "generation": 1,
+      "owner": {
+        "familyId": "e0c62b0f-a8e3-4230-8898-c2076187623c",
+        "desktopId": "9a2bf9be-5eea-41a0-a0a8-f285cf11b985",
+        "desktopSessionEpoch": "5f6dec70-5b3d-4518-b958-88440b033a28",
+        "gameSessionId": "9a17e39c-3b81-4feb-8873-d575947c5736",
+        "gameSessionEpoch": "8dc233bc-bc8f-406b-b45b-bec204f37329",
+        "attachmentId": "d4653e8d-89b2-4492-bd0a-3162d328beea",
+        "gameInstanceId": "repair-return-game"
+      },
+      "state": "waiting",
+      "reason": "awaiting_host_start",
+      "reviewRemainingMs": 1797200,
+      "ownerRemainingMs": 30000,
+      "mayPlay": false,
+      "sample": {
+        "originRequestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+        "channel": "waiting-http",
+        "credentialId": "63113652-ab10-4184-aba7-b0121528917d",
+        "sampleKey": "22eabbd8ced025fcdd4e064ef83dd2bc450ff71c065fecbf278d812a82f7eff4"
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "5efb538f4b68701bff072a2f0b1ef13dd12e59f456c3dec58a2b9ea1b212e9ba",
+        "capturedAt": "2026-10-16T11:30:36.844Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      },
+      "currentContextId": "fresh-native-contact-context"
+    },
+    "label": "startup-repair protected no-play after recovery"
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "pendingId": "1ec3f4c6-3b84-4980-a9bb-7006e34fd6ef",
+        "preparationId": "0022bc36-3ebc-4fc7-8302-dc4968777f82",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "895450d8-27ea-4973-96a4-5695a9875479",
+        "roomId": "4e7456e4-ee2e-40f4-b9c2-447b245668b3",
+        "runId": "d1c419c9-a5e7-4613-8b32-f9fe3946aa4d",
+        "runEpoch": "8ee05340-dfa9-4876-8f26-1028081ab43a",
+        "configRevision": 1,
+        "configDigest": "2c8a969b6f2bfa422927f54bd5e80cfc453b5b207bd8718359706cd4765c1894",
+        "accountId": "01c9719e-8f4b-4b8e-a750-5a9c24f2d91f",
+        "deviceId": "g3-fixture-sam",
+        "originalDesktopId": "0f901d84-c39e-4f8b-a9f7-fad8ea4ad617",
+        "originalDesktopEpoch": "77f9bea1-95eb-45d1-a2b3-07fb2b6889f1",
+        "worldToken": "repair-world-5ebdf8f8-f933-4f47-bcec-bce834fd7e4b",
+        "contextId": "app-persisted-attempt-context",
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true,
+        "actualSeed": "761183203"
+      },
+      "generation": 1,
+      "state": "pending",
+      "reason": "fresh_inspection_required",
+      "mayPlay": false,
+      "sample": {
+        "originRequestId": "05394287-a5ca-4b36-bd66-e46ec8a05558",
+        "channel": "pending-http",
+        "credentialId": "b574b74f-8532-4260-88fc-6d23aab1bff0",
+        "sampleKey": "8995ad7eb2cefa8b22ee8e57399b4fa124472f287e8ca32cb9096bc0e3924bcf"
+      },
+      "preparationRemainingMs": 599450,
+      "reviewRemainingMs": 1798650,
+      "boundActualSeed": "761183203",
+      "preparationState": "issued"
+    },
+    "label": "startup-repair current preparation issued"
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "runId": "d1c419c9-a5e7-4613-8b32-f9fe3946aa4d",
+        "roomId": "4e7456e4-ee2e-40f4-b9c2-447b245668b3",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "8ee05340-dfa9-4876-8f26-1028081ab43a",
+        "accountId": "01c9719e-8f4b-4b8e-a750-5a9c24f2d91f",
+        "contextId": "app-persisted-attempt-context",
+        "pendingId": "1ec3f4c6-3b84-4980-a9bb-7006e34fd6ef",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "actualSeed": "761183203",
+        "seedPolicy": "shared-random",
+        "worldToken": "repair-world-5ebdf8f8-f933-4f47-bcec-bce834fd7e4b",
+        "configDigest": "2c8a969b6f2bfa422927f54bd5e80cfc453b5b207bd8718359706cd4765c1894",
+        "serviceEpoch": "895450d8-27ea-4973-96a4-5695a9875479",
+        "preparationId": "0022bc36-3ebc-4fc7-8302-dc4968777f82",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "0f901d84-c39e-4f8b-a9f7-fad8ea4ad617",
+        "originalDesktopEpoch": "77f9bea1-95eb-45d1-a2b3-07fb2b6889f1"
+      },
+      "generation": 1,
+      "preparationState": "consumed",
+      "state": "pending",
+      "reason": "fresh_inspection_required",
+      "mayPlay": false,
+      "preparationRemainingMs": 599300,
+      "reviewRemainingMs": 1798500,
+      "boundActualSeed": "761183203",
+      "sample": {
+        "originRequestId": "3229d9b0-e2ae-4a6d-8609-10e71ef84cee",
+        "channel": "pending-http",
+        "credentialId": "b574b74f-8532-4260-88fc-6d23aab1bff0",
+        "sampleKey": "8aff49d0b5d88a753ea004c56817eb2b4cd9293d786ceb15a4589a41f28942a5"
+      }
+    },
+    "label": "startup-repair current preparation consumed"
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "runId": "d1c419c9-a5e7-4613-8b32-f9fe3946aa4d",
+        "roomId": "4e7456e4-ee2e-40f4-b9c2-447b245668b3",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "8ee05340-dfa9-4876-8f26-1028081ab43a",
+        "accountId": "01c9719e-8f4b-4b8e-a750-5a9c24f2d91f",
+        "contextId": "app-persisted-attempt-context",
+        "pendingId": "1ec3f4c6-3b84-4980-a9bb-7006e34fd6ef",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "actualSeed": "761183203",
+        "seedPolicy": "shared-random",
+        "worldToken": "repair-world-5ebdf8f8-f933-4f47-bcec-bce834fd7e4b",
+        "configDigest": "2c8a969b6f2bfa422927f54bd5e80cfc453b5b207bd8718359706cd4765c1894",
+        "serviceEpoch": "895450d8-27ea-4973-96a4-5695a9875479",
+        "preparationId": "0022bc36-3ebc-4fc7-8302-dc4968777f82",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "0f901d84-c39e-4f8b-a9f7-fad8ea4ad617",
+        "originalDesktopEpoch": "77f9bea1-95eb-45d1-a2b3-07fb2b6889f1"
+      },
+      "generation": 2,
+      "preparationState": "loaded",
+      "state": "promoted",
+      "reason": "use_waiting_or_admitted",
+      "mayPlay": false,
+      "preparationRemainingMs": 599250,
+      "reviewRemainingMs": 1798450,
+      "boundActualSeed": "761183203",
+      "waitingId": "f6a4aaf1-a03f-48bc-85d4-05f1a410628a",
+      "sample": {
+        "originRequestId": "d9200bb6-3391-4d45-88c4-896cff2038fe",
+        "channel": "pending-http",
+        "credentialId": "9a120a68-af6a-462e-846b-415aeb85cfdf",
+        "sampleKey": "bd430b4fd5c2eac92ea5d38d946a240653b34acd9c46d7c783f223bb9ab25f09"
+      }
+    },
+    "label": "startup-repair current preparation loaded"
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "requestId": "af74dc77-5f7d-4ddf-8e96-6e92ccbafa62",
+      "credentialValidity": {
+        "principalId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "sessionId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+        "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+        "credentialId": "fb540a05-f67a-441d-b711-55814fb9f99a",
+        "accessRemainingMs": 898606,
+        "originRequestId": "af74dc77-5f7d-4ddf-8e96-6e92ccbafa62",
+        "sampleKey": "9f3977dab040b2b58fc119e958efa664aa392cf85f3827ad0d4bd0102625f14e"
+      },
+      "pending": {
+        "intent": {
+          "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+          "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+          "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+          "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+          "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+          "configRevision": 1,
+          "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+          "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+          "deviceId": "g3-fixture-sam",
+          "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+          "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+          "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+          "contextId": "app-persisted-attempt-context",
+          "seedPolicy": "individual-random",
+          "randomizeLoot": false
+        },
+        "generation": 1,
+        "state": "pending",
+        "reason": "fresh_inspection_required",
+        "mayPlay": false,
+        "sample": {
+          "originRequestId": "af74dc77-5f7d-4ddf-8e96-6e92ccbafa62",
+          "channel": "pending-http",
+          "credentialId": "fb540a05-f67a-441d-b711-55814fb9f99a",
+          "sampleKey": "1ad7b13f2408eeadbe72728e290a20937deba00f82194f6764be8e14fd3aaf85"
+        },
+        "preparationRemainingMs": 599450,
+        "reviewRemainingMs": 1798650,
+        "preparationState": "issued"
+      }
+    },
+    "label": "startup-repair reserve response no proof"
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "requestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+      "waiting": {
+        "intent": {
+          "waitingId": "f593dbba-36e8-4336-b94f-027babd178d7",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+          "deviceId": "g3-fixture-sam",
+          "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+          "originalAttachmentId": "d4653e8d-89b2-4492-bd0a-3162d328beea",
+          "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+          "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+          "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+          "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+          "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+          "preparationServiceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+          "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+          "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+          "actualSeed": "18446744073709551615",
+          "seedPolicy": "individual-random",
+          "originalGameInstanceId": "repair-return-game",
+          "contextId": "app-persisted-attempt-context",
+          "contentDigest": "5efb538f4b68701bff072a2f0b1ef13dd12e59f456c3dec58a2b9ea1b212e9ba",
+          "configRevision": 1,
+          "randomizeLoot": false,
+          "originalObservationRevision": 1,
+          "pendingReservationId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e"
+        },
+        "generation": 1,
+        "owner": {
+          "familyId": "e0c62b0f-a8e3-4230-8898-c2076187623c",
+          "desktopId": "9a2bf9be-5eea-41a0-a0a8-f285cf11b985",
+          "desktopSessionEpoch": "5f6dec70-5b3d-4518-b958-88440b033a28",
+          "gameSessionId": "9a17e39c-3b81-4feb-8873-d575947c5736",
+          "gameSessionEpoch": "8dc233bc-bc8f-406b-b45b-bec204f37329",
+          "attachmentId": "d4653e8d-89b2-4492-bd0a-3162d328beea",
+          "gameInstanceId": "repair-return-game"
+        },
+        "state": "waiting",
+        "reason": "awaiting_host_start",
+        "reviewRemainingMs": 1797200,
+        "ownerRemainingMs": 30000,
+        "mayPlay": false,
+        "sample": {
+          "originRequestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+          "channel": "waiting-http",
+          "credentialId": "63113652-ab10-4184-aba7-b0121528917d",
+          "sampleKey": "22eabbd8ced025fcdd4e064ef83dd2bc450ff71c065fecbf278d812a82f7eff4"
+        },
+        "currentReport": {
+          "revision": 1,
+          "contentDigest": "5efb538f4b68701bff072a2f0b1ef13dd12e59f456c3dec58a2b9ea1b212e9ba",
+          "capturedAt": "2026-10-16T11:30:36.844Z",
+          "complete": true,
+          "loaded": true,
+          "protected": true,
+          "contentValid": true
+        },
+        "currentContextId": "fresh-native-contact-context"
+      },
+      "credentialValidity": {
+        "principalId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "sessionId": "9a17e39c-3b81-4feb-8873-d575947c5736",
+        "sessionEpoch": "8dc233bc-bc8f-406b-b45b-bec204f37329",
+        "credentialId": "c69281ce-0ecb-402b-af9c-f03c5008ea6b",
+        "accessRemainingMs": 899156,
+        "originRequestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+        "sampleKey": "dc69eb10d305879ad7a6b319ce3436e7010c9303e15334e0ba1bd2d84b8114bf"
+      },
+      "pending": {
+        "intent": {
+          "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+          "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+          "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+          "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+          "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+          "configRevision": 1,
+          "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+          "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+          "deviceId": "g3-fixture-sam",
+          "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+          "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+          "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+          "contextId": "app-persisted-attempt-context",
+          "seedPolicy": "individual-random",
+          "randomizeLoot": false
+        },
+        "generation": 2,
+        "state": "promoted",
+        "reason": "use_waiting_or_admitted",
+        "mayPlay": false,
+        "waitingId": "f593dbba-36e8-4336-b94f-027babd178d7",
+        "sample": {
+          "originRequestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+          "channel": "pending-http",
+          "credentialId": "63113652-ab10-4184-aba7-b0121528917d",
+          "sampleKey": "ed5eae36eb3706b25c91deb1df2a7ddef502cc6d8d0ad011782cee5d62f5bb8a"
+        },
+        "preparationRemainingMs": 598000,
+        "reviewRemainingMs": 1797200,
+        "boundActualSeed": "18446744073709551615",
+        "preparationState": "loaded"
+      }
+    },
+    "label": "startup-repair recovery response sanitized"
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "requestId": "b36e64e4-449f-4f4d-abe6-19b0428aafb7",
+      "pendingOutcome": {
+        "original": {
+          "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+          "deviceId": "g3-fixture-sam",
+          "originalSessionId": "9a2bf9be-5eea-41a0-a0a8-f285cf11b985",
+          "originalSessionEpoch": "5f6dec70-5b3d-4518-b958-88440b033a28",
+          "originalServiceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+          "requestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+          "kind": "pendingRecover",
+          "fingerprint": "a27ed870c38023600f32e219a70d8c42e8b3050979748a932c075281ababb61b"
+        },
+        "originalOutcome": "committed",
+        "coverage": "exact_durable_record",
+        "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+        "effectId": "d4653e8d-89b2-4492-bd0a-3162d328beea"
+      },
+      "pending": {
+        "intent": {
+          "runId": "56ad1bb0-ebec-4b79-a5d2-05771c61d45d",
+          "roomId": "e6fa89a6-a978-4f4a-a620-0cfd809dede9",
+          "deviceId": "g3-fixture-sam",
+          "runEpoch": "3d9ba179-d4c3-4c41-afe1-a63f731ec553",
+          "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+          "contextId": "app-persisted-attempt-context",
+          "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "seedPolicy": "individual-random",
+          "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+          "configDigest": "25f6089a36f931c0bbcc3cb1287c9f46d9b4aebbd15f0614338c8f86b76441a7",
+          "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+          "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+          "randomizeLoot": false,
+          "configRevision": 1,
+          "originalDesktopId": "ea8fafb2-369d-4fca-912d-c6ee92209827",
+          "originalDesktopEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb"
+        },
+        "generation": 2,
+        "preparationState": "loaded",
+        "state": "promoted",
+        "reason": "use_waiting_or_admitted",
+        "mayPlay": false,
+        "preparationRemainingMs": 597750,
+        "reviewRemainingMs": 1796950,
+        "boundActualSeed": "18446744073709551615",
+        "waitingId": "f593dbba-36e8-4336-b94f-027babd178d7",
+        "sample": {
+          "originRequestId": "b36e64e4-449f-4f4d-abe6-19b0428aafb7",
+          "channel": "pending-http",
+          "credentialId": "a7267046-cdf2-4f7c-906a-9941c29d3ec5",
+          "sampleKey": "6f4c48e0df5bb904ae8e541ef8b5d01e91be369f08b16859fb981ef96320ad4d"
+        }
+      },
+      "credentialValidity": {
+        "principalId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "sessionId": "94990e60-490b-4be1-bdb3-da0b56ba86d9",
+        "sessionEpoch": "ca857438-3034-40b4-a340-1e44c77a7335",
+        "credentialId": "a7267046-cdf2-4f7c-906a-9941c29d3ec5",
+        "accessRemainingMs": 899906,
+        "originRequestId": "b36e64e4-449f-4f4d-abe6-19b0428aafb7",
+        "sampleKey": "dca3d63d558550a386038f52b52db54c8aec21645831753c3938893f80824902"
+      }
+    },
+    "label": "startup-repair current-auth sanitized original outcome"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "strict-startup-repair-fixture",
+      "reserve": {
+        "preparationId": "4b40a59e-d64f-4506-8419-3766417dec90",
+        "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+        "contextId": "app-persisted-attempt-context"
+      }
+    },
+    "label": "startup-repair reserve before seed"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "strict-startup-repair-fixture",
+      "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+      "pendingStatus": {}
+    },
+    "label": "startup-repair status"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "strict-startup-repair-fixture",
+      "pendingOutcome": {
+        "accountId": "551f37fe-3175-4a5d-bfc4-2f006f579326",
+        "deviceId": "g3-fixture-sam",
+        "originalSessionId": "9a2bf9be-5eea-41a0-a0a8-f285cf11b985",
+        "originalSessionEpoch": "5f6dec70-5b3d-4518-b958-88440b033a28",
+        "originalServiceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+        "requestId": "601dbfd6-5505-47a0-8a5e-7cb9304b7b6d",
+        "kind": "pendingRecover",
+        "fingerprint": "a27ed870c38023600f32e219a70d8c42e8b3050979748a932c075281ababb61b"
+      }
+    },
+    "label": "startup-repair exact outcome"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "strict-startup-repair-fixture",
+      "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+      "generation": 1,
+      "pendingRecover": {
+        "pendingProof": "sssssssssssssssssssssssssssssssssssssssssss",
+        "contextId": "fresh-contact",
+        "gameVersion": "synthetic-game",
+        "modVersion": "synthetic-mod",
+        "bridgeVersion": "synthetic-bridge",
+        "capabilities": [],
+        "observation": {
+          "gameInstanceId": "synthetic-contact",
+          "worldToken": "repair-world-1073504e-ba39-44d1-8bac-8cc9870ebf66",
+          "observationRevision": 1,
+          "actualSeed": "18446744073709551615",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2"
+          ],
+          "inventoryComplete": true,
+          "collectorFailure": "",
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "synthetic-mod",
+          "bridgeVersion": "synthetic-bridge",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      }
+    },
+    "label": "startup-repair recover before attachment known"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "strict-startup-repair-fixture",
+      "pendingId": "745948d4-ffd1-4a8d-80a5-dd8290dc128e",
+      "generation": 1,
+      "pendingOffline": {
+        "pendingProof": "sssssssssssssssssssssssssssssssssssssssssss"
+      }
+    },
+    "label": "startup-repair offline"
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "53a66fb9-d5e1-44cb-8703-1549b28bc816",
+      "pending": {
+        "intent": {
+          "runId": "7250c607-6cbd-48d1-bdae-34214eb0a5b5",
+          "roomId": "f3953314-fd09-4da3-913c-9cc1479dc29c",
+          "deviceId": "g3-fixture-sam",
+          "runEpoch": "21cae6f5-f317-47e3-a8fc-b389241ba284",
+          "accountId": "a9c14ce4-453a-4c34-a7d8-f7559fd4c4f4",
+          "contextId": "app-persisted-attempt-context",
+          "pendingId": "30785f54-a918-4129-bd33-81d1d9e1d5a0",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "actualSeed": "3057101130",
+          "seedPolicy": "shared-random",
+          "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c",
+          "configDigest": "5d0ec5bcc615448f01130ee0d8ec596ab8c2d6f45f1b630e802707cbd09a94d8",
+          "serviceEpoch": "41aae27c-0cce-4794-8c39-42ad211c4d0f",
+          "preparationId": "5e7894e0-870d-4e43-882b-79968efc57a0",
+          "randomizeLoot": true,
+          "configRevision": 1,
+          "originalDesktopId": "166f0312-c5f8-4a88-b100-eb5faaf5e84e",
+          "originalDesktopEpoch": "3e792006-4308-4f2a-9c44-9e867c61a415"
+        },
+        "generation": 2,
+        "preparationState": "loaded",
+        "state": "promoted",
+        "reason": "use_waiting_or_admitted",
+        "mayPlay": false,
+        "preparationRemainingMs": 565100,
+        "reviewRemainingMs": 1764300,
+        "boundActualSeed": "3057101130",
+        "waitingId": "32808fd5-77c5-4404-b838-d1c875196df9",
+        "sample": {
+          "originRequestId": "53a66fb9-d5e1-44cb-8703-1549b28bc816",
+          "channel": "pending-http",
+          "credentialId": "0f99794e-ca9d-47e9-b2d4-d9f9bb827cab",
+          "sampleKey": "7a13203806e59a8076eaeb153fc9ab66e7c449b1166dac854206899a062bcc6a"
+        }
+      },
+      "waiting": {
+        "intent": {
+          "runId": "7250c607-6cbd-48d1-bdae-34214eb0a5b5",
+          "roomId": "f3953314-fd09-4da3-913c-9cc1479dc29c",
+          "deviceId": "g3-fixture-sam",
+          "runEpoch": "21cae6f5-f317-47e3-a8fc-b389241ba284",
+          "accountId": "a9c14ce4-453a-4c34-a7d8-f7559fd4c4f4",
+          "contextId": "app-persisted-attempt-context",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "waitingId": "32808fd5-77c5-4404-b838-d1c875196df9",
+          "actualSeed": "3057101130",
+          "seedPolicy": "shared-random",
+          "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c",
+          "configDigest": "5d0ec5bcc615448f01130ee0d8ec596ab8c2d6f45f1b630e802707cbd09a94d8",
+          "contentDigest": "6cd43e612a83f1abf886688a86caa346bb3b448f693338c9afbd9017faf6a1c9",
+          "preparationId": "5e7894e0-870d-4e43-882b-79968efc57a0",
+          "randomizeLoot": true,
+          "configRevision": 1,
+          "originalDesktopId": "166f0312-c5f8-4a88-b100-eb5faaf5e84e",
+          "originalAttachmentId": "9d3dd041-69eb-47b3-a99c-d223cf4ee0b3",
+          "originalDesktopEpoch": "3e792006-4308-4f2a-9c44-9e867c61a415",
+          "originalGameInstanceId": "repair-original-game",
+          "originalAttachRequestId": "3c547a34-a887-4ab6-80b2-e8f52458851b",
+          "preparationServiceEpoch": "41aae27c-0cce-4794-8c39-42ad211c4d0f",
+          "originalAttachFingerprint": "25b0dcb9750f8d1c8b3d2a52ad0a875d90bf87cf73f7160e91d383ecd344f179",
+          "originalObservationRevision": 1
+        },
+        "generation": 2,
+        "currentContextId": "fresh-native-contact-context",
+        "owner": {
+          "familyId": "577f9f31-e9a0-4a44-8b60-b0f671c8383e",
+          "desktopId": "7e52e77c-5750-4098-a80b-ca8ca82d25c7",
+          "desktopSessionEpoch": "17a9cbe4-dd2f-419f-8ca9-ea3dec097bb8",
+          "gameSessionId": "e425899d-b792-4945-87c0-cedf469a6835",
+          "gameSessionEpoch": "c6bd0c96-bc45-4e53-b115-9ee277109c13",
+          "attachmentId": "a6b8ab4d-4d0f-4c8a-be38-37c9c4c7dc23",
+          "gameInstanceId": "repair-return-game"
+        },
+        "state": "started",
+        "reason": "use_initial_admission",
+        "mayPlay": false,
+        "reviewRemainingMs": 1764300,
+        "ownerRemainingMs": 30000,
+        "sample": {
+          "originRequestId": "53a66fb9-d5e1-44cb-8703-1549b28bc816",
+          "channel": "waiting-http",
+          "credentialId": "0f99794e-ca9d-47e9-b2d4-d9f9bb827cab",
+          "sampleKey": "b59cb5fd12e97b7b998d6bb443178d8fc6d4cfd5e2e949273e2727dd87c30adf"
+        },
+        "currentReport": {
+          "revision": 1,
+          "contentDigest": "6cd43e612a83f1abf886688a86caa346bb3b448f693338c9afbd9017faf6a1c9",
+          "capturedAt": "2026-10-16T11:31:18.575Z",
+          "complete": true,
+          "loaded": true,
+          "protected": true,
+          "contentValid": true
+        },
+        "admittedParticipantId": "e24cff88-3b52-4519-bac7-e2ffebd395a3"
+      },
+      "participant": {
+        "association": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "roomId": "f3953314-fd09-4da3-913c-9cc1479dc29c",
+          "runId": "7250c607-6cbd-48d1-bdae-34214eb0a5b5",
+          "participantId": "e24cff88-3b52-4519-bac7-e2ffebd395a3",
+          "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c",
+          "accountId": "a9c14ce4-453a-4c34-a7d8-f7559fd4c4f4",
+          "originalStartId": "158690c3-6d0f-4f65-b987-c79d389df496",
+          "configRevision": 1,
+          "actualSeed": "3057101130",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true
+        },
+        "state": "active",
+        "reason": "",
+        "generation": 2,
+        "serviceEpoch": "41aae27c-0cce-4794-8c39-42ad211c4d0f",
+        "runEpoch": "21cae6f5-f317-47e3-a8fc-b389241ba284",
+        "desktopId": "7e52e77c-5750-4098-a80b-ca8ca82d25c7",
+        "attachmentId": "a6b8ab4d-4d0f-4c8a-be38-37c9c4c7dc23",
+        "gameSessionId": "e425899d-b792-4945-87c0-cedf469a6835",
+        "leaseExpiresAt": "2026-10-16T11:31:48.575Z",
+        "returnEligible": true,
+        "reviewRequired": false
+      },
+      "canonicalAdmission": {
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "41aae27c-0cce-4794-8c39-42ad211c4d0f",
+        "participantId": "e24cff88-3b52-4519-bac7-e2ffebd395a3",
+        "generation": 2,
+        "scope": {
+          "principalId": "a9c14ce4-453a-4c34-a7d8-f7559fd4c4f4",
+          "sessionId": "e425899d-b792-4945-87c0-cedf469a6835",
+          "sessionEpoch": "c6bd0c96-bc45-4e53-b115-9ee277109c13",
+          "roomId": "f3953314-fd09-4da3-913c-9cc1479dc29c",
+          "runId": "7250c607-6cbd-48d1-bdae-34214eb0a5b5",
+          "runEpoch": "21cae6f5-f317-47e3-a8fc-b389241ba284",
+          "configRevision": 1,
+          "attachmentId": "a6b8ab4d-4d0f-4c8a-be38-37c9c4c7dc23",
+          "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c"
+        },
+        "owner": {
+          "familyId": "577f9f31-e9a0-4a44-8b60-b0f671c8383e",
+          "desktopId": "7e52e77c-5750-4098-a80b-ca8ca82d25c7",
+          "desktopSessionEpoch": "17a9cbe4-dd2f-419f-8ca9-ea3dec097bb8",
+          "gameSessionId": "e425899d-b792-4945-87c0-cedf469a6835",
+          "gameSessionEpoch": "c6bd0c96-bc45-4e53-b115-9ee277109c13",
+          "attachmentId": "a6b8ab4d-4d0f-4c8a-be38-37c9c4c7dc23",
+          "gameInstanceId": "repair-return-game"
+        },
+        "originalStart": {
+          "requestId": "158690c3-6d0f-4f65-b987-c79d389df496",
+          "authorizedAt": "2026-10-16T11:30:44.875+00:00",
+          "selectedInspection": {
+            "desktopId": "166f0312-c5f8-4a88-b100-eb5faaf5e84e",
+            "actualSeed": "3057101130",
+            "capturedAt": "2026-10-16T11:30:44.425Z",
+            "seedPolicy": "shared-random",
+            "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c",
+            "attachmentId": "9d3dd041-69eb-47b3-a99c-d223cf4ee0b3",
+            "contentDigest": "6cd43e612a83f1abf886688a86caa346bb3b448f693338c9afbd9017faf6a1c9",
+            "gameSessionId": "1ab6809d-f9e0-47f5-a866-aae4d2dd8e1f",
+            "randomizeLoot": true,
+            "gameInstanceId": "repair-original-game",
+            "gameSessionEpoch": "1fd9fe9f-e9b0-4cad-8481-a191f7c4c857",
+            "desktopSessionEpoch": "3e792006-4308-4f2a-9c44-9e867c61a415",
+            "observationRevision": 1
+          }
+        },
+        "immutable": {
+          "authorizationId": "4c874d79-2a54-4055-9ffc-f129ddafae72",
+          "startRequestId": "158690c3-6d0f-4f65-b987-c79d389df496",
+          "authorizedAt": "2026-10-16T11:31:18.575Z",
+          "selectedInspection": {
+            "desktopId": "7e52e77c-5750-4098-a80b-ca8ca82d25c7",
+            "actualSeed": "3057101130",
+            "capturedAt": "2026-10-16T11:31:18.575Z",
+            "seedPolicy": "shared-random",
+            "worldToken": "repair-world-0741d498-43ef-4fb6-9108-d6b5ce73a88c",
+            "attachmentId": "a6b8ab4d-4d0f-4c8a-be38-37c9c4c7dc23",
+            "contentDigest": "6cd43e612a83f1abf886688a86caa346bb3b448f693338c9afbd9017faf6a1c9",
+            "gameSessionId": "e425899d-b792-4945-87c0-cedf469a6835",
+            "randomizeLoot": true,
+            "gameInstanceId": "repair-return-game",
+            "gameSessionEpoch": "c6bd0c96-bc45-4e53-b115-9ee277109c13",
+            "desktopSessionEpoch": "17a9cbe4-dd2f-419f-8ca9-ea3dec097bb8",
+            "observationRevision": 1
+          }
+        },
+        "currentReport": {
+          "revision": 1,
+          "contentDigest": "6cd43e612a83f1abf886688a86caa346bb3b448f693338c9afbd9017faf6a1c9",
+          "capturedAt": "2026-10-16T11:31:18.575Z",
+          "complete": true,
+          "loaded": true,
+          "protected": true,
+          "contentValid": true
+        },
+        "decision": {
+          "authorized": true,
+          "playing": false,
+          "terminal": false,
+          "reason": "",
+          "remainingMs": 30000,
+          "initialReviewRemainingMs": 1764300
+        },
+        "sample": {
+          "originRequestId": "53a66fb9-d5e1-44cb-8703-1549b28bc816",
+          "channel": "http",
+          "credentialId": "565a6c94-fe2a-401c-a407-22a1e28646c2",
+          "sampleKey": "b04ec16a5928785bd2945c76cc08827909e49178ac01711ec5edb5b6bd7147d3"
+        }
+      }
+    },
+    "label": "startup-repair selected existing Start admission"
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "c7a83d77-5854-4736-89ad-dce5d3940a1f",
+      "sessionEpoch": "d6ca3e13-b2ee-4e33-a531-a39c62930bbb",
+      "requestId": "62574b15-63e7-48cc-86d1-ce1a6241719d",
+      "pending": {
+        "intent": {
+          "runId": "d013d262-ff7f-4c10-b423-bbd64f0f996f",
+          "roomId": "ab4bcb71-76a2-44c8-8ea6-ae23f225bbec",
+          "deviceId": "g3-fixture-sam",
+          "runEpoch": "5a6321b0-3a8e-47f6-a708-abb0855a1085",
+          "accountId": "513c6b0d-8ada-4dc5-a471-fba6e83031e9",
+          "contextId": "app-persisted-attempt-context",
+          "pendingId": "ae91b4a9-fb41-4ab6-8636-1d8179a785fe",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "actualSeed": "325326603",
+          "seedPolicy": "shared-random",
+          "worldToken": "repair-world-ac98ef28-2d1c-45c7-b9ab-4fa207d0dafc",
+          "configDigest": "7c64145c94a194269a8d7e5dd2f84ed8bfac9ca3e6dd0c64c82267573c074df6",
+          "serviceEpoch": "6bada138-9464-409c-bd56-8350f5be445d",
+          "preparationId": "6d82ea01-41c2-4545-920d-f709f45e666e",
+          "randomizeLoot": true,
+          "configRevision": 1,
+          "originalDesktopId": "3cfab5fb-fb66-49b9-922b-acd41c050bdb",
+          "originalDesktopEpoch": "a873ce11-83e6-4c5d-87d0-02b69994c783"
+        },
+        "generation": 2,
+        "preparationState": "cancelled",
+        "state": "terminal",
+        "reason": "explicit_offline",
+        "mayPlay": false,
+        "preparationRemainingMs": 0,
+        "reviewRemainingMs": 0,
+        "boundActualSeed": "325326603",
+        "waitingId": "6303bc8e-e87c-4c7c-9793-dbd71b1dae85",
+        "sample": {
+          "originRequestId": "62574b15-63e7-48cc-86d1-ce1a6241719d",
+          "channel": "pending-http",
+          "credentialId": "4180e3c5-215e-44bf-b0ae-7bdda3eb15b1",
+          "sampleKey": "ec82c6bd33782470829e9a1cbff97933bffaad432278328b0362ff3294a99f63"
+        }
+      },
+      "waiting": {
+        "intent": {
+          "runId": "d013d262-ff7f-4c10-b423-bbd64f0f996f",
+          "roomId": "ab4bcb71-76a2-44c8-8ea6-ae23f225bbec",
+          "deviceId": "g3-fixture-sam",
+          "runEpoch": "5a6321b0-3a8e-47f6-a708-abb0855a1085",
+          "accountId": "513c6b0d-8ada-4dc5-a471-fba6e83031e9",
+          "contextId": "app-persisted-attempt-context",
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "waitingId": "6303bc8e-e87c-4c7c-9793-dbd71b1dae85",
+          "actualSeed": "325326603",
+          "seedPolicy": "shared-random",
+          "worldToken": "repair-world-ac98ef28-2d1c-45c7-b9ab-4fa207d0dafc",
+          "configDigest": "7c64145c94a194269a8d7e5dd2f84ed8bfac9ca3e6dd0c64c82267573c074df6",
+          "contentDigest": "8ba0c4d1fc9c8eefc97b483a95e372af52e4dd651017210aa0d6892ac5a4435a",
+          "preparationId": "6d82ea01-41c2-4545-920d-f709f45e666e",
+          "randomizeLoot": true,
+          "configRevision": 1,
+          "originalDesktopId": "3cfab5fb-fb66-49b9-922b-acd41c050bdb",
+          "originalAttachmentId": "ca999bfd-3744-4ace-a5cc-20ab7d609c2c",
+          "originalDesktopEpoch": "a873ce11-83e6-4c5d-87d0-02b69994c783",
+          "originalGameInstanceId": "repair-original-game",
+          "originalAttachRequestId": "82e395d8-0cd7-4101-b70b-b57e4f581d69",
+          "preparationServiceEpoch": "6bada138-9464-409c-bd56-8350f5be445d",
+          "originalAttachFingerprint": "0ee039df61bb8633adc5c5f59191f7e61fc30483737fee970b4cd83e7a4e7685",
+          "originalObservationRevision": 1
+        },
+        "generation": 1,
+        "currentContextId": "app-persisted-attempt-context",
+        "owner": {
+          "familyId": "9a3bd19b-0d06-4a93-a62c-fd28e30509d6",
+          "desktopId": "3cfab5fb-fb66-49b9-922b-acd41c050bdb",
+          "desktopSessionEpoch": "a873ce11-83e6-4c5d-87d0-02b69994c783",
+          "gameSessionId": "96fe11c5-ca7e-4615-8b47-bbd7a6dd2e2a",
+          "gameSessionEpoch": "87451cd3-7a7c-4a3a-a888-f82d979024b4",
+          "attachmentId": "ca999bfd-3744-4ace-a5cc-20ab7d609c2c",
+          "gameInstanceId": "repair-original-game"
+        },
+        "state": "terminal",
+        "reason": "explicit_offline",
+        "mayPlay": false,
+        "reviewRemainingMs": 1798050,
+        "ownerRemainingMs": 0,
+        "sample": {
+          "originRequestId": "62574b15-63e7-48cc-86d1-ce1a6241719d",
+          "channel": "waiting-http",
+          "credentialId": "4180e3c5-215e-44bf-b0ae-7bdda3eb15b1",
+          "sampleKey": "0524f416dbba266cdd4b678e61ca6743d9d5cec89bf0aeeecdf403cbc9295a25"
+        },
+        "currentReport": {
+          "revision": 1,
+          "contentDigest": "8ba0c4d1fc9c8eefc97b483a95e372af52e4dd651017210aa0d6892ac5a4435a",
+          "capturedAt": "2026-10-16T11:30:46.672Z",
+          "complete": true,
+          "loaded": true,
+          "protected": true,
+          "contentValid": true
+        }
+      },
+      "error": {
+        "code": "NOT_SELECTED_BY_START",
+        "retryAfterMs": 0
+      }
+    },
+    "label": "startup-repair excluded remains unavailable"
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "runId": "6aca7b08-1842-4054-a64f-58dc4f78aed7",
+        "roomId": "2e8d108e-3c9f-48db-b2e4-1f31044a5353",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "1bdb1e9b-4fba-427a-b330-37994ff03ee3",
+        "accountId": "87686fc2-b2e4-40e9-921d-25f7add4c4b2",
+        "contextId": "replacement-attempt",
+        "pendingId": "47dbea73-7036-415c-8051-bb912f0731f0",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "actualSeed": "1380934924",
+        "seedPolicy": "shared-random",
+        "worldToken": "new-world-4c18720a-c117-4ed8-abc1-d7a8412fbdf8",
+        "configDigest": "2df4fa1972c288d146f61d300d0f5ff09abc5152c64e542c2375e51ff9eb9846",
+        "serviceEpoch": "5b803046-1ce3-462a-a90a-39154be2be95",
+        "preparationId": "6dc55744-47c1-44e9-87f5-5454e39d7109",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "2f077b5d-d108-44ab-b1a3-b982c32d9b30",
+        "originalDesktopEpoch": "275bde31-b920-458d-8e36-729032380d0e"
+      },
+      "generation": 1,
+      "preparationState": "issued",
+      "state": "pending",
+      "reason": "fresh_inspection_required",
+      "mayPlay": false,
+      "preparationRemainingMs": 599850,
+      "reviewRemainingMs": 1798400,
+      "boundActualSeed": "1380934924",
+      "sample": {
+        "originRequestId": "55c298bc-e020-4a9a-991e-e01c6cb918d6",
+        "channel": "pending-http",
+        "credentialId": "4f68200f-9f3e-4321-a675-b171be9f6d67",
+        "sampleKey": "374932d1c18148cfaae641662e351e912b303c8f388fae72446334a1c6b07d2f"
+      }
+    },
+    "label": "startup-repair distinct issued replacement"
+  },
+  {
+    "type": "PendingState",
+    "json": {
+      "intent": {
+        "runId": "6aca7b08-1842-4054-a64f-58dc4f78aed7",
+        "roomId": "2e8d108e-3c9f-48db-b2e4-1f31044a5353",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "1bdb1e9b-4fba-427a-b330-37994ff03ee3",
+        "accountId": "87686fc2-b2e4-40e9-921d-25f7add4c4b2",
+        "contextId": "app-persisted-attempt-context",
+        "pendingId": "34133aad-fe68-4afb-8973-639454bbc87a",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "actualSeed": "1380934924",
+        "seedPolicy": "shared-random",
+        "worldToken": "repair-world-6f952517-5ca0-4ca2-8473-1eedb4daea34",
+        "configDigest": "2df4fa1972c288d146f61d300d0f5ff09abc5152c64e542c2375e51ff9eb9846",
+        "serviceEpoch": "5b803046-1ce3-462a-a90a-39154be2be95",
+        "preparationId": "0ce345f9-b8c8-4354-b402-506bb722e51d",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "e8637cc6-1c24-4691-b529-bf9b807e7808",
+        "originalDesktopEpoch": "5720b428-804a-4270-8c26-6b7aa8843c99"
+      },
+      "generation": 1,
+      "preparationState": "issued",
+      "state": "terminal",
+      "reason": "newer_preparation",
+      "mayPlay": false,
+      "preparationRemainingMs": 0,
+      "reviewRemainingMs": 0,
+      "boundActualSeed": "1380934924",
+      "sample": {
+        "originRequestId": "e87f92e9-5a95-4a85-9ac0-b7cb9cea4c3e",
+        "channel": "pending-http",
+        "credentialId": "4f68200f-9f3e-4321-a675-b171be9f6d67",
+        "sampleKey": "973c9e9e0fd739c92437413dd60da9938dc9d1629df428f9bf06c92a499ca97c"
+      }
+    },
+    "label": "startup-repair superseded original terminal"
+  },
+  {
+    "type": "PendingOutcome",
+    "json": {
+      "original": {
+        "accountId": "747ef5b7-2b68-4873-9fac-7aea8ff6a489",
+        "deviceId": "g3-fixture-sam",
+        "originalSessionId": "bf5e7429-22a3-4183-898c-f066f903fd18",
+        "originalSessionEpoch": "55db76d4-fb4c-4b80-babf-b5cc043fda4e",
+        "originalServiceEpoch": "d17c2455-3e43-476c-8fa8-10e989c9fd46",
+        "requestId": "11c8effe-1f2b-43bf-8ae0-2a9d7fc63431",
+        "kind": "gameAttach",
+        "fingerprint": "0fd519ca2d908206ab51dcec2217eafea7cc3efb861cc7b6ab6ba2fc122d06f8"
+      },
+      "originalOutcome": "committed",
+      "coverage": "exact_consumed_attach_record",
+      "pendingId": "ed20345a-2a53-41ea-aed5-504fabb32917",
+      "effectId": "52e76924-5e72-45a7-a431-f93267c9481d"
+    },
+    "label": "startup-repair opaque original attach effect is historical"
+  },
+  {
+    "type": "WaitingState",
+    "json": {
+      "intent": {
+        "runId": "eb3df267-6c62-4d1d-8745-31a62b8e9cb2",
+        "roomId": "ed36e534-ffed-40e7-ae39-e95dd118e715",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "c314c820-e9a0-41df-92c9-064f1f67090a",
+        "accountId": "747ef5b7-2b68-4873-9fac-7aea8ff6a489",
+        "contextId": "app-persisted-attempt-context",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "waitingId": "8b39e64f-9cc5-4c01-b4c9-10551c09b799",
+        "actualSeed": "4128964625",
+        "seedPolicy": "shared-random",
+        "worldToken": "repair-world-bf2dad84-9a40-4557-a310-26683744e58d",
+        "configDigest": "9c4f189436687a11c2155faa87e40e36ad0809257b9cb1d3265c251ca2160375",
+        "contentDigest": "c79c14ebebc1c29356b61f181fecb921b190eaca48a04dbe4cfd82f5a245f99b",
+        "preparationId": "90d59d2a-2919-4d84-bf1c-2dfa890c8122",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "bf5e7429-22a3-4183-898c-f066f903fd18",
+        "originalAttachmentId": "52e76924-5e72-45a7-a431-f93267c9481d",
+        "originalDesktopEpoch": "55db76d4-fb4c-4b80-babf-b5cc043fda4e",
+        "pendingReservationId": "ed20345a-2a53-41ea-aed5-504fabb32917",
+        "originalGameInstanceId": "opaque-original-instance",
+        "originalAttachRequestId": "11c8effe-1f2b-43bf-8ae0-2a9d7fc63431",
+        "preparationServiceEpoch": "d17c2455-3e43-476c-8fa8-10e989c9fd46",
+        "originalAttachFingerprint": "0fd519ca2d908206ab51dcec2217eafea7cc3efb861cc7b6ab6ba2fc122d06f8",
+        "originalObservationRevision": 1
+      },
+      "generation": 1,
+      "currentContextId": "fresh-native-contact-context",
+      "owner": {
+        "familyId": "628a93fd-ed65-4b0c-b83b-4060387cd8ba",
+        "desktopId": "11261c1e-ede7-491e-959f-2b26bb9f8197",
+        "desktopSessionEpoch": "6a5aca76-9236-45e6-852c-0339ca76fde8",
+        "gameSessionId": "46d5404c-979d-457d-ae9d-abf06abed355",
+        "gameSessionEpoch": "536f41df-bdf3-4b70-bf92-84620ffc4406",
+        "attachmentId": "4e8ff4c4-29a3-48a1-b829-f5f07a345e62",
+        "gameInstanceId": "opaque-original-instance"
+      },
+      "state": "waiting",
+      "reason": "awaiting_host_start",
+      "mayPlay": false,
+      "reviewRemainingMs": 1798400,
+      "ownerRemainingMs": 29850,
+      "sample": {
+        "originRequestId": "7b18ddad-4f7f-470e-b11a-fc08c7e27ab2",
+        "channel": "waiting-http",
+        "credentialId": "7af92079-1865-4267-96de-07bffaca783a",
+        "sampleKey": "4df80da36a7f60346e71bf8f291d0d6151893a57cfe251ed3f6c2d90f5fd82c2"
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "c79c14ebebc1c29356b61f181fecb921b190eaca48a04dbe4cfd82f5a245f99b",
+        "capturedAt": "2026-10-16T11:30:30.175Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      }
+    },
+    "label": "startup-repair public current owner after lost recovery reply"
+  },
+  {
+    "type": "WaitingState",
+    "json": {
+      "intent": {
+        "runId": "eb3df267-6c62-4d1d-8745-31a62b8e9cb2",
+        "roomId": "ed36e534-ffed-40e7-ae39-e95dd118e715",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "c314c820-e9a0-41df-92c9-064f1f67090a",
+        "accountId": "747ef5b7-2b68-4873-9fac-7aea8ff6a489",
+        "contextId": "app-persisted-attempt-context",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "waitingId": "8b39e64f-9cc5-4c01-b4c9-10551c09b799",
+        "actualSeed": "4128964625",
+        "seedPolicy": "shared-random",
+        "worldToken": "repair-world-bf2dad84-9a40-4557-a310-26683744e58d",
+        "configDigest": "9c4f189436687a11c2155faa87e40e36ad0809257b9cb1d3265c251ca2160375",
+        "contentDigest": "c79c14ebebc1c29356b61f181fecb921b190eaca48a04dbe4cfd82f5a245f99b",
+        "preparationId": "90d59d2a-2919-4d84-bf1c-2dfa890c8122",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "originalDesktopId": "bf5e7429-22a3-4183-898c-f066f903fd18",
+        "originalAttachmentId": "52e76924-5e72-45a7-a431-f93267c9481d",
+        "originalDesktopEpoch": "55db76d4-fb4c-4b80-babf-b5cc043fda4e",
+        "pendingReservationId": "ed20345a-2a53-41ea-aed5-504fabb32917",
+        "originalGameInstanceId": "opaque-original-instance",
+        "originalAttachRequestId": "11c8effe-1f2b-43bf-8ae0-2a9d7fc63431",
+        "preparationServiceEpoch": "d17c2455-3e43-476c-8fa8-10e989c9fd46",
+        "originalAttachFingerprint": "0fd519ca2d908206ab51dcec2217eafea7cc3efb861cc7b6ab6ba2fc122d06f8",
+        "originalObservationRevision": 1
+      },
+      "generation": 2,
+      "currentContextId": "fresh-native-contact-context",
+      "owner": {
+        "familyId": "5a437963-4a4a-4ae6-bb7c-05ae1f014a4e",
+        "desktopId": "efbf363a-d1eb-4140-af02-0a8d6fa125e2",
+        "desktopSessionEpoch": "6fcb75fd-74c0-4458-b0ce-b401d3146e80",
+        "gameSessionId": "acc47662-ce33-4c48-a009-c258b6479a4f",
+        "gameSessionEpoch": "a05ffaa4-3a78-4e9d-a303-c30cfaf19ce9",
+        "attachmentId": "2c52130a-210b-48bd-be47-f80c9a5640fb",
+        "gameInstanceId": "opaque-return-instance"
+      },
+      "state": "waiting",
+      "reason": "awaiting_host_start",
+      "mayPlay": false,
+      "reviewRemainingMs": 1798200,
+      "ownerRemainingMs": 29850,
+      "sample": {
+        "originRequestId": "88d25f25-631f-40ac-b745-262037071303",
+        "channel": "waiting-http",
+        "credentialId": "3be2b8ca-10b9-4334-8806-13fe76ebfab4",
+        "sampleKey": "2da9573c5005a3bc554e914fe027b73a1ad86e487e59409330064e5218aaa2e3"
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "c79c14ebebc1c29356b61f181fecb921b190eaca48a04dbe4cfd82f5a245f99b",
+        "capturedAt": "2026-10-16T11:30:30.375Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      }
+    },
+    "label": "startup-repair public current owner after lost recovery reply"
+  },
+  {
+    "type": "EntryPreview",
+    "json": {
+      "scope": {
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+        "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+        "deviceId": "g3-fixture-sam",
+        "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+        "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+        "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+        "configRevision": 1,
+        "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+        "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+        "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true,
+        "actualSeed": "2199723734"
+      },
+      "sample": {
+        "originRequestId": "b37fedd3-8af9-427c-8ea9-b5840271641e",
+        "channel": "entry-http",
+        "credentialId": "5e779dc0-7e7f-425f-9c3e-c88b7d53292d",
+        "sampleKey": "692bd249d799f3c71411ae6197f1e6b54e0db4da5a1b125c044e677b01efeb53"
+      },
+      "reviewRemainingMs": 1797150,
+      "mayPlay": false
+    },
+    "label": "entry-candidate coherent passive read"
+  },
+  {
+    "type": "EntryState",
+    "json": {
+      "scope": {
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+        "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+        "deviceId": "g3-fixture-sam",
+        "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+        "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+        "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+        "configRevision": 1,
+        "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+        "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+        "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true,
+        "actualSeed": "2199723734"
+      },
+      "identity": {
+        "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+        "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+        "worldToken": "168073aed66c40628988bd448e6fdaa3",
+        "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+        "proofCommitment": "97a6162153659ddd3da600fb5cfe8c0e7e8bcf25c0451796339ba86b124916e5"
+      },
+      "state": "activated",
+      "reason": "use_current_pending",
+      "mayPlay": false,
+      "attachmentId": "75d1df93-e71f-4fd3-bd04-e33b32a34b93"
+    },
+    "label": "entry-candidate historical activated identity"
+  },
+  {
+    "type": "EntryState",
+    "json": {
+      "scope": {
+        "runId": "b176fdbf-836e-4614-88c2-55d06ef85c43",
+        "roomId": "b5bab94a-d527-4287-a6f5-6321435ab6ed",
+        "deviceId": "g3-fixture-sam",
+        "runEpoch": "45891316-d200-4724-b25c-b05ebdd90780",
+        "accountId": "301539ef-1464-4697-8f11-8349b1c1ed84",
+        "serviceId": "nt2-g3-c2-potion-correction",
+        "actualSeed": "2809580164",
+        "seedPolicy": "shared-random",
+        "configDigest": "e27330cbca31e400a19be44c91b6ffa6700781ad68336b7e52fa8e43c2b561d6",
+        "serviceEpoch": "a76db20c-1408-4339-8480-c4510daaceaf",
+        "randomizeLoot": true,
+        "configRevision": 1,
+        "baseFingerprint": "5b29522d5524c50042ba4dc21f0908cb45e9bf3265b37789cd96878facadc6b8",
+        "basePreparationId": "a6842eb2-b1b3-4e17-99a7-9ed5e51d7169"
+      },
+      "identity": {
+        "contextId": "37d89b8184f74758a0c9a9cd6ccc34f1",
+        "pendingId": "04c9655b-9d5b-4f7b-ad6a-58072cc65819",
+        "worldToken": "dbac35a0c3df4c8e84830a077ff627b4",
+        "preparationId": "1c962041-a5bf-4936-a93d-f63b30def6f6",
+        "proofCommitment": "b010a4035c87dc8806a33d04b514e2a5c609e8803d8180444e0f43fdf6f625d5"
+      },
+      "state": "cancelled",
+      "reason": "explicit_offline",
+      "mayPlay": false
+    },
+    "label": "entry-candidate pre-materialization cancellation"
+  },
+  {
+    "type": "EntryOutcome",
+    "json": {
+      "original": {
+        "accountId": "34b3dea7-9feb-402f-9126-35d580c8e797",
+        "deviceId": "g3-fixture-sam",
+        "originalSessionId": "63343a74-5954-47ee-889c-baa2e8ef82b0",
+        "originalSessionEpoch": "7351b952-fec0-4ade-95b4-8eb303ca7be6",
+        "originalServiceEpoch": "922c5c27-97c1-42d4-b469-bff72ac4c3cb",
+        "requestId": "df747abb-7003-47b3-b7b2-8c79120cf357",
+        "kind": "entryActivate",
+        "fingerprint": "23e6cd84b69d63acbe49061bb3408539078356ac4e10572193d4ed32a4efd27e",
+        "runId": "9bc20baa-014d-4553-9286-f00fa395c559",
+        "pendingId": "7786310b-1ff8-4a12-bc0d-1a6c0e3f8216"
+      },
+      "originalOutcome": "committed",
+      "coverage": "exact_durable_record",
+      "effectId": "ec4e65e6-79e3-49d4-afab-4869a5993214"
+    },
+    "label": "entry-candidate changed-auth exact activation outcome"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryPreview": {
+        "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+        "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c"
+      }
+    },
+    "label": "entry-candidate preview"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryActivate": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        },
+        "recoveryProof": "sssssssssssssssssssssssssssssssssssssssssss",
+        "gameVersion": "synthetic-game",
+        "modVersion": "synthetic-mod",
+        "bridgeVersion": "synthetic-bridge",
+        "capabilities": [],
+        "observation": {
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "gameInstanceId": "synthetic-B-loaded",
+          "observationRevision": 1,
+          "actualSeed": "2199723734",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2"
+          ],
+          "inventoryComplete": true,
+          "collectorFailure": "",
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "synthetic-mod",
+          "bridgeVersion": "synthetic-bridge",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      }
+    },
+    "label": "entry-candidate loaded activation with no invented old attachment"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryCancel": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        },
+        "recoveryProof": "sssssssssssssssssssssssssssssssssssssssssss",
+        "worldOffline": true
+      }
+    },
+    "label": "entry-candidate future-world cancellation"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryStatus": {
+        "scope": {
+          "serviceId": "nt2-g3-c2-potion-correction",
+          "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+          "accountId": "84819a8a-0717-4ba9-883d-661d2aa94704",
+          "deviceId": "g3-fixture-sam",
+          "roomId": "5d41811c-13a1-4b6b-9910-e94017004b68",
+          "runId": "d5d87e4a-422c-411c-b3e5-2840b0ebcd94",
+          "runEpoch": "6ef39a11-a54e-497e-b710-19fef23c8fda",
+          "configRevision": 1,
+          "configDigest": "f2df3d0c53754653dd403728317534f4da133c8e9a37d8733ae1d8b7045766f3",
+          "basePreparationId": "fde6827c-7044-4983-8c5b-44c3d17d966c",
+          "baseFingerprint": "ff0ec7d93928e3b884c9e27d7d13018b367d88ce59995ad3319d70980eb2a56b",
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true,
+          "actualSeed": "2199723734"
+        },
+        "identity": {
+          "preparationId": "7cdd9bbd-3fe2-4bbf-abf7-d6c516b26e7c",
+          "pendingId": "4d8bd264-69bc-44ae-93e7-49b78b58850f",
+          "worldToken": "168073aed66c40628988bd448e6fdaa3",
+          "contextId": "6d1eebb8b9224b53bf96dbf1365bbb9e",
+          "proofCommitment": "d64b93c9f1b60eb338e5cb415d6a36bd920edd0e9b36f7ea5c730d0e10ff147f"
+        }
+      }
+    },
+    "label": "entry-candidate status"
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-waiting-entry-candidate-3",
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "1a717097-b5d6-4ac4-a0f4-4c446810d0fb",
+      "sessionEpoch": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "requestId": "entry-candidate-synthetic",
+      "entryOutcome": {
+        "accountId": "34b3dea7-9feb-402f-9126-35d580c8e797",
+        "deviceId": "g3-fixture-sam",
+        "originalSessionId": "63343a74-5954-47ee-889c-baa2e8ef82b0",
+        "originalSessionEpoch": "7351b952-fec0-4ade-95b4-8eb303ca7be6",
+        "originalServiceEpoch": "922c5c27-97c1-42d4-b469-bff72ac4c3cb",
+        "requestId": "df747abb-7003-47b3-b7b2-8c79120cf357",
+        "kind": "entryActivate",
+        "fingerprint": "23e6cd84b69d63acbe49061bb3408539078356ac4e10572193d4ed32a4efd27e",
+        "runId": "9bc20baa-014d-4553-9286-f00fa395c559",
+        "pendingId": "7786310b-1ff8-4a12-bc0d-1a6c0e3f8216"
+      }
+    },
+    "label": "entry-candidate original outcome"
+  }
+]

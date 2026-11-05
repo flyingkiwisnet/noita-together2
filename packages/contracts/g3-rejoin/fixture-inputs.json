@@ -1,0 +1,150 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+      "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+      "requestId": "resume-1",
+      "roomId": "10000000-0000-4000-8000-000000000001",
+      "runId": "10000000-0000-4000-8000-000000000002",
+      "participantId": "10000000-0000-4000-8000-000000000003",
+      "worldToken": "original-world",
+      "configRevision": 1,
+      "resume": {
+        "resumeProof": "0000000000000000000000000000000000000000000",
+        "gameInstanceId": "new-game-instance",
+        "gameVersion": "Noita-Jan25-2025",
+        "modVersion": "nt2-g3-c2-dev-1",
+        "bridgeVersion": "g3-c2-ipc-1",
+        "capabilities": [
+          "core.seed"
+        ]
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "new-service-epoch",
+      "requestId": "resume-1",
+      "participant": {
+        "state": "inspecting",
+        "generation": 2,
+        "returnEligible": true
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+      "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+      "requestId": "ux1-original",
+      "roomId": "10000000-0000-4000-8000-000000000001",
+      "runId": "10000000-0000-4000-8000-000000000002",
+      "participantId": "10000000-0000-4000-8000-000000000003",
+      "worldToken": "original-world",
+      "configRevision": 1,
+      "generation": 1,
+      "status": {},
+      "observationReport": "original"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "new-service-epoch",
+      "requestId": "ux1-original",
+      "participant": {
+        "state": "inspecting",
+        "generation": 2,
+        "returnEligible": true,
+        "originalReport": {
+          "attachmentId": "20000000-0000-4000-8000-000000000001",
+          "gameInstanceId": "fixture-game",
+          "worldToken": "original-world",
+          "observationRevision": 1,
+          "actualSeed": "424242",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2",
+            "first-mod"
+          ],
+          "inventoryComplete": true,
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "nt2-g3-c2-dev-1",
+          "bridgeVersion": "g3-c2-ipc-1",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+      "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+      "requestId": "ux1-pending",
+      "roomId": "10000000-0000-4000-8000-000000000001",
+      "runId": "10000000-0000-4000-8000-000000000002",
+      "participantId": "10000000-0000-4000-8000-000000000003",
+      "worldToken": "original-world",
+      "configRevision": 1,
+      "generation": 1,
+      "status": {},
+      "observationReport": "pending"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-rejoin-1",
+      "serviceId": "fixture-service",
+      "serviceEpoch": "new-service-epoch",
+      "requestId": "ux1-pending",
+      "participant": {
+        "state": "inspecting",
+        "generation": 2,
+        "returnEligible": true,
+        "pendingReport": {
+          "attachmentId": "20000000-0000-4000-8000-000000000001",
+          "gameInstanceId": "fixture-game",
+          "worldToken": "original-world",
+          "observationRevision": 2,
+          "actualSeed": "424242",
+          "seedStatus": "known",
+          "activeMods": [
+            "noita_together2",
+            "first-mod",
+            "changed-mod"
+          ],
+          "inventoryComplete": true,
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "modVersion": "nt2-g3-c2-dev-1",
+          "bridgeVersion": "g3-c2-ipc-1",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      }
+    }
+  }
+]

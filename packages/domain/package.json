@@ -1,0 +1,1 @@
+{"name":"@nt2/domain","version":"0.0.0","private":true,"type":"module","exports":"./src/index.ts","dependencies":{"@nt2/contracts":"0.0.0"}}

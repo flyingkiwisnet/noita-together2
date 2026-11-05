@@ -1,0 +1,348 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "ambrosia",
+        "materialId": "magic_liquid_protection_all"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "berserk",
+        "materialId": "magic_liquid_berserk"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "charm",
+        "materialId": "magic_liquid_charm"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "confusion",
+        "materialId": "material_confusion"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "speed",
+        "materialId": "magic_liquid_movement_faster"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "levitation",
+        "materialId": "magic_liquid_faster_levitation"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "world-fixture"
+      },
+      "catalogueRevision": "nt2-hourglass-builtins-1",
+      "activate": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "speed_and_levitation",
+        "materialId": "magic_liquid_faster_levitation_and_movement"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "pending": {}
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "status": {
+        "activationId": "12345678-1234-4234-9234-123456789abc"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "receipt": {
+        "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "receiptId": "12345678-1234-4234-9234-123456789abc",
+        "outcome": "unknown"
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "activation": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "effectId": "ambrosia",
+        "materialId": "magic_liquid_protection_all",
+        "recipientCount": 1,
+        "provenance": "validated-client-report"
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "deliveries": [
+        {
+          "sequence": 1,
+          "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "activationId": "12345678-1234-4234-9234-123456789abc",
+          "effectId": "ambrosia",
+          "materialId": "magic_liquid_protection_all",
+          "catalogueRevision": "nt2-hourglass-builtins-1",
+          "source": {
+            "principalId": "12345678-1234-4234-9234-123456789abc",
+            "name": "世界 <img src=x>",
+            "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+            "attachmentId": "12345678-1234-4234-9234-123456789abc",
+            "worldToken": "source-world"
+          },
+          "scope": {
+            "roomId": "12345678-1234-4234-9234-123456789abc",
+            "runId": "12345678-1234-4234-9234-123456789abc",
+            "runEpoch": "12345678-1234-4234-9234-123456789abc",
+            "configRevision": 1,
+            "attachmentId": "12345678-1234-4234-9234-123456789abc",
+            "worldToken": "world-fixture"
+          },
+          "recipientGameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "recipientAttachmentId": "12345678-1234-4234-9234-123456789abc",
+          "recipientWorldToken": "recipient-world",
+          "outcome": "pending",
+          "provenance": "validated-client-report"
+        }
+      ],
+      "nextSequence": 1,
+      "highSequence": 1
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "status": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "afterRecipientKey": "12345678-1234-4234-9234-123456789abc",
+        "limit": 8
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "pending": {
+        "afterSequence": 8,
+        "throughSequence": 33,
+        "limit": 8
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-hourglass-draft-2",
+      "original": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "effectId": "ambrosia",
+        "materialId": "magic_liquid_protection_all",
+        "catalogueRevision": "nt2-hourglass-builtins-1",
+        "source": {
+          "principalId": "12345678-1234-4234-9234-123456789abc",
+          "name": "世界 <img src=x>",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "source-world"
+        },
+        "scope": {
+          "roomId": "12345678-1234-4234-9234-123456789abc",
+          "runId": "12345678-1234-4234-9234-123456789abc",
+          "runEpoch": "12345678-1234-4234-9234-123456789abc",
+          "configRevision": 1,
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "source-world"
+        },
+        "recipientCount": 1,
+        "provenance": "validated-client-report"
+      },
+      "recipientStatuses": [
+        {
+          "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "recipient-world",
+          "outcome": "unknown",
+          "receiptId": "12345678-1234-4234-9234-123456789abc"
+        }
+      ],
+      "nextRecipientKey": "12345678-1234-4234-9234-123456789abc",
+      "highRecipientKey": "12345678-1234-4234-9234-123456789abc"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "original": {
+        "activationId": "12345678-1234-4234-9234-123456789abc",
+        "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "effectId": "ambrosia",
+        "materialId": "magic_liquid_protection_all",
+        "catalogueRevision": "nt2-hourglass-builtins-1",
+        "source": {
+          "principalId": "12345678-1234-4234-9234-123456789abc",
+          "name": "世界 <img src=x>",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "source-world"
+        },
+        "scope": {
+          "roomId": "12345678-1234-4234-9234-123456789abc",
+          "runId": "12345678-1234-4234-9234-123456789abc",
+          "runEpoch": "12345678-1234-4234-9234-123456789abc",
+          "configRevision": 1,
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "source-world"
+        },
+        "recipientCount": 1,
+        "provenance": "validated-client-report"
+      },
+      "recipientStatuses": [],
+      "nextRecipientKey": "12345678-1234-4234-9234-123456789abc",
+      "highRecipientKey": "12345678-1234-4234-9234-123456789abc"
+    }
+  }
+]

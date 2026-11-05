@@ -1,0 +1,160 @@
+{
+  "revision": "g3-social-draft-1",
+  "status": "provisional-domain-fixture-not-rpc",
+  "baseRevision": "g3-draft-1",
+  "baseSchemaSha256": "325f01bafaa493a7ff6614d3675c9908ed3f2d21c757e092e283838973fad1ff",
+  "modes": [
+    "core",
+    "nemesis"
+  ],
+  "target": "live-capable-games-in-same-room-and-run",
+  "sender": "service-derived principalId/gameSessionId/worldToken/roomId/runId",
+  "provenance": "validated-client-report",
+  "emotes": [
+    {
+      "id": "wave",
+      "durationFrames": 0
+    },
+    {
+      "id": "heart",
+      "durationFrames": 101
+    },
+    {
+      "id": "thumbs_up",
+      "durationFrames": 240
+    },
+    {
+      "id": "disapprove",
+      "durationFrames": 140
+    },
+    {
+      "id": "come_on",
+      "durationFrames": 0
+    },
+    {
+      "id": "t_pose",
+      "durationFrames": 0
+    },
+    {
+      "id": "mario",
+      "durationFrames": 0
+    },
+    {
+      "id": "luigi",
+      "durationFrames": 0
+    },
+    {
+      "id": "clap",
+      "durationFrames": 0
+    },
+    {
+      "id": "macarena",
+      "durationFrames": 0
+    },
+    {
+      "id": "the_wave",
+      "durationFrames": 0
+    },
+    {
+      "id": "aggressive_point",
+      "durationFrames": 0
+    },
+    {
+      "id": "default_dance",
+      "durationFrames": 0
+    },
+    {
+      "id": "praise_the_sun",
+      "durationFrames": 375
+    },
+    {
+      "id": "dab",
+      "durationFrames": 0
+    },
+    {
+      "id": "worm",
+      "durationFrames": 216
+    },
+    {
+      "id": "meditate",
+      "durationFrames": 0
+    },
+    {
+      "id": "repose",
+      "durationFrames": 0
+    },
+    {
+      "id": "egyptian",
+      "durationFrames": 0
+    },
+    {
+      "id": "salute",
+      "durationFrames": 0
+    }
+  ],
+  "robes": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple"
+  ],
+  "defaultRobe": "purple",
+  "capabilities": {
+    "player.hud": "core.hud",
+    "player.emote": "core.emotes",
+    "player.cosmetic": "core.cosmetics",
+    "world.poi": "core.poi"
+  },
+  "samples": [
+    {
+      "catalogId": "player.hud",
+      "hpMilli": 100000,
+      "maxHpMilli": 100000,
+      "sampo": false,
+      "hpKnown": true,
+      "sampoKnown": true
+    },
+    {
+      "catalogId": "player.emote",
+      "emoteId": "wave",
+      "active": true
+    },
+    {
+      "catalogId": "player.emote",
+      "emoteId": "wave",
+      "active": false
+    },
+    {
+      "catalogId": "player.cosmetic",
+      "robeId": "purple",
+      "hat": false,
+      "amulet": true,
+      "gem": false
+    },
+    {
+      "catalogId": "world.poi",
+      "text": "Hello 雪",
+      "xMilli": 1000,
+      "yMilli": -10000
+    }
+  ],
+  "limits": {
+    "hpMilliMax": 2147483647,
+    "coordinateAbsoluteMaxMilli": 2147483647,
+    "recipients": 32,
+    "poiTextCodePoints": 99,
+    "poiCooldownMs": 30000,
+    "poiSpacingMilli": 50000,
+    "poiCapacity": 256
+  },
+  "notes": [
+    "Emote duration is source frames, zero means looping until interrupted; client owns rendering and input-lock restoration.",
+    "HP uses integer milliunits; values are client reports. Cosmetic booleans report own unlock appearance, not verified unlock grants.",
+    "POI coordinates represent the placement position (legacy player y minus 10); dismissing remains local.",
+    "Unicode text is allowed, control characters and lone surrogates are rejected; render all text literally.",
+    "Service persistence, idempotency, snapshot/replay and POI lifecycle/proximity semantics after local dismissal need coordinated review before wire integration.",
+    "Capabilities are proposed only; current simulated profile does not grant these and no native profile is approved."
+  ]
+}

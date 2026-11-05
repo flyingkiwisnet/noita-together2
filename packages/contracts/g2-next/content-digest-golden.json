@@ -1,0 +1,46 @@
+{
+  "serialization": "UTF-8 JSON array [actualSeed string or null, ordered activeMods, beta boolean or null, modVersion, bridgeVersion]; no whitespace",
+  "fixtures": [
+    {
+      "tuple": [
+        "18446744073709551615",
+        [
+          "dup",
+          "dup",
+          "雪",
+          "quote\"slash\\"
+        ],
+        null,
+        "mod-v3",
+        "bridge-v3"
+      ],
+      "canonical": "[\"18446744073709551615\",[\"dup\",\"dup\",\"雪\",\"quote\\\"slash\\\\\"],null,\"mod-v3\",\"bridge-v3\"]",
+      "utf8Hex": "5b223138343436373434303733373039353531363135222c5b22647570222c22647570222c22e99baa222c2271756f74655c22736c6173685c5c225d2c6e756c6c2c226d6f642d7633222c226272696467652d7633225d",
+      "sha256": "58d594517cbddf5c11877d3e21c7a8385ac7edaa7f94a6fc2319a7e873450d83"
+    },
+    {
+      "tuple": [
+        null,
+        [],
+        false,
+        "mod-v3",
+        "bridge-v3"
+      ],
+      "canonical": "[null,[],false,\"mod-v3\",\"bridge-v3\"]",
+      "utf8Hex": "5b6e756c6c2c5b5d2c66616c73652c226d6f642d7633222c226272696467652d7633225d",
+      "sha256": "76824bf0bdb887f566f11c941f989702b98df6085fbb8c609e1fb4346c2076bb"
+    },
+    {
+      "tuple": [
+        "0",
+        [],
+        true,
+        "mod-v3",
+        "bridge-v3"
+      ],
+      "canonical": "[\"0\",[],true,\"mod-v3\",\"bridge-v3\"]",
+      "utf8Hex": "5b2230222c5b5d2c747275652c226d6f642d7633222c226272696467652d7633225d",
+      "sha256": "d7af72ce316db752683c3b656105c1f690a7ae4ad7409389c22c49ab7e8873af"
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "auth1": {
+          "nested": {
+            "Provider": {
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "available": {
+                  "type": "bool",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_id": {
+                  "oneof": [
+                    "id"
+                  ]
+                },
+                "_available": {
+                  "oneof": [
+                    "available"
+                  ]
+                },
+                "_reason": {
+                  "oneof": [
+                    "reason"
+                  ]
+                }
+              }
+            },
+            "Discovery": {
+              "fields": {
+                "revision": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "providers": {
+                  "type": "Provider",
+                  "id": 4,
+                  "rule": "repeated"
+                },
+                "signInSeconds": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accountEndpoint": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "passwordChangeUrl": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_signInSeconds": {
+                  "oneof": [
+                    "signInSeconds"
+                  ]
+                },
+                "_accountEndpoint": {
+                  "oneof": [
+                    "accountEndpoint"
+                  ]
+                },
+                "_passwordChangeUrl": {
+                  "oneof": [
+                    "passwordChangeUrl"
+                  ]
+                }
+              }
+            },
+            "Entitlements": {
+              "fields": {
+                "customLobbyName": {
+                  "type": "bool",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "capacityLimit": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "standardCapacityLimit": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "powerCapacityLimit": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "generatedLobbyName": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "testingMode": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "manageUsers": {
+                  "type": "bool",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "manageAllRoles": {
+                  "type": "bool",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_customLobbyName": {
+                  "oneof": [
+                    "customLobbyName"
+                  ]
+                },
+                "_capacityLimit": {
+                  "oneof": [
+                    "capacityLimit"
+                  ]
+                },
+                "_standardCapacityLimit": {
+                  "oneof": [
+                    "standardCapacityLimit"
+                  ]
+                },
+                "_powerCapacityLimit": {
+                  "oneof": [
+                    "powerCapacityLimit"
+                  ]
+                },
+                "_generatedLobbyName": {
+                  "oneof": [
+                    "generatedLobbyName"
+                  ]
+                },
+                "_testingMode": {
+                  "oneof": [
+                    "testingMode"
+                  ]
+                },
+                "_manageUsers": {
+                  "oneof": [
+                    "manageUsers"
+                  ]
+                },
+                "_manageAllRoles": {
+                  "oneof": [
+                    "manageAllRoles"
+                  ]
+                }
+              }
+            },
+            "Account": {
+              "fields": {
+                "accountId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "provider": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "role": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "enabled": {
+                  "type": "bool",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "lastSignInAt": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "entitlements": {
+                  "type": "Entitlements",
+                  "id": 8
+                }
+              },
+              "oneofs": {
+                "_accountId": {
+                  "oneof": [
+                    "accountId"
+                  ]
+                },
+                "_displayName": {
+                  "oneof": [
+                    "displayName"
+                  ]
+                },
+                "_provider": {
+                  "oneof": [
+                    "provider"
+                  ]
+                },
+                "_role": {
+                  "oneof": [
+                    "role"
+                  ]
+                },
+                "_enabled": {
+                  "oneof": [
+                    "enabled"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_lastSignInAt": {
+                  "oneof": [
+                    "lastSignInAt"
+                  ]
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_code": {
+                  "oneof": [
+                    "code"
+                  ]
+                }
+              }
+            },
+            "AccountResponse": {
+              "fields": {
+                "revision": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "account": {
+                  "type": "Account",
+                  "id": 4
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 5
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "account",
+                    "error"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                }
+              }
+            },
+            "Empty": {
+              "fields": {}
+            },
+            "RoleChange": {
+              "fields": {
+                "accountId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "role": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "operationId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_accountId": {
+                  "oneof": [
+                    "accountId"
+                  ]
+                },
+                "_role": {
+                  "oneof": [
+                    "role"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_operationId": {
+                  "oneof": [
+                    "operationId"
+                  ]
+                },
+                "_reason": {
+                  "oneof": [
+                    "reason"
+                  ]
+                }
+              }
+            },
+            "LocalCreate": {
+              "fields": {
+                "username": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "operationId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_username": {
+                  "oneof": [
+                    "username"
+                  ]
+                },
+                "_displayName": {
+                  "oneof": [
+                    "displayName"
+                  ]
+                },
+                "_operationId": {
+                  "oneof": [
+                    "operationId"
+                  ]
+                }
+              }
+            },
+            "LocalReset": {
+              "fields": {
+                "accountId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "operationId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_accountId": {
+                  "oneof": [
+                    "accountId"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_operationId": {
+                  "oneof": [
+                    "operationId"
+                  ]
+                },
+                "_reason": {
+                  "oneof": [
+                    "reason"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

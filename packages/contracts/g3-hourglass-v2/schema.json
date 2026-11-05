@@ -1,0 +1,469 @@
+{
+  "major": 1,
+  "revision": "g3-hourglass-draft-2",
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 8
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "FORBIDDEN",
+    "CONFLICT",
+    "CAPACITY",
+    "NOT_FOUND"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Activate": {
+      "fields": {
+        "activationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "effectId": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "materialId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Status": {
+      "fields": {
+        "activationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "afterRecipientKey": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "Pending": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "throughSequence": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "Receipt": {
+      "fields": {
+        "deliveryId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "receiptId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "outcome": {
+          "id": 3,
+          "type": "string",
+          "max": 24
+        }
+      }
+    },
+    "Source": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "name": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "attachmentId": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Delivery": {
+      "fields": {
+        "deliveryId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "activationId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "effectId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "materialId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "catalogueRevision": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        },
+        "source": {
+          "id": 6,
+          "type": "Source"
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "recipientGameSessionId": {
+          "id": 8,
+          "type": "string",
+          "max": 36
+        },
+        "recipientAttachmentId": {
+          "id": 9,
+          "type": "string",
+          "max": 36
+        },
+        "recipientWorldToken": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "outcome": {
+          "id": 11,
+          "type": "string",
+          "max": 24
+        },
+        "provenance": {
+          "id": 12,
+          "type": "string",
+          "max": 32
+        },
+        "sequence": {
+          "id": 13,
+          "type": "uint32"
+        }
+      }
+    },
+    "Activation": {
+      "fields": {
+        "activationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "effectId": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "materialId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "recipientCount": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 5,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 36
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "catalogueRevision": {
+          "id": 8,
+          "type": "string",
+          "max": 64
+        },
+        "activate": {
+          "id": 20,
+          "type": "Activate"
+        },
+        "status": {
+          "id": 21,
+          "type": "Status"
+        },
+        "pending": {
+          "id": 22,
+          "type": "Pending"
+        },
+        "receipt": {
+          "id": 23,
+          "type": "Receipt"
+        }
+      },
+      "oneof": [
+        "activate",
+        "status",
+        "pending",
+        "receipt"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "error": {
+          "id": 6,
+          "type": "Error"
+        },
+        "activation": {
+          "id": 7,
+          "type": "Activation"
+        },
+        "deliveries": {
+          "id": 8,
+          "type": "Delivery",
+          "repeated": true,
+          "max": 32
+        },
+        "nextSequence": {
+          "id": 9,
+          "type": "uint32"
+        },
+        "highSequence": {
+          "id": 10,
+          "type": "uint32"
+        },
+        "original": {
+          "id": 11,
+          "type": "Original"
+        },
+        "recipientStatuses": {
+          "id": 12,
+          "type": "RecipientStatus",
+          "repeated": true,
+          "max": 32
+        },
+        "nextRecipientKey": {
+          "id": 13,
+          "type": "string",
+          "max": 36
+        },
+        "highRecipientKey": {
+          "id": 14,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "Original": {
+      "fields": {
+        "activationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "digest": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "effectId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "materialId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "catalogueRevision": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        },
+        "source": {
+          "id": 6,
+          "type": "Source"
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "recipientCount": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 9,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "RecipientStatus": {
+      "fields": {
+        "deliveryId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "gameSessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "attachmentId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "outcome": {
+          "id": 5,
+          "type": "string",
+          "max": 24
+        },
+        "receiptId": {
+          "id": 6,
+          "type": "string",
+          "max": 36
+        }
+      }
+    }
+  }
+}

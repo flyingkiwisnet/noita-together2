@@ -1,0 +1,1 @@
+-- Inert NEW_GAME scope tag. No executable entry state.

@@ -1,0 +1,438 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.g3;
+
+message Scope {
+  string roomId = 1;
+  string runId = 2;
+  string runEpoch = 3;
+  uint32 configRevision = 4;
+  string attachmentId = 5;
+  string worldToken = 6;
+}
+
+message MovementFrame {
+  uint32 sequence = 1;
+  string xMilli = 2;
+  string yMilli = 3;
+  string vxMilli = 4;
+  string vyMilli = 5;
+  bool facingLeft = 6;
+}
+
+message Movement {
+  repeated MovementFrame frames = 1;
+}
+
+message GoldIntent {
+  string operationId = 1;
+  string direction = 2;
+  uint32 amount = 3;
+}
+
+message GoldStatus {
+  string operationId = 1;
+}
+
+message GoldReceipt {
+  string operationId = 1;
+  string deliveryId = 2;
+  string payloadDigest = 3;
+  string receiptId = 4;
+  string outcome = 5;
+  string evidenceDigest = 6;
+}
+
+message Operation {
+  string operationId = 1;
+  string principalId = 2;
+  string runId = 3;
+  string attachmentId = 4;
+  string worldToken = 5;
+  string direction = 6;
+  uint32 amount = 7;
+  string payloadDigest = 8;
+  string deliveryId = 9;
+  string state = 10;
+  uint32 balance = 11;
+  string localOutcome = 12;
+  string provenance = 13;
+  Scope originalScope = 14;
+  string balanceVersion = 15;
+  bool effectAllowed = 16;
+  string savePersistence = 17;
+}
+
+message Ghost {
+  string principalId = 1;
+  string gameSessionId = 2;
+  string worldToken = 3;
+  repeated MovementFrame frames = 4;
+  string capturedAt = 5;
+}
+
+message GhostList {
+}
+
+message GameEvent {
+  string eventId = 1;
+  string catalogId = 2;
+  uint32 count = 3;
+  string targetGameSessionId = 4;
+}
+
+message OutboxList {
+  string afterSequence = 1;
+  uint32 limit = 2;
+}
+
+message OutboxEntry {
+  string sequence = 1;
+  string kind = 2;
+  Operation operation = 3;
+  TrustedEvent event = 4;
+  GoldNotice notice = 5;
+  ItemOperation itemOperation = 6;
+  ItemNotice itemNotice = 7;
+}
+
+message StatisticsList {
+  string afterSequence = 1;
+  uint32 limit = 2;
+}
+
+message StatisticsAggregate {
+}
+
+message StatisticsDelete {
+}
+
+message Statistic {
+  string sequence = 1;
+  uint32 version = 2;
+  string kind = 3;
+  string principalId = 4;
+  string displayName = 5;
+  uint32 count = 6;
+  string provenance = 7;
+  string capturedAt = 8;
+}
+
+message Aggregate {
+  string kind = 1;
+  string count = 2;
+  string provenance = 3;
+}
+
+message Error {
+  string code = 1;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  Scope scope = 7;
+  Scope currentScope = 8;
+  oneof payload {
+    Movement movement = 20;
+    GhostList ghostList = 21;
+    GoldIntent goldIntent = 22;
+    GoldStatus goldStatus = 23;
+    GoldReceipt goldReceipt = 24;
+    GameEvent gameEvent = 25;
+    OutboxList outboxList = 26;
+    StatisticsList statisticsList = 27;
+    StatisticsAggregate statisticsAggregate = 28;
+    StatisticsDelete statisticsDelete = 29;
+    GoldBank goldBank = 30;
+    ItemDeposit itemDeposit = 31;
+    ItemClaim itemClaim = 32;
+    ItemStatus itemStatus = 33;
+    ItemReceipt itemReceipt = 34;
+    ItemInspect itemInspect = 35;
+    ItemBank itemBank = 36;
+    InventoryPublish inventoryPublish = 37;
+    InventoryInspect inventoryInspect = 38;
+    BankBatch bankBatch = 39;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string requestId = 5;
+  Operation operation = 6;
+  repeated Ghost ghosts = 7;
+  repeated OutboxEntry outbox = 8;
+  repeated Statistic statistics = 9;
+  repeated Aggregate aggregates = 10;
+  string nextSequence = 11;
+  Error error = 12;
+  GoldBankSnapshot bank = 13;
+  ItemOperation itemOperation = 14;
+  ItemBankSnapshot itemBank = 15;
+  ItemDetail itemDetail = 16;
+  InventoryView inventory = 17;
+  string bankRevision = 18;
+  BankBatchResult bankBatch = 19;
+}
+
+message TrustedEvent {
+  string eventId = 1;
+  string catalogId = 2;
+  string principalId = 3;
+  string gameSessionId = 4;
+  string worldToken = 5;
+  string targetGameSessionId = 6;
+  uint32 count = 7;
+  string provenance = 8;
+}
+
+message GoldBank {
+  string afterNoticeSequence = 1;
+  string afterOperationId = 2;
+  uint32 limit = 3;
+}
+
+message GoldNotice {
+  string sequence = 1;
+  string principalId = 2;
+  string displayName = 3;
+  uint32 amount = 4;
+  uint32 balance = 5;
+  string balanceVersion = 6;
+  string acceptedAt = 7;
+}
+
+message GoldBankSnapshot {
+  uint32 availableBalance = 1;
+  string balanceVersion = 2;
+  bool sendGoldEnabled = 3;
+  repeated GoldNotice notices = 4;
+  string noticeSequence = 5;
+  bool noticeReset = 6;
+  repeated Operation operations = 7;
+  string nextOperationId = 8;
+}
+
+message ItemSpell {
+  string actionId = 1;
+  string usesRemaining = 2;
+}
+
+message ItemCard {
+  uint32 slot = 1;
+  ItemSpell spell = 2;
+}
+
+message ItemWand {
+  bool named = 1;
+  string uiName = 2;
+  string spriteId = 3;
+  string gripX = 4;
+  string gripY = 5;
+  string tipX = 6;
+  string tipY = 7;
+  string manaMax = 8;
+  string manaChargeSpeed = 9;
+  string reloadTime = 10;
+  string actionsPerRound = 11;
+  string deckCapacity = 12;
+  bool shuffleDeckWhenEmpty = 13;
+  string spreadDegrees = 14;
+  string speedMultiplier = 15;
+  string fireRateWait = 16;
+  repeated ItemCard deck = 17;
+  repeated ItemCard permanent = 18;
+}
+
+message ItemMaterial {
+  string materialId = 1;
+  string amount = 2;
+}
+
+message ItemContainer {
+  string containerType = 1;
+  string color = 2;
+  repeated ItemMaterial contents = 3;
+}
+
+message ItemObject {
+  string objectId = 1;
+}
+
+message ItemDescriptor {
+  string catalogueRevision = 1;
+  oneof payload {
+    ItemSpell spell = 2;
+    ItemWand wand = 3;
+    ItemContainer container = 4;
+    ItemObject object = 5;
+  }
+}
+
+message ItemDeposit {
+  string operationId = 1;
+  ItemDescriptor item = 2;
+}
+
+message ItemClaim {
+  string operationId = 1;
+  string itemId = 2;
+  string expectedRevision = 3;
+}
+
+message ItemStatus {
+  string operationId = 1;
+}
+
+message ItemReceipt {
+  string operationId = 1;
+  string deliveryId = 2;
+  string payloadDigest = 3;
+  string receiptId = 4;
+  string outcome = 5;
+  string evidenceDigest = 6;
+}
+
+message ItemInspect {
+  string itemId = 1;
+}
+
+message ItemBank {
+  string tab = 1;
+  string search = 2;
+  repeated uint32 spellTypes = 3 [packed=false];
+  repeated string wandSort = 4;
+  string sort = 5;
+  uint32 page = 6;
+  string afterNoticeSequence = 7;
+  string afterOperationId = 8;
+  bool useFilters = 10;
+}
+
+message ItemOperation {
+  string operationId = 1;
+  string principalId = 2;
+  Scope originalScope = 3;
+  string direction = 4;
+  string itemId = 5;
+  string deliveryId = 6;
+  string payloadDigest = 7;
+  string state = 8;
+  string localOutcome = 9;
+  ItemDescriptor item = 10;
+  bool effectAllowed = 11;
+  string savePersistence = 12;
+  string bankRevision = 13;
+}
+
+message ItemSummary {
+  string itemId = 1;
+  string kind = 2;
+  string state = 3;
+  string revision = 4;
+  string displayName = 5;
+  string nameKey = 6;
+  string iconId = 7;
+  string usesRemaining = 8;
+  uint32 spellType = 9;
+  string senderId = 10;
+  string senderName = 11;
+  bool claimAllowed = 12;
+}
+
+message ItemDetail {
+  ItemSummary summary = 1;
+  ItemDescriptor item = 2;
+}
+
+message ItemNotice {
+  string sequence = 1;
+  string principalId = 2;
+  string displayName = 3;
+  uint32 count = 4;
+  string kind = 5;
+  string acceptedAt = 6;
+}
+
+message ItemBankSnapshot {
+  string revision = 1;
+  repeated ItemSummary items = 2;
+  uint32 total = 3;
+  uint32 page = 4;
+  uint32 pageCount = 5;
+  repeated ItemNotice notices = 6;
+  string noticeSequence = 7;
+  bool noticeReset = 8;
+  repeated ItemOperation operations = 9;
+  string nextOperationId = 10;
+}
+
+message InventoryWand {
+  uint32 slot = 1;
+  ItemWand wand = 2;
+  string unavailableReason = 3;
+}
+
+message InventoryPublish {
+  uint32 revision = 1;
+  repeated InventoryWand wands = 2;
+  string heldSlot = 3;
+}
+
+message InventoryInspect {
+  string gameSessionId = 1;
+  uint32 slot = 2;
+}
+
+message InventoryView {
+  string principalId = 1;
+  string gameSessionId = 2;
+  uint32 revision = 3;
+  repeated InventoryWand wands = 4;
+  string heldWandSpriteId = 5;
+  uint32 totalSlots = 6;
+  string nextSlot = 7;
+  string state = 9;
+  string unavailableReason = 10;
+  string heldSlot = 11;
+}
+
+message BankBatchEntry {
+  Scope scope = 1;
+  Scope currentScope = 2;
+  oneof payload {
+    GoldIntent goldIntent = 3;
+    GoldStatus goldStatus = 4;
+    GoldReceipt goldReceipt = 5;
+    ItemDeposit itemDeposit = 6;
+    ItemClaim itemClaim = 7;
+    ItemStatus itemStatus = 8;
+    ItemReceipt itemReceipt = 9;
+  }
+}
+
+message BankBatch {
+  repeated BankBatchEntry entries = 1;
+}
+
+message BankBatchEntryResult {
+  uint32 index = 1;
+  string operationId = 2;
+  oneof payload {
+    Operation operation = 3;
+    ItemOperation itemOperation = 4;
+    Error error = 5;
+  }
+}
+
+message BankBatchResult {
+  repeated BankBatchEntryResult entries = 1;
+}

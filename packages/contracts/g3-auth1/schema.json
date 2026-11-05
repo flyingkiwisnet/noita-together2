@@ -1,0 +1,317 @@
+{
+  "revision": "auth1-1",
+  "major": 1,
+  "limits": {
+    "bytes": 65536,
+    "fields": 2048,
+    "depth": 8
+  },
+  "messages": {
+    "Provider": {
+      "fields": {
+        "id": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "twitch",
+            "google",
+            "local"
+          ],
+          "required": true
+        },
+        "available": {
+          "id": 2,
+          "type": "bool",
+          "required": true
+        },
+        "reason": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Discovery": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "required": true
+        },
+        "serviceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "providers": {
+          "id": 4,
+          "type": "Provider",
+          "repeated": true,
+          "max": 3,
+          "required": true
+        },
+        "signInSeconds": {
+          "id": 5,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 300
+        },
+        "accountEndpoint": {
+          "id": 6,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "passwordChangeUrl": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "Entitlements": {
+      "fields": {
+        "customLobbyName": {
+          "id": 1,
+          "type": "bool",
+          "required": true
+        },
+        "capacityLimit": {
+          "id": 2,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 32
+        },
+        "standardCapacityLimit": {
+          "id": 3,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 32
+        },
+        "powerCapacityLimit": {
+          "id": 4,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 32
+        },
+        "generatedLobbyName": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "testingMode": {
+          "id": 6,
+          "type": "bool",
+          "required": true
+        },
+        "manageUsers": {
+          "id": 7,
+          "type": "bool",
+          "required": true
+        },
+        "manageAllRoles": {
+          "id": 8,
+          "type": "bool",
+          "required": true
+        }
+      }
+    },
+    "Account": {
+      "fields": {
+        "accountId": {
+          "id": 1,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "displayName": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "provider": {
+          "id": 3,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "role": {
+          "id": 4,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "user",
+            "power-user",
+            "admin",
+            "dev"
+          ],
+          "required": true
+        },
+        "enabled": {
+          "id": 5,
+          "type": "bool",
+          "required": true
+        },
+        "revision": {
+          "id": 6,
+          "type": "uint32",
+          "required": true
+        },
+        "lastSignInAt": {
+          "id": 7,
+          "type": "string",
+          "max": 40
+        },
+        "entitlements": {
+          "id": 8,
+          "type": "Entitlements",
+          "required": true
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 64,
+          "required": true
+        }
+      }
+    },
+    "AccountResponse": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "required": true
+        },
+        "serviceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "account": {
+          "id": 4,
+          "type": "Account"
+        },
+        "error": {
+          "id": 5,
+          "type": "Error"
+        }
+      },
+      "oneof": [
+        "account",
+        "error"
+      ]
+    },
+    "Empty": {
+      "fields": {}
+    },
+    "RoleChange": {
+      "fields": {
+        "accountId": {
+          "type": "string",
+          "id": 1,
+          "max": 64,
+          "required": true
+        },
+        "role": {
+          "type": "string",
+          "id": 2,
+          "max": 16,
+          "values": [
+            "user",
+            "power-user",
+            "admin",
+            "dev"
+          ],
+          "required": true
+        },
+        "revision": {
+          "type": "uint32",
+          "id": 3,
+          "required": true
+        },
+        "operationId": {
+          "type": "string",
+          "id": 4,
+          "max": 128,
+          "required": true
+        },
+        "reason": {
+          "type": "string",
+          "id": 5,
+          "max": 256
+        }
+      }
+    },
+    "LocalCreate": {
+      "fields": {
+        "username": {
+          "type": "string",
+          "id": 1,
+          "max": 32,
+          "required": true
+        },
+        "displayName": {
+          "type": "string",
+          "id": 2,
+          "max": 80
+        },
+        "operationId": {
+          "type": "string",
+          "id": 3,
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "LocalReset": {
+      "fields": {
+        "accountId": {
+          "type": "string",
+          "id": 1,
+          "max": 64,
+          "required": true
+        },
+        "revision": {
+          "type": "uint32",
+          "id": 2,
+          "required": true
+        },
+        "operationId": {
+          "type": "string",
+          "id": 3,
+          "max": 128,
+          "required": true
+        },
+        "reason": {
+          "type": "string",
+          "id": 4,
+          "max": 256
+        }
+      }
+    }
+  }
+}

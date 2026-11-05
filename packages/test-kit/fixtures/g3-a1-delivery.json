@@ -1,0 +1,249 @@
+{
+  "revision": "g3-a1-delivery-fixtures-1",
+  "evidence": "Synthetic transport/service examples only; no engine observations, measured LAN cadence or authority grant",
+  "contracts": {
+    "movement": {
+      "revision": "g3-draft-1",
+      "sha256": "325f01bafaa493a7ff6614d3675c9908ed3f2d21c757e092e283838973fad1ff"
+    },
+    "social": {
+      "revision": "g3-social-draft-1",
+      "sha256": "6eb9aa03befb56ac4b334fb266ecbdb58629521249ac11413863cdf8eb04b399"
+    },
+    "replayPolicy": "sequence-bound-transient-v1"
+  },
+  "actors": {
+    "senderGameSessionId": "55555555-5555-4555-8555-555555555555",
+    "principalId": "88888888-8888-4888-8888-888888888888"
+  },
+  "movement": {
+    "first": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-draft-1",
+      "requestId": "a1-burst-1",
+      "movement": {
+        "frames": [
+          {
+            "sequence": 1,
+            "xMilli": "-1000",
+            "yMilli": "2000",
+            "vxMilli": "-1000",
+            "vyMilli": "0",
+            "facingLeft": true
+          },
+          {
+            "sequence": 2,
+            "xMilli": "-2000",
+            "yMilli": "2000",
+            "vxMilli": "-1000",
+            "vyMilli": "0",
+            "facingLeft": true
+          },
+          {
+            "sequence": 4,
+            "xMilli": "-4000",
+            "yMilli": "2000",
+            "vxMilli": "-1000",
+            "vyMilli": "0",
+            "facingLeft": true
+          },
+          {
+            "sequence": 7,
+            "xMilli": "-7000",
+            "yMilli": "2000",
+            "vxMilli": "-1000",
+            "vyMilli": "0",
+            "facingLeft": true
+          }
+        ]
+      }
+    },
+    "replacement": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-draft-1",
+      "requestId": "a1-newest-2",
+      "movement": {
+        "frames": [
+          {
+            "sequence": 10,
+            "xMilli": "-10000",
+            "yMilli": "2000",
+            "vxMilli": "-1000",
+            "vyMilli": "0",
+            "facingLeft": true
+          }
+        ]
+      }
+    },
+    "read": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-draft-1",
+      "requestId": "a1-read-1",
+      "ghostList": {}
+    },
+    "timeline": [
+      {
+        "serviceAcceptedMs": 0,
+        "publication": "first",
+        "visibleSequences": [
+          1,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "serviceAcceptedMs": 250,
+        "publication": "replacement",
+        "visibleSequences": [
+          10
+        ]
+      },
+      {
+        "readAtMs": 500,
+        "visibleSequences": [
+          10
+        ],
+        "capturedAtMs": 250
+      },
+      {
+        "readAtMs": 2249,
+        "visibleSequences": [
+          10
+        ],
+        "capturedAtMs": 250
+      },
+      {
+        "readAtMs": 2250,
+        "visibleSequences": []
+      }
+    ],
+    "timing": "Sequence is an ordinal, gaps are valid. capturedAt is a service acceptance timestamp of the whole latest batch; no per-frame source capture time, interval or history is encoded. Duplicate polls are not new samples. Local bounded receipt/playback clocks are consumer-owned."
+  },
+  "a2": {
+    "hudPublish": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-social-draft-1",
+      "requestId": "a2-hud-1",
+      "publish": {
+        "eventId": "fe53ce2f-f306-873b-974d-7a05b4c0da73",
+        "sequence": 1,
+        "hud": {
+          "hpMilli": 3000,
+          "maxHpMilli": 2000,
+          "sampo": true
+        }
+      }
+    },
+    "poiPublish": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-social-draft-1",
+      "requestId": "a2-poi-1",
+      "publish": {
+        "eventId": "99999999-9999-4999-8999-999999999999",
+        "sequence": 1,
+        "poi": {
+          "text": "literal <img> 雪",
+          "xMilli": "100000",
+          "yMilli": "-10000"
+        }
+      }
+    },
+    "snapshot": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-social-draft-1",
+      "requestId": "a2-snapshot-1",
+      "snapshot": {
+        "afterKey": "",
+        "limit": 8
+      }
+    },
+    "poiSnapshot": {
+      "major": 1,
+      "serviceId": "synthetic-g3-a1-fixture",
+      "serviceEpoch": "66666666-6666-4666-8666-666666666666",
+      "sessionEpoch": "77777777-7777-4777-8777-777777777777",
+      "scope": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "runId": "22222222-2222-4222-8222-222222222222",
+        "runEpoch": "33333333-3333-4333-8333-333333333333",
+        "configRevision": 1,
+        "attachmentId": "44444444-4444-4444-8444-444444444444",
+        "worldToken": "synthetic-source-world"
+      },
+      "revision": "g3-social-draft-1",
+      "requestId": "a2-poi-read-1",
+      "poiSnapshot": {
+        "afterSequence": "0",
+        "limit": 8
+      }
+    },
+    "notes": "Replace every synthetic identity/scope with the current proof-bound game credentials and selected inspected world. Names/principal/provenance/recipient IDs are service-derived, not publication fields. Real game capture and quantization are pending A2; these fixtures grant no capabilities."
+  }
+}

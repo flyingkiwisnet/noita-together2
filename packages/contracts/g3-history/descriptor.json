@@ -1,0 +1,188 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "history": {
+          "nested": {
+            "Discover": {
+              "fields": {
+                "afterSequence": {
+                  "type": "string",
+                  "id": 1
+                },
+                "throughSequence": {
+                  "type": "string",
+                  "id": 2
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "RunScope": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 3
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4
+                }
+              }
+            },
+            "Run": {
+              "fields": {
+                "sequence": {
+                  "type": "string",
+                  "id": 1
+                },
+                "scope": {
+                  "type": "RunScope",
+                  "id": 2
+                },
+                "roomName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "createdAt": {
+                  "type": "string",
+                  "id": 4
+                },
+                "state": {
+                  "type": "string",
+                  "id": 5
+                },
+                "mode": {
+                  "type": "string",
+                  "id": 6
+                },
+                "canDelete": {
+                  "type": "bool",
+                  "id": 7
+                },
+                "retentionDays": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "collectionState": {
+                  "type": "string",
+                  "id": 9
+                },
+                "latestExpiresAt": {
+                  "type": "string",
+                  "id": 10
+                },
+                "deletedAt": {
+                  "type": "string",
+                  "id": 11
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "discover": {
+                  "type": "Discover",
+                  "id": 7
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "discover"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "runs": {
+                  "type": "Run",
+                  "id": 7,
+                  "rule": "repeated"
+                },
+                "nextSequence": {
+                  "type": "string",
+                  "id": 8
+                },
+                "highSequence": {
+                  "type": "string",
+                  "id": 9
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 10
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

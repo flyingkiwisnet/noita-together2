@@ -1,0 +1,2 @@
+import {generateRejoinPackage,rejoinRuntimePath,rejoinSourcePath} from '../src/rejoin/package-profile.js';import {createHash} from 'node:crypto';
+const d=await generateRejoinPackage(process.argv.includes('--check')),sha=(b:string)=>createHash('sha256').update(b).digest('hex');console.log(JSON.stringify({runtimeApproval:{path:rejoinRuntimePath,sha256:sha(d.bytes)},desktopApproval:{path:rejoinSourcePath,sha256:sha(d.sourceBytes)},id:d.runtime.id,files:d.runtime.requiredLocalFiles.length}));

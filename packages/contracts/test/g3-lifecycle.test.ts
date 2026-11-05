@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createRequire} from 'node:module';
+import {validate,encode,decode,parseJson} from '../src/g3-lifecycle.js';
+const require=createRequire(import.meta.url),golden=require('../g3-lifecycle/golden.json');
+test('LC1-2 canonical preparation/reconciliation and states roundtrip strict JSON/protobuf',()=>{for(const f of golden.fixtures){assert.deepEqual(validate(f.type,f.json),f.json);assert.deepEqual(parseJson(f.type,JSON.stringify(f.json)),f.json);assert.equal(Buffer.from(encode(f.type,f.json)).toString('hex'),f.hex);assert.deepEqual(decode(f.type,Buffer.from(f.hex,'hex')),f.json);}});
+test('LC1-2 rejects foreign marker authority, attempt overflow, dual operations and wrong boolean',()=>{for(const f of golden.rejected)assert.throws(()=>validate(f.type,f.json));});
+test('LC1-2 strict parser rejects duplicate JSON/protobuf and unknown protobuf fields',()=>{const f=golden.fixtures[0],json=JSON.stringify(f.json);assert.throws(()=>parseJson(f.type,json.replace('"major":1','"major":1,"major":1')));const bytes=Buffer.from(f.hex,'hex');assert.throws(()=>decode(f.type,Buffer.concat([bytes,Buffer.from([8,1])])));assert.throws(()=>decode(f.type,Buffer.concat([bytes,Buffer.from([0xf8,0x07,1])])));});

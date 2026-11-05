@@ -1,0 +1,429 @@
+{
+  "major": 1,
+  "revision": "g3-stats-1",
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 8,
+    "page": 32,
+    "eventsPerRun": 65536,
+    "readConcurrency": 8
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "VERSION_MISMATCH",
+    "STALE_EPOCH",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "CONFLICT",
+    "STALE_REVISION",
+    "CAPACITY",
+    "SERVICE_UNAVAILABLE"
+  ],
+  "messages": {
+    "Empty": {
+      "fields": {}
+    },
+    "Discover": {
+      "fields": {
+        "afterLocator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "limit": {
+          "id": 2,
+          "type": "uint32",
+          "max": 32
+        }
+      }
+    },
+    "Read": {
+      "fields": {
+        "locator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "afterRow": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32",
+          "max": 32
+        },
+        "runKey": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "summaryRevision": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        }
+      }
+    },
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Observe": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 12,
+          "values": [
+            "heart",
+            "orb",
+            "steve",
+            "death",
+            "win"
+          ]
+        },
+        "progression": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "orbId": {
+          "id": 4,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Lobby": {
+      "fields": {
+        "locator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "name": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "mode": {
+          "id": 3,
+          "type": "string",
+          "max": 32
+        },
+        "occupancy": {
+          "id": 4,
+          "type": "uint32",
+          "max": 32
+        },
+        "capacity": {
+          "id": 5,
+          "type": "uint32",
+          "max": 32
+        },
+        "state": {
+          "id": 6,
+          "type": "string",
+          "max": 32
+        },
+        "publicStats": {
+          "id": 7,
+          "type": "bool"
+        }
+      }
+    },
+    "Row": {
+      "fields": {
+        "rowKey": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "displayName": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "hearts": {
+          "id": 3,
+          "type": "string",
+          "max": 20
+        },
+        "orbs": {
+          "id": 4,
+          "type": "string",
+          "max": 20
+        },
+        "steveKills": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        },
+        "deaths": {
+          "id": 6,
+          "type": "string",
+          "max": 20
+        },
+        "wins": {
+          "id": 7,
+          "type": "string",
+          "max": 20
+        },
+        "goldDeposited": {
+          "id": 8,
+          "type": "string",
+          "max": 20
+        },
+        "goldWithdrawn": {
+          "id": 9,
+          "type": "string",
+          "max": 20
+        },
+        "itemsDeposited": {
+          "id": 10,
+          "type": "string",
+          "max": 20
+        },
+        "itemsClaimed": {
+          "id": 11,
+          "type": "string",
+          "max": 20
+        }
+      }
+    },
+    "Summary": {
+      "fields": {
+        "locator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runKey": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "summaryRevision": {
+          "id": 3,
+          "type": "string",
+          "max": 20
+        },
+        "collectionState": {
+          "id": 4,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "none",
+            "unavailable",
+            "partial",
+            "available",
+            "expired"
+          ]
+        },
+        "runStatus": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "startedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 32
+        },
+        "endedAt": {
+          "id": 7,
+          "type": "string",
+          "max": 32
+        },
+        "elapsedSeconds": {
+          "id": 8,
+          "type": "string",
+          "max": 20
+        },
+        "rows": {
+          "id": 9,
+          "type": "Row",
+          "repeated": true,
+          "max": 32
+        },
+        "nextRow": {
+          "id": 10,
+          "type": "string",
+          "max": 36
+        },
+        "lobbyName": {
+          "id": 11,
+          "type": "string",
+          "max": 80
+        },
+        "retentionDays": {
+          "id": 12,
+          "type": "uint32"
+        },
+        "gameReported": {
+          "id": 13,
+          "type": "bool"
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "discover": {
+          "id": 9,
+          "type": "Discover"
+        },
+        "read": {
+          "id": 10,
+          "type": "Read"
+        },
+        "observe": {
+          "id": 11,
+          "type": "Observe"
+        }
+      },
+      "oneof": [
+        "discover",
+        "read",
+        "observe"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "lobbies": {
+          "id": 6,
+          "type": "Lobby",
+          "repeated": true,
+          "max": 32
+        },
+        "nextLocator": {
+          "id": 7,
+          "type": "string",
+          "max": 36
+        },
+        "summary": {
+          "id": 8,
+          "type": "Summary"
+        },
+        "accepted": {
+          "id": 9,
+          "type": "bool"
+        },
+        "duplicate": {
+          "id": 10,
+          "type": "bool"
+        },
+        "error": {
+          "id": 11,
+          "type": "Error"
+        }
+      }
+    }
+  }
+}

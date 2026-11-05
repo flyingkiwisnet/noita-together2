@@ -1,0 +1,462 @@
+[
+  {
+    "label": "actual-protected-initial",
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "5d58b84b-43c6-450b-81d4-95f0eb0662dc",
+      "participantId": "ae167050-c9ae-46fa-8217-4c8d92710747",
+      "generation": 1,
+      "scope": {
+        "principalId": "89891ccc-3c15-4bc0-bc3f-b5bda105460b",
+        "sessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+        "sessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+        "roomId": "60ceaf52-697f-49ae-b360-8c75a0bf654c",
+        "runId": "d760a61f-8867-4ef4-8cdf-c7b50cd59d3e",
+        "runEpoch": "a48e53ca-4a75-43de-8173-379ea0fc776a",
+        "configRevision": 1,
+        "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "93b15771-a01b-4fd5-8ee3-84b2f3c48021",
+        "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+        "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+        "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+        "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+        "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+        "gameInstanceId": "g3-fixture-game-0"
+      },
+      "originalStart": {
+        "requestId": "337c404a-bcc3-4756-981e-839188ee6a81",
+        "authorizedAt": "2026-10-15T04:31:06.576+00:00",
+        "selectedInspection": {
+          "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+          "actualSeed": "1745119931",
+          "capturedAt": "2026-10-15T04:31:06.486Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+          "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+          "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+          "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "1b9503d8-e5b3-4e06-95b1-c284457ee26f",
+        "startRequestId": "337c404a-bcc3-4756-981e-839188ee6a81",
+        "authorizedAt": "2026-10-15T04:31:06.576Z",
+        "selectedInspection": {
+          "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+          "actualSeed": "1745119931",
+          "capturedAt": "2026-10-15T04:31:06.486Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+          "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+          "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+          "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+        "capturedAt": "2026-10-15T04:31:06.486Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      },
+      "decision": {
+        "authorized": true,
+        "playing": false,
+        "terminal": false,
+        "reason": "",
+        "remainingMs": 29850,
+        "initialReviewRemainingMs": 1799790
+      },
+      "sample": {
+        "originRequestId": "54eed6ed-9f10-426e-8517-8c2fb24fb4d1",
+        "channel": "http",
+        "credentialId": "b4a9624b-6367-4e80-9bbf-74eb3d96bb80",
+        "sampleKey": "63f9610c85226f572f3d332a4b8dc1840ace2b6958cb81980db357ff9c7b97b6"
+      }
+    }
+  },
+  {
+    "label": "held",
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "f2091b59-69c3-4eaf-b1f4-04470bfae41e",
+      "participantId": "2c99ffeb-df47-48a9-8f0d-75b5b1b2cb36",
+      "generation": 1,
+      "scope": {
+        "principalId": "7d0c8653-12a5-4388-a8ce-f682161827e6",
+        "sessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+        "sessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+        "roomId": "f55ab8c5-a41f-4c69-b1af-0b35d0c0503c",
+        "runId": "d38fb892-ed50-4ffd-8de0-6e8ab0986c5a",
+        "runEpoch": "57371f7f-e8ba-4a7b-9c49-e1661bd68526",
+        "configRevision": 1,
+        "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "adc330b7-a458-44d4-a04d-b014bdcacae7",
+        "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+        "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+        "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+        "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+        "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+        "gameInstanceId": "g3-fixture-game-0"
+      },
+      "originalStart": {
+        "requestId": "1a17193f-a096-4287-84ee-977ab3b60549",
+        "authorizedAt": "2026-10-15T04:00:28.54+00:00",
+        "selectedInspection": {
+          "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+          "actualSeed": "1331861027",
+          "capturedAt": "2026-10-15T04:00:27.640Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+          "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+          "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+          "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "22040bcc-d79e-48e1-ba02-4ac2afdd7a9a",
+        "startRequestId": "1a17193f-a096-4287-84ee-977ab3b60549",
+        "authorizedAt": "2026-10-15T04:00:28.540Z",
+        "selectedInspection": {
+          "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+          "actualSeed": "1331861027",
+          "capturedAt": "2026-10-15T04:00:27.640Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+          "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+          "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+          "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 3,
+        "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+        "capturedAt": "2026-10-15T04:00:29.740Z",
+        "complete": false,
+        "loaded": true,
+        "protected": false,
+        "contentValid": false
+      },
+      "decision": {
+        "authorized": false,
+        "playing": false,
+        "terminal": false,
+        "reason": "inspection_incompatible",
+        "remainingMs": 0,
+        "initialReviewRemainingMs": 1796800
+      },
+      "sample": {
+        "originRequestId": "cr2-fixture-held",
+        "channel": "http",
+        "credentialId": "fixture-credential",
+        "sampleKey": "c20dea4d876b5b8fb0a1814b43017030cea6d4ac30b2d9ae71b404d2faba49b5"
+      }
+    }
+  },
+  {
+    "label": "restored",
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "f2091b59-69c3-4eaf-b1f4-04470bfae41e",
+      "participantId": "2c99ffeb-df47-48a9-8f0d-75b5b1b2cb36",
+      "generation": 1,
+      "scope": {
+        "principalId": "7d0c8653-12a5-4388-a8ce-f682161827e6",
+        "sessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+        "sessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+        "roomId": "f55ab8c5-a41f-4c69-b1af-0b35d0c0503c",
+        "runId": "d38fb892-ed50-4ffd-8de0-6e8ab0986c5a",
+        "runEpoch": "57371f7f-e8ba-4a7b-9c49-e1661bd68526",
+        "configRevision": 1,
+        "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "adc330b7-a458-44d4-a04d-b014bdcacae7",
+        "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+        "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+        "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+        "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+        "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+        "gameInstanceId": "g3-fixture-game-0"
+      },
+      "originalStart": {
+        "requestId": "1a17193f-a096-4287-84ee-977ab3b60549",
+        "authorizedAt": "2026-10-15T04:00:28.54+00:00",
+        "selectedInspection": {
+          "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+          "actualSeed": "1331861027",
+          "capturedAt": "2026-10-15T04:00:27.640Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+          "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+          "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+          "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "22040bcc-d79e-48e1-ba02-4ac2afdd7a9a",
+        "startRequestId": "1a17193f-a096-4287-84ee-977ab3b60549",
+        "authorizedAt": "2026-10-15T04:00:28.540Z",
+        "selectedInspection": {
+          "desktopId": "5b7b2c46-0b78-4ffe-80c3-c60da6e3ba94",
+          "actualSeed": "1331861027",
+          "capturedAt": "2026-10-15T04:00:27.640Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "29bc9490-98ef-428b-ac24-e6bcd4cee681",
+          "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+          "gameSessionId": "43f818ff-2138-4aea-b154-cfe348a8dbb4",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae99cf0e-4406-4025-8320-c1ecad260623",
+          "desktopSessionEpoch": "045d2587-868f-4aca-a128-53fdd74c08bd",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 5,
+        "contentDigest": "8e4e18d78e150953640b8f700110c355ad82214e574ddabdf09606f38fa879f1",
+        "capturedAt": "2026-10-15T04:00:30.040Z",
+        "complete": true,
+        "loaded": true,
+        "protected": false,
+        "contentValid": true
+      },
+      "decision": {
+        "authorized": true,
+        "playing": true,
+        "terminal": false,
+        "reason": "",
+        "remainingMs": 27100,
+        "initialReviewRemainingMs": 1796500
+      },
+      "sample": {
+        "originRequestId": "cr2-fixture-restored",
+        "channel": "http",
+        "credentialId": "fixture-credential",
+        "sampleKey": "eb00bf0aba491c620ddf47bf68068be4cc52c39bf3b8b554e2c51ff74e5e915e"
+      }
+    }
+  },
+  {
+    "label": "actual-resumed-fresh-inspection",
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "b9e543b2-0361-4c47-8dbe-667ec9b5a58b",
+      "participantId": "8e169c1e-f2a6-492e-9f3f-48405dbd573f",
+      "generation": 2,
+      "scope": {
+        "principalId": "3935a9cf-ceb1-4c9b-a7a6-e7eca1993b04",
+        "sessionId": "a14f6c69-8537-4019-bdfe-b463b66e48e0",
+        "sessionEpoch": "1025054f-be28-4e9b-8d9b-a926239f5325",
+        "roomId": "7e653c26-7497-4ec4-9036-aa5192996b17",
+        "runId": "0840cb5a-96b0-48fe-9abb-f51295358fbf",
+        "runEpoch": "27d2f773-0698-41da-9c80-0112cc7cf0de",
+        "configRevision": 1,
+        "attachmentId": "f7a8c6a2-3acc-4263-85f5-a547175ef114",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "b6e73e74-2287-41d6-b4e0-fdaecf6e053a",
+        "desktopId": "316f2b20-8add-43b3-90c3-a7f0160f54e9",
+        "desktopSessionEpoch": "4283fadf-de12-49f6-81fd-15aaea8604c8",
+        "gameSessionId": "a14f6c69-8537-4019-bdfe-b463b66e48e0",
+        "gameSessionEpoch": "1025054f-be28-4e9b-8d9b-a926239f5325",
+        "attachmentId": "f7a8c6a2-3acc-4263-85f5-a547175ef114",
+        "gameInstanceId": "cr2-return-281b40c3-4f43-4813-b5a7-e27bb9877af3"
+      },
+      "originalStart": {
+        "requestId": "1d961671-e126-4502-b1a9-00c291903f40",
+        "authorizedAt": "2026-10-15T04:31:10+00:00",
+        "selectedInspection": {
+          "desktopId": "316f2b20-8add-43b3-90c3-a7f0160f54e9",
+          "actualSeed": "2407045715",
+          "capturedAt": "2026-10-15T04:31:09.649Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "ff3ac5ca-96b4-417f-b655-4c8c0ddeef8e",
+          "contentDigest": "e23e94919155efdcda3a6bbeb4fdd2a2a9b61b30006f5881ce03109330459226",
+          "gameSessionId": "245eee43-5faa-4395-a973-184cf6028bf0",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "7c598018-b4b7-45fc-8351-df5f41a18e6d",
+          "desktopSessionEpoch": "4283fadf-de12-49f6-81fd-15aaea8604c8",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "3f3101a8-211d-451a-81d7-c1cff1b4c6f2",
+        "startRequestId": "1d961671-e126-4502-b1a9-00c291903f40",
+        "authorizedAt": "2026-10-15T04:31:10.326Z",
+        "selectedInspection": {
+          "desktopId": "316f2b20-8add-43b3-90c3-a7f0160f54e9",
+          "actualSeed": "2407045715",
+          "capturedAt": "2026-10-15T04:31:10.325Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "f7a8c6a2-3acc-4263-85f5-a547175ef114",
+          "contentDigest": "e23e94919155efdcda3a6bbeb4fdd2a2a9b61b30006f5881ce03109330459226",
+          "gameSessionId": "a14f6c69-8537-4019-bdfe-b463b66e48e0",
+          "randomizeLoot": true,
+          "gameInstanceId": "cr2-return-281b40c3-4f43-4813-b5a7-e27bb9877af3",
+          "gameSessionEpoch": "1025054f-be28-4e9b-8d9b-a926239f5325",
+          "desktopSessionEpoch": "4283fadf-de12-49f6-81fd-15aaea8604c8",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 1,
+        "contentDigest": "e23e94919155efdcda3a6bbeb4fdd2a2a9b61b30006f5881ce03109330459226",
+        "capturedAt": "2026-10-15T04:31:10.322Z",
+        "complete": true,
+        "loaded": true,
+        "protected": true,
+        "contentValid": true
+      },
+      "decision": {
+        "authorized": true,
+        "playing": false,
+        "terminal": false,
+        "reason": "",
+        "remainingMs": 29890,
+        "initialReviewRemainingMs": 1798923
+      },
+      "sample": {
+        "originRequestId": "c3e8dd50-aaf7-4b53-89d2-3cebd1b58cd0",
+        "channel": "http",
+        "credentialId": "5e772612-5ea1-4389-befa-18579f18ecf2",
+        "sampleKey": "cb90aa2228b9b5cb1df637128a63cc8eda64a9baaed448f3866a3cd999faed1b"
+      }
+    }
+  },
+  {
+    "label": "actual-post-Start-current-report",
+    "type": "ConnectionAdmission",
+    "json": {
+      "serviceId": "nt2-g3-c2-potion-correction",
+      "serviceEpoch": "5d58b84b-43c6-450b-81d4-95f0eb0662dc",
+      "participantId": "ae167050-c9ae-46fa-8217-4c8d92710747",
+      "generation": 1,
+      "scope": {
+        "principalId": "89891ccc-3c15-4bc0-bc3f-b5bda105460b",
+        "sessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+        "sessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+        "roomId": "60ceaf52-697f-49ae-b360-8c75a0bf654c",
+        "runId": "d760a61f-8867-4ef4-8cdf-c7b50cd59d3e",
+        "runEpoch": "a48e53ca-4a75-43de-8173-379ea0fc776a",
+        "configRevision": 1,
+        "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+        "worldToken": "g3-fixture-world-0"
+      },
+      "owner": {
+        "familyId": "93b15771-a01b-4fd5-8ee3-84b2f3c48021",
+        "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+        "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+        "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+        "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+        "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+        "gameInstanceId": "g3-fixture-game-0"
+      },
+      "originalStart": {
+        "requestId": "337c404a-bcc3-4756-981e-839188ee6a81",
+        "authorizedAt": "2026-10-15T04:31:06.576+00:00",
+        "selectedInspection": {
+          "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+          "actualSeed": "1745119931",
+          "capturedAt": "2026-10-15T04:31:06.486Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+          "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+          "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+          "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+          "observationRevision": 1
+        }
+      },
+      "immutable": {
+        "authorizationId": "1b9503d8-e5b3-4e06-95b1-c284457ee26f",
+        "startRequestId": "337c404a-bcc3-4756-981e-839188ee6a81",
+        "authorizedAt": "2026-10-15T04:31:06.576Z",
+        "selectedInspection": {
+          "desktopId": "a0d9ecf9-7d59-45d6-82d2-a5d96888ebac",
+          "actualSeed": "1745119931",
+          "capturedAt": "2026-10-15T04:31:06.486Z",
+          "seedPolicy": "shared-random",
+          "worldToken": "g3-fixture-world-0",
+          "attachmentId": "989f54f0-f0b2-4afa-8cff-4bb2b5c78984",
+          "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+          "gameSessionId": "1eb83eab-b30c-4bca-b756-68ca0fcdbeca",
+          "randomizeLoot": true,
+          "gameInstanceId": "g3-fixture-game-0",
+          "gameSessionEpoch": "ae384426-3358-4954-acee-7528a5bac1d6",
+          "desktopSessionEpoch": "5d1a3807-bdfe-4e87-81b3-04463a2dea83",
+          "observationRevision": 1
+        }
+      },
+      "currentReport": {
+        "revision": 2,
+        "contentDigest": "2661a3b5ba5db453614b702a35a200a7dd9f7a95547194fb13a151ce200d4580",
+        "capturedAt": "2026-10-15T04:31:06.596Z",
+        "complete": true,
+        "loaded": true,
+        "protected": false,
+        "contentValid": true
+      },
+      "decision": {
+        "authorized": true,
+        "playing": true,
+        "terminal": false,
+        "reason": "",
+        "remainingMs": 29820,
+        "initialReviewRemainingMs": 1799760
+      },
+      "sample": {
+        "originRequestId": "abfbeef9-2349-4a7e-9043-0546785c567e",
+        "channel": "http",
+        "credentialId": "b4a9624b-6367-4e80-9bbf-74eb3d96bb80",
+        "sampleKey": "f62b5995c89e059403b46e0b0437e1b7e85e9f628fb84ea2acf7d5ee0fa90d04"
+      }
+    }
+  }
+]

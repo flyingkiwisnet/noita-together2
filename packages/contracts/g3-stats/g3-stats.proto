@@ -1,0 +1,109 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.stats;
+
+message Empty {
+}
+
+message Discover {
+  optional string afterLocator = 1;
+  optional uint32 limit = 2;
+}
+
+message Read {
+  optional string locator = 1;
+  optional string afterRow = 2;
+  optional uint32 limit = 3;
+  optional string runKey = 4;
+  optional string summaryRevision = 5;
+}
+
+message Scope {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string runEpoch = 3;
+  optional uint32 configRevision = 4;
+  optional string attachmentId = 5;
+  optional string worldToken = 6;
+}
+
+message Observe {
+  optional string eventId = 1;
+  optional string kind = 2;
+  optional uint32 progression = 3;
+  optional string orbId = 4;
+}
+
+message Lobby {
+  optional string locator = 1;
+  optional string name = 2;
+  optional string mode = 3;
+  optional uint32 occupancy = 4;
+  optional uint32 capacity = 5;
+  optional string state = 6;
+  optional bool publicStats = 7;
+}
+
+message Row {
+  optional string rowKey = 1;
+  optional string displayName = 2;
+  optional string hearts = 3;
+  optional string orbs = 4;
+  optional string steveKills = 5;
+  optional string deaths = 6;
+  optional string wins = 7;
+  optional string goldDeposited = 8;
+  optional string goldWithdrawn = 9;
+  optional string itemsDeposited = 10;
+  optional string itemsClaimed = 11;
+}
+
+message Summary {
+  optional string locator = 1;
+  optional string runKey = 2;
+  optional string summaryRevision = 3;
+  optional string collectionState = 4;
+  optional string runStatus = 5;
+  optional string startedAt = 6;
+  optional string endedAt = 7;
+  optional string elapsedSeconds = 8;
+  repeated Row rows = 9;
+  optional string nextRow = 10;
+  optional string lobbyName = 11;
+  optional uint32 retentionDays = 12;
+  optional bool gameReported = 13;
+}
+
+message Error {
+  optional string code = 1;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  Scope scope = 7;
+  optional uint32 ownerGeneration = 8;
+  oneof payload {
+    Discover discover = 9;
+    Read read = 10;
+    Observe observe = 11;
+  }
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  repeated Lobby lobbies = 6;
+  optional string nextLocator = 7;
+  Summary summary = 8;
+  optional bool accepted = 9;
+  optional bool duplicate = 10;
+  Error error = 11;
+}

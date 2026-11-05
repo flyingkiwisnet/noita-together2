@@ -1,0 +1,6 @@
+<Entity tags="nt2_g3_owned_ghost" serialize="0">
+  <!-- Use the same player-sheet origin as every robe and the emote assets.
+       A body-only transform offset would leave cape anchoring ambiguous. -->
+  <SpriteComponent image_file="data/enemies_gfx/player.xml" offset_x="6" offset_y="14" alpha="0.35" emissive="1" />
+  <HotspotComponent _tags="cape_root" sprite_hotspot_name="cape" />
+</Entity>

@@ -1,0 +1,30 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const root=new URL('../g3-race-goals/',import.meta.url);
+const schema=JSON.parse(await readFile(new URL('schema.json',root),'utf8'));
+const catalogue=JSON.parse(await readFile(new URL('catalogue.json',root),'utf8'));
+assert.equal(catalogue.revision,schema.revision);
+for(const entries of [schema.goals,catalogue.bosses,catalogue.biomes])assert.equal(new Set(entries.map(e=>e.id)).size,entries.length);
+assert.deepEqual(Object.keys(catalogue.goalSupport).sort(),schema.goals.map(g=>g.id).sort());
+assert.equal(new Set(catalogue.orbs).size,catalogue.orbs.length);
+for(const n of Object.values(schema.limits))assert.ok(Number.isSafeInteger(n)&&n>0);
+for(const entry of [...catalogue.bosses,...catalogue.biomes]){
+ assert.match(entry.id,/^[a-z][a-z0-9_]{0,63}$/);
+ assert.ok(['easy','medium','hard','extreme'].includes(entry.difficulty));
+ assert.equal(typeof entry.available,'boolean');assert.equal(typeof entry.randomEligible,'boolean');
+ assert.ok(!entry.available||entry.detector&&entry.name&&Array.isArray(entry.prerequisites));
+ assert.ok(!entry.available||entry.supportedContentVersion===catalogue.supportedContentVersion&&entry.evidenceRef);
+ assert.ok(entry.available||!entry.randomEligible);
+}
+for(const boss of catalogue.bosses)if(boss.available)assert.ok(boss.entityFiles.length&&boss.deathScript);
+const parameter=f=>f.type==='integer'?'number':f.type==='ids'?'string[]':f.type==='enum'?f.values.map(v=>JSON.stringify(v)).join(' | '):'string';
+const union=(entries,discriminator,fields)=>entries.map(e=>`  | {${discriminator}: ${JSON.stringify(e[discriminator])}; ${fields(e)}}`).join('\n');
+let output='// GENERATED from schema.json and catalogue.json. Do not edit. No transport contract.\n';
+output+=`export const RACE_GOAL_SCHEMA = ${JSON.stringify(schema,null,2)} as const;\n`;
+output+=`export const RACE_GOAL_CATALOGUE = ${JSON.stringify(catalogue,null,2)} as const;\n`;
+output+='export type Difficulty = \'easy\' | \'medium\' | \'hard\' | \'extreme\';\n';
+output+='export type Goal = {instanceId:string} & (\n'+union(schema.goals,'id',e=>'parameters: {'+Object.entries(e.parameters).map(([k,f])=>`${k}: ${parameter(f)}`).join('; ')+'}')+'\n);\n';
+output+='export type Observation =\n'+union(schema.observations,'kind',e=>Object.entries(e.fields).map(([k,t])=>`${k}: ${t}`).join('; '))+';\n';
+const file=new URL('g3-race-goals.ts',root);
+if(process.argv.includes('--check'))assert.equal(await readFile(file,'utf8'),output,'Race goal contract drift');else await writeFile(file,output);
+console.log('Race goal catalogue '+(process.argv.includes('--check')?'verified':'generated'));

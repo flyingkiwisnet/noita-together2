@@ -1,0 +1,816 @@
+{
+  "major": 1,
+  "revision": "g3-c2-1",
+  "limits": {
+    "bytes": 32768,
+    "fields": 4096,
+    "depth": 12
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "STALE_EPOCH",
+    "CONFLICT",
+    "CAPACITY",
+    "NOT_FOUND",
+    "UNSUPPORTED_CONTENT"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Rules": {
+      "fields": {
+        "NT_sync_steve": {
+          "id": 1,
+          "type": "bool"
+        }
+      }
+    },
+    "Empty": {
+      "fields": {}
+    },
+    "RulesSet": {
+      "fields": {
+        "expectedRevision": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "rules": {
+          "id": 2,
+          "type": "Rules"
+        }
+      }
+    },
+    "RulesSnapshot": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "rules": {
+          "id": 3,
+          "type": "Rules"
+        }
+      }
+    },
+    "ArenaBind": {
+      "fields": {
+        "progression": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "arenaToken": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "State": {
+      "fields": {
+        "progression": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        }
+      }
+    },
+    "Near": {
+      "fields": {
+        "encounterId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "arenaToken": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "near": {
+          "id": 3,
+          "type": "bool"
+        },
+        "readinessEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "Pickup": {
+      "fields": {
+        "encounterId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "arenaToken": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "orbCount": {
+          "id": 3,
+          "type": "uint32",
+          "max": 4294967295
+        }
+      }
+    },
+    "Steve": {
+      "fields": {
+        "progression": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        }
+      }
+    },
+    "Hourglass": {
+      "fields": {
+        "effectId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "materialId": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "catalogueRevision": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Completed": {
+      "fields": {
+        "progression": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        }
+      }
+    },
+    "Payload": {
+      "fields": {
+        "pickup": {
+          "id": 1,
+          "type": "Pickup"
+        },
+        "steve": {
+          "id": 2,
+          "type": "Steve"
+        },
+        "hourglass": {
+          "id": 3,
+          "type": "Hourglass"
+        },
+        "completed": {
+          "id": 4,
+          "type": "Completed"
+        }
+      },
+      "oneof": [
+        "pickup",
+        "steve",
+        "hourglass",
+        "completed"
+      ]
+    },
+    "Publish": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "rulesRevision": {
+          "id": 2,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "payload": {
+          "id": 3,
+          "type": "Payload"
+        },
+        "senderDisposition": {
+          "id": 4,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "pending",
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "progression": {
+          "id": 5,
+          "type": "uint32",
+          "max": 4294967295
+        }
+      }
+    },
+    "Deliveries": {
+      "fields": {
+        "limit": {
+          "id": 1,
+          "type": "uint32",
+          "max": 8
+        }
+      }
+    },
+    "Receipt": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Participant": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "status": {
+          "id": 4,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "playing",
+            "paused",
+            "disconnected",
+            "respawning",
+            "won",
+            "terminal"
+          ]
+        },
+        "near": {
+          "id": 5,
+          "type": "bool"
+        },
+        "pickedUp": {
+          "id": 6,
+          "type": "bool"
+        },
+        "orbCount": {
+          "id": 7,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "completed": {
+          "id": 8,
+          "type": "bool"
+        },
+        "readinessEpoch": {
+          "id": 10,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "Encounter": {
+      "fields": {
+        "encounterId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "progression": {
+          "id": 2,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "stage": {
+          "id": 3,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "locked",
+            "unlocked",
+            "battle"
+          ]
+        },
+        "revision": {
+          "id": 4,
+          "type": "string",
+          "max": 20
+        },
+        "participants": {
+          "id": 5,
+          "type": "Participant",
+          "repeated": true,
+          "max": 32
+        }
+      }
+    },
+    "Snapshot": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "rules": {
+          "id": 2,
+          "type": "RulesSnapshot"
+        },
+        "encounter": {
+          "id": 3,
+          "type": "Encounter"
+        },
+        "completions": {
+          "id": 4,
+          "type": "Completion",
+          "repeated": true,
+          "max": 32
+        },
+        "diagnostic": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Delivery": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "rulesRevision": {
+          "id": 3,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "sourcePrincipalId": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sourceWorldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "sourceName": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "payload": {
+          "id": 7,
+          "type": "Payload"
+        },
+        "capturedRules": {
+          "id": 8,
+          "type": "Rules"
+        },
+        "senderDisposition": {
+          "id": 9,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "pending",
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "state": {
+          "id": 10,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "pending",
+            "applied",
+            "skipped",
+            "uncertain",
+            "terminal"
+          ]
+        },
+        "reason": {
+          "id": 11,
+          "type": "string",
+          "max": 64
+        },
+        "sourceProgression": {
+          "id": 13,
+          "type": "uint32",
+          "max": 65535
+        },
+        "recipientProgression": {
+          "id": 14,
+          "type": "uint32",
+          "max": 65535
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "roomId": {
+          "id": 7,
+          "type": "string",
+          "max": 36
+        },
+        "scope": {
+          "id": 8,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 9,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "rulesGet": {
+          "id": 10,
+          "type": "Empty"
+        },
+        "rulesSet": {
+          "id": 11,
+          "type": "RulesSet"
+        },
+        "state": {
+          "id": 12,
+          "type": "State"
+        },
+        "arenaBind": {
+          "id": 13,
+          "type": "ArenaBind"
+        },
+        "near": {
+          "id": 14,
+          "type": "Near"
+        },
+        "publish": {
+          "id": 15,
+          "type": "Publish"
+        },
+        "deliveries": {
+          "id": 16,
+          "type": "Deliveries"
+        },
+        "receipt": {
+          "id": 17,
+          "type": "Receipt"
+        },
+        "sourceOutcome": {
+          "id": 18,
+          "type": "SourceOutcome"
+        }
+      },
+      "oneof": [
+        "rulesGet",
+        "rulesSet",
+        "state",
+        "arenaBind",
+        "near",
+        "publish",
+        "deliveries",
+        "receipt",
+        "sourceOutcome"
+      ]
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 64,
+          "values": [
+            "INVALID_MESSAGE",
+            "UNAUTHENTICATED",
+            "FORBIDDEN",
+            "STALE_EPOCH",
+            "CONFLICT",
+            "CAPACITY",
+            "NOT_FOUND",
+            "UNSUPPORTED_CONTENT"
+          ]
+        }
+      }
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 6,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 7,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "snapshot": {
+          "id": 8,
+          "type": "Snapshot"
+        },
+        "event": {
+          "id": 9,
+          "type": "Delivery"
+        },
+        "deliveries": {
+          "id": 10,
+          "type": "Delivery",
+          "repeated": true,
+          "max": 8
+        },
+        "more": {
+          "id": 11,
+          "type": "bool"
+        },
+        "duplicate": {
+          "id": 12,
+          "type": "bool"
+        },
+        "error": {
+          "id": 13,
+          "type": "Error"
+        },
+        "sourceStatus": {
+          "id": 14,
+          "type": "SourceStatus"
+        }
+      }
+    },
+    "SourceOriginal": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "publish": {
+          "id": 5,
+          "type": "Publish"
+        }
+      }
+    },
+    "SourceReceipt": {
+      "fields": {
+        "state": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 2,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "SourceOutcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "SourceOriginal"
+        },
+        "receipt": {
+          "id": 2,
+          "type": "SourceReceipt"
+        }
+      }
+    },
+    "SourceStatus": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "SourceOriginal"
+        },
+        "coverage": {
+          "id": 2,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "durable",
+            "absent"
+          ]
+        },
+        "committed": {
+          "id": 3,
+          "type": "bool"
+        },
+        "sequence": {
+          "id": 4,
+          "type": "string",
+          "max": 20
+        },
+        "disposition": {
+          "id": 5,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "pending",
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 6,
+          "type": "string",
+          "max": 64
+        },
+        "effectAuthority": {
+          "id": 7,
+          "type": "bool"
+        },
+        "selfReported": {
+          "id": 8,
+          "type": "bool"
+        },
+        "savedEffectProof": {
+          "id": 9,
+          "type": "bool"
+        }
+      }
+    },
+    "Completion": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "progression": {
+          "id": 3,
+          "type": "uint32",
+          "max": 4294967295
+        },
+        "eventId": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "displayName": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        }
+      }
+    }
+  }
+}

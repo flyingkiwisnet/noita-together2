@@ -1,0 +1,8 @@
+{
+  "mock":true, "contractRevision":"g0-json-1", "serverId":"nt2-g0-local", "kind":"room.snapshot",
+  "room": {
+    "id":"g0-room-forest", "name":"Seed 424242 — core fixture", "hostAccountId":"g0-account-host",
+    "revision":1, "configRevision":1, "capacity":4, "seed":424242, "state":"waiting", "runId":null,
+    "players":[], "roster":[], "chat":[]
+  }
+}

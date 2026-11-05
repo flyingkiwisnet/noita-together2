@@ -1,0 +1,2168 @@
+{
+  "major": 1,
+  "revision": "g3-waiting-entry-candidate-3",
+  "limits": {
+    "bytes": 65536,
+    "fields": 2048,
+    "depth": 12
+  },
+  "messages": {
+    "ConnectionOwner": {
+      "fields": {
+        "familyId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionReport": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32",
+          "required": false
+        },
+        "contentDigest": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "capturedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "complete": {
+          "id": 4,
+          "type": "bool",
+          "required": true
+        },
+        "loaded": {
+          "id": 5,
+          "type": "bool",
+          "required": true
+        },
+        "protected": {
+          "id": 6,
+          "type": "bool",
+          "required": true
+        },
+        "contentValid": {
+          "id": 7,
+          "type": "bool",
+          "required": true
+        }
+      }
+    },
+    "ConnectionSample": {
+      "fields": {
+        "originRequestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "channel": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "credentialId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionCredential": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "credentialId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accessRemainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 900000,
+          "required": true
+        },
+        "originRequestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionAdmission": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "participantId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "generation": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "scope": {
+          "id": 5,
+          "type": "ConnectionScope",
+          "required": true
+        },
+        "owner": {
+          "id": 6,
+          "type": "ConnectionOwner",
+          "required": true
+        },
+        "originalStart": {
+          "id": 7,
+          "type": "ConnectionStart",
+          "required": true
+        },
+        "immutable": {
+          "id": 8,
+          "type": "ConnectionImmutable",
+          "required": true
+        },
+        "currentReport": {
+          "id": 9,
+          "type": "ConnectionReport",
+          "required": true
+        },
+        "decision": {
+          "id": 10,
+          "type": "ConnectionDecision",
+          "required": true
+        },
+        "sample": {
+          "id": 11,
+          "type": "ConnectionSample",
+          "required": true
+        }
+      }
+    },
+    "ConnectionScope": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "roomId": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "configRevision": {
+          "id": 7,
+          "type": "uint32",
+          "required": true
+        },
+        "attachmentId": {
+          "id": 8,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "worldToken": {
+          "id": 9,
+          "type": "string",
+          "max": 80,
+          "required": true
+        }
+      }
+    },
+    "ConnectionStart": {
+      "fields": {
+        "requestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 3,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionInspection": {
+      "fields": {
+        "desktopId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "observationRevision": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "contentDigest": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capturedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 8,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "actualSeed": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "seedPolicy": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "randomizeLoot": {
+          "id": 13,
+          "type": "bool"
+        }
+      }
+    },
+    "ConnectionImmutable": {
+      "fields": {
+        "authorizationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "startRequestId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 4,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionDecision": {
+      "fields": {
+        "authorized": {
+          "id": 1,
+          "type": "bool",
+          "required": true
+        },
+        "playing": {
+          "id": 2,
+          "type": "bool",
+          "required": true
+        },
+        "terminal": {
+          "id": 3,
+          "type": "bool",
+          "required": true
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "remainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 30000,
+          "required": true
+        },
+        "initialReviewRemainingMs": {
+          "id": 6,
+          "type": "uint32",
+          "maxValue": 3600000,
+          "required": true
+        }
+      }
+    },
+    "Credentials": {
+      "fields": {
+        "accessToken": {
+          "id": 1,
+          "type": "string",
+          "max": 4096
+        },
+        "refreshSecret": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "accountId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "sessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "kind": {
+          "id": 6,
+          "type": "string",
+          "max": 16
+        },
+        "deviceId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "expiresAt": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        },
+        "attachmentId": {
+          "id": 9,
+          "type": "string",
+          "max": 128
+        },
+        "principal": {
+          "id": 10,
+          "type": "Principal"
+        }
+      }
+    },
+    "Principal": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "source": {
+          "id": 4,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "GameObservation": {
+      "fields": {
+        "attachmentId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "gameInstanceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "observationRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "actualSeed": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        },
+        "activeMods": {
+          "id": 6,
+          "type": "string",
+          "repeated": true,
+          "max": 256,
+          "itemMax": 128
+        },
+        "inventoryComplete": {
+          "id": 7,
+          "type": "bool"
+        },
+        "beta": {
+          "id": 8,
+          "type": "string",
+          "max": 16
+        },
+        "protected": {
+          "id": 9,
+          "type": "bool"
+        },
+        "loaded": {
+          "id": 10,
+          "type": "bool"
+        },
+        "seedStatus": {
+          "id": 17,
+          "type": "string",
+          "max": 16
+        },
+        "collectorFailure": {
+          "id": 18,
+          "type": "string",
+          "max": 32
+        },
+        "modVersion": {
+          "id": 19,
+          "type": "string",
+          "max": 128
+        },
+        "bridgeVersion": {
+          "id": 20,
+          "type": "string",
+          "max": 128
+        },
+        "compatibilityProvenance": {
+          "id": 21,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Empty": {
+      "fields": {}
+    },
+    "WaitingIntent": {
+      "fields": {
+        "waitingId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accountId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "preparationId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalAttachmentId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalAttachRequestId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "originalAttachFingerprint": {
+          "id": 8,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "originalDesktopId": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalDesktopEpoch": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "roomId": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runId": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 13,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "preparationServiceEpoch": {
+          "id": 14,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "configDigest": {
+          "id": 15,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 16,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "actualSeed": {
+          "id": 17,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "seedPolicy": {
+          "id": 18,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalGameInstanceId": {
+          "id": 19,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "contextId": {
+          "id": 20,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "contentDigest": {
+          "id": 21,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "configRevision": {
+          "id": 22,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "randomizeLoot": {
+          "id": 23,
+          "type": "bool",
+          "required": true
+        },
+        "originalObservationRevision": {
+          "id": 24,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "pendingReservationId": {
+          "id": 30,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "WaitingState": {
+      "fields": {
+        "intent": {
+          "id": 1,
+          "type": "WaitingIntent",
+          "required": true
+        },
+        "generation": {
+          "id": 2,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "owner": {
+          "id": 3,
+          "type": "ConnectionOwner",
+          "required": true
+        },
+        "state": {
+          "id": 4,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "reason": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "reviewRemainingMs": {
+          "id": 6,
+          "type": "uint32",
+          "maxValue": 3600000,
+          "required": true
+        },
+        "ownerRemainingMs": {
+          "id": 7,
+          "type": "uint32",
+          "maxValue": 30000,
+          "required": true
+        },
+        "mayPlay": {
+          "id": 8,
+          "type": "bool",
+          "required": true,
+          "values": [
+            false
+          ]
+        },
+        "sample": {
+          "id": 9,
+          "type": "ConnectionSample",
+          "required": true
+        },
+        "currentReport": {
+          "id": 10,
+          "type": "ConnectionReport",
+          "required": true
+        },
+        "admittedParticipantId": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "currentContextId": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "Enroll": {
+      "fields": {
+        "preparationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalAttachRequestId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalAttachFingerprint": {
+          "id": 4,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "observationRevision": {
+          "id": 7,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "contentDigest": {
+          "id": 8,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "contextId": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "Recover": {
+      "fields": {
+        "waitingProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43,
+          "required": true
+        },
+        "gameVersion": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "modVersion": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "bridgeVersion": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capabilities": {
+          "id": 5,
+          "type": "string",
+          "repeated": true,
+          "itemMax": 128,
+          "max": 128
+        },
+        "observation": {
+          "id": 6,
+          "type": "GameObservation",
+          "required": true
+        },
+        "contextId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "Proof": {
+      "fields": {
+        "waitingProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43,
+          "required": true
+        }
+      }
+    },
+    "WaitingOriginal": {
+      "fields": {
+        "accountId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalSessionId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalSessionEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalServiceEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "kind": {
+          "id": 7,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "fingerprint": {
+          "id": 8,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "waitingId": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "WaitingOutcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "WaitingOriginal",
+          "required": true
+        },
+        "originalOutcome": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "coverage": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "waitingId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "effectId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "currentDisposition": {
+          "id": 6,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "retryAfterMs": {
+          "id": 7,
+          "type": "uint32",
+          "maxValue": 60000,
+          "required": true
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "retryAfterMs": {
+          "id": 2,
+          "type": "uint32",
+          "maxValue": 60000,
+          "required": true
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "waitingId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "generation": {
+          "id": 8,
+          "type": "uint32",
+          "maxValue": 2147483647,
+          "required": false
+        },
+        "enroll": {
+          "id": 10,
+          "type": "Enroll",
+          "required": false
+        },
+        "recover": {
+          "id": 11,
+          "type": "Recover",
+          "required": false
+        },
+        "status": {
+          "id": 12,
+          "type": "Empty",
+          "required": false
+        },
+        "outcome": {
+          "id": 13,
+          "type": "WaitingOriginal",
+          "required": false
+        },
+        "offline": {
+          "id": 14,
+          "type": "Proof",
+          "required": false
+        },
+        "pendingId": {
+          "id": 30,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "reserve": {
+          "id": 31,
+          "type": "Reserve",
+          "required": false
+        },
+        "pendingRecover": {
+          "id": 32,
+          "type": "PendingRecover",
+          "required": false
+        },
+        "pendingStatus": {
+          "id": 33,
+          "type": "Empty",
+          "required": false
+        },
+        "pendingOffline": {
+          "id": 34,
+          "type": "PendingOffline",
+          "required": false
+        },
+        "pendingOutcome": {
+          "id": 35,
+          "type": "WaitingOriginal",
+          "required": false
+        },
+        "entryPreview": {
+          "id": 40,
+          "type": "EntryPreviewRequest",
+          "required": false
+        },
+        "entryActivate": {
+          "id": 41,
+          "type": "EntryActivate",
+          "required": false
+        },
+        "entryCancel": {
+          "id": 42,
+          "type": "EntryCancel",
+          "required": false
+        },
+        "entryStatus": {
+          "id": 43,
+          "type": "EntryLookup",
+          "required": false
+        },
+        "entryOutcome": {
+          "id": 44,
+          "type": "EntryOriginal",
+          "required": false
+        }
+      },
+      "oneof": [
+        "enroll",
+        "recover",
+        "status",
+        "outcome",
+        "offline",
+        "reserve",
+        "pendingRecover",
+        "pendingStatus",
+        "pendingOffline",
+        "pendingOutcome",
+        "entryPreview",
+        "entryActivate",
+        "entryCancel",
+        "entryStatus",
+        "entryOutcome"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32",
+          "maxValue": 4294967295,
+          "required": true
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "waiting": {
+          "id": 10,
+          "type": "WaitingState",
+          "required": false
+        },
+        "waitingProof": {
+          "id": 11,
+          "type": "string",
+          "max": 43,
+          "required": false
+        },
+        "credentials": {
+          "id": 12,
+          "type": "Credentials",
+          "required": false
+        },
+        "credentialValidity": {
+          "id": 13,
+          "type": "ConnectionCredential",
+          "required": false
+        },
+        "canonicalAdmission": {
+          "id": 14,
+          "type": "ConnectionAdmission",
+          "required": false
+        },
+        "outcome": {
+          "id": 15,
+          "type": "WaitingOutcome",
+          "required": false
+        },
+        "error": {
+          "id": 16,
+          "type": "Error",
+          "required": false
+        },
+        "pending": {
+          "id": 30,
+          "type": "PendingState",
+          "required": false
+        },
+        "pendingProof": {
+          "id": 31,
+          "type": "string",
+          "max": 43,
+          "required": false
+        },
+        "pendingOutcome": {
+          "id": 32,
+          "type": "PendingOutcome",
+          "required": false
+        },
+        "resumeProof": {
+          "id": 33,
+          "type": "string",
+          "max": 43,
+          "required": false
+        },
+        "participant": {
+          "id": 34,
+          "type": "Participant",
+          "required": false
+        },
+        "entryPreview": {
+          "id": 40,
+          "type": "EntryPreview",
+          "required": false
+        },
+        "entry": {
+          "id": 41,
+          "type": "EntryState",
+          "required": false
+        },
+        "entryOutcome": {
+          "id": 42,
+          "type": "EntryOutcome",
+          "required": false
+        }
+      }
+    },
+    "Reserve": {
+      "fields": {
+        "preparationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "contextId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "PendingIntent": {
+      "fields": {
+        "pendingId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "preparationId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "roomId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "configRevision": {
+          "id": 8,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 2147483647
+        },
+        "configDigest": {
+          "id": 9,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "accountId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalDesktopId": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalDesktopEpoch": {
+          "id": 13,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 14,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "contextId": {
+          "id": 15,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "seedPolicy": {
+          "id": 16,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "randomizeLoot": {
+          "id": 17,
+          "type": "bool",
+          "required": true
+        },
+        "actualSeed": {
+          "id": 18,
+          "type": "string",
+          "max": 32,
+          "required": false
+        }
+      }
+    },
+    "PendingState": {
+      "fields": {
+        "intent": {
+          "id": 1,
+          "type": "PendingIntent",
+          "required": true
+        },
+        "generation": {
+          "id": 2,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 2147483647
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "mayPlay": {
+          "id": 5,
+          "type": "bool",
+          "required": true,
+          "values": [
+            false
+          ]
+        },
+        "waitingId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "sample": {
+          "id": 7,
+          "type": "ConnectionSample",
+          "required": true
+        },
+        "preparationRemainingMs": {
+          "id": 8,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 600000
+        },
+        "reviewRemainingMs": {
+          "id": 9,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 3600000
+        },
+        "boundActualSeed": {
+          "id": 10,
+          "type": "string",
+          "max": 32,
+          "required": false
+        },
+        "preparationState": {
+          "id": 11,
+          "type": "string",
+          "max": 16,
+          "required": true,
+          "values": [
+            "issued",
+            "consumed",
+            "loaded",
+            "cancelled",
+            "expired"
+          ]
+        }
+      }
+    },
+    "PendingRecover": {
+      "fields": {
+        "gameVersion": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "modVersion": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "bridgeVersion": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capabilities": {
+          "id": 5,
+          "type": "string",
+          "repeated": true,
+          "itemMax": 128,
+          "max": 128
+        },
+        "observation": {
+          "id": 6,
+          "type": "GameObservation",
+          "required": true
+        },
+        "contextId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "pendingProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43,
+          "required": true
+        }
+      }
+    },
+    "PendingOffline": {
+      "fields": {
+        "pendingProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43,
+          "required": true
+        }
+      }
+    },
+    "PendingOutcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "WaitingOriginal",
+          "required": true
+        },
+        "originalOutcome": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "coverage": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "pendingId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "effectId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "Association": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "roomId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "runId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "participantId": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "accountId": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "originalStartId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "configRevision": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "actualSeed": {
+          "id": 9,
+          "type": "string",
+          "max": 20
+        },
+        "seedPolicy": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "randomizeLoot": {
+          "id": 11,
+          "type": "bool"
+        }
+      }
+    },
+    "Participant": {
+      "fields": {
+        "association": {
+          "id": 1,
+          "type": "Association"
+        },
+        "state": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "reason": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "generation": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "serviceEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "desktopId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "gameSessionId": {
+          "id": 8,
+          "type": "string",
+          "max": 128
+        },
+        "attachmentId": {
+          "id": 9,
+          "type": "string",
+          "max": 128
+        },
+        "leaseExpiresAt": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "returnEligible": {
+          "id": 11,
+          "type": "bool"
+        },
+        "reviewRequired": {
+          "id": 12,
+          "type": "bool"
+        },
+        "pendingObservationRevision": {
+          "id": 13,
+          "type": "uint32"
+        },
+        "pendingContentDigest": {
+          "id": 14,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "EntryPreviewRequest": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "basePreparationId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "EntryScope": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accountId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "roomId": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "configRevision": {
+          "id": 8,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 2147483647
+        },
+        "configDigest": {
+          "id": 9,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "basePreparationId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "baseFingerprint": {
+          "id": 11,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "seedPolicy": {
+          "id": 12,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "randomizeLoot": {
+          "id": 13,
+          "type": "bool",
+          "required": true
+        },
+        "actualSeed": {
+          "id": 14,
+          "type": "string",
+          "max": 32,
+          "required": false
+        }
+      }
+    },
+    "EntryIdentity": {
+      "fields": {
+        "preparationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "pendingId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "contextId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "proofCommitment": {
+          "id": 5,
+          "type": "string",
+          "max": 64,
+          "required": true
+        }
+      }
+    },
+    "EntryPreview": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "EntryScope",
+          "required": true
+        },
+        "sample": {
+          "id": 2,
+          "type": "ConnectionSample",
+          "required": true
+        },
+        "reviewRemainingMs": {
+          "id": 3,
+          "type": "uint32",
+          "required": true,
+          "maxValue": 3600000
+        },
+        "mayPlay": {
+          "id": 4,
+          "type": "bool",
+          "required": true,
+          "values": [
+            false
+          ]
+        }
+      }
+    },
+    "EntryLookup": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "EntryScope",
+          "required": true
+        },
+        "identity": {
+          "id": 2,
+          "type": "EntryIdentity",
+          "required": true
+        }
+      }
+    },
+    "EntryActivate": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "EntryScope",
+          "required": true
+        },
+        "identity": {
+          "id": 2,
+          "type": "EntryIdentity",
+          "required": true
+        },
+        "recoveryProof": {
+          "id": 3,
+          "type": "string",
+          "max": 43,
+          "required": true
+        },
+        "gameVersion": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "modVersion": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "bridgeVersion": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capabilities": {
+          "id": 7,
+          "type": "string",
+          "repeated": true,
+          "max": 32,
+          "itemMax": 128
+        },
+        "observation": {
+          "id": 8,
+          "type": "GameObservation",
+          "required": true
+        }
+      }
+    },
+    "EntryCancel": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "EntryScope",
+          "required": true
+        },
+        "identity": {
+          "id": 2,
+          "type": "EntryIdentity",
+          "required": true
+        },
+        "recoveryProof": {
+          "id": 3,
+          "type": "string",
+          "max": 43,
+          "required": true
+        },
+        "worldOffline": {
+          "id": 4,
+          "type": "bool",
+          "required": true,
+          "values": [
+            true
+          ]
+        }
+      }
+    },
+    "EntryOriginal": {
+      "fields": {
+        "accountId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "deviceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalSessionId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalSessionEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "originalServiceEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "kind": {
+          "id": 7,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "fingerprint": {
+          "id": 8,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "waitingId": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "runId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "pendingId": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "EntryState": {
+      "fields": {
+        "scope": {
+          "id": 1,
+          "type": "EntryScope",
+          "required": true
+        },
+        "identity": {
+          "id": 2,
+          "type": "EntryIdentity",
+          "required": true
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 32,
+          "required": true,
+          "values": [
+            "activated",
+            "cancelled",
+            "unresolved"
+          ]
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "mayPlay": {
+          "id": 5,
+          "type": "bool",
+          "required": true,
+          "values": [
+            false
+          ]
+        },
+        "attachmentId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "waitingId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    },
+    "EntryOutcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "EntryOriginal",
+          "required": true
+        },
+        "originalOutcome": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true,
+          "values": [
+            "committed",
+            "unresolved"
+          ]
+        },
+        "coverage": {
+          "id": 3,
+          "type": "string",
+          "max": 64,
+          "required": true
+        },
+        "effectId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": false
+        }
+      }
+    }
+  }
+}

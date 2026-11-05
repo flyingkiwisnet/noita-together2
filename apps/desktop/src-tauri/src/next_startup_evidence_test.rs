@@ -1,0 +1,23 @@
+//! Actual Core arm/consume/health worker with real disposable HTTP service and
+//! synthetic game-thread loading facts. No Start or native ABI is invented.
+use super::*;
+#[test]#[ignore="ST1 before-Start waiting intent disposable composition"]
+fn st1_before_start_waiting_worker_persists_only_original_intent(){tauri::async_runtime::block_on(async{
+ let mut fixture=Fixture::start_script("spikes/noita-entry/.build/g3-startup-evidence-client-20261016-01/fixture.mjs");
+ let store=MemoryStore::default();let root=std::env::temp_dir().join(format!("nt2-st1-waiting-{}",uuid::Uuid::new_v4()));
+ let mut c=Core::new(store.clone(),uuid::Uuid::new_v4(),Arc::new(Mutex::new(None)),root.clone());c.open_browser=false;
+ let ca=reqwest::Certificate::from_pem(&std::fs::read(&fixture.ca).unwrap()).unwrap();c.http=reqwest::Client::builder().use_native_tls().tls_certs_only(vec![ca]).no_proxy().redirect(reqwest::redirect::Policy::none()).timeout(Duration::from_secs(3)).build().unwrap();
+ std::fs::create_dir_all(&root).unwrap();c.enable_g3(&root.join("journal.jsonl"),Arc::new(Mutex::new(nt2_desktop_g0::g3_runtime::Exchange::default()))).unwrap();c.select(&fixture.origin,"",false).await.unwrap();registered_as(&mut c,"alex").await;
+ c.request_social(Arc::new(Mutex::new(nt2_desktop_g0::g3_social_stream::Exchange::default()))).unwrap();c.social_profile=Some(nt2_desktop_g0::g3_social_installation::development_profile().unwrap()["profile"].clone());c.configure_game(&std::env::var("NT2_FLOW_GAME_FIXTURE").unwrap()).unwrap();c.enable_automatic_setup();c.create_fixture(false).await.unwrap();
+ let prepared=c.pending.lock().unwrap().as_ref().unwrap().startup_bundle.clone().expect("normal arm must stage typed bundle");
+ let reply=crate::handoff::coherent_startup(&mut c.pending.lock().unwrap(),nt2_local_ws::owner::Id::OsProcess(std::process::id()),[7;16]).unwrap();assert_eq!(reply.bundle.digest(),prepared.digest());assert!(reply.consumption_confirmed);
+ facts(&mut c,1,true);*c.expected_game.lock().unwrap()=Some(crate::pipe::verified_process_path(&std::env::current_exe().unwrap()).unwrap());let mut health=c.health_runner();c.game_tick().await.unwrap();
+ let until=Instant::now()+Duration::from_secs(10);let mut sequence=1;let mut attempts=0;
+ while c.waiting_startup_marker().is_none(){assert!(Instant::now()<until,"waiting worker did not publish protected local intent");sequence+=1;facts(&mut c,sequence,true);let _=health.pump().await;c.sync_health();attempts+=1;assert!(!c.pending.lock().unwrap().as_ref().unwrap().release,"waiting journal must not grant play");tokio::time::sleep(Duration::from_millis(100)).await;}
+ let marker=c.waiting_startup_marker().unwrap();assert_eq!(marker.bundle_digest,prepared.digest());assert!(c.resume_intent.association().is_none(),"must not fabricate admitted association/originalStart");
+ let saved=nt2_desktop_g0::startup_local::recall(&super::super::rejoin::ResumeStore(c.store.clone()),&c.base,&c.service,&c.desktop.as_ref().unwrap().account,c.device,&marker).unwrap().unwrap();assert_eq!(saved.disposition,nt2_desktop_g0::startup_local::Disposition::AwaitCanonicalWaitingRecovery);let attach=saved.original_attach.expect("normal successful attach original must survive in protected waiting record");assert_eq!(attach.attachment,c.game.as_ref().unwrap().session.attachment);assert_eq!(attach.preparation,prepared.scope().preparation);assert_eq!(attach.fingerprint.len(),64);
+ let issuer=c.base.clone();assert!(nt2_desktop_g0::startup_local::recall(&super::super::rejoin::ResumeStore(c.store.clone()),"https://another.invalid",&c.service,&c.desktop.as_ref().unwrap().account,c.device,&marker).unwrap().is_none());assert_eq!(c.base,issuer);
+ fixture.command("peer-check");c.continue_offline().unwrap();assert!(c.waiting_startup_marker().is_none());assert!(nt2_desktop_g0::startup_local::recall(&super::super::rejoin::ResumeStore(c.store.clone()),&c.base,&c.service,&c.desktop.as_ref().unwrap().account,c.device,&marker).unwrap().is_none());let _=health.pump().await;assert!(c.waiting_startup_marker().is_none());
+ if let Some(path)=std::env::var_os("NT2_CR2_CORRECTION_EVIDENCE"){std::fs::write(path,serde_json::to_vec_pretty(&json!({"normalArmStagedBundle":true,"durableConsumptionBeforeCoherentReply":true,"waitingPersistedBeforeAnyStart":true,"originalStartFabricated":false,"playGranted":false,"workerPolls":attempts,"protectedOriginalRecall":true,"foreignIssuerParked":true,"retiredOwnerCannotPublishMarker":true,"unaffectedPeer":true,"engineFactsInjected":true,"nativeAbiPrototypeOnly":true})).unwrap()).unwrap();}
+ drop(health);drop(c);assert!(root.canonicalize().unwrap().starts_with(std::env::temp_dir().canonicalize().unwrap()));std::fs::remove_dir_all(root).unwrap();
+});}

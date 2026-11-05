@@ -1,0 +1,209 @@
+{
+  "major": 1,
+  "revision": "g3-history-draft-1",
+  "limits": {
+    "bytes": 32768,
+    "depth": 8
+  },
+  "messages": {
+    "Discover": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 19
+        },
+        "throughSequence": {
+          "id": 2,
+          "type": "string",
+          "max": 19
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "RunScope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        }
+      }
+    },
+    "Run": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "string",
+          "max": 19
+        },
+        "scope": {
+          "id": 2,
+          "type": "RunScope"
+        },
+        "roomName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "createdAt": {
+          "id": 4,
+          "type": "string",
+          "max": 40
+        },
+        "state": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "mode": {
+          "id": 6,
+          "type": "string",
+          "max": 16
+        },
+        "canDelete": {
+          "id": 7,
+          "type": "bool"
+        },
+        "retentionDays": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "collectionState": {
+          "id": 9,
+          "type": "string",
+          "max": 16
+        },
+        "latestExpiresAt": {
+          "id": 10,
+          "type": "string",
+          "max": 40
+        },
+        "deletedAt": {
+          "id": 11,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "discover": {
+          "id": 7,
+          "type": "Discover"
+        }
+      },
+      "oneof": [
+        "discover"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "runs": {
+          "id": 7,
+          "type": "Run",
+          "max": 32,
+          "repeated": true
+        },
+        "nextSequence": {
+          "id": 8,
+          "type": "string",
+          "max": 19
+        },
+        "highSequence": {
+          "id": 9,
+          "type": "string",
+          "max": 19
+        },
+        "error": {
+          "id": 10,
+          "type": "Error"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+// C2 production composition; Noita entities/callback scheduling are injected.
+fn c2_view(n:&Native)->Value{fixture_signal::read(n.root.join("c2-view.json")).unwrap().and_then(|s|serde_json::from_str(&s).ok()).unwrap_or(Value::Null)}
+fn c2_action(n:&Native,value:Value){fixture_signal::write(n.root.join("c2-action"),serde_json::to_vec(&value).unwrap()).unwrap();}
+fn c2_stage(n:&Native)->String{c2_view(n)["snapshot"]["encounter"]["stage"].as_str().unwrap_or("").into()}
+async fn c2_settled(service:&mut Service,a:&Client,na:&Native,b:&Client,nb:&Native){until(service,"C2 originals and saved effect receipts settled",||c2_view(na)["queued"]==0&&c2_view(nb)["queued"]==0&&c2_view(na)["event"].is_null()&&c2_view(nb)["event"].is_null()&&a.handle.view()["g3"]["c2"]["event"].is_null()&&b.handle.view()["g3"]["c2"]["event"].is_null()).await;}
+#[test]#[ignore="Serialized C2 actual client/service/SQL/native composition"]
+fn c2_world_rules_ordinary_scheduler_composition(){
+ assert_eq!(std::env::var("NT2_C2_WORLD_FIXTURE").as_deref(),Ok("1"));
+ std::thread::Builder::new().name("c2-world-rules".into()).stack_size(16*1024*1024).spawn(||tauri::async_runtime::block_on(async{
+  verify_current_fixture_inputs();let own=repo().join("spikes/noita-entry/.build/c2-client-20261030-01").join(format!("composition-{}",uuid::Uuid::new_v4()));std::fs::create_dir_all(&own).unwrap();eprintln!("C2_WORLD_COMPOSITION {}",own.display());
+  let mut service=Service::start(&own);network_profile::enable_elapsed_clock(&mut service,&own);let router=PipeHarness::new();
+  let mut a=Client::start(&service.private(),&own.join("host"),None,false,true,router.routes.clone(),service.watches.clone(),service.stores.clone()).await;bundle(&mut service,&a).await;let mut na=Native::start(&a,None,false);
+  wait(&mut service,&a,"C2 host Ready",30,|v|current_state_is(v,"Ready")&&na.root.join("associated").is_file()).await;let wa=a.handle.view()["rejoin"]["current_world"].clone();
+  service.command(json!({"op":"peer"}));let mut b=Client::start(&service.private(),&own.join("peer"),None,true,true,router.routes.clone(),service.watches.clone(),service.stores.clone()).await;bundle(&mut service,&b).await;let mut nb=Native::start(&b,None,false);
+  wait(&mut service,&b,"C2 peer Ready",30,|v|current_state_is(v,"Ready")&&nb.root.join("associated").is_file()).await;let wb=b.handle.view()["rejoin"]["current_world"].clone();
+  two_peer_ghost_with_start(&mut service,&a,&na,&wa,&b,&nb,&wb,"startReviewed").await;
+  until(&mut service,"C2 canonical rules on both ordinary local owners",||c2_view(&na)["ready"]==true&&c2_view(&nb)["ready"]==true).await;
+  c2_action(&na,json!({"kind":"distance","x":199}));c2_action(&nb,json!({"kind":"distance","x":201}));until(&mut service,"Initial separate local arena distances set",||!na.root.join("c2-action").exists()&&!nb.root.join("c2-action").exists()&&c2_view(&na)["moving"]==false&&c2_view(&nb)["moving"]==false).await;
+  for n in [&na,&nb]{c2_action(n,json!({"kind":"arena"}));}
+  until(&mut service,"C2 arenas bound into one locked run encounter",||c2_stage(&na)=="locked"&&c2_stage(&nb)=="locked").await;
+  c2_action(&na,json!({"kind":"distance","x":199}));c2_action(&nb,json!({"kind":"distance","x":201}));elapsed(&mut service,3).await;assert_eq!(c2_stage(&na),"locked");
+  c2_action(&nb,json!({"kind":"distance","x":200}));elapsed(&mut service,2).await;assert_eq!(c2_stage(&na),"locked");
+  c2_action(&nb,json!({"kind":"distance","x":199}));until(&mut service,"Strict local near reports unlock both real scoped Sampo animations",||c2_view(&na)["sampos"]==1&&c2_view(&nb)["sampos"]==1).await;
+  c2_action(&nb,json!({"kind":"pickup"}));elapsed(&mut service,2).await;assert_eq!(c2_stage(&na),"unlocked");assert_eq!(c2_view(&na)["rocks"],0);
+  c2_action(&na,json!({"kind":"pickup"}));until(&mut service,"Host last pickup starts both owned bosses exactly once",||c2_stage(&na)=="battle"&&c2_stage(&nb)=="battle"&&c2_view(&na)["rocks"]==4&&c2_view(&nb)["rocks"]==4).await;
+  for n in [&na,&nb]{c2_action(n,json!({"kind":"position_free"}));}until(&mut service,"C2 arena checks release injected exact positions",||!na.root.join("c2-action").exists()&&!nb.root.join("c2-action").exists()&&c2_view(&na)["moving"]==false&&c2_view(&nb)["moving"]==false).await;
+  c2_action(&na,json!({"kind":"steve"}));until(&mut service,"Shared Steve traverses native/app/service and recipient handler",||c2_view(&nb)["steveAngered"]==true&&!na.root.join("c2-action").exists()).await;c2_settled(&mut service,&a,&na,&b,&nb).await;
+  let mut expected_effects=0u64;
+  for effect in ["ambrosia","berserk","charm","confusion","speed","levitation","speed_and_levitation"]{
+   if effect=="speed"{for target in ["consumer","peer"]{service.command(json!({"op":"c2Network","target":target,"durationMs":120000}));}service.command(json!({"op":"c2DropPublishReply","target":"consumer"}));}
+   c2_action(&na,json!({"kind":"hourglass"}));until(&mut service,"C2 hourglass group generated",||!na.root.join("c2-action").exists()).await;elapsed(&mut service,1).await;
+   c2_action(&na,json!({"kind":"trigger","effect":effect}));until(&mut service,"C2 competing actual checker callback consumed",||!na.root.join("c2-action").exists()).await;
+   expected_effects+=1;until(&mut service,"C2 boon reaches actual recipient production handler",||c2_view(&nb)["effects"].as_object().map(|v|v.values().filter_map(Value::as_u64).sum::<u64>()).unwrap_or(0)==expected_effects).await;
+   c2_settled(&mut service,&a,&na,&b,&nb).await;assert_eq!(c2_view(&nb)["effectReceipt"]["state"],"applied","C2 {effect} callback must confirm its local outcome");
+  }
+  c1_delayed_progress(&mut service,&a,&na,&b,&nb).await;for target in ["consumer","peer"]{service.command(json!({"op":"networkReset","target":target}));}
+  let before_a=c2_view(&na);let before_b=c2_view(&nb);assert_eq!(before_b["effects"].as_object().unwrap().values().filter_map(Value::as_u64).sum::<u64>(),7);
+  let saved_a=na.root.clone();let saved_b=nb.root.clone();na.close();nb.close();
+  na=Native::start(&a,Some(&saved_a),true);nb=Native::start(&b,Some(&saved_b),true);ready_owner(&mut service,&a,&na,&wa,true).await;ready_owner(&mut service,&b,&nb,&wb,true).await;
+  until(&mut service,"Retained Continue restores scoped battle without duplicate Sampo/rocks/effects",||c2_view(&na)["ready"]==true&&c2_view(&nb)["ready"]==true&&c2_view(&na)["rocks"]==4&&c2_view(&nb)["rocks"]==4).await;
+  assert_eq!(c2_view(&nb)["effects"],before_b["effects"]);
+  fixture_signal::write(nb.root.join("unaffected-check"),b"C2 retained Continue").unwrap();until(&mut service,"C2 resumed peer observation",||nb.root.join("unaffected-snapshot").is_file()).await;fresh_bidirectional_ghosts(&mut service,&a,&na,&b,&nb,"C2 Continue restores ghosts and HUD").await;
+  let gold=bank_submit(&mut service,&na,"deposit",5,false).await;accepted(&mut service,&na,&gold).await;until(&mut service,"C2 preserves bank",||bank_view(&nb)["view"]["balance"]==5).await;
+  let saved=nb.root.clone();let old_store=b.store.clone();let old_root=b.root.clone();nb.close();b.close().await;let cold_root=own.join("peer-cold");std::fs::create_dir_all(&cold_root).unwrap();for name in ["transfers.jsonl","c1-effects.jsonl","c2-effects.jsonl"]{let path=old_root.join(name);if path.exists(){std::fs::copy(path,cold_root.join(name)).unwrap();}}
+  b=Client::start(&service.private(),&cold_root,Some(old_store),true,false,router.routes.clone(),service.watches.clone(),service.stores.clone()).await;nb=Native::start(&b,Some(&saved),true);wait(&mut service,&b,"C2 cold app explicit saved world choice",15,|v|v["connection"]["state"]=="Choice").await;fixture_signal::write(nb.root.join("choose-rejoin"),b"explicit C2 saved world rejoin").unwrap();ready_owner(&mut service,&b,&nb,&wb,true).await;
+  until(&mut service,"C2 cold app recovers current owner and saved battle",||c2_view(&nb)["ready"]==true&&c2_view(&nb)["rocks"]==4).await;assert_eq!(c2_view(&nb)["effects"],before_b["effects"]);
+  fixture_signal::write(nb.root.join("unaffected-check"),b"C2 cold Continue").unwrap();until(&mut service,"C2 cold peer observation",||nb.root.join("unaffected-snapshot").is_file()).await;fresh_bidirectional_ghosts(&mut service,&a,&na,&b,&nb,"C2 cold Continue restores ghosts").await;
+  // Stop engine ACK consumption after the original is copied, while the
+  // actual app/service finish it. Restored engine metadata stays uncertain.
+  c2_action(&na,json!({"kind":"hourglass"}));until(&mut service,"C2 source-save group created",||!na.root.join("c2-action").exists()).await;elapsed(&mut service,1).await;
+  fixture_signal::write(na.root.join("c2-freeze-after-capture"),b"save source before engine ACK copy").unwrap();c2_action(&na,json!({"kind":"trigger","effect":"speed"}));until(&mut service,"C2 source engine stops consuming ACK after copy",||na.root.join("pause-game-thread").is_file()).await;
+  until(&mut service,"Original source is accepted and remote effect happens once before Save",||c2_view(&nb)["effects"].as_object().map(|v|v.values().filter_map(Value::as_u64).sum::<u64>()).unwrap_or(0)==8).await;assert_eq!(c2_view(&nb)["effectReceipt"]["state"],"applied","Source-save boon recipient must confirm");elapsed(&mut service,2).await;assert_eq!(c2_view(&na)["queued"],1);
+  let saved=na.root.clone();na.close();na=Native::start(&a,Some(&saved),true);ready_owner(&mut service,&a,&na,&wa,true).await;
+  until(&mut service,"Restored accepted source is uncertain rather than promoted by an app ACK",||a.handle.view()["g3"]["c2"]["status"].as_str().is_some_and(|s|s.contains("uncertain"))).await;
+  assert_eq!(c2_view(&nb)["effects"].as_object().unwrap().values().filter_map(Value::as_u64).sum::<u64>(),8);let outage_effects=c2_view(&nb)["effects"].clone();
+  let mut outage=expect_loss(&mut service,&nb,"C2 recipient outage protects unissued boon").await;outage.before_fault(&nb);
+  for kind in ["http","wss"]{service.command(json!({"op":"transport","kind":kind,"enabled":true,"target":"peer"}));}
+  until(&mut service,"C2 interrupted peer is protected",||native_activity(&nb)["native_owned_hold"]==true).await;outage.protected(&nb);
+  c2_action(&na,json!({"kind":"hourglass"}));until(&mut service,"Outage group created",||!na.root.join("c2-action").exists()).await;elapsed(&mut service,1).await;c2_action(&na,json!({"kind":"trigger","effect":"speed"}));elapsed(&mut service,2).await;assert_eq!(c2_view(&nb)["effects"],outage_effects);
+  for kind in ["http","wss"]{service.command(json!({"op":"transport","kind":kind,"enabled":false,"target":"peer"}));}
+  ready_owner(&mut service,&b,&nb,&wb,true).await;outage.rearm(&mut service,&nb).await;
+  until(&mut service,"C2 retained unissued boon applies after recovery",||c2_view(&nb)["effects"].as_object().map(|v|v.values().filter_map(Value::as_u64).sum::<u64>()).unwrap_or(0)==9).await;assert_eq!(c2_view(&nb)["effectReceipt"]["state"],"applied","Outage boon recipient must confirm");c2_settled(&mut service,&a,&na,&b,&nb).await;
+  let winner=expect_loss(&mut service,&nb,"C2 genuine completed player").await;winner.before_fault(&nb);let host_max=c1_hp(&na,"max");service.command(json!({"op":"c1DropPublishReply","target":"peer"}));c1_action(&nb,"win_death");
+  let won=c1_retired_audit(&mut service,"peer",&c1_view(&na)["revision"]).await;until(&mut service,"C1 atomic captured-progression completion reaches C2 snapshot",||c2_view(&na)["snapshot"]["completions"].as_array().is_some_and(|v|v.len()==1&&v[0]["progression"]==0)).await;assert_eq!(c1_hp(&na,"max"),host_max);assert_eq!(c1_view(&nb)["terminal"],true);assert_eq!(c1_hp(&nb,"hp"),-1.0);
+  std::fs::write(own.join("completion.json"),serde_json::to_vec_pretty(&won).unwrap()).unwrap();
+  let after_a=c2_view(&na);let after_b=c2_view(&nb);let audit=service.command(json!({"op":"c2Status"}));na.close();nb.close();a.close().await;b.close().await;
+  service.command(json!({"op":"end"}));service.command(json!({"op":"lobbyCreate"}));let mut isolated=Client::start(&service.private(),&own.join("other-lobby"),None,false,true,router.routes.clone(),service.watches.clone(),service.stores.clone()).await;bundle(&mut service,&isolated).await;let mut other=Native::start(&isolated,None,false);
+  wait(&mut service,&isolated,"Other C2 lobby owns a fresh protected world",30,|v|current_state_is(v,"Ready")&&other.root.join("associated").is_file()).await;let isolated_world=isolated.handle.view()["rejoin"]["current_world"].clone();fixture_signal::write(other.root.join("start"),b"actual other-lobby host Start").unwrap();service.command(json!({"op":"startReviewed"}));ready_owner(&mut service,&isolated,&other,&isolated_world,true).await;until(&mut service,"Other lobby receives only its own C2 rules and no prior encounter/completion",||c2_view(&other)["ready"]==true&&c2_view(&other)["snapshot"]["encounter"].is_null()&&c2_view(&other)["snapshot"]["completions"].as_array().is_some_and(Vec::is_empty)).await;
+  let isolation=service.command(json!({"op":"c2Status"}));assert_ne!(isolation["c2"]["roomId"],audit["c2"]["roomId"]);for key in ["events","completions","encounters"]{assert!(isolation["c2"][key].as_array().is_some_and(Vec::is_empty),"C2 other lobby {key}");}assert_ne!(c2_view(&other)["world"],after_a["world"]);
+  c2_action(&other,json!({"kind":"distance","x":201}));until(&mut service,"Offline case outside solo gather distance",||!other.root.join("c2-action").exists()&&c2_view(&other)["moving"]==false).await;c2_action(&other,json!({"kind":"arena"}));until(&mut service,"Offline case owns locked disabled Sampo",||c2_stage(&other)=="locked"&&c2_view(&other)["sampos"]==0).await;
+  let offline_result=app_action(&isolated,json!({"action":"continue_offline"})).await;assert_eq!(offline_result["connection"]["state"],"Offline");
+  until(&mut service,"Explicit offline hands the locked owned arena to local progression",||other.root.join("offline-restored").is_file()&&c2_view(&other)["offline"]==true&&c2_view(&other)["sampos"]==1).await;
+  c2_action(&other,json!({"kind":"pickup"}));until(&mut service,"Offline pickup starts only the owned boss with four rocks",||c2_view(&other)["rocks"]==4).await;let offline_before=c2_view(&other);let canonical=server_world(&mut service,&isolated_world);let offline_saved=other.root.clone();other.close();other=Native::start(&isolated,Some(&offline_saved),true);
+  until(&mut service,"Offline Continue retains Sampo and battle without shared rejoin",||other.root.join("offline-restored").is_file()&&c2_view(&other)["offline"]==true&&c2_view(&other)["rocks"]==4&&c2_view(&other)["sampos"]==1).await;elapsed(&mut service,2).await;assert_eq!(c2_view(&other)["effects"],offline_before["effects"]);assert_eq!(c2_view(&other)["music"],1);assert_eq!(server_world(&mut service,&isolated_world)["high_water"],canonical["high_water"]);
+  std::fs::write(own.join("offline-checks.json"),serde_json::to_vec_pretty(&json!({"passed":true,"explicitAppChoice":true,"lockedArenaHandoff":true,"offlinePickupAndBattle":true,"rawSaveContinue":true,"noDuplicateSampoOrRocks":true,"noSharedRejoin":true,"before":offline_before,"after":c2_view(&other),"engineFactsInjected":true,"actualNoita":false})).unwrap()).unwrap();other.close();isolated.close().await;service.close();
+  std::fs::write(own.join("checks.json"),serde_json::to_vec_pretty(&json!({"passed":true,"actualComponents":true,"ordinaryScheduler":true,"rawGlobalsXml":true,"retainedAndColdContinue":true,"engineFactsInjected":true,"actualNoita":false,"savePersistenceProven":false,"beforeHost":before_a,"beforePeer":before_b,"afterHost":after_a,"afterPeer":after_b,"audit":audit,"otherLobby":isolation,"uncertainSourceDidNotBlockIndependentBoon":true})).unwrap()).unwrap();
+ })).unwrap().join().unwrap();
+}

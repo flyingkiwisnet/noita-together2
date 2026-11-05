@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Noita Together 2 static Windows beta release metadata, version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "version", "platform"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "status": {"enum": ["pending", "available"]},
+    "version": {"type": "string", "pattern": "^(0|[1-9][0-9]{0,3})\\.(0|[1-9][0-9]{0,3})\\.(0|[1-9][0-9]{0,3})(?:-(?:alpha|beta|rc)\\.[1-9][0-9]{0,3})?$"},
+    "platform": {"const": "windows-x64"},
+    "builtAt": {"type": "string", "format": "date-time"},
+    "signed": {"type": "boolean"},
+    "artifact": {"type": "object", "additionalProperties": false, "required": ["file", "bytes", "sha256"], "properties": {"file": {"type": "string", "pattern": "^NoitaTogether2-[A-Za-z0-9.-]+-windows-x64\\.zip$"}, "bytes": {"type": "integer", "minimum": 1, "maximum": 2147483648}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}},
+    "compatibility": {"type": "object", "additionalProperties": false, "required": ["profileId", "gameVersion", "modVersion", "bridgeVersion", "lobbyRevision", "gameplayRevision"], "properties": {"profileId": {"type": "string", "maxLength": 128}, "gameVersion": {"type": "string", "maxLength": 128}, "modVersion": {"type": "string", "maxLength": 128}, "bridgeVersion": {"type": "string", "maxLength": 128}, "lobbyRevision": {"type": "string", "maxLength": 128}, "gameplayRevision": {"type": "string", "maxLength": 128}}}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "pending"}}}, "then": {"maxProperties": 4}},
+    {"if": {"properties": {"status": {"const": "available"}}}, "then": {"required": ["builtAt", "signed", "artifact", "compatibility"]}}
+  ],
+  "$comment": "Canonical release-metadata.js also requires UTC ISO time and an artifact filename exactly derived from version. No arbitrary URLs. Available means the matching staged/deployed artifact exists; the source website remains pending until approved publication."
+}

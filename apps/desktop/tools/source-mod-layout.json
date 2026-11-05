@@ -1,0 +1,1302 @@
+{
+  "schemaVersion": 1,
+  "description": "Current mod layout from source; not a runtime approval or release manifest",
+  "files": [
+    {
+      "path": "mods/noita_together2/init.lua",
+      "source": "mod/noita_together2/init-g3-seed-loot.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/nt2_g3_social.dll",
+      "native": "nt2_g3_social.dll"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_native.lua",
+      "source": "mod/noita_together2/files/g3/social_native.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_dispatch.lua",
+      "source": "mod/noita_together2/files/g3/social_dispatch.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/hud_poi_local.lua",
+      "source": "mod/noita_together2/files/g3/hud_poi_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_game_api.lua",
+      "source": "mod/noita_together2/files/g3/social_game_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/validation.lua",
+      "source": "mod/noita_together2/files/g3/validation.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/inspection.lua",
+      "source": "mod/noita_together2/files/inspection.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/native_owner.lua",
+      "source": "mod/noita_together2/files/g3/native_owner.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/movement.lua",
+      "source": "mod/noita_together2/files/g3/movement.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ghosts.lua",
+      "source": "mod/noita_together2/files/g3/ghosts.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/game_api.lua",
+      "source": "mod/noita_together2/files/g3/game_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/poi.xml",
+      "source": "mod/noita_together2/files/g3/poi.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/hpbar_full.png",
+      "source": "mod/noita_together2/files/g3/ui/hpbar_full.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/hpbar_empty.png",
+      "source": "mod/noita_together2/files/g3/ui/hpbar_empty.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/sampo.png",
+      "source": "mod/noita_together2/files/g3/ui/sampo.png"
+    },
+    {
+      "path": "mods/noita_together2/files/logging.xml",
+      "source": "mod/noita_together2/files/logging.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ghost.xml",
+      "source": "mod/noita_together2/files/g3/ghost.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/poi_pickup.lua",
+      "source": "mod/noita_together2/files/g3/poi_pickup.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/poi.png",
+      "source": "mod/noita_together2/files/g3/ui/poi.png"
+    },
+    {
+      "path": "mods/noita_together2/files/nt2_g3_ipc.dll",
+      "native": "nt2_g3_ipc.dll"
+    },
+    {
+      "path": "mods/noita_together2/files/nt2_g3_transport.dll",
+      "native": "nt2_g3_transport.dll"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/biome_scripts.lua",
+      "source": "mod/noita_together2/files/loot/biome_scripts.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/butcher_randomseed.lua",
+      "source": "mod/noita_together2/files/loot/butcher_randomseed.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/chest_random.lua",
+      "source": "mod/noita_together2/files/loot/chest_random.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/chest_random_super.lua",
+      "source": "mod/noita_together2/files/loot/chest_random_super.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/co_op_mail.lua",
+      "source": "mod/noita_together2/files/loot/co_op_mail.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/generate_shop_item.lua",
+      "source": "mod/noita_together2/files/loot/generate_shop_item.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/gun_procedural.lua",
+      "source": "mod/noita_together2/files/loot/gun_procedural.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/LICENSE",
+      "source": "mod/noita_together2/files/loot/LICENSE"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/perk_reroll.lua",
+      "source": "mod/noita_together2/files/loot/perk_reroll.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/policy.lua",
+      "source": "mod/noita_together2/files/loot/policy.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/preset_wands_random.lua",
+      "source": "mod/noita_together2/files/loot/preset_wands_random.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/register.lua",
+      "source": "mod/noita_together2/files/loot/register.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/loot/run-policy.txt",
+      "source": "mod/noita_together2/files/loot/run-policy.txt"
+    },
+    {
+      "path": "mods/noita_together2/files/rejoin/local_world.lua",
+      "source": "mod/noita_together2/files/rejoin/local_world.lua"
+    },
+    {
+      "path": "mods/noita_together2/settings.lua",
+      "source": "mod/noita_together2/settings.lua"
+    },
+    {
+      "path": "mods/noita_together2/mod.xml",
+      "source": "mod/noita_together2/mod.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/bundle.lua",
+      "source": "mod/noita_together2/files/startup/bundle.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/entry_observer.lua",
+      "source": "mod/noita_together2/files/startup/entry_observer.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_invalid.lua",
+      "source": "mod/noita_together2/files/startup/scope_invalid.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_menu.lua",
+      "source": "mod/noita_together2/files/startup/scope_menu.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_new.lua",
+      "source": "mod/noita_together2/files/startup/scope_new.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_registry.lua",
+      "source": "mod/noita_together2/files/startup/scope_registry.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_restart.lua",
+      "source": "mod/noita_together2/files/startup/scope_restart.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_runtime.lua",
+      "source": "mod/noita_together2/files/startup/scope_runtime.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_spent.lua",
+      "source": "mod/noita_together2/files/startup/scope_spent.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/scope_trace.lua",
+      "source": "mod/noita_together2/files/startup/scope_trace.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/settings_scope.lua",
+      "source": "mod/noita_together2/files/startup/settings_scope.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/waiting_candidate.lua",
+      "source": "mod/noita_together2/files/startup/waiting_candidate.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_text.lua",
+      "source": "mod/noita_together2/files/g3/a2_text.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_capture.lua",
+      "source": "mod/noita_together2/files/g3/a2_capture.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_ui_model.lua",
+      "source": "mod/noita_together2/files/g3/a2_ui_model.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_biomes.lua",
+      "source": "mod/noita_together2/files/g3/a2_biomes.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_input_lock.lua",
+      "source": "mod/noita_together2/files/g3/a2_input_lock.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_renderer.lua",
+      "source": "mod/noita_together2/files/g3/a2_renderer.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_native_input.lua",
+      "source": "mod/noita_together2/files/g3/a2_native_input.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/poi_proximity.lua",
+      "source": "mod/noita_together2/files/g3/poi_proximity.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/keyboard.png",
+      "source": "mod/noita_together2/files/g3/ui/keyboard.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/player_ghosts.png",
+      "source": "mod/noita_together2/files/g3/ui/player_ghosts.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/hide_player_ghosts.png",
+      "source": "mod/noita_together2/files/g3/ui/hide_player_ghosts.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/chat.png",
+      "source": "mod/noita_together2/files/g3/ui/chat.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/hide_chat.png",
+      "source": "mod/noita_together2/files/g3/ui/hide_chat.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/player_list.png",
+      "source": "mod/noita_together2/files/g3/ui/player_list.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/radar.png",
+      "source": "mod/noita_together2/files/g3/ui/radar.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/poi_emitter.png",
+      "source": "mod/noita_together2/files/g3/ui/poi_emitter.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_catalogue.lua",
+      "source": "mod/noita_together2/files/g3/social_catalogue.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_controls.lua",
+      "source": "mod/noita_together2/files/g3/social_controls.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_keys.lua",
+      "source": "mod/noita_together2/files/g3/social_keys.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_preferences.lua",
+      "source": "mod/noita_together2/files/g3/social_preferences.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_restore.lua",
+      "source": "mod/noita_together2/files/g3/social_restore.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_visual.lua",
+      "source": "mod/noita_together2/files/g3/social_visual.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_local.lua",
+      "source": "mod/noita_together2/files/g3/social_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/social_menu.lua",
+      "source": "mod/noita_together2/files/g3/social_menu.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/mnee_bindings.lua",
+      "source": "mod/noita_together2/files/g3/mnee_bindings.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/1px_transparent.png",
+      "source": "mod/noita_together2/files/g3/emotes/1px_transparent.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/cape_blue.xml",
+      "source": "mod/noita_together2/files/g3/emotes/cape_blue.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/cape_green.xml",
+      "source": "mod/noita_together2/files/g3/emotes/cape_green.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/cape_orange.xml",
+      "source": "mod/noita_together2/files/g3/emotes/cape_orange.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/cape_red.xml",
+      "source": "mod/noita_together2/files/g3/emotes/cape_red.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/cape_yellow.xml",
+      "source": "mod/noita_together2/files/g3/emotes/cape_yellow.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/aggressive_point_entity.lua",
+      "source": "mod/noita_together2/files/g3/emotes/effects/aggressive_point_entity.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/aggressive_point_entity.xml",
+      "source": "mod/noita_together2/files/g3/emotes/effects/aggressive_point_entity.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/color_swap_particles.lua",
+      "source": "mod/noita_together2/files/g3/emotes/effects/color_swap_particles.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/color_swap_particles.xml",
+      "source": "mod/noita_together2/files/g3/emotes/effects/color_swap_particles.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/heart_entity.lua",
+      "source": "mod/noita_together2/files/g3/emotes/effects/heart_entity.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/heart_entity.xml",
+      "source": "mod/noita_together2/files/g3/emotes/effects/heart_entity.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/praise_the_sun_entity.lua",
+      "source": "mod/noita_together2/files/g3/emotes/effects/praise_the_sun_entity.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/praise_the_sun_entity.xml",
+      "source": "mod/noita_together2/files/g3/emotes/effects/praise_the_sun_entity.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/thumbs_up_entity.lua",
+      "source": "mod/noita_together2/files/g3/emotes/effects/thumbs_up_entity.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/effects/thumbs_up_entity.xml",
+      "source": "mod/noita_together2/files/g3/emotes/effects/thumbs_up_entity.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_amulet_gem.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_amulet_gem.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_amulet_gem.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_amulet_gem.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_amulet.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_amulet.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_amulet.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_amulet.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_blue.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_blue.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_blue.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_blue.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_green.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_green.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_green.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_green.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_hat2.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_hat2.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_hat2.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_hat2.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_hotspots.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_hotspots.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_orange.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_orange.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_orange.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_orange.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_red.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_red.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_red.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_red.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_yellow.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_yellow.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player_yellow.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player_yellow.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player.png",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/emotes_gfx_player.xml",
+      "source": "mod/noita_together2/files/g3/emotes/emotes_gfx_player.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/heart_entity_emitter.png",
+      "source": "mod/noita_together2/files/g3/emotes/heart_entity_emitter.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/heart_entity_sprite_0.png",
+      "source": "mod/noita_together2/files/g3/emotes/heart_entity_sprite_0.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/heart_entity_sprite_1.png",
+      "source": "mod/noita_together2/files/g3/emotes/heart_entity_sprite_1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/holder_local.xml",
+      "source": "mod/noita_together2/files/g3/emotes/holder_local.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/holder.xml",
+      "source": "mod/noita_together2/files/g3/emotes/holder.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/aggressive_point.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/aggressive_point.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/beckon.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/beckon.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/clap.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/clap.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_blue.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_blue.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_green.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_green.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_orange.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_orange.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_purple.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_purple.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_red.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_red.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/color_yellow.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/color_yellow.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/dab.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/dab.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/default_dance.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/default_dance.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/disapprove.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/disapprove.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/egyptian.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/egyptian.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/heart.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/heart.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/luigi.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/luigi.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/macarena.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/macarena.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/mario.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/mario.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/meditate.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/meditate.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/praise_the_sun.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/praise_the_sun.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/repose.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/repose.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/salute.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/salute.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/t_pose.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/t_pose.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/thewave.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/thewave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/thumbs_up.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/thumbs_up.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/wave.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/wave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/icons/worm.png",
+      "source": "mod/noita_together2/files/g3/emotes/icons/worm.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_blue.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_blue.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_blue.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_blue.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_green.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_green.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_green.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_green.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_orange.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_orange.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_orange.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_orange.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_red.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_red.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_red.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_red.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_yellow.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_yellow.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_arm_yellow.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_arm_yellow.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_blue_uv_src.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_blue_uv_src.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_blue.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_blue.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_blue.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_blue.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_green_uv_src.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_green_uv_src.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_green.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_green.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_green.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_green.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_orange_uv_src.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_orange_uv_src.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_orange.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_orange.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_orange.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_orange.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_red_uv_src.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_red_uv_src.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_red.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_red.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_red.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_red.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_yellow_uv_src.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_yellow_uv_src.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_yellow.png",
+      "source": "mod/noita_together2/files/g3/emotes/player_yellow.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/player_yellow.xml",
+      "source": "mod/noita_together2/files/g3/emotes/player_yellow.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/praise_the_sun_orb.png",
+      "source": "mod/noita_together2/files/g3/emotes/praise_the_sun_orb.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/remote_cape.xml",
+      "source": "mod/noita_together2/files/g3/emotes/remote_cape.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/robes_palette.png",
+      "source": "mod/noita_together2/files/g3/emotes/robes_palette.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/emotes/thumbs_up_entity.png",
+      "source": "mod/noita_together2/files/g3/emotes/thumbs_up_entity.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/gold_local.lua",
+      "source": "mod/noita_together2/files/g3/gold_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/gold_wallet.lua",
+      "source": "mod/noita_together2/files/g3/gold_wallet.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_json.lua",
+      "source": "mod/noita_together2/files/g3/bank_json.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_ui.lua",
+      "source": "mod/noita_together2/files/g3/bank_ui.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_native.lua",
+      "source": "mod/noita_together2/files/g3/bank_native.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_mail.lua",
+      "source": "mod/noita_together2/files/g3/bank_mail.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_glow.lua",
+      "source": "mod/noita_together2/files/g3/bank_glow.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_outlet.xml",
+      "source": "mod/noita_together2/files/g3/bank_outlet.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_mail.png",
+      "source": "mod/noita_together2/files/g3/bank_mail.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/bank_outer.png",
+      "source": "mod/noita_together2/files/g3/bank_outer.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/bank.png",
+      "source": "mod/noita_together2/files/g3/ui/bank.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/fridge.png",
+      "source": "mod/noita_together2/files/g3/ui/fridge.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/a2_player_list.lua",
+      "source": "mod/noita_together2/files/g3/a2_player_list.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/alchemistboss.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/alchemistboss.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/ancient_laboratory.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/ancient_laboratory.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/cloudscape.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/cloudscape.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/coalmine.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/coalmine.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/coalmine_alt.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/coalmine_alt.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/crypt.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/crypt.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/desert.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/desert.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/dragoncave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/dragoncave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/excavationsite.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/excavationsite.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/fun.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/fun.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/fungicave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/fungicave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/hell_work.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/hell_work.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/holymountain.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/holymountain.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/laboratory.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/laboratory.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/lake.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/lake.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/LICENSE",
+      "source": "mod/noita_together2/files/g3/ui/biomes/LICENSE"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/lukki.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/lukki.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/mountain.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/mountain.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/orbroom.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/orbroom.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/rainforest.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/rainforest.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/robobase.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/robobase.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/sandcave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/sandcave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/sky_work.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/sky_work.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/snowcastle.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/snowcastle.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/snowcave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/snowcave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/snowy_boss.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/snowy_boss.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/snowy_chasm.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/snowy_chasm.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/the_gold.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/the_gold.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/the_work.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/the_work.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/tower.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/tower.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/vault.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/vault.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/vault_frozen.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/vault_frozen.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/wandcave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/wandcave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/winter.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/winter.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/wizardboss.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/wizardboss.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/biomes/wizardcave.png",
+      "source": "mod/noita_together2/files/g3/ui/biomes/wizardcave.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_bridge.lua",
+      "source": "mod/noita_together2/files/g3/item_bridge.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_local.lua",
+      "source": "mod/noita_together2/files/g3/item_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_chunks.lua",
+      "source": "mod/noita_together2/files/g3/item_chunks.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_descriptor.lua",
+      "source": "mod/noita_together2/files/g3/item_descriptor.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_construct.lua",
+      "source": "mod/noita_together2/files/g3/item_construct.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_game_api.lua",
+      "source": "mod/noita_together2/files/g3/item_game_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_catalogue.lua",
+      "source": "mod/noita_together2/files/g3/item_catalogue.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_presenter.lua",
+      "source": "mod/noita_together2/files/g3/item_presenter.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_bank_model.lua",
+      "source": "mod/noita_together2/files/g3/item_bank_model.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_inlet.xml",
+      "source": "mod/noita_together2/files/g3/item_inlet.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_inlet_glow.lua",
+      "source": "mod/noita_together2/files/g3/item_inlet_glow.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_wand.xml",
+      "source": "mod/noita_together2/files/g3/item_wand.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_wand_sprite.xml",
+      "source": "mod/noita_together2/files/g3/item_wand_sprite.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_potion.xml",
+      "source": "mod/noita_together2/files/g3/item_potion.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_powder.xml",
+      "source": "mod/noita_together2/files/g3/item_powder.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/all.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/all.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/back.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/back.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/back10.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/back10.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/forward.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/forward.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/forward10.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/forward10.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_fire_rate_wait-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_fire_rate_wait-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_gun_actions_per_round-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_gun_actions_per_round-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_gun_capacity-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_gun_capacity-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_gun_shuffle-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_gun_shuffle-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_mana_charge_speed-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_mana_charge_speed-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_mana_max-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_mana_max-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_reload_time-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_reload_time-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/icon_spread_degrees-1.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/icon_spread_degrees-1.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/items.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/items.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/slot.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/slot.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/spells.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/spells.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ui/item_bank/wands.png",
+      "source": "mod/noita_together2/files/g3/ui/item_bank/wands.png"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/item_catalogue_data.lua",
+      "source": "packages/contracts/g3-items/catalogue.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/register.lua",
+      "source": "mod/noita_together2/files/c1/register.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/translations.csv",
+      "source": "mod/noita_together2/files/c1/translations.csv"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/checkpoint_mail.lua",
+      "source": "mod/noita_together2/files/c1/append/checkpoint_mail.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/fungal_shift.lua",
+      "source": "mod/noita_together2/files/c1/append/fungal_shift.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/heart_append.lua",
+      "source": "mod/noita_together2/files/c1/append/heart_append.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/heart_better_append.lua",
+      "source": "mod/noita_together2/files/c1/append/heart_better_append.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/orb_init.lua",
+      "source": "mod/noita_together2/files/c1/append/orb_init.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/orb_pickup.lua",
+      "source": "mod/noita_together2/files/c1/append/orb_pickup.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/perk_pickup.lua",
+      "source": "mod/noita_together2/files/c1/append/perk_pickup.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/perk.lua",
+      "source": "mod/noita_together2/files/c1/append/perk.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/status_effects/hearty_end.lua",
+      "source": "mod/noita_together2/files/c1/append/status_effects/hearty_end.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/status_effects/hearty_start.lua",
+      "source": "mod/noita_together2/files/c1/append/status_effects/hearty_start.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/entities/death_cam.xml",
+      "source": "mod/noita_together2/files/c1/entities/death_cam.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/entities/forced_orb.xml",
+      "source": "mod/noita_together2/files/c1/entities/forced_orb.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/entities/perks/banned_perk.xml",
+      "source": "mod/noita_together2/files/c1/entities/perks/banned_perk.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/items_gfx/banned_perks/glass_cannon.png",
+      "source": "mod/noita_together2/files/c1/items_gfx/banned_perks/glass_cannon.png"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/ban_perks_events.lua",
+      "source": "mod/noita_together2/files/c1/scripts/ban_perks_events.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/ban_perks.lua",
+      "source": "mod/noita_together2/files/c1/scripts/ban_perks.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/bannable_perk_check.lua",
+      "source": "mod/noita_together2/files/c1/scripts/bannable_perk_check.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/checkpoint.lua",
+      "source": "mod/noita_together2/files/c1/scripts/checkpoint.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/entity_translations.lua",
+      "source": "mod/noita_together2/files/c1/scripts/entity_translations.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/fungal_receive.lua",
+      "source": "mod/noita_together2/files/c1/scripts/fungal_receive.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/scripts/orb_killer.lua",
+      "source": "mod/noita_together2/files/c1/scripts/orb_killer.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_gameplay.lua",
+      "source": "mod/noita_together2/files/g3/c1_gameplay.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_content.lua",
+      "source": "mod/noita_together2/files/g3/c1_content.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_effects.lua",
+      "source": "mod/noita_together2/files/g3/c1_effects.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_local.lua",
+      "source": "mod/noita_together2/files/g3/c1_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_hook_api.lua",
+      "source": "mod/noita_together2/files/g3/c1_hook_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/c1_catalogue_data.lua",
+      "source": "packages/contracts/g3-c1/catalogue.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/hook_api.lua",
+      "source": "mod/noita_together2/files/c2/hook_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/hourglass.lua",
+      "source": "mod/noita_together2/files/c2/hourglass.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/local.lua",
+      "source": "mod/noita_together2/files/c2/local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/register.lua",
+      "source": "mod/noita_together2/files/c2/register.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/storage.lua",
+      "source": "mod/noita_together2/files/c2/storage.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/translations.csv",
+      "source": "mod/noita_together2/files/c2/translations.csv"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/world.lua",
+      "source": "mod/noita_together2/files/c2/world.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/append/boss_arena.lua",
+      "source": "mod/noita_together2/files/c2/append/boss_arena.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/append/sampo_append.lua",
+      "source": "mod/noita_together2/files/c2/append/sampo_append.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/append/snowcastle_cavern.lua",
+      "source": "mod/noita_together2/files/c2/append/snowcastle_cavern.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/effects/hourglass_hastium.xml",
+      "source": "mod/noita_together2/files/c2/effects/hourglass_hastium.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/effects/weak_ambrosia_end.lua",
+      "source": "mod/noita_together2/files/c2/effects/weak_ambrosia_end.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/effects/weak_ambrosia_start.lua",
+      "source": "mod/noita_together2/files/c2/effects/weak_ambrosia_start.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/effects/weak_ambrosia.xml",
+      "source": "mod/noita_together2/files/c2/effects/weak_ambrosia.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/hourglass_effect_trigger.xml",
+      "source": "mod/noita_together2/files/c2/entities/hourglass_effect_trigger.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/sampo/disabled_sampo_sprite.xml",
+      "source": "mod/noita_together2/files/c2/entities/sampo/disabled_sampo_sprite.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/sampo/disabled_sampo.png",
+      "source": "mod/noita_together2/files/c2/entities/sampo/disabled_sampo.png"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/sampo/disabled_sampo.xml",
+      "source": "mod/noita_together2/files/c2/entities/sampo/disabled_sampo.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/sampo/platform.xml",
+      "source": "mod/noita_together2/files/c2/entities/sampo/platform.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/entities/sampo/sampo_aura.xml",
+      "source": "mod/noita_together2/files/c2/entities/sampo/sampo_aura.xml"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/scripts/hourglass_events.lua",
+      "source": "mod/noita_together2/files/c2/scripts/hourglass_events.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/scripts/sampo/sampo_aura_attractor_fix.lua",
+      "source": "mod/noita_together2/files/c2/scripts/sampo/sampo_aura_attractor_fix.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/scripts/sampo/sampo_aura.lua",
+      "source": "mod/noita_together2/files/c2/scripts/sampo/sampo_aura.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/ui_gfx/status_indicators/nt_hourglass_protection_half.png",
+      "source": "mod/noita_together2/files/c2/ui_gfx/status_indicators/nt_hourglass_protection_half.png"
+    },
+    {
+      "path": "mods/noita_together2/files/c2/ui_gfx/status_indicators/nt_hourglass_speed_levitation.png",
+      "source": "mod/noita_together2/files/c2/ui_gfx/status_indicators/nt_hourglass_speed_levitation.png"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/testing_loadout.lua",
+      "source": "mod/noita_together2/files/startup/testing_loadout.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/startup/testing-starting-loadout.json",
+      "source": "packages/contracts/g3/testing-starting-loadout.json"
+    },
+    {
+      "path": "mods/noita_together2/files/rejoin/lobby_status.lua",
+      "source": "mod/noita_together2/files/rejoin/lobby_status.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/ghost_labels.lua",
+      "source": "mod/noita_together2/files/g3/ghost_labels.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/d1_hook_api.lua",
+      "source": "mod/noita_together2/files/g3/d1_hook_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/g3/d1_local.lua",
+      "source": "mod/noita_together2/files/g3/d1_local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/c1/append/steve_death.lua",
+      "source": "mod/noita_together2/files/c1/append/steve_death.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/catalogue.lua",
+      "source": "mod/noita_together2/files/race/catalogue.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/hook_api.lua",
+      "source": "mod/noita_together2/files/race/hook_api.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/local.lua",
+      "source": "mod/noita_together2/files/race/local.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/panel.lua",
+      "source": "mod/noita_together2/files/race/panel.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/player_death.lua",
+      "source": "mod/noita_together2/files/race/player_death.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/register.lua",
+      "source": "mod/noita_together2/files/race/register.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/sample.lua",
+      "source": "mod/noita_together2/files/race/sample.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/sha256.lua",
+      "source": "mod/noita_together2/files/race/sha256.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/storage.lua",
+      "source": "mod/noita_together2/files/race/storage.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/append/boss.lua",
+      "source": "mod/noita_together2/files/race/append/boss.lua"
+    },
+    {
+      "path": "mods/noita_together2/files/race/append/orb.lua",
+      "source": "mod/noita_together2/files/race/append/orb.lua"
+    }
+  ]
+}

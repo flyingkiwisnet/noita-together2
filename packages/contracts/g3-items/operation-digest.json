@@ -1,0 +1,93 @@
+{
+  "rule": "SHA256 of UTF8 JSON with recursively lexicographically sorted object keys, array order retained, no insignificant whitespace. Descriptor normalized as canonical explicit fields/default-empty arrays. All numeric strings preserved lexically. Deposit payload is normalized ItemDescriptor; claim payload is exact itemId+expectedRevision. Never include currentScope or request/session/service epoch in immutable digest.",
+  "vectors": [
+    {
+      "direction": "deposit",
+      "original": {
+        "v": 1,
+        "principalId": "66666666-6666-4666-8666-666666666666",
+        "scope": {
+          "roomId": "11111111-1111-4111-8111-111111111111",
+          "runId": "22222222-2222-4222-8222-222222222222",
+          "runEpoch": "33333333-3333-4333-8333-333333333333",
+          "configRevision": 1,
+          "attachmentId": "44444444-4444-4444-8444-444444444444",
+          "worldToken": "world-items-a"
+        },
+        "kind": "item.deposit",
+        "payload": {
+          "catalogueRevision": "nt2-items-base-2",
+          "wand": {
+            "named": true,
+            "uiName": "My wand",
+            "spriteId": "wand_e2ce0d0df0b4fb1d",
+            "gripX": "2",
+            "gripY": "5",
+            "tipX": "21",
+            "tipY": "5",
+            "manaMax": "100",
+            "manaChargeSpeed": "35.5",
+            "reloadTime": "-10",
+            "actionsPerRound": "2",
+            "deckCapacity": "120",
+            "shuffleDeckWhenEmpty": false,
+            "spreadDegrees": "-4.5",
+            "speedMultiplier": "1.25",
+            "fireRateWait": "-2",
+            "deck": [
+              {
+                "slot": 0,
+                "spell": {
+                  "actionId": "LIGHT_BULLET",
+                  "usesRemaining": "0"
+                }
+              },
+              {
+                "slot": 3,
+                "spell": {
+                  "actionId": "BOMB",
+                  "usesRemaining": "2"
+                }
+              }
+            ],
+            "permanent": [
+              {
+                "slot": 0,
+                "spell": {
+                  "actionId": "LIGHT_BULLET",
+                  "usesRemaining": "-1"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "canonicalJson": "{\"kind\":\"item.deposit\",\"payload\":{\"catalogueRevision\":\"nt2-items-base-2\",\"wand\":{\"actionsPerRound\":\"2\",\"deck\":[{\"slot\":0,\"spell\":{\"actionId\":\"LIGHT_BULLET\",\"usesRemaining\":\"0\"}},{\"slot\":3,\"spell\":{\"actionId\":\"BOMB\",\"usesRemaining\":\"2\"}}],\"deckCapacity\":\"120\",\"fireRateWait\":\"-2\",\"gripX\":\"2\",\"gripY\":\"5\",\"manaChargeSpeed\":\"35.5\",\"manaMax\":\"100\",\"named\":true,\"permanent\":[{\"slot\":0,\"spell\":{\"actionId\":\"LIGHT_BULLET\",\"usesRemaining\":\"-1\"}}],\"reloadTime\":\"-10\",\"shuffleDeckWhenEmpty\":false,\"speedMultiplier\":\"1.25\",\"spreadDegrees\":\"-4.5\",\"spriteId\":\"wand_e2ce0d0df0b4fb1d\",\"tipX\":\"21\",\"tipY\":\"5\",\"uiName\":\"My wand\"}},\"principalId\":\"66666666-6666-4666-8666-666666666666\",\"scope\":{\"attachmentId\":\"44444444-4444-4444-8444-444444444444\",\"configRevision\":1,\"roomId\":\"11111111-1111-4111-8111-111111111111\",\"runEpoch\":\"33333333-3333-4333-8333-333333333333\",\"runId\":\"22222222-2222-4222-8222-222222222222\",\"worldToken\":\"world-items-a\"},\"v\":1}",
+      "utf8Hex": "7b226b696e64223a226974656d2e6465706f736974222c227061796c6f6164223a7b22636174616c6f6775655265766973696f6e223a226e74322d6974656d732d626173652d32222c2277616e64223a7b22616374696f6e73506572526f756e64223a2232222c226465636b223a5b7b22736c6f74223a302c227370656c6c223a7b22616374696f6e4964223a224c494748545f42554c4c4554222c227573657352656d61696e696e67223a2230227d7d2c7b22736c6f74223a332c227370656c6c223a7b22616374696f6e4964223a22424f4d42222c227573657352656d61696e696e67223a2232227d7d5d2c226465636b4361706163697479223a22313230222c22666972655261746557616974223a222d32222c226772697058223a2232222c226772697059223a2235222c226d616e614368617267655370656564223a2233352e35222c226d616e614d6178223a22313030222c226e616d6564223a747275652c227065726d616e656e74223a5b7b22736c6f74223a302c227370656c6c223a7b22616374696f6e4964223a224c494748545f42554c4c4554222c227573657352656d61696e696e67223a222d31227d7d5d2c2272656c6f616454696d65223a222d3130222c2273687566666c654465636b5768656e456d707479223a66616c73652c2273706565644d756c7469706c696572223a22312e3235222c2273707265616444656772656573223a222d342e35222c227370726974654964223a2277616e645f65326365306430646630623466623164222c2274697058223a223231222c2274697059223a2235222c2275694e616d65223a224d792077616e64227d7d2c227072696e636970616c4964223a2236363636363636362d363636362d343636362d383636362d363636363636363636363636222c2273636f7065223a7b226174746163686d656e744964223a2234343434343434342d343434342d343434342d383434342d343434343434343434343434222c22636f6e6669675265766973696f6e223a312c22726f6f6d4964223a2231313131313131312d313131312d343131312d383131312d313131313131313131313131222c2272756e45706f6368223a2233333333333333332d333333332d343333332d383333332d333333333333333333333333222c2272756e4964223a2232323232323232322d323232322d343232322d383232322d323232323232323232323232222c22776f726c64546f6b656e223a22776f726c642d6974656d732d61227d2c2276223a317d",
+      "sha256": "399104437dcae91a8c6f2131c38660941b59bfffbc886da478667ff888035a1f"
+    },
+    {
+      "direction": "claim",
+      "original": {
+        "v": 1,
+        "principalId": "66666666-6666-4666-8666-666666666666",
+        "scope": {
+          "roomId": "11111111-1111-4111-8111-111111111111",
+          "runId": "22222222-2222-4222-8222-222222222222",
+          "runEpoch": "33333333-3333-4333-8333-333333333333",
+          "configRevision": 1,
+          "attachmentId": "44444444-4444-4444-8444-444444444444",
+          "worldToken": "world-items-a"
+        },
+        "kind": "item.claim",
+        "payload": {
+          "itemId": "55555555-5555-4555-8555-555555555555",
+          "expectedRevision": "1"
+        }
+      },
+      "canonicalJson": "{\"kind\":\"item.claim\",\"payload\":{\"expectedRevision\":\"1\",\"itemId\":\"55555555-5555-4555-8555-555555555555\"},\"principalId\":\"66666666-6666-4666-8666-666666666666\",\"scope\":{\"attachmentId\":\"44444444-4444-4444-8444-444444444444\",\"configRevision\":1,\"roomId\":\"11111111-1111-4111-8111-111111111111\",\"runEpoch\":\"33333333-3333-4333-8333-333333333333\",\"runId\":\"22222222-2222-4222-8222-222222222222\",\"worldToken\":\"world-items-a\"},\"v\":1}",
+      "utf8Hex": "7b226b696e64223a226974656d2e636c61696d222c227061796c6f6164223a7b2265787065637465645265766973696f6e223a2231222c226974656d4964223a2235353535353535352d353535352d343535352d383535352d353535353535353535353535227d2c227072696e636970616c4964223a2236363636363636362d363636362d343636362d383636362d363636363636363636363636222c2273636f7065223a7b226174746163686d656e744964223a2234343434343434342d343434342d343434342d383434342d343434343434343434343434222c22636f6e6669675265766973696f6e223a312c22726f6f6d4964223a2231313131313131312d313131312d343131312d383131312d313131313131313131313131222c2272756e45706f6368223a2233333333333333332d333333332d343333332d383333332d333333333333333333333333222c2272756e4964223a2232323232323232322d323232322d343232322d383232322d323232323232323232323232222c22776f726c64546f6b656e223a22776f726c642d6974656d732d61227d2c2276223a317d",
+      "sha256": "3ed910d9783038e5ea2432617c7bb560535e5eae694eeab369d3a880a2281bc6"
+    }
+  ]
+}

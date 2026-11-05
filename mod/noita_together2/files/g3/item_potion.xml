@@ -1,0 +1,8 @@
+<!-- Adapted from Noita Together, Copyright (c) 2022 Soler91, MIT. -->
+<Entity>
+	<Base file="data/entities/items/pickup/potion.xml">
+		<LuaComponent 
+			_enabled="0"
+		></LuaComponent>
+	</Base>
+</Entity>

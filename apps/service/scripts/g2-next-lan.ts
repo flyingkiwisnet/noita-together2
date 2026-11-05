@@ -1,0 +1,7 @@
+import {prepareCandidateLaunch,requireCandidateMock} from '../src/g2-next/launch.js';
+import {createCandidateApp} from '../src/g2-next/app.js';
+requireCandidateMock();
+const args=process.argv.slice(2),check=args.includes('--check'),configPath=args.find(a=>a!=='--check');if(!configPath||args.length!==(check?2:1))throw Error('Usage: NT2_G2_NEXT_MOCK=1 npm run dev:g2:next -- <configuration.json> [--check]');
+const prepared=await prepareCandidateLaunch(configPath);
+if(check){console.log(JSON.stringify({preflight:true,serviceStarted:false,databaseTouched:false,origin:prepared.config.origin,serviceId:prepared.config.serviceId,namespace:prepared.config.namespace,contractRevision:prepared.config.contractRevision,contractSha256:prepared.config.contractSha256,profile:prepared.provenance,certificateTrust:'Not established by preflight; normal HTTPS client verification still required'}));}
+else{const service=await createCandidateApp(prepared.options);try{await service.app.listen({host:prepared.config.ip,port:prepared.config.port});}catch(e){await service.app.close();throw e;}for(const signal of ['SIGINT','SIGTERM'] as const)process.once(signal,()=>{void service.app.close();});console.log(`Isolated successor listening on ${prepared.config.origin}; serviceId=${prepared.config.serviceId}; namespace=${prepared.config.namespace}; profile=${prepared.provenance.id}; mock accounts; engine evidence pending.`);}

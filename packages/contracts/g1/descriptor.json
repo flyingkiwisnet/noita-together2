@@ -1,0 +1,789 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "g1": {
+          "nested": {
+            "Info": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "capabilities": {
+                  "type": "string",
+                  "id": 5,
+                  "rule": "repeated"
+                },
+                "compatibility": {
+                  "type": "Compatibility",
+                  "id": 6
+                },
+                "limits": {
+                  "type": "Limits",
+                  "id": 7
+                },
+                "mockProvider": {
+                  "type": "bool",
+                  "id": 8
+                },
+                "contractStatus": {
+                  "type": "string",
+                  "id": 9
+                }
+              }
+            },
+            "Compatibility": {
+              "fields": {
+                "gameVersion": {
+                  "type": "string",
+                  "id": 1
+                },
+                "modVersion": {
+                  "type": "string",
+                  "id": 2
+                },
+                "bridgeVersion": {
+                  "type": "string",
+                  "id": 3
+                },
+                "capabilities": {
+                  "type": "string",
+                  "id": 4,
+                  "rule": "repeated"
+                },
+                "modes": {
+                  "type": "string",
+                  "id": 5,
+                  "rule": "repeated"
+                },
+                "settingKeys": {
+                  "type": "string",
+                  "id": 6,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "Limits": {
+              "fields": {
+                "bytes": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "fields": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "depth": {
+                  "type": "uint32",
+                  "id": 3
+                },
+                "rooms": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "members": {
+                  "type": "uint32",
+                  "id": 5
+                },
+                "capabilities": {
+                  "type": "uint32",
+                  "id": 6
+                },
+                "configBytes": {
+                  "type": "uint32",
+                  "id": 7
+                },
+                "requestWork": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "databaseWork": {
+                  "type": "uint32",
+                  "id": 9
+                },
+                "acquireMs": {
+                  "type": "uint32",
+                  "id": 10
+                },
+                "statementMs": {
+                  "type": "uint32",
+                  "id": 11
+                },
+                "lockMs": {
+                  "type": "uint32",
+                  "id": 12
+                },
+                "transactionMs": {
+                  "type": "uint32",
+                  "id": 13
+                },
+                "requestMs": {
+                  "type": "uint32",
+                  "id": 14
+                }
+              }
+            },
+            "BrowserLoginResponse": {
+              "fields": {
+                "credentials": {
+                  "type": "Credentials",
+                  "id": 1
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 2
+                }
+              }
+            },
+            "BrowserLogin": {
+              "fields": {
+                "subject": {
+                  "type": "string",
+                  "id": 1
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 6
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "expectedRevision": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 9
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 10
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 11
+                },
+                "pairBegin": {
+                  "type": "PairBegin",
+                  "id": 20
+                },
+                "pairApprove": {
+                  "type": "PairApprove",
+                  "id": 21
+                },
+                "pairPoll": {
+                  "type": "PairProof",
+                  "id": 22
+                },
+                "pairExchange": {
+                  "type": "PairProof",
+                  "id": 23
+                },
+                "pairCancel": {
+                  "type": "PairProof",
+                  "id": 24
+                },
+                "refresh": {
+                  "type": "Refresh",
+                  "id": 25
+                },
+                "logout": {
+                  "type": "Empty",
+                  "id": 26
+                },
+                "roomCreate": {
+                  "type": "RoomCreate",
+                  "id": 27
+                },
+                "roomList": {
+                  "type": "ListRooms",
+                  "id": 28
+                },
+                "roomGet": {
+                  "type": "Empty",
+                  "id": 29
+                },
+                "roomJoin": {
+                  "type": "Empty",
+                  "id": 30
+                },
+                "roomLeave": {
+                  "type": "Empty",
+                  "id": 31
+                },
+                "presence": {
+                  "type": "Presence",
+                  "id": 32
+                },
+                "ready": {
+                  "type": "Ready",
+                  "id": 33
+                },
+                "configure": {
+                  "type": "Config",
+                  "id": 34
+                },
+                "start": {
+                  "type": "Start",
+                  "id": 35
+                },
+                "cancelRun": {
+                  "type": "Empty",
+                  "id": 36
+                },
+                "endRun": {
+                  "type": "Empty",
+                  "id": 37
+                },
+                "gameAttach": {
+                  "type": "GameAttach",
+                  "id": 38
+                },
+                "gameSeedApplied": {
+                  "type": "GameFact",
+                  "id": 39
+                },
+                "gameLoaded": {
+                  "type": "GameFact",
+                  "id": 40
+                },
+                "gameResume": {
+                  "type": "GameFact",
+                  "id": 41
+                },
+                "roomPreview": {
+                  "type": "Empty",
+                  "id": 42
+                },
+                "roomAccess": {
+                  "type": "RoomAccess",
+                  "id": 43
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "pairBegin",
+                    "pairApprove",
+                    "pairPoll",
+                    "pairExchange",
+                    "pairCancel",
+                    "refresh",
+                    "logout",
+                    "roomCreate",
+                    "roomList",
+                    "roomGet",
+                    "roomJoin",
+                    "roomLeave",
+                    "presence",
+                    "ready",
+                    "configure",
+                    "start",
+                    "cancelRun",
+                    "endRun",
+                    "gameAttach",
+                    "gameSeedApplied",
+                    "gameLoaded",
+                    "gameResume",
+                    "roomPreview",
+                    "roomAccess"
+                  ]
+                }
+              }
+            },
+            "Empty": {
+              "fields": {}
+            },
+            "PairBegin": {
+              "fields": {
+                "deviceId": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "PairApprove": {
+              "fields": {
+                "attemptId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "code": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "PairProof": {
+              "fields": {
+                "attemptId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "proof": {
+                  "type": "string",
+                  "id": 2
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "Refresh": {
+              "fields": {
+                "secret": {
+                  "type": "string",
+                  "id": 1
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "RoomCreate": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "config": {
+                  "type": "Config",
+                  "id": 2
+                },
+                "visibility": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "RoomAccess": {
+              "fields": {
+                "visibility": {
+                  "type": "string",
+                  "id": 1
+                },
+                "admittedAccountIds": {
+                  "type": "string",
+                  "id": 2,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "ListRooms": {
+              "fields": {
+                "limit": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "afterRoomId": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "Setting": {
+              "fields": {
+                "key": {
+                  "type": "string",
+                  "id": 1
+                },
+                "value": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "Config": {
+              "fields": {
+                "seed": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "mode": {
+                  "type": "string",
+                  "id": 2
+                },
+                "settings": {
+                  "type": "Setting",
+                  "id": 3,
+                  "rule": "repeated"
+                },
+                "requiredCapabilities": {
+                  "type": "string",
+                  "id": 4,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "Presence": {
+              "fields": {
+                "present": {
+                  "type": "bool",
+                  "id": 1
+                }
+              }
+            },
+            "Ready": {
+              "fields": {
+                "ready": {
+                  "type": "bool",
+                  "id": 1
+                }
+              }
+            },
+            "Start": {
+              "fields": {
+                "participantDesktopIds": {
+                  "type": "string",
+                  "id": 1,
+                  "rule": "repeated"
+                },
+                "excludedDesktopIds": {
+                  "type": "string",
+                  "id": 2,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "GameAttach": {
+              "fields": {
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "gameVersion": {
+                  "type": "string",
+                  "id": 2
+                },
+                "modVersion": {
+                  "type": "string",
+                  "id": 3
+                },
+                "bridgeVersion": {
+                  "type": "string",
+                  "id": 4
+                },
+                "capabilities": {
+                  "type": "string",
+                  "id": 5,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "GameFact": {
+              "fields": {
+                "attachmentId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 6
+                },
+                "pairing": {
+                  "type": "Pairing",
+                  "id": 7
+                },
+                "credentials": {
+                  "type": "Credentials",
+                  "id": 8
+                },
+                "room": {
+                  "type": "Room",
+                  "id": 9
+                },
+                "rooms": {
+                  "type": "RoomSummary",
+                  "id": 10,
+                  "rule": "repeated"
+                },
+                "admission": {
+                  "type": "RoomSummary",
+                  "id": 11
+                },
+                "nextRoomId": {
+                  "type": "string",
+                  "id": 12
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1
+                },
+                "message": {
+                  "type": "string",
+                  "id": 2
+                },
+                "retryAfterMs": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "Pairing": {
+              "fields": {
+                "attemptId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "code": {
+                  "type": "string",
+                  "id": 2
+                },
+                "proof": {
+                  "type": "string",
+                  "id": 3
+                },
+                "state": {
+                  "type": "string",
+                  "id": 4
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "id": 5
+                }
+              }
+            },
+            "Credentials": {
+              "fields": {
+                "accessToken": {
+                  "type": "string",
+                  "id": 1
+                },
+                "refreshSecret": {
+                  "type": "string",
+                  "id": 2
+                },
+                "accountId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 6
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "id": 8
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 9
+                }
+              }
+            },
+            "RoomSummary": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "name": {
+                  "type": "string",
+                  "id": 2
+                },
+                "state": {
+                  "type": "string",
+                  "id": 3
+                },
+                "revision": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 5
+                },
+                "visibility": {
+                  "type": "string",
+                  "id": 6
+                },
+                "joinAllowed": {
+                  "type": "bool",
+                  "id": 7
+                }
+              }
+            },
+            "Member": {
+              "fields": {
+                "accountId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "desktopId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "present": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "ready": {
+                  "type": "bool",
+                  "id": 4
+                },
+                "selected": {
+                  "type": "bool",
+                  "id": 5
+                },
+                "attached": {
+                  "type": "bool",
+                  "id": 6
+                },
+                "seedApplied": {
+                  "type": "bool",
+                  "id": 7
+                },
+                "loaded": {
+                  "type": "bool",
+                  "id": 8
+                }
+              }
+            },
+            "Room": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "name": {
+                  "type": "string",
+                  "id": 2
+                },
+                "hostAccountId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "state": {
+                  "type": "string",
+                  "id": 4
+                },
+                "revision": {
+                  "type": "uint32",
+                  "id": 5
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 6
+                },
+                "config": {
+                  "type": "Config",
+                  "id": 7
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 8
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 9
+                },
+                "preparationExpiresAt": {
+                  "type": "string",
+                  "id": 10
+                },
+                "members": {
+                  "type": "Member",
+                  "id": 11,
+                  "rule": "repeated"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

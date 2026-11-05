@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g1-login"
+description = "Enables the g1_login command without any pre-configured scope."
+commands.allow = ["g1_login"]
+
+[[permission]]
+identifier = "deny-g1-login"
+description = "Denies the g1_login command without any pre-configured scope."
+commands.deny = ["g1_login"]

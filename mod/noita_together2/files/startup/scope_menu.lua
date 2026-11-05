@@ -1,0 +1,1 @@
+-- Inert menu scope observation. Never fresh permission.

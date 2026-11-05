@@ -1,0 +1,12 @@
+import {readFile} from 'node:fs/promises';
+import {createG1App} from './app.js';
+import type {Keys} from './security.js';
+if(process.env.NT2_G1_MOCK!=='1'||process.env.NODE_ENV==='production')throw Error('G1 draft launcher requires NT2_G1_MOCK=1 and refuses production');
+const keys=JSON.parse(await readFile(process.env.NT2_G1_KEYS_PATH??'secrets/g1-dev.json','utf8')) as Keys;
+const port=Number(process.env.NT2_G1_PORT??4321),serviceId=process.env.NT2_G1_SERVICE_ID??'nt2-g1-local';
+if(!Number.isInteger(port)||port<1024||port>65535||!/^nt2-[a-z0-9-]{1,100}$/.test(serviceId))throw Error('Invalid isolated development port/service identity');
+if(keys.issuer!==`http://127.0.0.1:${port}`)throw Error('Development issuer must match the configured loopback origin');
+const {app}=await createG1App({databaseUrl:process.env.NT2_G1_DATABASE_URL??'postgres://nt2_g1:local-fixture-only@127.0.0.1:54328/nt2_g1',serviceId,namespace:process.env.NT2_G1_NAMESPACE??'public',keys,mockEnabled:true,compatibility:{gameVersion:'g1-fixture',modVersion:'g1-draft-1',bridgeVersion:'g0-pipe32-1',capabilities:['core.seed','core.ghost','core.gold','core.items','core.emotes','core.cosmetics','integration.nemesis'],modes:['core','nemesis'],settingKeys:['friendlyFire','sharedHealth','respawn','bankEnabled']}});
+await app.listen({host:'127.0.0.1',port});
+for(const signal of ['SIGINT','SIGTERM'] as const)process.once(signal,()=>{void app.close();});
+console.log(`G1 corrective mock service listening on http://127.0.0.1:${port}; no other services restarted.`);

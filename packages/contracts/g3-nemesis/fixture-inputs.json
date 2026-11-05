@@ -1,0 +1,177 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-nemesis-draft-1",
+      "serviceId": "fixture",
+      "serviceEpoch": "12345678-1234-4234-9234-123456789abc",
+      "sessionEpoch": "12345678-1234-4234-9234-123456789abc",
+      "requestId": "12345678-1234-4234-9234-123456789abc",
+      "catalogueRevision": "nt2-nemesis-builtins-2",
+      "scope": {
+        "roomId": "12345678-1234-4234-9234-123456789abc",
+        "runId": "12345678-1234-4234-9234-123456789abc",
+        "runEpoch": "12345678-1234-4234-9234-123456789abc",
+        "configRevision": 1,
+        "attachmentId": "12345678-1234-4234-9234-123456789abc",
+        "worldToken": "世界-😀"
+      },
+      "purchase": {
+        "operationId": "12345678-1234-4234-9234-123456789abc",
+        "offerId": "12345678-1234-4234-9234-123456789abc"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "status": {
+        "operationId": "12345678-1234-4234-9234-123456789abc",
+        "afterRecipientKey": "12345678-1234-4234-9234-123456789abc",
+        "limit": 8
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "pending": {
+        "afterSequence": 8,
+        "throughSequence": 33,
+        "limit": 8
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "receipt": {
+        "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "receiptId": "12345678-1234-4234-9234-123456789abc",
+        "outcome": "unknown"
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "original": {
+        "operationId": "12345678-1234-4234-9234-123456789abc",
+        "offerId": "aaaaaaaa-aaaa-4aaa-9aaa-aaaaaaaaaaaa",
+        "groupId": "12345678-1234-4234-9234-123456789abc",
+        "abilityId": "grounded",
+        "cost": 35,
+        "pointsAfter": 965,
+        "digest": "bcec9e81f493133b158264ffec517a09e3a1f3a4d08a3b8b08c601cf14ce12b7",
+        "catalogueRevision": "nt2-nemesis-builtins-2",
+        "localHandlerId": "nemesis.grounded",
+        "effectKind": "timed",
+        "durationFrames": 360,
+        "source": {
+          "principalId": "12345678-1234-4234-9234-123456789abc",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "世界-😀",
+          "name": "世界 <img src=x>"
+        },
+        "scope": {
+          "roomId": "12345678-1234-4234-9234-123456789abc",
+          "runId": "12345678-1234-4234-9234-123456789abc",
+          "runEpoch": "12345678-1234-4234-9234-123456789abc",
+          "configRevision": 1,
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "世界-😀"
+        },
+        "recipientCount": 1,
+        "provenance": "validated-client-report"
+      },
+      "recipientStatuses": [
+        {
+          "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "recipient-😀",
+          "outcome": "unknown",
+          "receiptId": "12345678-1234-4234-9234-123456789abc"
+        }
+      ],
+      "nextRecipientKey": "12345678-1234-4234-9234-123456789abc",
+      "highRecipientKey": "12345678-1234-4234-9234-123456789abc"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "original": {
+        "operationId": "12345678-1234-4234-9234-123456789abc",
+        "offerId": "aaaaaaaa-aaaa-4aaa-9aaa-aaaaaaaaaaaa",
+        "groupId": "12345678-1234-4234-9234-123456789abc",
+        "abilityId": "grounded",
+        "cost": 35,
+        "pointsAfter": 965,
+        "digest": "bcec9e81f493133b158264ffec517a09e3a1f3a4d08a3b8b08c601cf14ce12b7",
+        "catalogueRevision": "nt2-nemesis-builtins-2",
+        "localHandlerId": "nemesis.grounded",
+        "effectKind": "timed",
+        "durationFrames": 360,
+        "source": {
+          "principalId": "12345678-1234-4234-9234-123456789abc",
+          "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "世界-😀",
+          "name": "世界 <img src=x>"
+        },
+        "scope": {
+          "roomId": "12345678-1234-4234-9234-123456789abc",
+          "runId": "12345678-1234-4234-9234-123456789abc",
+          "runEpoch": "12345678-1234-4234-9234-123456789abc",
+          "configRevision": 1,
+          "attachmentId": "12345678-1234-4234-9234-123456789abc",
+          "worldToken": "世界-😀"
+        },
+        "recipientCount": 1,
+        "provenance": "validated-client-report"
+      },
+      "recipientStatuses": [],
+      "nextRecipientKey": "12345678-1234-4234-9234-123456789abc",
+      "highRecipientKey": "12345678-1234-4234-9234-123456789abc"
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "deliveries": [
+        {
+          "sequence": 1,
+          "operationId": "12345678-1234-4234-9234-123456789abc",
+          "deliveryId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "abilityId": "steve",
+          "catalogueRevision": "nt2-nemesis-builtins-2",
+          "localHandlerId": "nemesis.steve",
+          "effectKind": "one-shot",
+          "source": {
+            "principalId": "12345678-1234-4234-9234-123456789abc",
+            "gameSessionId": "12345678-1234-4234-9234-123456789abc",
+            "attachmentId": "12345678-1234-4234-9234-123456789abc",
+            "worldToken": "世界-😀",
+            "name": "世界 <img src=x>"
+          },
+          "scope": {
+            "roomId": "12345678-1234-4234-9234-123456789abc",
+            "runId": "12345678-1234-4234-9234-123456789abc",
+            "runEpoch": "12345678-1234-4234-9234-123456789abc",
+            "configRevision": 1,
+            "attachmentId": "12345678-1234-4234-9234-123456789abc",
+            "worldToken": "世界-😀"
+          },
+          "recipientGameSessionId": "12345678-1234-4234-9234-123456789abc",
+          "outcome": "pending",
+          "provenance": "validated-client-report"
+        }
+      ],
+      "nextSequence": 1,
+      "highSequence": 1
+    }
+  }
+]

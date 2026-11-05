@@ -1,0 +1,53 @@
+{
+  "id": "nt2-g3-native-development-2",
+  "status": "source-reviewed-development-only",
+  "serviceId": "nt2-g3-native-development",
+  "namespacePrefix": "g3_",
+  "lobbyRevision": "g2-draft-5",
+  "gameplayRevision": "g3-draft-1",
+  "schemaSha256": "325f01bafaa493a7ff6614d3675c9908ed3f2d21c757e092e283838973fad1ff",
+  "compatibility": {
+    "gameVersion": "Noita-Jan25-2025",
+    "modVersion": "nt2-g3-dev-1",
+    "bridgeVersion": "g3-transport-1",
+    "capabilities": [
+      "core.seed",
+      "core.ghost"
+    ],
+    "modes": [
+      "core"
+    ],
+    "settingKeys": []
+  },
+  "profile": {
+    "id": "nt2-g3-native-development-2",
+    "evidenceStatus": "candidate-engine-evidence-pending",
+    "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+    "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+    "bridgeSha256": "b6db30bac5d64f99c5696a2a0c6805edf166a66002659d1b9fe0144b62b83549",
+    "modSha256": "1c5a9fdc5f61d7969b7a3d0c507b43ce54bfbc07553a6bfa14610c3568ed09b8",
+    "gameFamilyId": "noita-jan2025-x86-luajit-core",
+    "supportedBuilds": [
+      {
+        "id": "steam-jan2025-x86",
+        "store": "steam",
+        "branch": "unclassified",
+        "buildIdentity": "PE32 x86; Jan25-2025 reference pair",
+        "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+        "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+        "evidenceStatus": "candidate-engine-evidence-pending"
+      },
+      {
+        "id": "gog-jan2025-x86",
+        "store": "gog",
+        "branch": "unclassified",
+        "buildIdentity": "PE32 x86; Jan25-2025 reference pair",
+        "gameExeSha256": "f0f5ffd1c64558663ac7cffaf689f4899732a56494c3530b806bf3357d094363",
+        "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+        "evidenceStatus": "candidate-engine-evidence-pending"
+      }
+    ]
+  },
+  "installApproved": false,
+  "actualNoitaEvidence": false
+}

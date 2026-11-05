@@ -1,0 +1,4 @@
+{
+  "contractRevision":"g0-json-1", "requestId":"fixture-join-1", "roomId":"g0-room-forest", "runId":null,
+  "connectionEpoch":"fixture-epoch-1", "expectedRevision":1, "kind":"room.join", "body":{}
+}

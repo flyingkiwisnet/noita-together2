@@ -1,0 +1,210 @@
+{
+  "revision": "ux1-1",
+  "status": "implemented; focused checks passed; final Root acceptance pending",
+  "canonical": "packages/contracts/g2-next/schema.json",
+  "transport": {
+    "rpc": "/v1/rpc",
+    "revision": "g2-draft-5",
+    "authentication": "Existing browser cookie+CSRF or established desktop Bearer; no browser session mint for desktop. Preserve request/session/service/room scope; host/game mutations retain current revision fences; append-only chat follows the documented revision-independent rule."
+  },
+  "reuse": [
+    "roomList",
+    "roomPreview",
+    "roomGet",
+    "roomJoin",
+    "roomLeave",
+    "configure",
+    "roomPolicy",
+    "roomAccess",
+    "prepare",
+    "inspectionList",
+    "finalStart",
+    "cancelRun",
+    "endRun",
+    "roomDelete",
+    "chatList",
+    "chatSend",
+    "existing C1/C2 live rules and rejoin review"
+  ],
+  "hosting": {
+    "sessions": [
+      "browser",
+      "desktop"
+    ],
+    "game": false,
+    "create": "Registered User+ may create; default AUTH1 generated name; Power+ custom name/higher capacity. roomCreate adds optional capacity:uint32 (1..32/current entitlement), password:string (max128). Host desktop creates then performs existing reviewed roomJoin; creating alone does not invent game consent or membership.",
+    "authority": "Existing host account controls apply to browser and desktop; Admin/Dev do not acquire Start/config/End/delete/access powers by role.",
+    "delete": "Existing inactive/no attached/prepared guard remains; desktop host allowed exactly as browser host."
+  },
+  "projections": {
+    "RoomSummary": {
+      "host": "Principal",
+      "mode": "string max64",
+      "playerCount": "uint32"
+    },
+    "RoomMember": {
+      "chatMuted": "bool"
+    },
+    "Room": {
+      "host": "Principal"
+    }
+  },
+  "newOperations": {
+    "roomPlayerDetails": {
+      "request": {
+        "accountId": "UUID",
+        "desktopId": "optional UUID for current member"
+      },
+      "response": "playerDetails:PlayerDetails",
+      "permission": "Non-game actor with visible lobby. Ordinary read-only. Exact target desktop must still be in that lobby. No private discovery bypass."
+    },
+    "roomBanList": {
+      "request": {
+        "afterAccountId": "optional UUID exclusive cursor, default empty",
+        "limit": "uint32 1..32, default32"
+      },
+      "response": {
+        "roomBans": "PlayerDetails[] max32",
+        "nextRoomBanAccountId": "last returned accountId when more exist; empty when complete"
+      },
+      "ordering": "account UUID ascending, bounded limit+1 read",
+      "permission": "Host or current Admin/Dev with visible lobby; individual actions target-authorized"
+    }
+  },
+  "PlayerDetails": {
+    "accountId": "UUID",
+    "desktopId": "optional UUID",
+    "principal": "Principal",
+    "role": "user|power-user|admin|dev",
+    "chatMuted": "bool",
+    "banned": "bool",
+    "roomRevision": "uint32",
+    "actions": "string[] subset kick,ban,unban,mute,unmute; UI must consume current projection, re-fetch before confirmation/submission",
+    "inspection": "Use existing inspectionList keyed by desktopId for actual seed/ordered mods; no remembered substitute."
+  },
+  "moderation": {
+    "request": "Existing roomModerate:{accountId,action,desktopId?}; action adds mute/unmute. Include current expectedRevision/configRevision and desktopId from details for member actions.",
+    "constraints": [
+      "Never target self or lobby host for any moderation action.",
+      "Host retains existing room authority over any other player regardless of account role.",
+      "Nonhost Admin may act only on User/Power User; nonhost Dev on any other nonhost. Ordinary/Power nonhost cannot moderate.",
+      "Kick/ban/mute/unmute target must currently belong to this exact lobby; supplied desktopId must still match account membership. Unban requires an existing room ban.",
+      "Recheck current enabled actor/target role and visibility transactionally; stale revisions/departed target fail without mutation.",
+      "Kick permits normal rejoin; ban denies rejoin until unban. Mute only denies new room-chat sends; read/game continues. It is per room/account, across browser/desktop/game-origin room chat; no global ban.",
+      "Accepted moderation audited atomically using session/request identity. Replays reuse existing durable command result; lost mutation replies must not issue a new identity."
+    ],
+    "errors": [
+      "FORBIDDEN",
+      "NOT_FOUND",
+      "STALE_REVISION",
+      "CHAT_MUTED"
+    ],
+    "retention": "Mute persists per room/account across leave, kick and rejoin until explicitly unmuted; room deletion removes mutes. Existing successful chat retry is an idempotent receipt read after mute; new send denied CHAT_MUTED."
+  },
+  "catalogue": {
+    "source": "Info.compatibility modes/capabilities/settingKeys plus current Config and canonical testing-starting-loadout.json. No unsupported Nemesis controls.",
+    "seedDefaults": "shared-random seed0 resolves once, randomizeLoot=true when capabilities support; existing fixed/individual rules unchanged.",
+    "live": "Existing C1 player rules and C2 world rules use separate CAS endpoints, independent of seed config.",
+    "nextRun": "Seed/loot/mode configure only current allowed waiting/ended/staging transitions; existing game protection/consent retained."
+  },
+  "chat": {
+    "maxBytes": 1024,
+    "sendsPerWindow": 5,
+    "windowMs": 10000,
+    "pageLimit": 32,
+    "retainedMessages": 256,
+    "retentionMs": 900000,
+    "uiMessages": 250,
+    "deduplication": "Accepted server sequence scoped room; stable requestId/existing receipts for mutation retries.",
+    "mutedError": "CHAT_MUTED",
+    "revisionIndependence": "Ordinary chatSend appends only to room chat sequence; stale configRevision/expectedRevision/run snapshot fields do not reject it. Current authenticated service/session and exact room, current host/account membership, bans/mute, content/byte/rate limits and immutable original request receipt remain required. Host/game commands retain their existing revision gates."
+  },
+  "fixtures": {
+    "composition": "Existing apps/service/scripts/auth1-fixture-host.ts; no new controller. Root serializes actual Client composition.",
+    "status": "Generated DTO fixtures and real isolated service integration passed",
+    "available": "packages/contracts/g2-next/golden.json generated by generate-g2-next.mjs; apps/service/test/ux1.integration.ts"
+  },
+  "generatedRust": "packages/contracts/g2-next/g2-next.rs",
+  "generatedTypescript": "packages/contracts/g2-next/g2-next.ts",
+  "joinLock": {
+    "request": "roomPolicy.joinLocked bool alongside current required capacity",
+    "projection": "Room.joinLocked and RoomSummary.joinLocked",
+    "permission": "Host non-game only in existing policy states. Existing members and host account may rejoin; new nonhost joins return LOBBY_LOCKED. No role-based bypass.",
+    "semantics": "Join lock is independent of capacity, password and visibility; it does not kick or mute anyone."
+  },
+  "accessProjection": {
+    "roomVisibility": "Room.visibility visible to authorized lobby readers",
+    "hostAccess": "Response.access:RoomAccess {visibility,admittedAccountIds} only for non-game host when Response.room is returned. Complete list max32, no truncation. Preserve omission when unavailable; never replace invitations from guessed defaults."
+  },
+  "rejoinReports": {
+    "schema": "packages/contracts/g3-rejoin/schema.json",
+    "transport": "/v3/rejoin/rpc",
+    "permissions": "Existing host list/review accepts established desktop or browser host; participants retain own status access. No local resume proof added.",
+    "projection": "Host list/status default remains compact to preserve the64KiB bound. Request status:{},participantId,observationReport:\"original\" returns Participant.originalReport?:GameObservation; observationReport:\"pending\" returns pendingReport?:GameObservation. Fetch each selected report separately for review. No response carries both full reports, and list never expands all observations. New starts capture immutable original orderedmods; missing old snapshot stays omitted.",
+    "requiredReadScope": [
+      "roomId",
+      "runId",
+      "participantId",
+      "worldToken",
+      "configRevision",
+      "generation",
+      "status:{}",
+      "observationReport:original|pending"
+    ],
+    "fixtures": "packages/contracts/g3-rejoin/fixture-inputs.json and golden.json"
+  },
+  "websiteReadScope": "Authenticated browser may read roster/inspection for a currently visible, non-banned lobby without a game membership. Room chat read AND send retain host/account membership eligibility. No private-name bypass. Viewing is not joining; desktop join remains explicit reviewed roomJoin.",
+  "uncertainOutcomes": {
+    "receiptWindows": "Custom room commands (including configure) use 30 seconds. Base chat uses 15 minutes. Foundation create receipts remain recoverable; do not infer create expiry from elapsed 30 seconds.",
+    "verifiedExpiry": "Keep unknown outcome until explicit review/acknowledgment. Check button changes to Review expired outcome; reads current lobby/list and chat as applicable, presents current state with warning that history/list is incomplete and the original action may already have succeeded. Acknowledgment only releases the local pending guard; never sends a new request.",
+    "nextAction": "User deliberately submits a new action after acknowledgment. Fresh form values/revisions adopted after lobby acknowledgment. Chat draft retained with duplicate-delivery warning. Auth/session/service/reference fences prevent stale acknowledgment."
+  },
+  "mods": {
+    "source": "Legacy nt-app/src/views/Room.vue modList and vModUserTooltip.vue presentation, adapted to native DOM text rendering.",
+    "identity": "One current roster desktopId is one player; duplicate display names remain distinct. Only complete current scoped inspection inventory with no collectorFailure contributes; missing/incomplete/failed coverage is explicitly unknown.",
+    "modIdentity": "Exact activeMods string; Set deduplicates repeated entries per player. No normalization, invented names or external lookup.",
+    "order": "Count descending; name.toLowerCase ascending using lexical comparison; exact-name lexical tie-break for determinism.",
+    "ui": "Mods tab stays with existing per-player inspection and persistent chat. Count row expands via native button click/keyboard to current display names. Surviving rows retain expansion; lobby/session change clears contents and expansion.",
+    "transport": "Existing inspectionList and roster; no endpoint/schema change."
+  },
+  "kickOnDeath": {
+    "setting": "NT_ondeath_kick",
+    "label": "Kick on death",
+    "default": false,
+    "scope": "Reporting account in the current run, including host and other selected desktops; winning remains exempt.",
+    "authority": "Remove participation/current gameplay owners and same-run return eligibility; retain rooms.host_account_id and authenticated desktop/browser management. Existing same-run Join/lifecycle fences apply; End permits a distinct new run.",
+    "preserved": "Current captured death mode, sender-excluded frozen recipients and original event/receipt dedup. No change to weak penalty magnitude, full respawn, end or win meaning."
+  },
+  "sharedDeathEnd": {
+    "reason": "player_death_end",
+    "transport": "Existing desktop /v3/lifecycle/rpc WorldState terminal reason; no schema change. Protected client metadata consumes this reason for a scoped idempotent FinishRun/GameOver, not another death publish or penalty.",
+    "trigger": "Accepted non-win death under captured NT_death_penalty=end, or terminal death/life completion under captured weak_respawn. Current later rule edits do not override original event.",
+    "transaction": "Freeze original event/rules/recipients; persist actionable world reason for exact-run participants before canonical cancellation/revocation. Reuse RejoinRooms.cancel ended and gameplay synchronization/bank wake. Ownership and current non-game sessions retained.",
+    "recovery": "Paused/disconnected owners read reason under current desktop auth; no game credential required. Offline reconciliation cannot erase this reason. Old world retains old association/reason even after distinct new run.",
+    "freshRun": "No automatic creation/replay. Deliberate Join/preparation/current inspections and explicit Start are required for a distinct run/world.",
+    "preserved": "Winning never triggers shared death end. Full respawn and ordinary weak respawn retain captured behavior. No extra 20% terminal-death cascade."
+  },
+  "presentation": {
+    "canonicalHints": "packages/contracts/src/lobby-setting-hints.js",
+    "export": "LOBBY_SETTING_HINTS",
+    "fields": [
+      "label",
+      "help",
+      "timing"
+    ],
+    "timing": [
+      "draft",
+      "next-run",
+      "live",
+      "admission"
+    ],
+    "transport": "Same-origin static /packages/contracts/src/lobby-setting-hints.js, no RPC/schema/default/permission change. Client consumes this canonical asset through its UI packaging.",
+    "legacySource": "noita-together-main/nt-app/src/store/index.js flagInfo/defaultFlags",
+    "labels": "Canonical safe label/help text; help opens only from dedicated ? hover or keyboard focus. No row/input titles, inline tooltip prose or layout reservation; one visible tooltip at a time.",
+    "groups": "One Save settings and one Reload settings across all groups. Full supported-draft validation before writes; changed groups only, deterministic C1 -> C2 -> admission -> access -> world/transfers order. Preflight source-group comparisons permit current revision use only when reviewed group values remain unchanged. Confirmed group baselines advance; remaining drafts retained. Multiple APIs are not atomic.",
+    "create": "Signed-in Create lobby beside Refresh opens existing form in accessible modal. Escape/Close/Cancel preserve same-context draft and pending original request without submission/replay. Validation/server errors keep modal/draft. Success enters lobby/closes modal; auth/service turnover clears context draft.",
+    "seed": "Generate new random seed uses browser crypto to fill a visible nonzero uint32, selects shared-fixed in draft, no network until Create/Save. Ordinary shared-random policy still resolves normally.",
+    "guards": "World/Transfers held for active/generated world using existing projected state, with service remaining authoritative. Live rule controls remain independent.",
+    "uncertainty": "Stop the batch on any refusal or unknown outcome. Keep immutable scoped original request identity. Explicit Check original reconciles only that operation; never resumes the batch. C1/C2 CAS writes whose unknown original can no longer be confirmed require explicit read/acknowledgment; retained drafts remain separate deliberate new intents. Reload reads all groups before replacing fields and never clears pending originals."
+  }
+}

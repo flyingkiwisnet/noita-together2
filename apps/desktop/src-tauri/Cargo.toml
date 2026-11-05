@@ -1,0 +1,41 @@
+[package]
+name = "nt2-desktop-g0"
+version = "0.0.1"
+edition = "2024"
+license = "MIT"
+
+[features]
+beta-portable = ["g3-rejoin"]
+# Isolated composition timing only; never selected by normal package builds.
+g3-bank-latency-fixture = []
+g3-a1-runtime-fix = []
+g3-a1-runtime-diagnostic = []
+g3-a1-heartbeat-busy = []
+g3-c2-live = []
+g3-c2-potion-diagnostic = ["g3-c2-live"]
+g3-c2-potion-correction = ["g3-c2-live"]
+g3-seed-loot = ["g3-c2-live"]
+g3-loot01 = ["g3-seed-loot"]
+g3-rejoin = ["g3-loot01"]
+
+[build-dependencies]
+tauri-build = "=2.7.1"
+serde_json = "=1.0.151"
+sha2 = "=0.10.9"
+
+[dependencies]
+nt2-local-ws = { path = "../../../native/local-ws" }
+tauri = "=2.12.1"
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+reqwest = { version = "=0.13.5", default-features = false, features = ["json", "native-tls"] }
+uuid = { version = "1", features = ["v4"] }
+tokio = { version = "=1.53.2", features = ["time"] }
+sha2 = "=0.10.9"
+zeroize = "=1.9.0"
+tokio-tungstenite = { version = "=0.30.0", default-features = false, features = ["handshake"] }
+futures-util = { version = "=0.3.32", features = ["sink"] }
+base64 = "=0.22.1"
+
+[dev-dependencies]
+tauri = { version = "=2.12.1", features = ["test"] }

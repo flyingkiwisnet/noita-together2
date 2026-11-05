@@ -1,0 +1,15 @@
+{
+  "namespace": "g3_rejoin_replace_with_owned_namespace",
+  "serviceId": "replace-with-reviewed-service-id",
+  "port": 8443,
+  "listenHost": "127.0.0.1",
+  "databaseUrlEnv": "NT2_DATABASE_URL",
+  "databaseHost": "127.0.0.1",
+  "databasePort": 5432,
+  "databaseName": "replace_with_owned_database",
+  "trustedProxies": [],
+  "packageApproval": {
+    "runtime": {"path": "deploy/profiles/replace-with-reviewed-runtime.json", "sha256": "REPLACE_WITH_REVIEWED_SHA256"},
+    "source": {"path": "deploy/profiles/replace-with-reviewed-source.json", "sha256": "REPLACE_WITH_REVIEWED_SHA256"}
+  }
+}

@@ -1,0 +1,127 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.hourglass2;
+
+message Scope {
+  string roomId = 1;
+  string runId = 2;
+  string runEpoch = 3;
+  uint32 configRevision = 4;
+  string attachmentId = 5;
+  string worldToken = 6;
+}
+
+message Activate {
+  string activationId = 1;
+  string effectId = 2;
+  string materialId = 3;
+}
+
+message Status {
+  string activationId = 1;
+  string afterRecipientKey = 2;
+  uint32 limit = 3;
+}
+
+message Pending {
+  uint32 afterSequence = 1;
+  uint32 throughSequence = 2;
+  uint32 limit = 3;
+}
+
+message Receipt {
+  string deliveryId = 1;
+  string receiptId = 2;
+  string outcome = 3;
+}
+
+message Source {
+  string principalId = 1;
+  string name = 2;
+  string gameSessionId = 3;
+  string attachmentId = 4;
+  string worldToken = 5;
+}
+
+message Delivery {
+  string deliveryId = 1;
+  string activationId = 2;
+  string effectId = 3;
+  string materialId = 4;
+  string catalogueRevision = 5;
+  Source source = 6;
+  Scope scope = 7;
+  string recipientGameSessionId = 8;
+  string recipientAttachmentId = 9;
+  string recipientWorldToken = 10;
+  string outcome = 11;
+  string provenance = 12;
+  uint32 sequence = 13;
+}
+
+message Activation {
+  string activationId = 1;
+  string effectId = 2;
+  string materialId = 3;
+  uint32 recipientCount = 4;
+  string provenance = 5;
+}
+
+message Error {
+  string code = 1;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  Scope scope = 7;
+  string catalogueRevision = 8;
+  oneof payload {
+    Activate activate = 20;
+    Status status = 21;
+    Pending pending = 22;
+    Receipt receipt = 23;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string requestId = 5;
+  Error error = 6;
+  Activation activation = 7;
+  repeated Delivery deliveries = 8;
+  uint32 nextSequence = 9;
+  uint32 highSequence = 10;
+  Original original = 11;
+  repeated RecipientStatus recipientStatuses = 12;
+  string nextRecipientKey = 13;
+  string highRecipientKey = 14;
+}
+
+message Original {
+  string activationId = 1;
+  string digest = 2;
+  string effectId = 3;
+  string materialId = 4;
+  string catalogueRevision = 5;
+  Source source = 6;
+  Scope scope = 7;
+  uint32 recipientCount = 8;
+  string provenance = 9;
+}
+
+message RecipientStatus {
+  string deliveryId = 1;
+  string gameSessionId = 2;
+  string attachmentId = 3;
+  string worldToken = 4;
+  string outcome = 5;
+  string receiptId = 6;
+}

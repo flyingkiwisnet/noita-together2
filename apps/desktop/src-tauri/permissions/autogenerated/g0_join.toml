@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g0-join"
+description = "Enables the g0_join command without any pre-configured scope."
+commands.allow = ["g0_join"]
+
+[[permission]]
+identifier = "deny-g0-join"
+description = "Denies the g0_join command without any pre-configured scope."
+commands.deny = ["g0_join"]

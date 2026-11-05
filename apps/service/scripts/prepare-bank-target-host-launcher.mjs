@@ -1,0 +1,9 @@
+// Candidate only; Root publishes after exact Client kit/closure review.
+import fs from 'node:fs';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+const json=p=>JSON.parse(fs.readFileSync(p)),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const old=json('docs/g3/server-b1-ui-package-dependency-20261025.json'),folder='deploy/g3-rejoin/bank-target-host-runtime-20261026',manifest=json(folder+'/manifest.json'),runtime=json(manifest.runtimeApproval.path),input=json(runtime.compositionInput.path),count=input.expectedKitFiles-1;
+assert.ok(Number.isInteger(count)&&count>256&&count<=512,'exact reviewed kit artifact count');
+let script=fs.readFileSync('deploy/g3-rejoin/Start-Host.B1-UI.candidate.ps1','utf8');
+for(const [from,to]of [[old.runtimeApproval.sha256,manifest.runtimeApproval.sha256],[old.manifest.sha256,hash(folder+'/manifest.json')],[old.bootstrap.sha256,hash(folder+'/boot.mjs')],['b1-ui-host-runtime-20261025','bank-target-host-runtime-20261026'],['nt2-b1-ui-isolated-host-20261025','nt2-bank-target-isolated-host-20261026'],['config.b1-ui-20261025','config.bank-target-20261026'],['g3-b1-ui-runtime.20261025','g3-bank-target-runtime.20261026'],['nt2-g3-b1-ui-dev-20261025','nt2-g3-bank-target-dev-20261026'],['.Count -ne 219','.Count -ne 252'],['$taskManifest.Count -lt 40 -or $taskManifest.Count -gt 256',`$taskManifest.Count -ne ${count}`],["core.cosmetics,core.gold'","core.cosmetics,core.gold,core.items'"]]){assert.ok(script.includes(from),'missing launcher replacement '+from);script=script.replaceAll(from,to);}
+const candidate='deploy/g3-rejoin/Start-Host.Bank-Target.candidate.ps1';fs.writeFileSync(candidate,script,{flag:'wx'});
+console.log(JSON.stringify({candidate,runtimeId:runtime.id,requiredRuntimeFiles:252,exactKitArtifactCount:count,published:false}));

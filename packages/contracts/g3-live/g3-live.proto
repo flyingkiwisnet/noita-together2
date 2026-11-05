@@ -1,0 +1,126 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.live;
+
+message Scope {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string roomId = 4;
+  optional string runId = 5;
+  optional string runEpoch = 6;
+  optional uint32 configRevision = 7;
+  optional string attachmentId = 8;
+  optional string worldToken = 9;
+}
+
+message Pose {
+  optional uint32 sequence = 1;
+  optional string xMilli = 2;
+  optional string yMilli = 3;
+  optional string vxMilli = 4;
+  optional string vyMilli = 5;
+  optional bool facingLeft = 6;
+}
+
+message Empty {
+}
+
+message Authenticate {
+  optional string accessToken = 1;
+}
+
+message Reauthenticate {
+  optional string accessToken = 1;
+  optional uint32 authRevision = 2;
+}
+
+message Welcome {
+  optional uint32 authRevision = 1;
+  optional string accessExpiresAt = 2;
+  optional string authorityUntil = 3;
+  optional uint32 poseHz = 4;
+  optional uint32 snapshotHz = 5;
+}
+
+message Peer {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string attachmentId = 3;
+  optional string worldToken = 4;
+  repeated Pose poses = 5;
+  optional string acceptedAt = 6;
+  optional uint32 peerAgeMsAtSend = 7;
+  repeated uint32 poseAgesMsAtSend = 8 [packed=false];
+}
+
+message Snapshot {
+  repeated Peer peers = 1;
+  optional string acceptedAt = 2;
+}
+
+message Retire {
+  optional string code = 1;
+  optional uint32 retryAfterMs = 2;
+}
+
+message RoomSemantics {
+  optional string revision = 1;
+  optional string kind = 2;
+  repeated string requiredCapabilities = 3;
+}
+
+message ClientFrame {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string connectionId = 5;
+  optional uint32 clientGeneration = 6;
+  optional uint32 authorityGeneration = 7;
+  optional uint32 sequence = 8;
+  Scope scope = 9;
+  oneof payload {
+    Authenticate authenticate = 10;
+    Reauthenticate reauthenticate = 11;
+    Pose pose = 12;
+    Empty ping = 13;
+  }
+}
+
+message ServerFrame {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string connectionId = 5;
+  optional uint32 clientGeneration = 6;
+  optional uint32 authorityGeneration = 7;
+  optional uint32 sequence = 8;
+  Scope scope = 9;
+  optional uint32 ackClientSequence = 14;
+  optional uint32 authorityRemainingMs = 15;
+  optional uint32 accessRemainingMs = 16;
+  optional string credentialId = 17;
+  oneof payload {
+    Welcome welcome = 10;
+    Snapshot snapshot = 11;
+    Retire retire = 12;
+    Empty pong = 13;
+    BankChanged bankChanged = 18;
+    C1Changed c1Changed = 19;
+    C2Changed c2Changed = 20;
+  }
+}
+
+message BankChanged {
+  optional string revision = 1;
+}
+
+message C1Changed {
+  optional string sequence = 1;
+}
+
+message C2Changed {
+  optional string sequence = 1;
+}

@@ -1,0 +1,135 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.nemesis;
+
+message Scope {
+  string roomId = 1;
+  string runId = 2;
+  string runEpoch = 3;
+  uint32 configRevision = 4;
+  string attachmentId = 5;
+  string worldToken = 6;
+}
+
+message Source {
+  string principalId = 1;
+  string name = 2;
+  string gameSessionId = 3;
+  string attachmentId = 4;
+  string worldToken = 5;
+}
+
+message Error {
+  string code = 1;
+}
+
+message Purchase {
+  string operationId = 1;
+  string offerId = 2;
+}
+
+message Status {
+  string operationId = 1;
+  string afterRecipientKey = 2;
+  uint32 limit = 3;
+}
+
+message Pending {
+  uint32 afterSequence = 1;
+  uint32 throughSequence = 2;
+  uint32 limit = 3;
+}
+
+message Receipt {
+  string deliveryId = 1;
+  string receiptId = 2;
+  string outcome = 3;
+}
+
+message PurchaseResult {
+  string operationId = 1;
+  string offerId = 2;
+  string groupId = 3;
+  string abilityId = 4;
+  uint32 cost = 5;
+  uint32 pointsAfter = 6;
+  uint32 recipientCount = 7;
+  string provenance = 8;
+}
+
+message Original {
+  string operationId = 1;
+  string offerId = 2;
+  string groupId = 3;
+  string abilityId = 4;
+  uint32 cost = 5;
+  uint32 pointsAfter = 6;
+  string digest = 7;
+  string catalogueRevision = 8;
+  string localHandlerId = 9;
+  string effectKind = 10;
+  uint32 durationFrames = 11;
+  Source source = 12;
+  Scope scope = 13;
+  uint32 recipientCount = 14;
+  string provenance = 15;
+}
+
+message RecipientStatus {
+  string deliveryId = 1;
+  string gameSessionId = 2;
+  string attachmentId = 3;
+  string worldToken = 4;
+  string outcome = 5;
+  string receiptId = 6;
+}
+
+message Delivery {
+  uint32 sequence = 1;
+  string operationId = 2;
+  string deliveryId = 3;
+  string abilityId = 4;
+  string catalogueRevision = 5;
+  string localHandlerId = 6;
+  string effectKind = 7;
+  uint32 durationFrames = 8;
+  Source source = 9;
+  Scope scope = 10;
+  string recipientGameSessionId = 11;
+  string outcome = 12;
+  string provenance = 13;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  Scope scope = 7;
+  string catalogueRevision = 8;
+  oneof payload {
+    Purchase purchase = 20;
+    Status status = 21;
+    Pending pending = 22;
+    Receipt receipt = 23;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string requestId = 5;
+  Error error = 6;
+  PurchaseResult purchase = 7;
+  Original original = 8;
+  repeated RecipientStatus recipientStatuses = 9;
+  string nextRecipientKey = 10;
+  string highRecipientKey = 11;
+  repeated Delivery deliveries = 12;
+  uint32 nextSequence = 13;
+  uint32 highSequence = 14;
+}

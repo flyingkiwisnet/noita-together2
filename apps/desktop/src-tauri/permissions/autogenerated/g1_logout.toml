@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g1-logout"
+description = "Enables the g1_logout command without any pre-configured scope."
+commands.allow = ["g1_logout"]
+
+[[permission]]
+identifier = "deny-g1-logout"
+description = "Denies the g1_logout command without any pre-configured scope."
+commands.deny = ["g1_logout"]

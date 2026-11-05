@@ -1,0 +1,49 @@
+{
+  "revision": "g3-history-draft-1",
+  "fixtures": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-history-draft-1",
+        "serviceId": "fixture",
+        "serviceEpoch": "11111111-1111-4111-8111-111111111111",
+        "sessionEpoch": "22222222-2222-4222-8222-222222222222",
+        "requestId": "history-fixture",
+        "discover": {
+          "afterSequence": "0",
+          "limit": 2
+        }
+      },
+      "hex": "0801121267332d686973746f72792d64726166742d311a0766697874757265222431313131313131312d313131312d343131312d383131312d3131313131313131313131312a2432323232323232322d323232322d343232322d383232322d323232323232323232323232320f686973746f72792d666978747572653a050a01301802"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-history-draft-1",
+        "serviceId": "fixture",
+        "serviceEpoch": "11111111-1111-4111-8111-111111111111",
+        "requestId": "history-fixture",
+        "nextSequence": "0",
+        "highSequence": "0"
+      },
+      "hex": "0801121267332d686973746f72792d64726166742d311a0766697874757265222431313131313131312d313131312d343131312d383131312d313131313131313131313131320f686973746f72792d666978747572654201304a0130"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "Request",
+      "json": {
+        "discover": {},
+        "principalId": "forged"
+      }
+    },
+    {
+      "type": "Discover",
+      "json": {
+        "afterSequence": "11111111111111111111"
+      }
+    }
+  ]
+}

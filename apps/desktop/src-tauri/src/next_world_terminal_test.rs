@@ -1,0 +1,25 @@
+#[test]fn a2_terminal_from_host_or_canonical_peer_supersedes_optional_pages_with_control_only_end(){tauri::async_runtime::block_on(async{
+ for local_end in [true,false]{let mut c=playing_preparation();let owner=c.world.native.unwrap();let stream=Arc::new(Mutex::new(nt2_desktop_g0::g3_social_stream::Exchange::default()));c.social_stream=Some(stream.clone());let mut poll=vec![0;64];poll[..8].copy_from_slice(b"NSP1\x01\0\0\0");poll[8..24].copy_from_slice(&owner.1);
+  {use nt2_desktop_g0::{g3_social_frame::Command,g3_social_projection::Page};let mut x=stream.lock().unwrap();x.arm(owner.0,owner.1,1,Instant::now()+Duration::from_secs(12)).unwrap();x.publish(0.,vec![vec![Command::Begin(256),Command::Page(Page{high:256,next:240,markers:vec![],complete:false})],vec![Command::Pause]]).unwrap();let old=x.transition(owner.0,&poll,true);assert_eq!(old[5],1);poll[24..28].copy_from_slice(&old[92..96]);}
+  if local_end{c.lc1_terminal("Host ended the run");}else{let record=c.world.record.clone().unwrap();let mut request=envelope(&c.service,&c.epoch,c.desktop.as_ref().unwrap());let association:w::WorldAssociation=serde_json::from_value(record.association.clone().unwrap()).unwrap();request.reconcile=Some(w::Reconcile{association:Some(association.clone()),..Default::default()});let response=w::Response{world:Some(w::WorldState{association:Some(association),state:Some("terminal".into()),reason:Some("ended".into()),attempt:Some(record.sequence as u32),connection_id:Some(hex(&owner.1)),run_epoch:Some(record.identity.run_epoch.clone()),..Default::default()}),..Default::default()};let ticket=c.world.coordinator.ticket.clone().unwrap();let report=c.pending.lock().unwrap().as_ref().unwrap().observation.clone().unwrap();let desktop=c.desktop.clone().unwrap();c.world.network=Some(tokio::spawn(async move{Ok(Reconciled{record,request,response,stamp:Stamp{sequence:1,started:Instant::now()},ticket,report,desktop,owner,held_scope:None})}));while !c.world.network.as_ref().unwrap().is_finished(){tokio::task::yield_now().await;}c.lc1_poll_network().await.unwrap();}
+  assert_eq!(c.world.coordinator.stage(),Stage::Ended);assert!(c.lifecycle.lock().unwrap().authority.terminal);assert!(!c.pending.lock().unwrap().as_ref().unwrap().release);c.g3_pause();
+  let reply=stream.lock().unwrap().transition(owner.0,&poll,false);assert_eq!(reply[5],2,"Authoritative terminal only paused the optional lane; End control was never delivered");assert_eq!(&reply[8..24],&owner.1);assert_eq!(u32::from_le_bytes(reply[32..36].try_into().unwrap()),41);assert_eq!(reply[104],6);assert!(!stream.lock().unwrap().ready());assert!(stream.lock().unwrap().arm(owner.0,owner.1,1,Instant::now()+Duration::from_secs(1)).is_err());
+  poll[24..28].copy_from_slice(&reply[92..96]);let ack=stream.lock().unwrap().transition(owner.0,&poll,false);assert_eq!(ack[5],2);assert_eq!(&ack[32..36],&[0;4],"Terminal acknowledgement must not restore a queued page");
+ }
+});}
+
+#[test]fn shared_death_end_saved_lookup_persists_exact_reason_without_rechoosing_lineage(){tauri::async_runtime::block_on(async{
+ let mut c=playing_preparation();c.world.chosen=true;c.world.host_started=true;c.world.waiting_for_start=true;c.lc1_terminal("player_death_end");
+ assert!(!c.world.chosen&&!c.world.host_started&&!c.world.waiting_for_start);assert_eq!(c.world.coordinator.stage(),Stage::Ended);
+ assert_eq!(c.native_diagnostics.lock().unwrap().rejoin.lookup,6);
+ let record=c.world.record.clone().unwrap();local::set_intent(&*c.world_files,&record).unwrap();
+ let loaded=local::load(&*c.world_files,&record.identity,record.world).unwrap().unwrap();assert_eq!(loaded.terminal_reason.as_deref(),Some("player_death_end"));
+ // A cold metadata selector must recover the protected terminal reason without
+ // a social/gameplay context, admission or permission.
+ c.world.record=None;c.world.lookup_key.clear();c.world.lookup_selector=None;
+ let marker=record.marker().unwrap();let pid=std::process::id();{let mut d=c.native_diagnostics.lock().unwrap();d.rejoin.world_offered=Some((nt2_local_ws::owner::Id::OsProcess(pid),marker.clone()));d.rejoin.world_context=Some([0;16]);d.rejoin.lookup=4;}
+ c.lc1_lookup().await.unwrap();while c.world.lookup.as_ref().is_some_and(|t|!t.is_finished()){tokio::task::yield_now().await;}c.lc1_lookup().await.unwrap();
+ assert_eq!(c.native_diagnostics.lock().unwrap().rejoin.lookup,6);assert_eq!(c.world.record.as_ref().unwrap().terminal_reason.as_deref(),Some("player_death_end"));assert!(!c.pending.lock().unwrap().as_ref().unwrap().release);
+ let mut frame=vec![0;32];frame[..4].copy_from_slice(&handoff::MAGIC.to_le_bytes());frame[4..8].copy_from_slice(&8u32.to_le_bytes());frame[8..12].copy_from_slice(&14u32.to_le_bytes());let body=marker.encode().unwrap();frame[12..16].copy_from_slice(&(body.len()as u32).to_le_bytes());frame.extend(body);
+ let reply=c.native_diagnostics.lock().unwrap().rejoin.transition(&None,nt2_local_ws::owner::Id::OsProcess(pid+1),&frame);assert_ne!(u32::from_le_bytes(reply[12..16].try_into().unwrap()),6,"Different PID inherited terminal lookup");
+});}

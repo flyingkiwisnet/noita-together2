@@ -1,0 +1,13 @@
+import {readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';
+const root=new URL('../g3-waiting/',import.meta.url),docs=new URL('../../../docs/g3/',import.meta.url),load=async name=>JSON.parse((await readFile(new URL(name,docs),'utf8')).replace(/^\uFEFF/,''));
+const schema=JSON.parse(await readFile(new URL('schema.json',root),'utf8')),activated=await load('server-se1-entry-activated-fixture.json'),cancelled=await load('server-se1-entry-cancel-first-fixture.json'),lost=await load('server-se1-entry-lost-outcome-fixture.json');
+const fixtures=JSON.parse(await readFile(new URL('fixture-inputs.json',root),'utf8')).filter(f=>!f.label?.startsWith('entry-candidate'));
+for(const f of fixtures)if(f.type==='Request'||f.type==='Response')f.json.revision=schema.revision;
+const add=(type,json,label)=>fixtures.push({type,json,label:'entry-candidate '+label});
+add('EntryPreview',activated.preview,'coherent passive read');add('EntryState',activated.entry,'historical activated identity');add('EntryState',cancelled.entry,'pre-materialization cancellation');add('EntryOutcome',lost.outcome,'changed-auth exact activation outcome');
+const scope=activated.preview.scope,proof='s'.repeat(43),identity={...activated.identity,proofCommitment:createHash('sha256').update(proof).digest('hex')},base={major:1,revision:schema.revision,serviceId:scope.serviceId,serviceEpoch:scope.serviceEpoch,sessionEpoch:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',requestId:'entry-candidate-synthetic'};
+add('Request',{...base,entryPreview:{roomId:scope.roomId,basePreparationId:scope.basePreparationId}},'preview');
+add('Request',{...base,entryActivate:{scope,identity,recoveryProof:proof,gameVersion:'synthetic-game',modVersion:'synthetic-mod',bridgeVersion:'synthetic-bridge',capabilities:[],observation:{worldToken:identity.worldToken,gameInstanceId:'synthetic-B-loaded',observationRevision:1,actualSeed:scope.actualSeed??'18446744073709551615',seedStatus:'known',activeMods:['noita_together2'],inventoryComplete:true,collectorFailure:'',beta:'unknown',protected:true,loaded:true,modVersion:'synthetic-mod',bridgeVersion:'synthetic-bridge',compatibilityProvenance:'game-thread-client-observation'}}},'loaded activation with no invented old attachment');
+add('Request',{...base,entryCancel:{scope,identity,recoveryProof:proof,worldOffline:true}},'future-world cancellation');
+add('Request',{...base,entryStatus:{scope,identity}},'status');add('Request',{...base,entryOutcome:lost.outcome.original},'original outcome');
+await writeFile(new URL('fixture-inputs.json',root),JSON.stringify(fixtures,null,2)+'\n');

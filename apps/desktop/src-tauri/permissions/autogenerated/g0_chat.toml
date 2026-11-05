@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g0-chat"
+description = "Enables the g0_chat command without any pre-configured scope."
+commands.allow = ["g0_chat"]
+
+[[permission]]
+identifier = "deny-g0-chat"
+description = "Denies the g0_chat command without any pre-configured scope."
+commands.deny = ["g0_chat"]

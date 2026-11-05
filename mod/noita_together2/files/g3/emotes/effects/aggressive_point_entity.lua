@@ -1,0 +1,26 @@
+local entity_id = GetUpdatedEntityID()
+local particle_emitter = EntityGetFirstComponentIncludingDisabled(entity_id, "ParticleEmitterComponent")
+local sprite_emitter = EntityGetFirstComponentIncludingDisabled(entity_id, "SpriteParticleEmitterComponent")
+local lua = EntityGetFirstComponentIncludingDisabled(entity_id, "LuaComponent")
+local times_run = ComponentGetValue2(lua, "mTimesExecuted")
+local first_update=times_run==0
+local age_frames=0
+for _,c in ipairs(EntityGetComponentIncludingDisabled(entity_id,"VariableStorageComponent")or {})do if ComponentGetValue2(c,"name")=="nt2_a3_age_frames"then age_frames=ComponentGetValue2(c,"value_int")or 0 end end
+times_run=times_run+math.floor(age_frames/1)
+
+
+if first_update then
+    local x, y = EntityGetTransform(entity_id)
+    EntitySetTransform(entity_id, x, y - 10)
+end
+
+if times_run > 68 and times_run < 83 then
+    --GamePrint(tostring(times_run))
+    ComponentSetValue2(particle_emitter, "is_emitting", true)
+    ComponentSetValue2(sprite_emitter, "is_emitting", true)
+end
+
+if times_run >= 83 then
+    ComponentSetValue2(particle_emitter, "is_emitting", false)
+    ComponentSetValue2(sprite_emitter, "is_emitting", false)
+end

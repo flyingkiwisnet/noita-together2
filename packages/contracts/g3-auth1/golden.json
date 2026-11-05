@@ -1,0 +1,62 @@
+{
+  "revision": "auth1-1",
+  "fixtures": [
+    {
+      "type": "Discovery",
+      "json": {
+        "revision": "auth1-1",
+        "serviceId": "fixture-auth1",
+        "serviceEpoch": "11111111-1111-4111-8111-111111111111",
+        "providers": [
+          {
+            "id": "twitch",
+            "available": false,
+            "reason": "not-configured"
+          },
+          {
+            "id": "google",
+            "available": false,
+            "reason": "not-configured"
+          },
+          {
+            "id": "local",
+            "available": true
+          }
+        ],
+        "signInSeconds": 300,
+        "accountEndpoint": "/v1/auth/account",
+        "passwordChangeUrl": "/auth/password"
+      },
+      "hex": "0a0761757468312d31120d666978747572652d61757468311a2431313131313131312d313131312d343131312d383131312d313131313131313131313131221a0a0674776974636810001a0e6e6f742d636f6e66696775726564221a0a06676f6f676c6510001a0e6e6f742d636f6e6669677572656422090a056c6f63616c100128ac0232102f76312f617574682f6163636f756e743a0e2f617574682f70617373776f7264"
+    },
+    {
+      "type": "AccountResponse",
+      "json": {
+        "revision": "auth1-1",
+        "serviceId": "fixture-auth1",
+        "serviceEpoch": "11111111-1111-4111-8111-111111111111",
+        "account": {
+          "accountId": "22222222-2222-4222-8222-222222222222",
+          "displayName": "Alex",
+          "provider": "google",
+          "role": "user",
+          "enabled": true,
+          "revision": 1,
+          "lastSignInAt": "2026-10-31T00:00:00.000Z",
+          "entitlements": {
+            "customLobbyName": false,
+            "capacityLimit": 8,
+            "standardCapacityLimit": 8,
+            "powerCapacityLimit": 16,
+            "generatedLobbyName": "Alex's lobby",
+            "testingMode": false,
+            "manageUsers": false,
+            "manageAllRoles": false
+          }
+        }
+      },
+      "hex": "0a0761757468312d31120d666978747572652d61757468311a2431313131313131312d313131312d343131312d383131312d31313131313131313131313122760a2432323232323232322d323232322d343232322d383232322d3232323232323232323232321204416c65781a06676f6f676c65220475736572280130013a18323032362d31302d33315430303a30303a30302e3030305a421c08001008180820102a0c416c65782773206c6f626279300038004000"
+    }
+  ],
+  "rejected": []
+}

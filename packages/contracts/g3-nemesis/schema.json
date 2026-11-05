@@ -1,0 +1,504 @@
+{
+  "major": 1,
+  "revision": "g3-nemesis-draft-1",
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 8
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "FORBIDDEN",
+    "CONFLICT",
+    "CAPACITY",
+    "NOT_FOUND",
+    "INSUFFICIENT_POINTS"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Source": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "name": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "attachmentId": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Purchase": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "offerId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "Status": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "afterRecipientKey": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "Pending": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "throughSequence": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "Receipt": {
+      "fields": {
+        "deliveryId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "receiptId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "outcome": {
+          "id": 3,
+          "type": "string",
+          "max": 24
+        }
+      }
+    },
+    "PurchaseResult": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "offerId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "groupId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "abilityId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "cost": {
+          "id": 5,
+          "type": "uint32"
+        },
+        "pointsAfter": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "recipientCount": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 8,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Original": {
+      "fields": {
+        "operationId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "offerId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "groupId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "abilityId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "cost": {
+          "id": 5,
+          "type": "uint32"
+        },
+        "pointsAfter": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "digest": {
+          "id": 7,
+          "type": "string",
+          "max": 64
+        },
+        "catalogueRevision": {
+          "id": 8,
+          "type": "string",
+          "max": 64
+        },
+        "localHandlerId": {
+          "id": 9,
+          "type": "string",
+          "max": 64
+        },
+        "effectKind": {
+          "id": 10,
+          "type": "string",
+          "max": 16
+        },
+        "durationFrames": {
+          "id": 11,
+          "type": "uint32"
+        },
+        "source": {
+          "id": 12,
+          "type": "Source"
+        },
+        "scope": {
+          "id": 13,
+          "type": "Scope"
+        },
+        "recipientCount": {
+          "id": 14,
+          "type": "uint32"
+        },
+        "provenance": {
+          "id": 15,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "RecipientStatus": {
+      "fields": {
+        "deliveryId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "gameSessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "attachmentId": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "outcome": {
+          "id": 5,
+          "type": "string",
+          "max": 24
+        },
+        "receiptId": {
+          "id": 6,
+          "type": "string",
+          "max": 36
+        }
+      }
+    },
+    "Delivery": {
+      "fields": {
+        "sequence": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "operationId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "deliveryId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "abilityId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "catalogueRevision": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        },
+        "localHandlerId": {
+          "id": 6,
+          "type": "string",
+          "max": 64
+        },
+        "effectKind": {
+          "id": 7,
+          "type": "string",
+          "max": 16
+        },
+        "durationFrames": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "source": {
+          "id": 9,
+          "type": "Source"
+        },
+        "scope": {
+          "id": 10,
+          "type": "Scope"
+        },
+        "recipientGameSessionId": {
+          "id": 11,
+          "type": "string",
+          "max": 36
+        },
+        "outcome": {
+          "id": 12,
+          "type": "string",
+          "max": 32
+        },
+        "provenance": {
+          "id": 13,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 36
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "catalogueRevision": {
+          "id": 8,
+          "type": "string",
+          "max": 64
+        },
+        "purchase": {
+          "id": 20,
+          "type": "Purchase"
+        },
+        "status": {
+          "id": 21,
+          "type": "Status"
+        },
+        "pending": {
+          "id": 22,
+          "type": "Pending"
+        },
+        "receipt": {
+          "id": 23,
+          "type": "Receipt"
+        }
+      },
+      "oneof": [
+        "purchase",
+        "status",
+        "pending",
+        "receipt"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "error": {
+          "id": 6,
+          "type": "Error"
+        },
+        "purchase": {
+          "id": 7,
+          "type": "PurchaseResult"
+        },
+        "original": {
+          "id": 8,
+          "type": "Original"
+        },
+        "recipientStatuses": {
+          "id": 9,
+          "type": "RecipientStatus",
+          "repeated": true,
+          "max": 32
+        },
+        "nextRecipientKey": {
+          "id": 10,
+          "type": "string",
+          "max": 36
+        },
+        "highRecipientKey": {
+          "id": 11,
+          "type": "string",
+          "max": 36
+        },
+        "deliveries": {
+          "id": 12,
+          "type": "Delivery",
+          "repeated": true,
+          "max": 32
+        },
+        "nextSequence": {
+          "id": 13,
+          "type": "uint32"
+        },
+        "highSequence": {
+          "id": 14,
+          "type": "uint32"
+        }
+      }
+    }
+  }
+}

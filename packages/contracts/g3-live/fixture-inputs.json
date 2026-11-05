@@ -1,0 +1,159 @@
+[
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-cr2-4",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 0,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "authenticate": {
+        "accessToken": "EXAMPLE-NOT-A-CREDENTIAL"
+      }
+    }
+  },
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-cr2-4",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 2,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "pose": {
+        "sequence": 1,
+        "xMilli": "1000",
+        "yMilli": "2000",
+        "vxMilli": "0",
+        "vyMilli": "0",
+        "facingLeft": false
+      }
+    }
+  },
+  {
+    "type": "ServerFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-cr2-4",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "welcome": {
+        "authRevision": 1,
+        "accessExpiresAt": "2026-10-09T01:15:00.000Z",
+        "authorityUntil": "2026-10-09T01:00:30.000Z",
+        "poseHz": 10,
+        "snapshotHz": 10
+      },
+      "ackClientSequence": 1,
+      "authorityRemainingMs": 12000,
+      "accessRemainingMs": 800000,
+      "credentialId": "fixture-credential"
+    }
+  },
+  {
+    "type": "ServerFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-cr2-4",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 2,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "snapshot": {
+        "peers": [],
+        "acceptedAt": "2026-10-09T01:00:00.000Z"
+      },
+      "ackClientSequence": 1,
+      "authorityRemainingMs": 12000,
+      "accessRemainingMs": 800000,
+      "credentialId": "fixture-credential"
+    }
+  },
+  {
+    "type": "ServerFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-cr2-4",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "ackClientSequence": 1,
+      "authorityRemainingMs": 12000,
+      "accessRemainingMs": 800000,
+      "credentialId": "fixture-credential",
+      "bankChanged": {
+        "revision": "42"
+      }
+    }
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-draft-1",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 0,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "authenticate": {
+        "accessToken": "EXAMPLE-NOT-A-CREDENTIAL"
+      },
+      "ping": {}
+    }
+  },
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-draft-1",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 0,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "authenticate": {
+        "accessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    }
+  },
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-draft-1",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 2,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "pose": {
+        "sequence": 1,
+        "xMilli": "1000",
+        "yMilli": "2000",
+        "vxMilli": "0",
+        "vyMilli": "0",
+        "facingLeft": false
+      },
+      "extra": true
+    }
+  },
+  {
+    "type": "ClientFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-draft-1",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 1,
+      "sequence": 2,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007"
+      },
+      "pose": {
+        "sequence": 1,
+        "xMilli": "1000",
+        "yMilli": "2000",
+        "vxMilli": "0",
+        "vyMilli": "0",
+        "facingLeft": false
+      }
+    }
+  },
+  {
+    "type": "ServerFrame",
+    "json": {
+      "major": 1,
+      "revision": "g3-live-draft-1",
+      "serviceId": "example-service",
+      "serviceEpoch": "00000000-0000-4000-8000-000000000008",
+      "connectionId": "00000000-0000-4000-8000-000000000009",
+      "clientGeneration": 1,
+      "authorityGeneration": 0,
+      "sequence": 1,
+      "scope": {
+        "principalId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000002",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "runEpoch": "00000000-0000-4000-8000-000000000006",
+        "configRevision": 1,
+        "attachmentId": "00000000-0000-4000-8000-000000000007",
+        "worldToken": "example-world"
+      },
+      "snapshot": {
+        "peers": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "acceptedAt": "now"
+      }
+    }
+  }
+]

@@ -1,0 +1,59 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.history;
+
+message Discover {
+  string afterSequence = 1;
+  string throughSequence = 2;
+  uint32 limit = 3;
+}
+
+message RunScope {
+  string roomId = 1;
+  string runId = 2;
+  string runEpoch = 3;
+  uint32 configRevision = 4;
+}
+
+message Run {
+  string sequence = 1;
+  RunScope scope = 2;
+  string roomName = 3;
+  string createdAt = 4;
+  string state = 5;
+  string mode = 6;
+  bool canDelete = 7;
+  uint32 retentionDays = 8;
+  string collectionState = 9;
+  string latestExpiresAt = 10;
+  string deletedAt = 11;
+}
+
+message Error {
+  string code = 1;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  oneof payload {
+    Discover discover = 7;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  repeated Run runs = 7;
+  string nextSequence = 8;
+  string highSequence = 9;
+  Error error = 10;
+}

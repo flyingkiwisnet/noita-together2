@@ -1,0 +1,675 @@
+{
+  "revision": "g3-social-draft-5",
+  "major": 1,
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 8
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "STALE_EPOCH",
+    "CONFLICT",
+    "CAPACITY",
+    "TOO_SOON",
+    "TOO_CLOSE",
+    "SERVICE_UNAVAILABLE"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "Hud": {
+      "fields": {
+        "hpMilli": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "maxHpMilli": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "sampo": {
+          "id": 3,
+          "type": "bool"
+        },
+        "hpKnown": {
+          "id": 4,
+          "type": "bool"
+        },
+        "sampoKnown": {
+          "id": 5,
+          "type": "bool"
+        },
+        "biome": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Emote": {
+      "fields": {
+        "emoteId": {
+          "id": 1,
+          "type": "string",
+          "max": 32,
+          "values": [
+            "wave",
+            "heart",
+            "thumbs_up",
+            "disapprove",
+            "come_on",
+            "t_pose",
+            "mario",
+            "luigi",
+            "clap",
+            "macarena",
+            "the_wave",
+            "aggressive_point",
+            "default_dance",
+            "praise_the_sun",
+            "dab",
+            "worm",
+            "meditate",
+            "repose",
+            "egyptian",
+            "salute"
+          ]
+        },
+        "active": {
+          "id": 2,
+          "type": "bool"
+        }
+      }
+    },
+    "Cosmetic": {
+      "fields": {
+        "robeId": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "blue",
+            "purple"
+          ]
+        },
+        "hat": {
+          "id": 2,
+          "type": "bool"
+        },
+        "amulet": {
+          "id": 3,
+          "type": "bool"
+        },
+        "gem": {
+          "id": 4,
+          "type": "bool"
+        }
+      }
+    },
+    "Poi": {
+      "fields": {
+        "text": {
+          "id": 1,
+          "type": "string",
+          "max": 396
+        },
+        "xMilli": {
+          "id": 2,
+          "type": "string",
+          "max": 12
+        },
+        "yMilli": {
+          "id": 3,
+          "type": "string",
+          "max": 12
+        }
+      }
+    },
+    "Publish": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "sequence": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "hud": {
+          "id": 10,
+          "type": "Hud"
+        },
+        "emote": {
+          "id": 11,
+          "type": "Emote"
+        },
+        "cosmetic": {
+          "id": 12,
+          "type": "Cosmetic"
+        },
+        "poi": {
+          "id": 13,
+          "type": "Poi"
+        }
+      },
+      "oneof": [
+        "hud",
+        "emote",
+        "cosmetic",
+        "poi"
+      ]
+    },
+    "Page": {
+      "fields": {
+        "afterSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "limit": {
+          "id": 2,
+          "type": "uint32"
+        }
+      }
+    },
+    "Snapshot": {
+      "fields": {
+        "afterKey": {
+          "id": 1,
+          "type": "string",
+          "max": 120
+        },
+        "limit": {
+          "id": 2,
+          "type": "uint32"
+        }
+      }
+    },
+    "Dismiss": {
+      "fields": {
+        "poiSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        }
+      }
+    },
+    "Projection": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 4,
+          "type": "Scope"
+        },
+        "eventId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "sequence": {
+          "id": 6,
+          "type": "uint32"
+        },
+        "capturedAt": {
+          "id": 7,
+          "type": "string",
+          "max": 40
+        },
+        "expiresAt": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        },
+        "hud": {
+          "id": 10,
+          "type": "Hud"
+        },
+        "emote": {
+          "id": 11,
+          "type": "EmoteState"
+        },
+        "cosmetic": {
+          "id": 12,
+          "type": "Cosmetic"
+        },
+        "provenance": {
+          "id": 9,
+          "type": "string",
+          "max": 40
+        },
+        "hudStateRevision": {
+          "id": 14,
+          "type": "uint32"
+        },
+        "presentationRevision": {
+          "id": 15,
+          "type": "uint32"
+        }
+      },
+      "oneof": [
+        "hud",
+        "emote",
+        "cosmetic"
+      ]
+    },
+    "Marker": {
+      "fields": {
+        "poiSequence": {
+          "id": 1,
+          "type": "string",
+          "max": 20
+        },
+        "eventId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "principalId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 6,
+          "type": "Scope"
+        },
+        "poi": {
+          "id": 7,
+          "type": "Poi"
+        },
+        "capturedAt": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        },
+        "provenance": {
+          "id": 9,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "publish": {
+          "id": 20,
+          "type": "Publish"
+        },
+        "snapshot": {
+          "id": 21,
+          "type": "Snapshot"
+        },
+        "poiSnapshot": {
+          "id": 22,
+          "type": "Page"
+        },
+        "poiOutbox": {
+          "id": 23,
+          "type": "Page"
+        },
+        "dismissPoi": {
+          "id": 24,
+          "type": "Dismiss"
+        },
+        "roster": {
+          "id": 25,
+          "type": "Snapshot"
+        },
+        "poiOutcome": {
+          "id": 26,
+          "type": "PoiLookup"
+        }
+      },
+      "oneof": [
+        "publish",
+        "snapshot",
+        "poiSnapshot",
+        "poiOutbox",
+        "dismissPoi",
+        "roster",
+        "poiOutcome"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "acceptedEventId": {
+          "id": 8,
+          "type": "string",
+          "max": 80
+        },
+        "duplicate": {
+          "id": 9,
+          "type": "bool"
+        },
+        "projections": {
+          "id": 10,
+          "type": "Projection",
+          "repeated": true,
+          "max": 32
+        },
+        "markers": {
+          "id": 11,
+          "type": "Marker",
+          "repeated": true,
+          "max": 32
+        },
+        "nextKey": {
+          "id": 12,
+          "type": "string",
+          "max": 120
+        },
+        "nextSequence": {
+          "id": 13,
+          "type": "string",
+          "max": 20
+        },
+        "highSequence": {
+          "id": 14,
+          "type": "string",
+          "max": 20
+        },
+        "error": {
+          "id": 15,
+          "type": "Error"
+        },
+        "players": {
+          "id": 20,
+          "type": "Player",
+          "repeated": true,
+          "max": 32
+        },
+        "poiOutcome": {
+          "id": 21,
+          "type": "PoiOutcome"
+        },
+        "rosterComplete": {
+          "id": 22,
+          "type": "bool"
+        }
+      }
+    },
+    "EmoteState": {
+      "fields": {
+        "emoteId": {
+          "id": 1,
+          "type": "string",
+          "max": 32,
+          "values": [
+            "wave",
+            "heart",
+            "thumbs_up",
+            "disapprove",
+            "come_on",
+            "t_pose",
+            "mario",
+            "luigi",
+            "clap",
+            "macarena",
+            "the_wave",
+            "aggressive_point",
+            "default_dance",
+            "praise_the_sun",
+            "dab",
+            "worm",
+            "meditate",
+            "repose",
+            "egyptian",
+            "salute"
+          ]
+        },
+        "active": {
+          "id": 2,
+          "type": "bool"
+        },
+        "durationFrames": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "ageMs": {
+          "id": 4,
+          "type": "uint32"
+        }
+      }
+    },
+    "Player": {
+      "fields": {
+        "playerId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "principalId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "state": {
+          "id": 6,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "playing",
+            "waiting",
+            "disconnected",
+            "respawning"
+          ]
+        },
+        "inventoryRevision": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "heldWandSpriteId": {
+          "id": 8,
+          "type": "string",
+          "max": 80
+        },
+        "raceRowKey": {
+          "id": 9,
+          "type": "string",
+          "max": 36
+        },
+        "raceStatus": {
+          "id": 10,
+          "type": "string",
+          "max": 8,
+          "values": [
+            "racing",
+            "finished",
+            "dead",
+            "dnf"
+          ]
+        },
+        "completedGoals": {
+          "id": 11,
+          "type": "uint32",
+          "max": 16
+        }
+      }
+    },
+    "PoiLookup": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "PoiOutcome": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "status": {
+          "id": 2,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "accepted",
+            "not-found"
+          ]
+        },
+        "marker": {
+          "id": 3,
+          "type": "Marker"
+        }
+      }
+    }
+  }
+}

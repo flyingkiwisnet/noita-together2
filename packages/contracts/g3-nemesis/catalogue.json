@@ -1,0 +1,717 @@
+{
+  "revision": "nt2-nemesis-builtins-1",
+  "capability": "nemesis.abilities",
+  "mode": "nemesis",
+  "settingKey": "nemesis_abilities",
+  "sourceFlag": "NT_NEMESIS_nemesis_abilities",
+  "target": "other-selected-live-room-games; no named-target chooser; local player/effect availability remains a client report",
+  "purchaseCooldownFrames": null,
+  "cooldownEvidence": "No temporal purchase cooldown; purchase removes local offers within radius1000 at(x,y-25). Source recipient coordinate key suppresses repeat ability at the same integer x,y.",
+  "offerGeneration": {
+    "depthTierByLevel": {
+      "2": 1,
+      "5": 2,
+      "9": 3,
+      "12": 4,
+      "16": 5,
+      "20": 6,
+      "25": 6
+    },
+    "levelExpression": "floor(y/512)",
+    "priceExpression": "10*floor(level^1.5)+15",
+    "offersPerSpawn": 3,
+    "selection": "source game-seeded weighted selection, remove chosen ID from persistent tier pool; authoritative offering/provenance not implemented by this catalogue"
+  },
+  "timedStacking": "Existing entity named nemesis_<id>: extend LifetimeComponent.kill_frame by requested frames; otherwise trusted effect.xml/optional GameEffect.frames + LifetimeComponent + attach to local player. No-player returns without application.",
+  "points": {
+    "currency": "Nemesis points (NP), separate from gold",
+    "initial": 0,
+    "earnings": "Source local player/child attributed enemy death with DamageModelComponent: floor(max_hp*10); NEMESIS_ENEMY exclusion occurs AFTER points credit. Authoritative earning provenance/durable ledger not implemented."
+  },
+  "status": "source-catalogue and three-ability pure-domain seam only; no wire/service/native/installed capability or actual effect approval",
+  "sourcePins": [
+    {
+      "file": "noita_mod/nemesis/files/events.lua",
+      "sha256": "a5300a44ba783a4929260715bcfa10dbf1a6da0dfb0062dae7404387ab66d026"
+    },
+    {
+      "file": "noita_mod/nemesis/files/append/disable_mail.lua",
+      "sha256": "37ada7e9cb3365fc882e5fca8145c13f66f2e0a0cd38d89e97da64d69266e83a"
+    },
+    {
+      "file": "noita_mod/nemesis/files/scripts/buy_ability.lua",
+      "sha256": "23ecda80bade391118076b668b27a0b83c4904e1d124f70b1e65f591a9d73511"
+    },
+    {
+      "file": "noita_mod/nemesis/files/death.lua",
+      "sha256": "2e2a14271443d18fbe1315851d8290352dd14a8b2814b9965a64d99fd06919de"
+    },
+    {
+      "file": "noita_mod/nemesis/files/store.lua",
+      "sha256": "5a43eb5495ae5663c4a39329933153838402f6fd02b341196d3f17c13acac001"
+    }
+  ],
+  "entries": [
+    {
+      "id": "grounded",
+      "label": "Grounded",
+      "effect": "Flying time repeatedly cleared.",
+      "depthTierWeights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "durationFrames": 360,
+      "localHandlerId": "nemesis.grounded",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 159,
+        "end": 163
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/grounded/effect.xml",
+        "noita_mod/nemesis/files/effects/grounded/start.lua"
+      ],
+      "domainPurchaseImplemented": true
+    },
+    {
+      "id": "shrooms",
+      "label": "Shrooms",
+      "effect": "Four fungus projectiles emitted around player.",
+      "depthTierWeights": [
+        0.05,
+        0.05,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.shrooms",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 164,
+        "end": 185
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "steve",
+      "label": "Steve",
+      "effect": "Hostile shop necromancer spawned nearby.",
+      "depthTierWeights": [
+        0.001,
+        0.001,
+        0.01,
+        0.02,
+        0.1,
+        0.1
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.steve",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 186,
+        "end": 193
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "acid",
+      "label": "Acid",
+      "effect": "Six acid projectiles spawned nearby.",
+      "depthTierWeights": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.acid",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 194,
+        "end": 200
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "hentai",
+      "label": "Hentai",
+      "effect": "Five tentacle portals spawned nearby (legacy display name).",
+      "depthTierWeights": [
+        0.2,
+        0.1,
+        0.2,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.hentai",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 201,
+        "end": 207
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "ukko",
+      "label": "Ukko",
+      "effect": "Hostile thunder mage spawned nearby.",
+      "depthTierWeights": [
+        0.01,
+        0.05,
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.ukko",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 208,
+        "end": 215
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "trip",
+      "label": "Trip",
+      "effect": "Ingest 600 fungi.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.trip",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 216,
+        "end": 222
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "tanks",
+      "label": "Tanks",
+      "effect": "One to three hostile tanks spawned nearby.",
+      "depthTierWeights": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.tanks",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 223,
+        "end": 233
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "hankhill",
+      "label": "Hank Hill",
+      "effect": "Four propane tanks projected around player.",
+      "depthTierWeights": [
+        0.7,
+        0.4,
+        0.6,
+        0.2,
+        0.4,
+        0.4
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.hankhill",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 234,
+        "end": 253
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "spikedrinks",
+      "label": "Spike Drinks",
+      "effect": "Add 150 units of a random hazardous liquid to each material container.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.spikedrinks",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 254,
+        "end": 277
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "sanic",
+      "label": "Sanic",
+      "effect": "Damage with wallet >10 drops gold rings after subtracting floor(30% wallet), with four-second hit throttle.",
+      "depthTierWeights": [
+        0.2,
+        0.1,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "durationFrames": 300,
+      "localHandlerId": "nemesis.sanic",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 278,
+        "end": 282
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/sanic/damage.lua",
+        "noita_mod/nemesis/files/effects/sanic/effect.xml",
+        "noita_mod/nemesis/files/effects/sanic/end.lua",
+        "noita_mod/nemesis/files/effects/sanic/start.lua"
+      ],
+      "domainPurchaseImplemented": true
+    },
+    {
+      "id": "confusion",
+      "label": "Confusion",
+      "effect": "CONFUSION game effect.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 900,
+      "localHandlerId": "nemesis.confusion",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 283,
+        "end": 287
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/confusion/effect.xml"
+      ],
+      "domainPurchaseImplemented": true
+    },
+    {
+      "id": "enemyrandomizer",
+      "label": "Enemy Randomizer",
+      "effect": "Replace nearby non-excluded enemies from fixed local ANIMALS list.",
+      "depthTierWeights": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "durationFrames": 60,
+      "localHandlerId": "nemesis.enemyrandomizer",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 288,
+        "end": 292
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/enemyrandomizer/effect.lua",
+        "noita_mod/nemesis/files/effects/enemyrandomizer/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "matryoshka",
+      "label": "Matryoshka",
+      "effect": "Nearby enemies produce smaller copies on death, subject to size threshold.",
+      "depthTierWeights": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "durationFrames": 2700,
+      "localHandlerId": "nemesis.matryoshka",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 293,
+        "end": 297
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/matryoshka/death.lua",
+        "noita_mod/nemesis/files/effects/matryoshka/effect.lua",
+        "noita_mod/nemesis/files/effects/matryoshka/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "twitchy",
+      "label": "Twitchy",
+      "effect": "Uses base-game twitchy/twitchy_shot status scripts.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.twitchy",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 298,
+        "end": 302
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/twitchy/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "fizzled",
+      "label": "Fizzled",
+      "effect": "Neutralizes fired projectiles using base-game script.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.fizzled",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 303,
+        "end": 307
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/fizzled/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "hearty",
+      "label": "Hearty",
+      "effect": "Uses base-game Heartache start/end, which core also appends alternate behaviour to.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.hearty",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 308,
+        "end": 312
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/hearty/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "weakened",
+      "label": "Weakened",
+      "effect": "Uses base-game weaken and wither start/end scripts.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.weakened",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 313,
+        "end": 317
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/weakened/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "slowpoke",
+      "label": "Slowpoke",
+      "effect": "MOVEMENT_SLOWER game effect.",
+      "depthTierWeights": [
+        0.45,
+        0.45,
+        0.45,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 2700,
+      "localHandlerId": "nemesis.slowpoke",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 318,
+        "end": 322
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/slowpoke/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "gravityfield",
+      "label": "Gravity Field",
+      "effect": "Child enemy gravity-field entity attracts objects.",
+      "depthTierWeights": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.gravityfield",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 323,
+        "end": 327
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/gravityfield/effect.xml",
+        "noita_mod/nemesis/files/effects/gravityfield/start.lua"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "heavyspread",
+      "label": "Heavy Spread",
+      "effect": "Shot spread modifier; preserve XML values.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 1800,
+      "localHandlerId": "nemesis.heavyspread",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 328,
+        "end": 332
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/heavyspread/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "loosechunks",
+      "label": "Loose Chunks",
+      "effect": "Periodically fire earthquake-chunk projectiles overhead.",
+      "depthTierWeights": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "durationFrames": 900,
+      "localHandlerId": "nemesis.loosechunks",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 333,
+        "end": 337
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/effects/loosechunks/effect.lua",
+        "noita_mod/nemesis/files/effects/loosechunks/effect.xml"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "earthquake",
+      "label": "Earthquake",
+      "effect": "Earthquake entity with start/end cleanup.",
+      "depthTierWeights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.earthquake",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 338,
+        "end": 343
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/entities/earthquake/end.lua",
+        "noita_mod/nemesis/files/entities/earthquake/entity.xml",
+        "noita_mod/nemesis/files/entities/earthquake/start.lua"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "removerandomPerk",
+      "label": "Remove RandomPerk",
+      "effect": "Remove a random applicable held perk using local helper.",
+      "depthTierWeights": [
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.removerandomPerk",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 344,
+        "end": 348
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "removewand",
+      "label": "Remove Wand",
+      "effect": "Destroy a random quick-inventory wand and refresh inventory.",
+      "depthTierWeights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.removewand",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 349,
+        "end": 361
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/entities/removewand/entity.xml",
+        "noita_mod/nemesis/files/entities/removewand/start.lua"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "replacewand",
+      "label": "Replace Wand",
+      "effect": "Replace a random quick-inventory wand with weighted level 1–5 wand and refresh.",
+      "depthTierWeights": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.replacewand",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 362,
+        "end": 371
+      },
+      "helperFiles": [
+        "noita_mod/nemesis/files/entities/replacewand/entity.xml",
+        "noita_mod/nemesis/files/entities/replacewand/start.lua"
+      ],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "electrocution",
+      "label": "Electrocution",
+      "effect": "ELECTROCUTION for requested 120 frames.",
+      "depthTierWeights": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "durationFrames": 120,
+      "localHandlerId": "nemesis.electrocution",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 372,
+        "end": 378
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    },
+    {
+      "id": "enemyshields",
+      "label": "Enemy Shields",
+      "effect": "Attach shields to eligible enemies within 1024-unit radius.",
+      "depthTierWeights": [
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7
+      ],
+      "durationFrames": null,
+      "localHandlerId": "nemesis.enemyshields",
+      "sourceRef": {
+        "file": "noita_mod/nemesis/files/events.lua",
+        "start": 379,
+        "end": 423
+      },
+      "helperFiles": [],
+      "domainPurchaseImplemented": false
+    }
+  ]
+}

@@ -1,0 +1,877 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "live": {
+          "nested": {
+            "Scope": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_roomId": {
+                  "oneof": [
+                    "roomId"
+                  ]
+                },
+                "_runId": {
+                  "oneof": [
+                    "runId"
+                  ]
+                },
+                "_runEpoch": {
+                  "oneof": [
+                    "runEpoch"
+                  ]
+                },
+                "_configRevision": {
+                  "oneof": [
+                    "configRevision"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                }
+              }
+            },
+            "Pose": {
+              "fields": {
+                "sequence": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "xMilli": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "yMilli": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "vxMilli": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "vyMilli": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "facingLeft": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_sequence": {
+                  "oneof": [
+                    "sequence"
+                  ]
+                },
+                "_xMilli": {
+                  "oneof": [
+                    "xMilli"
+                  ]
+                },
+                "_yMilli": {
+                  "oneof": [
+                    "yMilli"
+                  ]
+                },
+                "_vxMilli": {
+                  "oneof": [
+                    "vxMilli"
+                  ]
+                },
+                "_vyMilli": {
+                  "oneof": [
+                    "vyMilli"
+                  ]
+                },
+                "_facingLeft": {
+                  "oneof": [
+                    "facingLeft"
+                  ]
+                }
+              }
+            },
+            "Empty": {
+              "fields": {}
+            },
+            "Authenticate": {
+              "fields": {
+                "accessToken": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_accessToken": {
+                  "oneof": [
+                    "accessToken"
+                  ]
+                }
+              }
+            },
+            "Reauthenticate": {
+              "fields": {
+                "accessToken": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authRevision": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_accessToken": {
+                  "oneof": [
+                    "accessToken"
+                  ]
+                },
+                "_authRevision": {
+                  "oneof": [
+                    "authRevision"
+                  ]
+                }
+              }
+            },
+            "Welcome": {
+              "fields": {
+                "authRevision": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accessExpiresAt": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorityUntil": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "poseHz": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "snapshotHz": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_authRevision": {
+                  "oneof": [
+                    "authRevision"
+                  ]
+                },
+                "_accessExpiresAt": {
+                  "oneof": [
+                    "accessExpiresAt"
+                  ]
+                },
+                "_authorityUntil": {
+                  "oneof": [
+                    "authorityUntil"
+                  ]
+                },
+                "_poseHz": {
+                  "oneof": [
+                    "poseHz"
+                  ]
+                },
+                "_snapshotHz": {
+                  "oneof": [
+                    "snapshotHz"
+                  ]
+                }
+              }
+            },
+            "Peer": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "poses": {
+                  "type": "Pose",
+                  "id": 5,
+                  "rule": "repeated"
+                },
+                "acceptedAt": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "peerAgeMsAtSend": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "poseAgesMsAtSend": {
+                  "type": "uint32",
+                  "id": 8,
+                  "rule": "repeated",
+                  "options": {
+                    "packed": false
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                },
+                "_acceptedAt": {
+                  "oneof": [
+                    "acceptedAt"
+                  ]
+                },
+                "_peerAgeMsAtSend": {
+                  "oneof": [
+                    "peerAgeMsAtSend"
+                  ]
+                }
+              }
+            },
+            "Snapshot": {
+              "fields": {
+                "peers": {
+                  "type": "Peer",
+                  "id": 1,
+                  "rule": "repeated"
+                },
+                "acceptedAt": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_acceptedAt": {
+                  "oneof": [
+                    "acceptedAt"
+                  ]
+                }
+              }
+            },
+            "Retire": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "retryAfterMs": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_code": {
+                  "oneof": [
+                    "code"
+                  ]
+                },
+                "_retryAfterMs": {
+                  "oneof": [
+                    "retryAfterMs"
+                  ]
+                }
+              }
+            },
+            "RoomSemantics": {
+              "fields": {
+                "revision": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "requiredCapabilities": {
+                  "type": "string",
+                  "id": 3,
+                  "rule": "repeated"
+                }
+              },
+              "oneofs": {
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_kind": {
+                  "oneof": [
+                    "kind"
+                  ]
+                }
+              }
+            },
+            "ClientFrame": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "connectionId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "clientGeneration": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorityGeneration": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 9
+                },
+                "authenticate": {
+                  "type": "Authenticate",
+                  "id": 10
+                },
+                "reauthenticate": {
+                  "type": "Reauthenticate",
+                  "id": 11
+                },
+                "pose": {
+                  "type": "Pose",
+                  "id": 12
+                },
+                "ping": {
+                  "type": "Empty",
+                  "id": 13
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "authenticate",
+                    "reauthenticate",
+                    "pose",
+                    "ping"
+                  ]
+                },
+                "_major": {
+                  "oneof": [
+                    "major"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_connectionId": {
+                  "oneof": [
+                    "connectionId"
+                  ]
+                },
+                "_clientGeneration": {
+                  "oneof": [
+                    "clientGeneration"
+                  ]
+                },
+                "_authorityGeneration": {
+                  "oneof": [
+                    "authorityGeneration"
+                  ]
+                },
+                "_sequence": {
+                  "oneof": [
+                    "sequence"
+                  ]
+                }
+              }
+            },
+            "ServerFrame": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "connectionId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "clientGeneration": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorityGeneration": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 9
+                },
+                "welcome": {
+                  "type": "Welcome",
+                  "id": 10
+                },
+                "snapshot": {
+                  "type": "Snapshot",
+                  "id": 11
+                },
+                "retire": {
+                  "type": "Retire",
+                  "id": 12
+                },
+                "pong": {
+                  "type": "Empty",
+                  "id": 13
+                },
+                "ackClientSequence": {
+                  "type": "uint32",
+                  "id": 14,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorityRemainingMs": {
+                  "type": "uint32",
+                  "id": 15,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accessRemainingMs": {
+                  "type": "uint32",
+                  "id": 16,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "credentialId": {
+                  "type": "string",
+                  "id": 17,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "bankChanged": {
+                  "type": "BankChanged",
+                  "id": 18
+                },
+                "c1Changed": {
+                  "type": "C1Changed",
+                  "id": 19
+                },
+                "c2Changed": {
+                  "type": "C2Changed",
+                  "id": 20
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "welcome",
+                    "snapshot",
+                    "retire",
+                    "pong",
+                    "bankChanged",
+                    "c1Changed",
+                    "c2Changed"
+                  ]
+                },
+                "_major": {
+                  "oneof": [
+                    "major"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_connectionId": {
+                  "oneof": [
+                    "connectionId"
+                  ]
+                },
+                "_clientGeneration": {
+                  "oneof": [
+                    "clientGeneration"
+                  ]
+                },
+                "_authorityGeneration": {
+                  "oneof": [
+                    "authorityGeneration"
+                  ]
+                },
+                "_sequence": {
+                  "oneof": [
+                    "sequence"
+                  ]
+                },
+                "_ackClientSequence": {
+                  "oneof": [
+                    "ackClientSequence"
+                  ]
+                },
+                "_authorityRemainingMs": {
+                  "oneof": [
+                    "authorityRemainingMs"
+                  ]
+                },
+                "_accessRemainingMs": {
+                  "oneof": [
+                    "accessRemainingMs"
+                  ]
+                },
+                "_credentialId": {
+                  "oneof": [
+                    "credentialId"
+                  ]
+                }
+              }
+            },
+            "BankChanged": {
+              "fields": {
+                "revision": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                }
+              }
+            },
+            "C1Changed": {
+              "fields": {
+                "sequence": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_sequence": {
+                  "oneof": [
+                    "sequence"
+                  ]
+                }
+              }
+            },
+            "C2Changed": {
+              "fields": {
+                "sequence": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_sequence": {
+                  "oneof": [
+                    "sequence"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

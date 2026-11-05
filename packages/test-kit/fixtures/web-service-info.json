@@ -1,0 +1,81 @@
+{
+  "major": 1,
+  "revision": "g2-draft-5",
+  "connectionFlowRevision": "g3-flow-1",
+  "serviceId": "nt2-synthetic-web-test",
+  "serviceEpoch": "11111111-1111-4111-8111-111111111111",
+  "compatibility": {
+    "gameVersion": "Noita-Jan25-2025",
+    "modVersion": "nt2-g3-c2-dev-1",
+    "bridgeVersion": "g3-c2-ipc-1",
+    "capabilities": [
+      "core.seed",
+      "core.ghost",
+      "core.hud",
+      "core.poi",
+      "core.seed-policy.v1",
+      "core.randomize-loot.v1",
+      "core.emotes",
+      "core.cosmetics",
+      "core.gold",
+      "core.items",
+      "core.world-rules",
+      "core.hourglass"
+    ],
+    "modes": [
+      "core"
+    ],
+    "settingKeys": [
+      "NT_send_gold",
+      "NT_send_wands",
+      "NT_send_flasks",
+      "NT_send_items",
+      "NT_testing_mode"
+    ]
+  },
+  "capabilities": [
+    "core.seed",
+    "core.ghost",
+    "core.hud",
+    "core.poi",
+    "core.seed-policy.v1",
+    "core.randomize-loot.v1",
+    "core.emotes",
+    "core.cosmetics",
+    "core.gold",
+    "core.items",
+    "core.world-rules",
+    "core.hourglass"
+  ],
+  "roomSemantics": {
+    "revision": "g3-room-semantics-1",
+    "kind": "core-world-rules-hourglass-items-gold-social-controls-seed-loot",
+    "requiredCapabilities": [
+      "core.seed",
+      "core.ghost",
+      "core.hud",
+      "core.poi",
+      "core.seed-policy.v1",
+      "core.randomize-loot.v1",
+      "core.emotes",
+      "core.cosmetics",
+      "core.gold",
+      "core.items",
+      "core.world-rules",
+      "core.hourglass"
+    ]
+  },
+  "developmentFeatures": {
+    "testingStartingLoadout": {
+      "available": true,
+      "settingKey": "NT_testing_mode",
+      "default": false
+    }
+  },
+  "mockProvider": true,
+  "contractStatus": "candidate-not-accepted",
+  "profile": {
+    "id": "synthetic-web-test",
+    "evidenceStatus": "simulated-game-facts"
+  }
+}

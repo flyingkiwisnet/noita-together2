@@ -1,0 +1,1 @@
+-- Inert consumed-entry tag; persists across script reload in this registry.

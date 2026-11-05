@@ -1,0 +1,176 @@
+{
+  "revision": "g3-rejoin-1",
+  "fixtures": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+        "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+        "requestId": "resume-1",
+        "roomId": "10000000-0000-4000-8000-000000000001",
+        "runId": "10000000-0000-4000-8000-000000000002",
+        "participantId": "10000000-0000-4000-8000-000000000003",
+        "worldToken": "original-world",
+        "configRevision": 1,
+        "resume": {
+          "resumeProof": "0000000000000000000000000000000000000000000",
+          "gameInstanceId": "new-game-instance",
+          "gameVersion": "Noita-Jan25-2025",
+          "modVersion": "nt2-g3-c2-dev-1",
+          "bridgeVersion": "g3-c2-ipc-1",
+          "capabilities": [
+            "core.seed"
+          ]
+        }
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d73657276696365222431303030303030302d303030302d343030302d383030302d3030303030303030303030342a2431303030303030302d303030302d343030302d383030302d3030303030303030303030353208726573756d652d313a2431303030303030302d303030302d343030302d383030302d303030303030303030303031422431303030303030302d303030302d343030302d383030302d3030303030303030303030324a2431303030303030302d303030302d343030302d383030302d303030303030303030303033520e6f726967696e616c2d776f726c645801aa017b0a2b3030303030303030303030303030303030303030303030303030303030303030303030303030303030303012116e65772d67616d652d696e7374616e63651a104e6f6974612d4a616e32352d32303235220f6e74322d67332d63322d6465762d312a0b67332d63322d6970632d313209636f72652e73656564"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "new-service-epoch",
+        "requestId": "resume-1",
+        "participant": {
+          "state": "inspecting",
+          "generation": 2,
+          "returnEligible": true
+        }
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d7365727669636522116e65772d736572766963652d65706f63682a08726573756d652d313210120a696e7370656374696e6720025801"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+        "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+        "requestId": "ux1-original",
+        "roomId": "10000000-0000-4000-8000-000000000001",
+        "runId": "10000000-0000-4000-8000-000000000002",
+        "participantId": "10000000-0000-4000-8000-000000000003",
+        "worldToken": "original-world",
+        "configRevision": 1,
+        "generation": 1,
+        "status": {},
+        "observationReport": "original"
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d73657276696365222431303030303030302d303030302d343030302d383030302d3030303030303030303030342a2431303030303030302d303030302d343030302d383030302d303030303030303030303035320c7578312d6f726967696e616c3a2431303030303030302d303030302d343030302d383030302d303030303030303030303031422431303030303030302d303030302d343030302d383030302d3030303030303030303030324a2431303030303030302d303030302d343030302d383030302d303030303030303030303033520e6f726967696e616c2d776f726c6458016001a20100da01086f726967696e616c"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "new-service-epoch",
+        "requestId": "ux1-original",
+        "participant": {
+          "state": "inspecting",
+          "generation": 2,
+          "returnEligible": true,
+          "originalReport": {
+            "attachmentId": "20000000-0000-4000-8000-000000000001",
+            "gameInstanceId": "fixture-game",
+            "worldToken": "original-world",
+            "observationRevision": 1,
+            "actualSeed": "424242",
+            "activeMods": [
+              "noita_together2",
+              "first-mod"
+            ],
+            "inventoryComplete": true,
+            "beta": "unknown",
+            "protected": true,
+            "loaded": true,
+            "seedStatus": "known",
+            "modVersion": "nt2-g3-c2-dev-1",
+            "bridgeVersion": "g3-c2-ipc-1",
+            "compatibilityProvenance": "game-thread-client-observation"
+          }
+        }
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d7365727669636522116e65772d736572766963652d65706f63682a0c7578312d6f726967696e616c32d501120a696e7370656374696e67200258017ac2010a2432303030303030302d303030302d343030302d383030302d303030303030303030303031120c666978747572652d67616d651a0e6f726967696e616c2d776f726c6420012a06343234323432320f6e6f6974615f746f67657468657232320966697273742d6d6f6438014207756e6b6e6f776e480150018a01056b6e6f776e9a010f6e74322d67332d63322d6465762d31a2010b67332d63322d6970632d31aa011e67616d652d7468726561642d636c69656e742d6f62736572766174696f6e"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "10000000-0000-4000-8000-000000000004",
+        "sessionEpoch": "10000000-0000-4000-8000-000000000005",
+        "requestId": "ux1-pending",
+        "roomId": "10000000-0000-4000-8000-000000000001",
+        "runId": "10000000-0000-4000-8000-000000000002",
+        "participantId": "10000000-0000-4000-8000-000000000003",
+        "worldToken": "original-world",
+        "configRevision": 1,
+        "generation": 1,
+        "status": {},
+        "observationReport": "pending"
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d73657276696365222431303030303030302d303030302d343030302d383030302d3030303030303030303030342a2431303030303030302d303030302d343030302d383030302d303030303030303030303035320b7578312d70656e64696e673a2431303030303030302d303030302d343030302d383030302d303030303030303030303031422431303030303030302d303030302d343030302d383030302d3030303030303030303030324a2431303030303030302d303030302d343030302d383030302d303030303030303030303033520e6f726967696e616c2d776f726c6458016001a20100da010770656e64696e67"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "new-service-epoch",
+        "requestId": "ux1-pending",
+        "participant": {
+          "state": "inspecting",
+          "generation": 2,
+          "returnEligible": true,
+          "pendingReport": {
+            "attachmentId": "20000000-0000-4000-8000-000000000001",
+            "gameInstanceId": "fixture-game",
+            "worldToken": "original-world",
+            "observationRevision": 2,
+            "actualSeed": "424242",
+            "activeMods": [
+              "noita_together2",
+              "first-mod",
+              "changed-mod"
+            ],
+            "inventoryComplete": true,
+            "beta": "unknown",
+            "protected": true,
+            "loaded": true,
+            "seedStatus": "known",
+            "modVersion": "nt2-g3-c2-dev-1",
+            "bridgeVersion": "g3-c2-ipc-1",
+            "compatibilityProvenance": "game-thread-client-observation"
+          }
+        }
+      },
+      "hex": "0801120b67332d72656a6f696e2d311a0f666978747572652d7365727669636522116e65772d736572766963652d65706f63682a0b7578312d70656e64696e6732e301120a696e7370656374696e67200258018201cf010a2432303030303030302d303030302d343030302d383030302d303030303030303030303031120c666978747572652d67616d651a0e6f726967696e616c2d776f726c6420022a06343234323432320f6e6f6974615f746f67657468657232320966697273742d6d6f64320b6368616e6765642d6d6f6438014207756e6b6e6f776e480150018a01056b6e6f776e9a010f6e74322d67332d63322d6465762d31a2010b67332d63322d6970632d31aa011e67616d652d7468726561642d636c69656e742d6f62736572766174696f6e"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "Request",
+      "json": {
+        "status": {},
+        "offline": {}
+      },
+      "reason": "conflicting operations"
+    },
+    {
+      "type": "Resume",
+      "json": {
+        "resumeProof": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "reason": "proof bounds"
+    }
+  ]
+}

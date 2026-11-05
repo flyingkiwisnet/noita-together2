@@ -1,0 +1,1 @@
+-- Inert runtime scope observation. Never fresh permission.

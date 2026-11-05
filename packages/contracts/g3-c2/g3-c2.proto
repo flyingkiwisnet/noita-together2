@@ -1,0 +1,220 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.c2;
+
+message Scope {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string runEpoch = 3;
+  optional uint32 configRevision = 4;
+  optional string attachmentId = 5;
+  optional string worldToken = 6;
+}
+
+message Rules {
+  optional bool NT_sync_steve = 1;
+}
+
+message Empty {
+}
+
+message RulesSet {
+  optional uint32 expectedRevision = 1;
+  Rules rules = 2;
+}
+
+message RulesSnapshot {
+  optional uint32 revision = 1;
+  optional string sequence = 2;
+  Rules rules = 3;
+}
+
+message ArenaBind {
+  optional uint32 progression = 1;
+  optional string arenaToken = 2;
+}
+
+message State {
+  optional uint32 progression = 1;
+}
+
+message Near {
+  optional string encounterId = 1;
+  optional string arenaToken = 2;
+  optional bool near = 3;
+  optional string readinessEpoch = 4;
+}
+
+message Pickup {
+  optional string encounterId = 1;
+  optional string arenaToken = 2;
+  optional uint32 orbCount = 3;
+}
+
+message Steve {
+  optional uint32 progression = 1;
+}
+
+message Hourglass {
+  optional string effectId = 1;
+  optional string materialId = 2;
+  optional string catalogueRevision = 3;
+}
+
+message Completed {
+  optional uint32 progression = 1;
+}
+
+message Payload {
+  oneof payload {
+    Pickup pickup = 1;
+    Steve steve = 2;
+    Hourglass hourglass = 3;
+    Completed completed = 4;
+  }
+}
+
+message Publish {
+  optional string eventId = 1;
+  optional uint32 rulesRevision = 2;
+  Payload payload = 3;
+  optional string senderDisposition = 4;
+  optional uint32 progression = 5;
+}
+
+message Deliveries {
+  optional uint32 limit = 1;
+}
+
+message Receipt {
+  optional string eventId = 1;
+  optional string sequence = 2;
+  optional string state = 3;
+  optional string reason = 4;
+}
+
+message Participant {
+  optional string principalId = 1;
+  optional string worldToken = 2;
+  optional string displayName = 3;
+  optional string status = 4;
+  optional bool near = 5;
+  optional bool pickedUp = 6;
+  optional uint32 orbCount = 7;
+  optional bool completed = 8;
+  optional string readinessEpoch = 10;
+}
+
+message Encounter {
+  optional string encounterId = 1;
+  optional uint32 progression = 2;
+  optional string stage = 3;
+  optional string revision = 4;
+  repeated Participant participants = 5;
+}
+
+message Snapshot {
+  optional string sequence = 1;
+  RulesSnapshot rules = 2;
+  Encounter encounter = 3;
+  repeated Completion completions = 4;
+  optional string diagnostic = 5;
+}
+
+message Delivery {
+  optional string eventId = 1;
+  optional string sequence = 2;
+  optional uint32 rulesRevision = 3;
+  optional string sourcePrincipalId = 4;
+  optional string sourceWorldToken = 5;
+  optional string sourceName = 6;
+  Payload payload = 7;
+  Rules capturedRules = 8;
+  optional string senderDisposition = 9;
+  optional string state = 10;
+  optional string reason = 11;
+  optional uint32 sourceProgression = 13;
+  optional uint32 recipientProgression = 14;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  optional string roomId = 7;
+  Scope scope = 8;
+  optional uint32 ownerGeneration = 9;
+  oneof payload {
+    Empty rulesGet = 10;
+    RulesSet rulesSet = 11;
+    State state = 12;
+    ArenaBind arenaBind = 13;
+    Near near = 14;
+    Publish publish = 15;
+    Deliveries deliveries = 16;
+    Receipt receipt = 17;
+    SourceOutcome sourceOutcome = 18;
+  }
+}
+
+message Error {
+  optional string code = 1;
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  Scope scope = 6;
+  optional uint32 ownerGeneration = 7;
+  Snapshot snapshot = 8;
+  Delivery event = 9;
+  repeated Delivery deliveries = 10;
+  optional bool more = 11;
+  optional bool duplicate = 12;
+  Error error = 13;
+  SourceStatus sourceStatus = 14;
+}
+
+message SourceOriginal {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string worldToken = 3;
+  optional uint32 configRevision = 4;
+  Publish publish = 5;
+}
+
+message SourceReceipt {
+  optional string state = 1;
+  optional string reason = 2;
+}
+
+message SourceOutcome {
+  SourceOriginal original = 1;
+  SourceReceipt receipt = 2;
+}
+
+message SourceStatus {
+  SourceOriginal original = 1;
+  optional string coverage = 2;
+  optional bool committed = 3;
+  optional string sequence = 4;
+  optional string disposition = 5;
+  optional string reason = 6;
+  optional bool effectAuthority = 7;
+  optional bool selfReported = 8;
+  optional bool savedEffectProof = 9;
+}
+
+message Completion {
+  optional string principalId = 1;
+  optional string worldToken = 2;
+  optional uint32 progression = 3;
+  optional string eventId = 4;
+  optional string displayName = 5;
+}

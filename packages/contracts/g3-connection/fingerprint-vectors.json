@@ -1,0 +1,54 @@
+{
+  "algorithm": "SHA256 UTF8 ordinal recursive sorted-key JSON, no whitespace, preserve arrays and strings; full original envelope",
+  "vectors": [
+    {
+      "original": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "00000000-0000-4000-8000-000000000001",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000002",
+        "requestId": "original-request",
+        "participantId": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "worldToken": "fixture-world",
+        "generation": 1,
+        "configRevision": 1,
+        "resume": {
+          "resumeProof": "synthetic-never-valid-proof",
+          "gameInstanceId": "fixture-é",
+          "gameVersion": "fixture",
+          "modVersion": "fixture",
+          "bridgeVersion": "fixture",
+          "capabilities": [
+            "core"
+          ]
+        }
+      },
+      "canonicalJson": "{\"configRevision\":1,\"generation\":1,\"major\":1,\"participantId\":\"00000000-0000-4000-8000-000000000003\",\"requestId\":\"original-request\",\"resume\":{\"bridgeVersion\":\"fixture\",\"capabilities\":[\"core\"],\"gameInstanceId\":\"fixture-é\",\"gameVersion\":\"fixture\",\"modVersion\":\"fixture\",\"resumeProof\":\"synthetic-never-valid-proof\"},\"revision\":\"g3-rejoin-1\",\"roomId\":\"00000000-0000-4000-8000-000000000004\",\"runId\":\"00000000-0000-4000-8000-000000000005\",\"serviceEpoch\":\"00000000-0000-4000-8000-000000000001\",\"serviceId\":\"fixture-service\",\"sessionEpoch\":\"00000000-0000-4000-8000-000000000002\",\"worldToken\":\"fixture-world\"}",
+      "sha256": "fc7b66c1ad9d9ef11fae47c4d15cecbecc139df2be64ed824c207c505d3b8cc3"
+    },
+    {
+      "original": {
+        "major": 1,
+        "revision": "g3-rejoin-1",
+        "serviceId": "fixture-service",
+        "serviceEpoch": "00000000-0000-4000-8000-000000000001",
+        "sessionEpoch": "00000000-0000-4000-8000-000000000002",
+        "requestId": "original-request",
+        "participantId": "00000000-0000-4000-8000-000000000003",
+        "roomId": "00000000-0000-4000-8000-000000000004",
+        "runId": "00000000-0000-4000-8000-000000000005",
+        "worldToken": "fixture-world",
+        "generation": 1,
+        "configRevision": 1,
+        "offline": {
+          "resumeProof": "synthetic-never-valid-proof"
+        }
+      },
+      "canonicalJson": "{\"configRevision\":1,\"generation\":1,\"major\":1,\"offline\":{\"resumeProof\":\"synthetic-never-valid-proof\"},\"participantId\":\"00000000-0000-4000-8000-000000000003\",\"requestId\":\"original-request\",\"revision\":\"g3-rejoin-1\",\"roomId\":\"00000000-0000-4000-8000-000000000004\",\"runId\":\"00000000-0000-4000-8000-000000000005\",\"serviceEpoch\":\"00000000-0000-4000-8000-000000000001\",\"serviceId\":\"fixture-service\",\"sessionEpoch\":\"00000000-0000-4000-8000-000000000002\",\"worldToken\":\"fixture-world\"}",
+      "sha256": "616c9c820956bae5d5f208d70705269b943032b170cf029b284579ea13470f53"
+    }
+  ]
+}

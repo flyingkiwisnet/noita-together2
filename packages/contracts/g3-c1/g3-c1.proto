@@ -1,0 +1,201 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.c1;
+
+message Scope {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string runEpoch = 3;
+  optional uint32 configRevision = 4;
+  optional string attachmentId = 5;
+  optional string worldToken = 6;
+}
+
+message Empty {
+}
+
+message Rules {
+  optional bool NT_sync_hearts = 1;
+  optional bool NT_sync_orbs = 2;
+  optional bool NT_sync_shift = 3;
+  optional bool NT_team_perks = 4;
+  optional bool NT_sync_perks = 5;
+  optional bool NT_alt_heartache = 6;
+  optional bool NT_ban_perks = 7;
+  optional bool NT_sync_orbs_no_curse = 8;
+  optional bool NT_ondeath_kick = 9;
+  optional uint32 NT_sync_orb_count = 10;
+  optional string NT_death_penalty = 11;
+}
+
+message RuleSnapshot {
+  optional uint32 revision = 1;
+  optional string sequence = 2;
+  Rules rules = 3;
+}
+
+message RuleSet {
+  optional uint32 expectedRevision = 1;
+  Rules rules = 2;
+}
+
+message Heart {
+}
+
+message Orb {
+  optional uint32 orbId = 1;
+}
+
+message Perk {
+  optional string perkId = 1;
+}
+
+message Fungal {
+  repeated string fromMaterials = 1;
+  optional string toMaterial = 2;
+  optional string displayMaterial = 3;
+}
+
+message Death {
+  optional string state = 1;
+  optional string cause = 2;
+  optional uint32 progression = 3;
+}
+
+message Payload {
+  oneof payload {
+    Heart heart = 1;
+    Orb orb = 2;
+    Perk perk = 3;
+    Fungal fungal = 4;
+    Death death = 5;
+  }
+}
+
+message Publish {
+  optional string eventId = 1;
+  optional uint32 rulesRevision = 2;
+  Payload payload = 3;
+  optional string senderDisposition = 4;
+}
+
+message Delivery {
+  optional string eventId = 1;
+  optional string sequence = 2;
+  optional uint32 rulesRevision = 3;
+  optional string sourcePrincipalId = 4;
+  optional string sourceWorldToken = 5;
+  optional string sourceName = 6;
+  Payload payload = 7;
+  optional string state = 8;
+  optional string reason = 9;
+  optional string senderDisposition = 10;
+  Rules capturedRules = 11;
+}
+
+message Receipt {
+  optional string eventId = 1;
+  optional string sequence = 2;
+  optional string state = 3;
+  optional string reason = 4;
+}
+
+message Page {
+  optional uint32 limit = 1;
+}
+
+message LifeUpdate {
+  optional string deathEventId = 1;
+  optional string state = 2;
+}
+
+message Life {
+  optional string principalId = 1;
+  optional string worldToken = 2;
+  optional string state = 3;
+  optional string deathEventId = 4;
+  optional uint32 rulesRevision = 5;
+}
+
+message Member {
+  optional string principalId = 1;
+  optional string displayName = 2;
+}
+
+message Error {
+  optional string code = 1;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  optional string roomId = 7;
+  Scope scope = 8;
+  optional uint32 ownerGeneration = 9;
+  oneof payload {
+    Empty rulesGet = 10;
+    RuleSet rulesSet = 11;
+    Publish publish = 12;
+    Page deliveries = 13;
+    Receipt receipt = 14;
+    LifeUpdate life = 15;
+    SourceOutcomeRequest sourceOutcome = 16;
+  }
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  Scope scope = 6;
+  optional uint32 ownerGeneration = 7;
+  RuleSnapshot snapshot = 8;
+  Delivery event = 9;
+  repeated Delivery deliveries = 10;
+  optional bool duplicate = 11;
+  repeated Member members = 12;
+  optional uint32 memberCount = 13;
+  repeated Life lives = 14;
+  Error error = 15;
+  optional bool more = 16;
+  optional string sequence = 17;
+  SourceOutcome sourceOutcome = 18;
+}
+
+message SourceOriginal {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string worldToken = 3;
+  optional uint32 configRevision = 4;
+  Publish publish = 5;
+}
+
+message SourceDisposition {
+  optional string state = 1;
+  optional string reason = 2;
+}
+
+message SourceOutcomeRequest {
+  SourceOriginal original = 1;
+  SourceDisposition receipt = 2;
+}
+
+message SourceOutcome {
+  SourceOriginal original = 1;
+  optional string outcome = 2;
+  optional string coverage = 3;
+  optional string sourceDisposition = 4;
+  optional string sourceReason = 5;
+  optional string acceptedSequence = 6;
+  optional uint32 rulesRevision = 7;
+  optional bool effectAuthority = 8;
+  optional bool selfReported = 9;
+  optional bool savedEffectProof = 10;
+  optional bool duplicate = 11;
+}

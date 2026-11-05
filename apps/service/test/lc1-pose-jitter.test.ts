@@ -1,0 +1,22 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {TrafficBudgets} from '../src/g2-next/traffic.js';import {LifecycleNetwork} from '../scripts/lifecycle-lc1-network.js';
+class Clock{time=0;id=0;tasks=new Map<number,{at:number;fn:()=>void}>();now=()=>this.time;set=(fn:()=>void,ms:number)=>{const id=++this.id;this.tasks.set(id,{at:this.time+ms,fn});return id;};clear=(id:number)=>{this.tasks.delete(id);};advance(ms:number){const until=this.time+ms;for(;;){const e=[...this.tasks].filter(([,t])=>t.at<=until).sort((a,b)=>a[1].at-b[1].at||a[0]-b[0])[0];if(!e)break;this.time=e[1].at;this.tasks.delete(e[0]);e[1].fn();}this.time=until;}}
+test('normal10Hz sender plus ordinary control under FIFO jitter reproduces exact fixed-window pose refusal',()=>{
+ const failures:any[]=[];
+ for(const profile of ['rtt80','rtt200','rtt400'] as const){const c=new Clock(),n=new LifecycleNetwork(c),b=new TrafficBudgets(c.now),key={},actor={sessionId:'synthetic-session',principalId:'synthetic-principal'},arrivals:{at:number;kind:'pose'|'health'}[]=[];
+  n.configure('consumer',profile,11);for(let at=0;at<6000;at+=100)arrivals.push({at,kind:'pose'});for(let at=350;at<6000;at+=1000)arrivals.push({at,kind:'health'});for(let at=575;at<6000;at+=2000)arrivals.push({at,kind:'health'});arrivals.sort((a,b)=>a.at-b.at);
+  for(const frame of arrivals){c.advance(frame.at-c.now());n.enqueue('consumer','wssIn',key,c.now(),100,()=>{try{b.take('session:'+actor.sessionId,96);b.take('principal:'+actor.principalId,256);b.take('class:'+actor.sessionId+':'+frame.kind,frame.kind==='pose'?10:16);}catch{const bucket=(b as any).counters.get('class:synthetic-session:pose');failures.push({profile,kind:frame.kind,at:c.now(),count:bucket.count,remainingMs:bucket.until-c.now()});}},()=>assert.fail());}c.advance(500);n.close();
+ }
+ assert.ok(failures.length>0);assert.ok(failures.every(f=>f.kind==='pose'&&f.count>10));console.log(JSON.stringify({fixedWindowJitterReproduction:failures}));
+});
+test('same10Hz rate survives FIFO jitter with bounded three-pose burst under quantized clocks',()=>{
+ for(const profile of ['rtt80','rtt200','rtt400'] as const)for(const quantum of [1,16,34,100,150]){const c=new Clock(),n=new LifecycleNetwork(c),b=new TrafficBudgets(()=>Math.floor(c.now()/quantum)*quantum),key={},actor={sessionId:'stable',principalId:'stable'},frames:{at:number;kind:'pose'|'health'}[]=[];n.configure('consumer',profile,11);for(let at=0;at<12000;at+=100)frames.push({at,kind:'pose'});for(let at=350;at<12000;at+=1000)frames.push({at,kind:'health'});for(let at=575;at<12000;at+=2000)frames.push({at,kind:'health'});frames.sort((a,b)=>a.at-b.at);for(const f of frames){c.advance(f.at-c.now());n.enqueue('consumer','wssIn',key,c.now(),100,()=>b.authenticated(actor,f.kind),()=>assert.fail());}c.advance(500);assert.ok(n.status().telemetry.every(s=>s.cancelled===0));n.close();}
+});
+test('pose rate retains finite burst, sustained bound, shared session/key bounds and non-pose limits',()=>{
+ let now=0;const b=new TrafficBudgets(()=>now),actor={sessionId:'s',principalId:'p'};for(let i=0;i<3;i++)b.authenticated(actor,'pose');assert.throws(()=>b.authenticated(actor,'pose'),/CAPACITY/);now=99;assert.throws(()=>b.authenticated(actor,'pose'),/CAPACITY/);now=100;b.authenticated(actor,'pose');assert.throws(()=>b.authenticated({...actor},'pose'),/CAPACITY/);
+ let accepted=4;for(now=101;now<=10000;now++){try{b.authenticated(actor,'pose');accepted++;}catch{}}assert.ok(accepted<=103);assert.ok(b.size<=3);now=11000;for(let i=0;i<16;i++)b.authenticated(actor,'health');assert.throws(()=>b.authenticated(actor,'health'),/CAPACITY/);
+ const small=new TrafficBudgets(()=>now,2);assert.throws(()=>small.authenticated(actor,'pose'),/CAPACITY/);assert.equal(small.size,2);
+});
+test('clock regression cannot refill and eviction cannot grant credits before full refill',()=>{
+ let now=1000;const b=new TrafficBudgets(()=>now) as any;for(let i=0;i<3;i++)b.takePose('pose');now=900;assert.throws(()=>b.takePose('pose'),/CAPACITY/);now=1099;assert.throws(()=>b.takePose('pose'),/CAPACITY/);now=1100;b.takePose('pose');assert.throws(()=>b.takePose('pose'),/CAPACITY/);
+ now=0;const small=new TrafficBudgets(()=>now,1) as any;for(let i=0;i<3;i++)small.takePose('first');now=299;assert.throws(()=>small.takePose('second'),/CAPACITY/);now=300;small.takePose('second');assert.equal(small.size,1);assert.equal(small.counters.has('first'),false);assert.throws(()=>small.takePose('first'),/CAPACITY/);
+});

@@ -1,0 +1,170 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.social;
+
+message Scope {
+  string roomId = 1;
+  string runId = 2;
+  string runEpoch = 3;
+  uint32 configRevision = 4;
+  string attachmentId = 5;
+  string worldToken = 6;
+}
+
+message Error {
+  string code = 1;
+}
+
+message Hud {
+  uint32 hpMilli = 1;
+  uint32 maxHpMilli = 2;
+  bool sampo = 3;
+  bool hpKnown = 4;
+  bool sampoKnown = 5;
+  string biome = 6;
+}
+
+message Emote {
+  string emoteId = 1;
+  bool active = 2;
+}
+
+message Cosmetic {
+  string robeId = 1;
+  bool hat = 2;
+  bool amulet = 3;
+  bool gem = 4;
+}
+
+message Poi {
+  string text = 1;
+  string xMilli = 2;
+  string yMilli = 3;
+}
+
+message Publish {
+  string eventId = 1;
+  uint32 sequence = 2;
+  oneof payload {
+    Hud hud = 10;
+    Emote emote = 11;
+    Cosmetic cosmetic = 12;
+    Poi poi = 13;
+  }
+}
+
+message Page {
+  string afterSequence = 1;
+  uint32 limit = 2;
+}
+
+message Snapshot {
+  string afterKey = 1;
+  uint32 limit = 2;
+}
+
+message Dismiss {
+  string poiSequence = 1;
+}
+
+message Projection {
+  string principalId = 1;
+  string gameSessionId = 2;
+  string displayName = 3;
+  Scope scope = 4;
+  string eventId = 5;
+  uint32 sequence = 6;
+  string capturedAt = 7;
+  string expiresAt = 8;
+  string provenance = 9;
+  uint32 hudStateRevision = 14;
+  uint32 presentationRevision = 15;
+  oneof payload {
+    Hud hud = 10;
+    EmoteState emote = 11;
+    Cosmetic cosmetic = 12;
+  }
+}
+
+message Marker {
+  string poiSequence = 1;
+  string eventId = 2;
+  string principalId = 3;
+  string gameSessionId = 4;
+  string displayName = 5;
+  Scope scope = 6;
+  Poi poi = 7;
+  string capturedAt = 8;
+  string provenance = 9;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  Scope scope = 7;
+  oneof payload {
+    Publish publish = 20;
+    Snapshot snapshot = 21;
+    Page poiSnapshot = 22;
+    Page poiOutbox = 23;
+    Dismiss dismissPoi = 24;
+    Snapshot roster = 25;
+    PoiLookup poiOutcome = 26;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  Scope scope = 7;
+  string acceptedEventId = 8;
+  bool duplicate = 9;
+  repeated Projection projections = 10;
+  repeated Marker markers = 11;
+  string nextKey = 12;
+  string nextSequence = 13;
+  string highSequence = 14;
+  Error error = 15;
+  repeated Player players = 20;
+  PoiOutcome poiOutcome = 21;
+  bool rosterComplete = 22;
+}
+
+message EmoteState {
+  string emoteId = 1;
+  bool active = 2;
+  uint32 durationFrames = 3;
+  uint32 ageMs = 4;
+}
+
+message Player {
+  string playerId = 1;
+  string principalId = 2;
+  string displayName = 3;
+  string gameSessionId = 4;
+  string worldToken = 5;
+  string state = 6;
+  uint32 inventoryRevision = 7;
+  string heldWandSpriteId = 8;
+  string raceRowKey = 9;
+  string raceStatus = 10;
+  uint32 completedGoals = 11;
+}
+
+message PoiLookup {
+  string eventId = 1;
+}
+
+message PoiOutcome {
+  string eventId = 1;
+  string status = 2;
+  Marker marker = 3;
+}

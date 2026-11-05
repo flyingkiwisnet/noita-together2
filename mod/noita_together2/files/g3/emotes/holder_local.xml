@@ -1,0 +1,4 @@
+<Entity name="nt2_emote" tags="nt2_a3_local_holder" serialize="1">
+ <InheritTransformComponent><Transform position.x="-7" position.y="-12" /></InheritTransformComponent>
+ <HotspotComponent _tags="cape_root" sprite_hotspot_name="cape" />
+</Entity>

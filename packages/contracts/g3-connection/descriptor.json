@@ -1,0 +1,1357 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "connection": {
+          "nested": {
+            "Empty": {
+              "fields": {}
+            },
+            "ConnectionScope": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_roomId": {
+                  "oneof": [
+                    "roomId"
+                  ]
+                },
+                "_runId": {
+                  "oneof": [
+                    "runId"
+                  ]
+                },
+                "_runEpoch": {
+                  "oneof": [
+                    "runEpoch"
+                  ]
+                },
+                "_configRevision": {
+                  "oneof": [
+                    "configRevision"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                }
+              }
+            },
+            "ConnectionOwner": {
+              "fields": {
+                "familyId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopSessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_familyId": {
+                  "oneof": [
+                    "familyId"
+                  ]
+                },
+                "_desktopId": {
+                  "oneof": [
+                    "desktopId"
+                  ]
+                },
+                "_desktopSessionEpoch": {
+                  "oneof": [
+                    "desktopSessionEpoch"
+                  ]
+                },
+                "_gameSessionId": {
+                  "oneof": [
+                    "gameSessionId"
+                  ]
+                },
+                "_gameSessionEpoch": {
+                  "oneof": [
+                    "gameSessionEpoch"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_gameInstanceId": {
+                  "oneof": [
+                    "gameInstanceId"
+                  ]
+                }
+              }
+            },
+            "ConnectionInspection": {
+              "fields": {
+                "desktopId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "observationRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionEpoch": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopSessionEpoch": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "actualSeed": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "seedPolicy": {
+                  "type": "string",
+                  "id": 12,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "randomizeLoot": {
+                  "type": "bool",
+                  "id": 13,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_desktopId": {
+                  "oneof": [
+                    "desktopId"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                },
+                "_observationRevision": {
+                  "oneof": [
+                    "observationRevision"
+                  ]
+                },
+                "_contentDigest": {
+                  "oneof": [
+                    "contentDigest"
+                  ]
+                },
+                "_capturedAt": {
+                  "oneof": [
+                    "capturedAt"
+                  ]
+                },
+                "_gameSessionId": {
+                  "oneof": [
+                    "gameSessionId"
+                  ]
+                },
+                "_gameSessionEpoch": {
+                  "oneof": [
+                    "gameSessionEpoch"
+                  ]
+                },
+                "_desktopSessionEpoch": {
+                  "oneof": [
+                    "desktopSessionEpoch"
+                  ]
+                },
+                "_gameInstanceId": {
+                  "oneof": [
+                    "gameInstanceId"
+                  ]
+                },
+                "_actualSeed": {
+                  "oneof": [
+                    "actualSeed"
+                  ]
+                },
+                "_seedPolicy": {
+                  "oneof": [
+                    "seedPolicy"
+                  ]
+                },
+                "_randomizeLoot": {
+                  "oneof": [
+                    "randomizeLoot"
+                  ]
+                }
+              }
+            },
+            "ConnectionStart": {
+              "fields": {
+                "requestId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorizedAt": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "selectedInspection": {
+                  "type": "ConnectionInspection",
+                  "id": 3
+                }
+              },
+              "oneofs": {
+                "_requestId": {
+                  "oneof": [
+                    "requestId"
+                  ]
+                },
+                "_authorizedAt": {
+                  "oneof": [
+                    "authorizedAt"
+                  ]
+                }
+              }
+            },
+            "ConnectionImmutable": {
+              "fields": {
+                "authorizationId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "startRequestId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorizedAt": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "selectedInspection": {
+                  "type": "ConnectionInspection",
+                  "id": 4
+                }
+              },
+              "oneofs": {
+                "_authorizationId": {
+                  "oneof": [
+                    "authorizationId"
+                  ]
+                },
+                "_startRequestId": {
+                  "oneof": [
+                    "startRequestId"
+                  ]
+                },
+                "_authorizedAt": {
+                  "oneof": [
+                    "authorizedAt"
+                  ]
+                }
+              }
+            },
+            "ConnectionReport": {
+              "fields": {
+                "revision": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "complete": {
+                  "type": "bool",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "loaded": {
+                  "type": "bool",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "protected": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentValid": {
+                  "type": "bool",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_contentDigest": {
+                  "oneof": [
+                    "contentDigest"
+                  ]
+                },
+                "_capturedAt": {
+                  "oneof": [
+                    "capturedAt"
+                  ]
+                },
+                "_complete": {
+                  "oneof": [
+                    "complete"
+                  ]
+                },
+                "_loaded": {
+                  "oneof": [
+                    "loaded"
+                  ]
+                },
+                "_protected": {
+                  "oneof": [
+                    "protected"
+                  ]
+                },
+                "_contentValid": {
+                  "oneof": [
+                    "contentValid"
+                  ]
+                }
+              }
+            },
+            "ConnectionDecision": {
+              "fields": {
+                "authorized": {
+                  "type": "bool",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "playing": {
+                  "type": "bool",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "terminal": {
+                  "type": "bool",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "remainingMs": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "initialReviewRemainingMs": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_authorized": {
+                  "oneof": [
+                    "authorized"
+                  ]
+                },
+                "_playing": {
+                  "oneof": [
+                    "playing"
+                  ]
+                },
+                "_terminal": {
+                  "oneof": [
+                    "terminal"
+                  ]
+                },
+                "_reason": {
+                  "oneof": [
+                    "reason"
+                  ]
+                },
+                "_remainingMs": {
+                  "oneof": [
+                    "remainingMs"
+                  ]
+                },
+                "_initialReviewRemainingMs": {
+                  "oneof": [
+                    "initialReviewRemainingMs"
+                  ]
+                }
+              }
+            },
+            "ConnectionSample": {
+              "fields": {
+                "originRequestId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "channel": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "credentialId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sampleKey": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_originRequestId": {
+                  "oneof": [
+                    "originRequestId"
+                  ]
+                },
+                "_channel": {
+                  "oneof": [
+                    "channel"
+                  ]
+                },
+                "_credentialId": {
+                  "oneof": [
+                    "credentialId"
+                  ]
+                },
+                "_sampleKey": {
+                  "oneof": [
+                    "sampleKey"
+                  ]
+                }
+              }
+            },
+            "ConnectionCredential": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "credentialId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accessRemainingMs": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originRequestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sampleKey": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_credentialId": {
+                  "oneof": [
+                    "credentialId"
+                  ]
+                },
+                "_accessRemainingMs": {
+                  "oneof": [
+                    "accessRemainingMs"
+                  ]
+                },
+                "_originRequestId": {
+                  "oneof": [
+                    "originRequestId"
+                  ]
+                },
+                "_sampleKey": {
+                  "oneof": [
+                    "sampleKey"
+                  ]
+                }
+              }
+            },
+            "ConnectionAdmission": {
+              "fields": {
+                "serviceId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "generation": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "scope": {
+                  "type": "ConnectionScope",
+                  "id": 5
+                },
+                "owner": {
+                  "type": "ConnectionOwner",
+                  "id": 6
+                },
+                "originalStart": {
+                  "type": "ConnectionStart",
+                  "id": 7
+                },
+                "immutable": {
+                  "type": "ConnectionImmutable",
+                  "id": 8
+                },
+                "currentReport": {
+                  "type": "ConnectionReport",
+                  "id": 9
+                },
+                "decision": {
+                  "type": "ConnectionDecision",
+                  "id": 10
+                },
+                "sample": {
+                  "type": "ConnectionSample",
+                  "id": 11
+                }
+              },
+              "oneofs": {
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_participantId": {
+                  "oneof": [
+                    "participantId"
+                  ]
+                },
+                "_generation": {
+                  "oneof": [
+                    "generation"
+                  ]
+                }
+              }
+            },
+            "OriginalOperation": {
+              "fields": {
+                "requestId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "fingerprint": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originalSessionId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originalSessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originalOwnerGeneration": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 11,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originalServiceEpoch": {
+                  "type": "string",
+                  "id": 12,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accountId": {
+                  "type": "string",
+                  "id": 13,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 14,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_requestId": {
+                  "oneof": [
+                    "requestId"
+                  ]
+                },
+                "_kind": {
+                  "oneof": [
+                    "kind"
+                  ]
+                },
+                "_fingerprint": {
+                  "oneof": [
+                    "fingerprint"
+                  ]
+                },
+                "_originalSessionId": {
+                  "oneof": [
+                    "originalSessionId"
+                  ]
+                },
+                "_originalSessionEpoch": {
+                  "oneof": [
+                    "originalSessionEpoch"
+                  ]
+                },
+                "_originalOwnerGeneration": {
+                  "oneof": [
+                    "originalOwnerGeneration"
+                  ]
+                },
+                "_participantId": {
+                  "oneof": [
+                    "participantId"
+                  ]
+                },
+                "_roomId": {
+                  "oneof": [
+                    "roomId"
+                  ]
+                },
+                "_runId": {
+                  "oneof": [
+                    "runId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                },
+                "_configRevision": {
+                  "oneof": [
+                    "configRevision"
+                  ]
+                },
+                "_originalServiceEpoch": {
+                  "oneof": [
+                    "originalServiceEpoch"
+                  ]
+                },
+                "_accountId": {
+                  "oneof": [
+                    "accountId"
+                  ]
+                },
+                "_deviceId": {
+                  "oneof": [
+                    "deviceId"
+                  ]
+                }
+              }
+            },
+            "Outcome": {
+              "fields": {
+                "original": {
+                  "type": "OriginalOperation",
+                  "id": 1
+                },
+                "originalOutcome": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "coverage": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "currentDisposition": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "currentReason": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "currentGeneration": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "effectId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "retryAfterMs": {
+                  "type": "uint32",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_originalOutcome": {
+                  "oneof": [
+                    "originalOutcome"
+                  ]
+                },
+                "_coverage": {
+                  "oneof": [
+                    "coverage"
+                  ]
+                },
+                "_currentDisposition": {
+                  "oneof": [
+                    "currentDisposition"
+                  ]
+                },
+                "_currentReason": {
+                  "oneof": [
+                    "currentReason"
+                  ]
+                },
+                "_currentGeneration": {
+                  "oneof": [
+                    "currentGeneration"
+                  ]
+                },
+                "_effectId": {
+                  "oneof": [
+                    "effectId"
+                  ]
+                },
+                "_retryAfterMs": {
+                  "oneof": [
+                    "retryAfterMs"
+                  ]
+                }
+              }
+            },
+            "AdmissionRead": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_roomId": {
+                  "oneof": [
+                    "roomId"
+                  ]
+                },
+                "_participantId": {
+                  "oneof": [
+                    "participantId"
+                  ]
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "retryAfterMs": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_code": {
+                  "oneof": [
+                    "code"
+                  ]
+                },
+                "_retryAfterMs": {
+                  "oneof": [
+                    "retryAfterMs"
+                  ]
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "admission": {
+                  "type": "AdmissionRead",
+                  "id": 10
+                },
+                "outcome": {
+                  "type": "OriginalOperation",
+                  "id": 11
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "admission",
+                    "outcome"
+                  ]
+                },
+                "_major": {
+                  "oneof": [
+                    "major"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_requestId": {
+                  "oneof": [
+                    "requestId"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "admission": {
+                  "type": "ConnectionAdmission",
+                  "id": 10
+                },
+                "outcome": {
+                  "type": "Outcome",
+                  "id": 11
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 12
+                },
+                "credentialValidity": {
+                  "type": "ConnectionCredential",
+                  "id": 13
+                }
+              },
+              "oneofs": {
+                "_major": {
+                  "oneof": [
+                    "major"
+                  ]
+                },
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_requestId": {
+                  "oneof": [
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

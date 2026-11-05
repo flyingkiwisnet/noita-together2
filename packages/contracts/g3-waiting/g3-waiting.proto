@@ -1,0 +1,478 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.waiting;
+
+message ConnectionOwner {
+  optional string familyId = 1;
+  optional string desktopId = 2;
+  optional string desktopSessionEpoch = 3;
+  optional string gameSessionId = 4;
+  optional string gameSessionEpoch = 5;
+  optional string attachmentId = 6;
+  optional string gameInstanceId = 7;
+}
+
+message ConnectionReport {
+  optional uint32 revision = 1;
+  optional string contentDigest = 2;
+  optional string capturedAt = 3;
+  optional bool complete = 4;
+  optional bool loaded = 5;
+  optional bool protected = 6;
+  optional bool contentValid = 7;
+}
+
+message ConnectionSample {
+  optional string originRequestId = 1;
+  optional string channel = 2;
+  optional string credentialId = 3;
+  optional string sampleKey = 4;
+}
+
+message ConnectionCredential {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string credentialId = 4;
+  optional uint32 accessRemainingMs = 5;
+  optional string originRequestId = 6;
+  optional string sampleKey = 7;
+}
+
+message ConnectionAdmission {
+  optional string serviceId = 1;
+  optional string serviceEpoch = 2;
+  optional string participantId = 3;
+  optional uint32 generation = 4;
+  ConnectionScope scope = 5;
+  ConnectionOwner owner = 6;
+  ConnectionStart originalStart = 7;
+  ConnectionImmutable immutable = 8;
+  ConnectionReport currentReport = 9;
+  ConnectionDecision decision = 10;
+  ConnectionSample sample = 11;
+}
+
+message ConnectionScope {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string roomId = 4;
+  optional string runId = 5;
+  optional string runEpoch = 6;
+  optional uint32 configRevision = 7;
+  optional string attachmentId = 8;
+  optional string worldToken = 9;
+}
+
+message ConnectionStart {
+  optional string requestId = 1;
+  optional string authorizedAt = 2;
+  ConnectionInspection selectedInspection = 3;
+}
+
+message ConnectionInspection {
+  optional string desktopId = 1;
+  optional string attachmentId = 2;
+  optional string worldToken = 3;
+  optional uint32 observationRevision = 4;
+  optional string contentDigest = 5;
+  optional string capturedAt = 6;
+  optional string gameSessionId = 7;
+  optional string gameSessionEpoch = 8;
+  optional string desktopSessionEpoch = 9;
+  optional string gameInstanceId = 10;
+  optional string actualSeed = 11;
+  optional string seedPolicy = 12;
+  optional bool randomizeLoot = 13;
+}
+
+message ConnectionImmutable {
+  optional string authorizationId = 1;
+  optional string startRequestId = 2;
+  optional string authorizedAt = 3;
+  ConnectionInspection selectedInspection = 4;
+}
+
+message ConnectionDecision {
+  optional bool authorized = 1;
+  optional bool playing = 2;
+  optional bool terminal = 3;
+  optional string reason = 4;
+  optional uint32 remainingMs = 5;
+  optional uint32 initialReviewRemainingMs = 6;
+}
+
+message Credentials {
+  optional string accessToken = 1;
+  optional string refreshSecret = 2;
+  optional string accountId = 3;
+  optional string sessionId = 4;
+  optional string sessionEpoch = 5;
+  optional string kind = 6;
+  optional string deviceId = 7;
+  optional string expiresAt = 8;
+  optional string attachmentId = 9;
+  Principal principal = 10;
+}
+
+message Principal {
+  optional string principalId = 1;
+  optional string kind = 2;
+  optional string displayName = 3;
+  optional string source = 4;
+}
+
+message GameObservation {
+  optional string attachmentId = 1;
+  optional string gameInstanceId = 2;
+  optional string worldToken = 3;
+  optional uint32 observationRevision = 4;
+  optional string actualSeed = 5;
+  repeated string activeMods = 6;
+  optional bool inventoryComplete = 7;
+  optional string beta = 8;
+  optional bool protected = 9;
+  optional bool loaded = 10;
+  optional string seedStatus = 17;
+  optional string collectorFailure = 18;
+  optional string modVersion = 19;
+  optional string bridgeVersion = 20;
+  optional string compatibilityProvenance = 21;
+}
+
+message Empty {
+}
+
+message WaitingIntent {
+  optional string waitingId = 1;
+  optional string serviceId = 2;
+  optional string accountId = 3;
+  optional string deviceId = 4;
+  optional string preparationId = 5;
+  optional string originalAttachmentId = 6;
+  optional string originalAttachRequestId = 7;
+  optional string originalAttachFingerprint = 8;
+  optional string originalDesktopId = 9;
+  optional string originalDesktopEpoch = 10;
+  optional string roomId = 11;
+  optional string runId = 12;
+  optional string runEpoch = 13;
+  optional string preparationServiceEpoch = 14;
+  optional string configDigest = 15;
+  optional string worldToken = 16;
+  optional string actualSeed = 17;
+  optional string seedPolicy = 18;
+  optional string originalGameInstanceId = 19;
+  optional string contextId = 20;
+  optional string contentDigest = 21;
+  optional uint32 configRevision = 22;
+  optional bool randomizeLoot = 23;
+  optional uint32 originalObservationRevision = 24;
+  optional string pendingReservationId = 30;
+}
+
+message WaitingState {
+  WaitingIntent intent = 1;
+  optional uint32 generation = 2;
+  ConnectionOwner owner = 3;
+  optional string state = 4;
+  optional string reason = 5;
+  optional uint32 reviewRemainingMs = 6;
+  optional uint32 ownerRemainingMs = 7;
+  optional bool mayPlay = 8;
+  ConnectionSample sample = 9;
+  ConnectionReport currentReport = 10;
+  optional string admittedParticipantId = 11;
+  optional string currentContextId = 12;
+}
+
+message Enroll {
+  optional string preparationId = 1;
+  optional string attachmentId = 2;
+  optional string originalAttachRequestId = 3;
+  optional string originalAttachFingerprint = 4;
+  optional string worldToken = 5;
+  optional string gameInstanceId = 6;
+  optional uint32 observationRevision = 7;
+  optional string contentDigest = 8;
+  optional string contextId = 9;
+}
+
+message Recover {
+  optional string waitingProof = 1;
+  optional string gameVersion = 2;
+  optional string modVersion = 3;
+  optional string bridgeVersion = 4;
+  repeated string capabilities = 5;
+  GameObservation observation = 6;
+  optional string contextId = 7;
+}
+
+message Proof {
+  optional string waitingProof = 1;
+}
+
+message WaitingOriginal {
+  optional string accountId = 1;
+  optional string deviceId = 2;
+  optional string originalSessionId = 3;
+  optional string originalSessionEpoch = 4;
+  optional string originalServiceEpoch = 5;
+  optional string requestId = 6;
+  optional string kind = 7;
+  optional string fingerprint = 8;
+  optional string waitingId = 9;
+}
+
+message WaitingOutcome {
+  WaitingOriginal original = 1;
+  optional string originalOutcome = 2;
+  optional string coverage = 3;
+  optional string waitingId = 4;
+  optional string effectId = 5;
+  optional string currentDisposition = 6;
+  optional uint32 retryAfterMs = 7;
+}
+
+message Error {
+  optional string code = 1;
+  optional uint32 retryAfterMs = 2;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  optional string waitingId = 7;
+  optional uint32 generation = 8;
+  optional string pendingId = 30;
+  oneof payload {
+    Enroll enroll = 10;
+    Recover recover = 11;
+    Empty status = 12;
+    WaitingOriginal outcome = 13;
+    Proof offline = 14;
+    Reserve reserve = 31;
+    PendingRecover pendingRecover = 32;
+    Empty pendingStatus = 33;
+    PendingOffline pendingOffline = 34;
+    WaitingOriginal pendingOutcome = 35;
+    EntryPreviewRequest entryPreview = 40;
+    EntryActivate entryActivate = 41;
+    EntryCancel entryCancel = 42;
+    EntryLookup entryStatus = 43;
+    EntryOriginal entryOutcome = 44;
+  }
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  WaitingState waiting = 10;
+  optional string waitingProof = 11;
+  Credentials credentials = 12;
+  ConnectionCredential credentialValidity = 13;
+  ConnectionAdmission canonicalAdmission = 14;
+  WaitingOutcome outcome = 15;
+  Error error = 16;
+  PendingState pending = 30;
+  optional string pendingProof = 31;
+  PendingOutcome pendingOutcome = 32;
+  optional string resumeProof = 33;
+  Participant participant = 34;
+  EntryPreview entryPreview = 40;
+  EntryState entry = 41;
+  EntryOutcome entryOutcome = 42;
+}
+
+message Reserve {
+  optional string preparationId = 1;
+  optional string worldToken = 2;
+  optional string contextId = 3;
+}
+
+message PendingIntent {
+  optional string pendingId = 1;
+  optional string preparationId = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string roomId = 5;
+  optional string runId = 6;
+  optional string runEpoch = 7;
+  optional uint32 configRevision = 8;
+  optional string configDigest = 9;
+  optional string accountId = 10;
+  optional string deviceId = 11;
+  optional string originalDesktopId = 12;
+  optional string originalDesktopEpoch = 13;
+  optional string worldToken = 14;
+  optional string contextId = 15;
+  optional string seedPolicy = 16;
+  optional bool randomizeLoot = 17;
+  optional string actualSeed = 18;
+}
+
+message PendingState {
+  PendingIntent intent = 1;
+  optional uint32 generation = 2;
+  optional string state = 3;
+  optional string reason = 4;
+  optional bool mayPlay = 5;
+  optional string waitingId = 6;
+  ConnectionSample sample = 7;
+  optional uint32 preparationRemainingMs = 8;
+  optional uint32 reviewRemainingMs = 9;
+  optional string boundActualSeed = 10;
+  optional string preparationState = 11;
+}
+
+message PendingRecover {
+  optional string gameVersion = 2;
+  optional string modVersion = 3;
+  optional string bridgeVersion = 4;
+  repeated string capabilities = 5;
+  GameObservation observation = 6;
+  optional string contextId = 7;
+  optional string pendingProof = 1;
+}
+
+message PendingOffline {
+  optional string pendingProof = 1;
+}
+
+message PendingOutcome {
+  WaitingOriginal original = 1;
+  optional string originalOutcome = 2;
+  optional string coverage = 3;
+  optional string pendingId = 4;
+  optional string effectId = 5;
+}
+
+message Association {
+  optional string serviceId = 1;
+  optional string roomId = 2;
+  optional string runId = 3;
+  optional string participantId = 4;
+  optional string worldToken = 5;
+  optional string accountId = 6;
+  optional string originalStartId = 7;
+  optional uint32 configRevision = 8;
+  optional string actualSeed = 9;
+  optional string seedPolicy = 10;
+  optional bool randomizeLoot = 11;
+}
+
+message Participant {
+  Association association = 1;
+  optional string state = 2;
+  optional string reason = 3;
+  optional uint32 generation = 4;
+  optional string serviceEpoch = 5;
+  optional string runEpoch = 6;
+  optional string desktopId = 7;
+  optional string gameSessionId = 8;
+  optional string attachmentId = 9;
+  optional string leaseExpiresAt = 10;
+  optional bool returnEligible = 11;
+  optional bool reviewRequired = 12;
+  optional uint32 pendingObservationRevision = 13;
+  optional string pendingContentDigest = 14;
+}
+
+message EntryPreviewRequest {
+  optional string roomId = 1;
+  optional string basePreparationId = 2;
+}
+
+message EntryScope {
+  optional string serviceId = 1;
+  optional string serviceEpoch = 2;
+  optional string accountId = 3;
+  optional string deviceId = 4;
+  optional string roomId = 5;
+  optional string runId = 6;
+  optional string runEpoch = 7;
+  optional uint32 configRevision = 8;
+  optional string configDigest = 9;
+  optional string basePreparationId = 10;
+  optional string baseFingerprint = 11;
+  optional string seedPolicy = 12;
+  optional bool randomizeLoot = 13;
+  optional string actualSeed = 14;
+}
+
+message EntryIdentity {
+  optional string preparationId = 1;
+  optional string pendingId = 2;
+  optional string worldToken = 3;
+  optional string contextId = 4;
+  optional string proofCommitment = 5;
+}
+
+message EntryPreview {
+  EntryScope scope = 1;
+  ConnectionSample sample = 2;
+  optional uint32 reviewRemainingMs = 3;
+  optional bool mayPlay = 4;
+}
+
+message EntryLookup {
+  EntryScope scope = 1;
+  EntryIdentity identity = 2;
+}
+
+message EntryActivate {
+  EntryScope scope = 1;
+  EntryIdentity identity = 2;
+  optional string recoveryProof = 3;
+  optional string gameVersion = 4;
+  optional string modVersion = 5;
+  optional string bridgeVersion = 6;
+  repeated string capabilities = 7;
+  GameObservation observation = 8;
+}
+
+message EntryCancel {
+  EntryScope scope = 1;
+  EntryIdentity identity = 2;
+  optional string recoveryProof = 3;
+  optional bool worldOffline = 4;
+}
+
+message EntryOriginal {
+  optional string accountId = 1;
+  optional string deviceId = 2;
+  optional string originalSessionId = 3;
+  optional string originalSessionEpoch = 4;
+  optional string originalServiceEpoch = 5;
+  optional string requestId = 6;
+  optional string kind = 7;
+  optional string fingerprint = 8;
+  optional string waitingId = 9;
+  optional string runId = 10;
+  optional string pendingId = 11;
+}
+
+message EntryState {
+  EntryScope scope = 1;
+  EntryIdentity identity = 2;
+  optional string state = 3;
+  optional string reason = 4;
+  optional bool mayPlay = 5;
+  optional string attachmentId = 6;
+  optional string waitingId = 7;
+}
+
+message EntryOutcome {
+  EntryOriginal original = 1;
+  optional string originalOutcome = 2;
+  optional string coverage = 3;
+  optional string effectId = 4;
+}

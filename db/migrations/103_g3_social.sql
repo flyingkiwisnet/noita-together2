@@ -1,0 +1,10 @@
+-- Opt-in simulated G3 social candidate only; accepted runners never load this.
+CREATE TABLE g3_social_ids(run_id uuid REFERENCES runs(id),game_session_id uuid REFERENCES sessions(id),event_id uuid,digest text NOT NULL CHECK(length(digest)=64),created_at timestamptz NOT NULL,PRIMARY KEY(run_id,game_session_id,event_id));
+CREATE TABLE g3_social_fences(run_id uuid REFERENCES runs(id),game_session_id uuid REFERENCES sessions(id),kind text,last_sequence bigint NOT NULL CHECK(last_sequence BETWEEN 0 AND 4294967295),window_at timestamptz NOT NULL,window_count integer NOT NULL CHECK(window_count BETWEEN 0 AND 10),last_poi_at timestamptz,PRIMARY KEY(run_id,game_session_id,kind));
+CREATE TABLE g3_social_life(run_id uuid REFERENCES runs(id),game_session_id uuid REFERENCES sessions(id),dead boolean NOT NULL,PRIMARY KEY(run_id,game_session_id));
+CREATE TABLE g3_social_latest(run_id uuid REFERENCES runs(id),game_session_id uuid REFERENCES sessions(id),kind text CHECK(kind IN ('hud','emote','cosmetic')),body jsonb NOT NULL CHECK(octet_length(body::text)<=4096),recipient_sessions uuid[] NOT NULL CHECK(cardinality(recipient_sessions)<=32),expires_at timestamptz NOT NULL,PRIMARY KEY(run_id,game_session_id,kind));
+CREATE INDEX g3_social_latest_expiry ON g3_social_latest(expires_at);
+CREATE TABLE g3_social_pois(sequence bigserial PRIMARY KEY,run_id uuid NOT NULL REFERENCES runs(id),game_session_id uuid NOT NULL REFERENCES sessions(id),event_id uuid NOT NULL,body jsonb NOT NULL CHECK(octet_length(body::text)<=4096),recipient_sessions uuid[] NOT NULL CHECK(cardinality(recipient_sessions)<=32),created_at timestamptz NOT NULL,UNIQUE(run_id,game_session_id,event_id),FOREIGN KEY(run_id,game_session_id,event_id) REFERENCES g3_social_ids);
+CREATE INDEX g3_social_poi_page ON g3_social_pois(run_id,sequence);
+CREATE TABLE g3_social_dismissals(run_id uuid REFERENCES runs(id),game_session_id uuid REFERENCES sessions(id),poi_sequence bigint REFERENCES g3_social_pois(sequence) ON DELETE CASCADE,PRIMARY KEY(run_id,game_session_id,poi_sequence));
+INSERT INTO schema_migrations(version) VALUES(103);

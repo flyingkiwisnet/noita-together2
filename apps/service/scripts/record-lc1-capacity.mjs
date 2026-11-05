@@ -1,0 +1,31 @@
+// Read-only exact-fixture cleanup verification and local evidence sealing.
+import {readFile,writeFile,access} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import pg from 'pg';
+const root=new URL('../../../',import.meta.url),get=path=>readFile(new URL(path,root)),json=async path=>JSON.parse(await get(path));
+const pin=async path=>({path,sha256:createHash('sha256').update(await get(path)).digest('hex')});
+const logs=['smoke','smoke02','smoke03','4x30','4x30-02','1x8','4x30-03','15x8','isolation'].map(n=>`docs/g3/server-lc1-capacity-${n}.log`);
+const schemas=[];for(const path of logs){const text=(await get(path)).toString();const namespace=text.match(/"allocatedFixtureSchema":"(g3_rejoin_[a-f0-9]{32})"/)?.[1];assert.ok(namespace,path);schemas.push(namespace);}
+assert.equal(new Set(schemas).size,9);
+const pool=new pg.Pool({connectionString:'postgres://nt2_g1:local-fixture-only@127.0.0.1:54328/nt2_g1',connectionTimeoutMillis:3000,statement_timeout:5000});
+let identity;try{identity=(await pool.query('SELECT current_database() AS database,current_user AS owner')).rows[0];assert.deepEqual(identity,{database:'nt2_g1',owner:'nt2_g1'});assert.deepEqual((await pool.query('SELECT namespace FROM unnest($1::text[]) AS x(namespace) WHERE to_regnamespace(namespace) IS NOT NULL',[schemas])).rows,[]);}finally{await pool.end();}
+const accepted=await json('docs/g3/server-lc1-ghost-renewal-checks.json'),manifest=await json(accepted.frozenReference.path);
+const expected=[...accepted.sourcePins,...manifest.sourcePins.filter(p=>/^(apps\/service\/src\/|apps\/web\/|packages\/contracts\/|packages\/domain\/|db\/)/.test(p.path)),accepted.frozenReference];
+const preservation=[];for(const old of [...new Map(expected.map(p=>[p.path,p])).values()]){const current=await pin(old.path);preservation.push({...current,expectedSha256:old.sha256,matches:current.sha256===old.sha256});}
+assert.ok(preservation.every(p=>p.matches),'Existing Server/contract/web/frozen source pin drift');
+const sources=['apps/service/scripts/lc1-capacity-benchmark.mjs','apps/service/scripts/lc1-capacity-isolation.mjs','apps/service/scripts/record-lc1-capacity.mjs'];
+const measurements=[];for(const n of ['1x8','4x30','15x8']){
+ const path=`docs/g3/server-lc1-capacity-${n}.json`,r=await json(path);assert.equal(r.cleanup.ownedSchemaAbsenceReported,true);
+ measurements.push({artifact:await pin(path),distribution:r.distribution,phases:r.phases.map(p=>{const codes={};for(const kind of Object.values(p.byKind))for(const [k,v]of Object.entries(kind.codes))codes[k]=(codes[k]??0)+v;return {name:p.name,attempted:p.completed,codes,successfulPerSecond:(codes.OK??0)/p.elapsedMs*1000,p99Ms:p.latencyMs.p99,skipped:p.skippedPerClientWork,schedulerLatenessMs:p.schedulerMaxLatenessMs,serviceCpuOneCorePercent:p.service.cpuOneCorePercent,generatorCpuOneCorePercent:p.generator.cpuOneCorePercent,sqlQueries:p.service.queries,watchedRoomReads:p.service.projectionReads,tokenChecks:p.service.tokenChecks,tokenIds:p.service.tokenIds,openSockets:p.movement.openSockets,offeredPosePerUserHz:p.movement.poseOfferedPerUserHz,snapshotPayloadBytesPerSecond:p.movement.snapshotBytesPerSecond,decodeErrors:p.movement.decodeErrors,foreignPeers:p.movement.foreignPeers,...(p.injection?{injection:p.injection}:{})};})});
+ assert.ok(r.phases.every(p=>p.movement.decodeErrors===0&&p.movement.foreignPeers===0));
+ try{await access(r.privateFixtureCaPath);throw Error('Private fixture CA directory remains');}catch(e){if(e.code!=='ENOENT')throw e;}
+}
+const isolation=await json('docs/g3/server-lc1-capacity-isolation.json');assert.equal(isolation.cleanup.ownedSchemaAbsenceReported,true);assert.equal(isolation.allFourSocketsOpenAndFreshPeerPoses,true);
+try{await access(isolation.privateFixtureCaPath);throw Error('Isolation fixture CA remains');}catch(e){if(e.code!=='ENOENT')throw e;}
+const handoff=await pin('docs/g3/server-lc1-capacity-stability-handoff.md');
+const checks={gate:'G3A reconnect/rejoin before A2',owner:'Server',assignment:'docs/g3/lc1-ghost-recovery-assignment-20261020.md',atUtc:new Date().toISOString(),status:'capacity-checkpoint-complete-120-user-target-fails-design-review-required',productionChanged:false,contractChanged:false,existingFixtureChanged:false,sourceChecks:['node --check apps/service/scripts/lc1-capacity-benchmark.mjs','node --check apps/service/scripts/lc1-capacity-isolation.mjs','node --check apps/service/scripts/record-lc1-capacity.mjs'],sourcePins:await Promise.all(sources.map(pin)),preservation,handoff,measurements,isolation:await pin('docs/g3/server-lc1-capacity-isolation.json'),logs:await Promise.all(logs.map(pin)),database:{target:'127.0.0.1:54328/nt2_g1',container:'nt2-g1-db-1',identity,schemas:schemas.map(namespace=>({namespace,verifiedAbsent:true})),liveTouched:false},privateFixtureCaPathsAbsent:true,loadSlot:'released-to-Root-before-Client03',remaining:['Root design review and explicit bounded redesign routing','Root serialized full Client/native lifecycle and sustained recovery matrix','Sustained scale after redesign; WAN latency/jitter/disconnect/stalled optional work; real Noita acceptance'],notPerformed:['No further load after slot release','No production/contract/existing dependency/fixture/frozen/profile/installed/package change','No live namespace query/mutation, process termination, commit, deployment or A2']};
+const checksPath='docs/g3/server-lc1-capacity-stability-checks.json';await writeFile(new URL(checksPath,root),JSON.stringify(checks,null,2)+'\n');
+const dependency={gate:checks.gate,owner:checks.owner,assignment:checks.assignment,status:checks.status,productionChanged:false,handoff,checks:await pin(checksPath),sources:checks.sourcePins,summary:measurements,proposedNext:'Root reviews transaction lock-order/dependency-aware committed projection redesign before implementation; existing authority/revocation/timers/caps retained'};
+await writeFile(new URL('docs/g3/server-lc1-capacity-stability-dependency.json',root),JSON.stringify(dependency,null,2)+'\n');
+console.log(JSON.stringify({capacityAcceptance:false,measurementCheckpointComplete:true,sourcePinsVerified:preservation.length,ownedSchemasVerifiedAbsent:schemas.length,checks:await pin(checksPath),handoff}));

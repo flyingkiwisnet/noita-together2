@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {fixture} from './ux1-dom.mjs';
+const m={desktopId:'desktop',accountId:'host',principal:{kind:'registered',displayName:'Host'},ready:true,present:true,readiness:'ready',consentedConfigRevision:1};
+const v={protocol_revision:'g2-draft-5',server_origin:'https://fixture.invalid',service_id:'fixture',service_epoch:'epoch',session_epoch:'session',desktop_id:'desktop',account_id:'host',signed_in:true,profile_selected:true,principal:m.principal,setup:{enabled:true,stage:'ready'},ux1:{},room:{roomId:'room',hostAccountId:'host',name:'Lobby',state:'ended',revision:1,configRevision:1,config:{seed:42,mode:'core'},members:[m]},inspections:[],rejoin:{phase:'Ended',terminal_reason:'player_death_end',host_started:false,awaiting_host_start:false}};
+const f=await fixture(v);
+for(const members of [[m],[]]){await f.render({...v,room:{...v.room,members}});assert.match(f.el('primary-instruction').textContent,/ended.*fresh run.*Join.*New Game.*Continue cannot resume/);assert.doesNotMatch(f.el('primary-instruction').textContent,/Host Start confirmed|Checking.*recovery/);assert.equal(f.el('start').disabled,true);assert.equal(f.el('lobby-screen').hidden,false);}
+await f.render({...v,room:{...v.room,state:'staging',runId:'new-run',members:[m]},inspections:[{desktopId:m.desktopId}],rejoin:{phase:'Ready',host_started:false,awaiting_host_start:true}});assert.match(f.el('primary-instruction').textContent,/Waiting for host/);assert.doesNotMatch(f.el('primary-instruction').textContent,/Host Start confirmed/);assert.equal(f.calls.some(c=>['join','start'].includes(c.input?.action)),false);
+console.log('PASS shared death End UI requires explicit fresh run/Join/New Game, preserves host lobby and clears old Start wording');

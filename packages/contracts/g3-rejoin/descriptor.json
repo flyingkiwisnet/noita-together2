@@ -1,0 +1,1431 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "rejoin": {
+          "nested": {
+            "Empty": {
+              "fields": {}
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1
+                },
+                "message": {
+                  "type": "string",
+                  "id": 2
+                },
+                "retryAfterMs": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "Credentials": {
+              "fields": {
+                "accessToken": {
+                  "type": "string",
+                  "id": 1
+                },
+                "refreshSecret": {
+                  "type": "string",
+                  "id": 2
+                },
+                "accountId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 6
+                },
+                "deviceId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "id": 8
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 9
+                },
+                "principal": {
+                  "type": "Principal",
+                  "id": 10
+                }
+              }
+            },
+            "Principal": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 2
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "source": {
+                  "type": "string",
+                  "id": 4
+                }
+              }
+            },
+            "GameObservation": {
+              "fields": {
+                "attachmentId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 3
+                },
+                "observationRevision": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "actualSeed": {
+                  "type": "string",
+                  "id": 5
+                },
+                "activeMods": {
+                  "type": "string",
+                  "id": 6,
+                  "rule": "repeated"
+                },
+                "inventoryComplete": {
+                  "type": "bool",
+                  "id": 7
+                },
+                "beta": {
+                  "type": "string",
+                  "id": 8
+                },
+                "protected": {
+                  "type": "bool",
+                  "id": 9
+                },
+                "loaded": {
+                  "type": "bool",
+                  "id": 10
+                },
+                "seedStatus": {
+                  "type": "string",
+                  "id": 17
+                },
+                "collectorFailure": {
+                  "type": "string",
+                  "id": 18
+                },
+                "modVersion": {
+                  "type": "string",
+                  "id": 19
+                },
+                "bridgeVersion": {
+                  "type": "string",
+                  "id": 20
+                },
+                "compatibilityProvenance": {
+                  "type": "string",
+                  "id": 21
+                }
+              }
+            },
+            "GameRelease": {
+              "fields": {
+                "authorizationId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "startRequestId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "contractRevision": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 8
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 9
+                },
+                "desktopId": {
+                  "type": "string",
+                  "id": 10
+                },
+                "desktopSessionEpoch": {
+                  "type": "string",
+                  "id": 11
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 12
+                },
+                "gameSessionEpoch": {
+                  "type": "string",
+                  "id": 13
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 14
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 15
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 16
+                },
+                "observationRevision": {
+                  "type": "uint32",
+                  "id": 17
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 18
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 19
+                },
+                "authorizedAt": {
+                  "type": "string",
+                  "id": 20
+                },
+                "releaseExpiresAt": {
+                  "type": "string",
+                  "id": 21
+                },
+                "phase": {
+                  "type": "string",
+                  "id": 22
+                },
+                "enteredPlayingAt": {
+                  "type": "string",
+                  "id": 23
+                },
+                "actualSeed": {
+                  "type": "string",
+                  "id": 24
+                },
+                "seedPolicy": {
+                  "type": "string",
+                  "id": 25
+                },
+                "randomizeLoot": {
+                  "type": "bool",
+                  "id": 26
+                }
+              }
+            },
+            "Association": {
+              "fields": {
+                "serviceId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 5
+                },
+                "accountId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "originalStartId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "actualSeed": {
+                  "type": "string",
+                  "id": 9
+                },
+                "seedPolicy": {
+                  "type": "string",
+                  "id": 10
+                },
+                "randomizeLoot": {
+                  "type": "bool",
+                  "id": 11
+                }
+              }
+            },
+            "Participant": {
+              "fields": {
+                "association": {
+                  "type": "Association",
+                  "id": 1
+                },
+                "state": {
+                  "type": "string",
+                  "id": 2
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 3
+                },
+                "generation": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 6
+                },
+                "desktopId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 8
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 9
+                },
+                "leaseExpiresAt": {
+                  "type": "string",
+                  "id": 10
+                },
+                "returnEligible": {
+                  "type": "bool",
+                  "id": 11
+                },
+                "reviewRequired": {
+                  "type": "bool",
+                  "id": 12
+                },
+                "pendingObservationRevision": {
+                  "type": "uint32",
+                  "id": 13
+                },
+                "pendingContentDigest": {
+                  "type": "string",
+                  "id": 14
+                },
+                "originalReport": {
+                  "type": "GameObservation",
+                  "id": 15
+                },
+                "pendingReport": {
+                  "type": "GameObservation",
+                  "id": 16
+                }
+              }
+            },
+            "Resume": {
+              "fields": {
+                "resumeProof": {
+                  "type": "string",
+                  "id": 1
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "gameVersion": {
+                  "type": "string",
+                  "id": 3
+                },
+                "modVersion": {
+                  "type": "string",
+                  "id": 4
+                },
+                "bridgeVersion": {
+                  "type": "string",
+                  "id": 5
+                },
+                "capabilities": {
+                  "type": "string",
+                  "id": 6,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "Review": {
+              "fields": {
+                "participantId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "observationRevision": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 7
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 8
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 9
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 10
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 11
+                },
+                "generation": {
+                  "type": "uint32",
+                  "id": 12
+                },
+                "status": {
+                  "type": "Empty",
+                  "id": 20
+                },
+                "resume": {
+                  "type": "Resume",
+                  "id": 21
+                },
+                "observe": {
+                  "type": "GameObservation",
+                  "id": 22
+                },
+                "pulse": {
+                  "type": "Empty",
+                  "id": 23
+                },
+                "offline": {
+                  "type": "Offline",
+                  "id": 24
+                },
+                "review": {
+                  "type": "Review",
+                  "id": 25
+                },
+                "list": {
+                  "type": "Empty",
+                  "id": 26
+                },
+                "observationReport": {
+                  "type": "string",
+                  "id": 27
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "status",
+                    "resume",
+                    "observe",
+                    "pulse",
+                    "offline",
+                    "review",
+                    "list"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5
+                },
+                "participant": {
+                  "type": "Participant",
+                  "id": 6
+                },
+                "credentials": {
+                  "type": "Credentials",
+                  "id": 7
+                },
+                "resumeProof": {
+                  "type": "string",
+                  "id": 8
+                },
+                "release": {
+                  "type": "GameRelease",
+                  "id": 9
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 10
+                },
+                "participants": {
+                  "type": "Participant",
+                  "id": 11,
+                  "rule": "repeated"
+                },
+                "credentialValidity": {
+                  "type": "ConnectionCredential",
+                  "id": 91
+                },
+                "canonicalAdmission": {
+                  "type": "ConnectionAdmission",
+                  "id": 90
+                }
+              }
+            },
+            "Offline": {
+              "fields": {
+                "resumeProof": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "ConnectionScope": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_roomId": {
+                  "oneof": [
+                    "roomId"
+                  ]
+                },
+                "_runId": {
+                  "oneof": [
+                    "runId"
+                  ]
+                },
+                "_runEpoch": {
+                  "oneof": [
+                    "runEpoch"
+                  ]
+                },
+                "_configRevision": {
+                  "oneof": [
+                    "configRevision"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                }
+              }
+            },
+            "ConnectionOwner": {
+              "fields": {
+                "familyId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopSessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_familyId": {
+                  "oneof": [
+                    "familyId"
+                  ]
+                },
+                "_desktopId": {
+                  "oneof": [
+                    "desktopId"
+                  ]
+                },
+                "_desktopSessionEpoch": {
+                  "oneof": [
+                    "desktopSessionEpoch"
+                  ]
+                },
+                "_gameSessionId": {
+                  "oneof": [
+                    "gameSessionId"
+                  ]
+                },
+                "_gameSessionEpoch": {
+                  "oneof": [
+                    "gameSessionEpoch"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_gameInstanceId": {
+                  "oneof": [
+                    "gameInstanceId"
+                  ]
+                }
+              }
+            },
+            "ConnectionInspection": {
+              "fields": {
+                "desktopId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "observationRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameSessionEpoch": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "desktopSessionEpoch": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "gameInstanceId": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "actualSeed": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "seedPolicy": {
+                  "type": "string",
+                  "id": 12,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "randomizeLoot": {
+                  "type": "bool",
+                  "id": 13,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_desktopId": {
+                  "oneof": [
+                    "desktopId"
+                  ]
+                },
+                "_attachmentId": {
+                  "oneof": [
+                    "attachmentId"
+                  ]
+                },
+                "_worldToken": {
+                  "oneof": [
+                    "worldToken"
+                  ]
+                },
+                "_observationRevision": {
+                  "oneof": [
+                    "observationRevision"
+                  ]
+                },
+                "_contentDigest": {
+                  "oneof": [
+                    "contentDigest"
+                  ]
+                },
+                "_capturedAt": {
+                  "oneof": [
+                    "capturedAt"
+                  ]
+                },
+                "_gameSessionId": {
+                  "oneof": [
+                    "gameSessionId"
+                  ]
+                },
+                "_gameSessionEpoch": {
+                  "oneof": [
+                    "gameSessionEpoch"
+                  ]
+                },
+                "_desktopSessionEpoch": {
+                  "oneof": [
+                    "desktopSessionEpoch"
+                  ]
+                },
+                "_gameInstanceId": {
+                  "oneof": [
+                    "gameInstanceId"
+                  ]
+                },
+                "_actualSeed": {
+                  "oneof": [
+                    "actualSeed"
+                  ]
+                },
+                "_seedPolicy": {
+                  "oneof": [
+                    "seedPolicy"
+                  ]
+                },
+                "_randomizeLoot": {
+                  "oneof": [
+                    "randomizeLoot"
+                  ]
+                }
+              }
+            },
+            "ConnectionStart": {
+              "fields": {
+                "requestId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorizedAt": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "selectedInspection": {
+                  "type": "ConnectionInspection",
+                  "id": 3
+                }
+              },
+              "oneofs": {
+                "_requestId": {
+                  "oneof": [
+                    "requestId"
+                  ]
+                },
+                "_authorizedAt": {
+                  "oneof": [
+                    "authorizedAt"
+                  ]
+                }
+              }
+            },
+            "ConnectionImmutable": {
+              "fields": {
+                "authorizationId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "startRequestId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "authorizedAt": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "selectedInspection": {
+                  "type": "ConnectionInspection",
+                  "id": 4
+                }
+              },
+              "oneofs": {
+                "_authorizationId": {
+                  "oneof": [
+                    "authorizationId"
+                  ]
+                },
+                "_startRequestId": {
+                  "oneof": [
+                    "startRequestId"
+                  ]
+                },
+                "_authorizedAt": {
+                  "oneof": [
+                    "authorizedAt"
+                  ]
+                }
+              }
+            },
+            "ConnectionReport": {
+              "fields": {
+                "revision": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentDigest": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "complete": {
+                  "type": "bool",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "loaded": {
+                  "type": "bool",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "protected": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "contentValid": {
+                  "type": "bool",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_revision": {
+                  "oneof": [
+                    "revision"
+                  ]
+                },
+                "_contentDigest": {
+                  "oneof": [
+                    "contentDigest"
+                  ]
+                },
+                "_capturedAt": {
+                  "oneof": [
+                    "capturedAt"
+                  ]
+                },
+                "_complete": {
+                  "oneof": [
+                    "complete"
+                  ]
+                },
+                "_loaded": {
+                  "oneof": [
+                    "loaded"
+                  ]
+                },
+                "_protected": {
+                  "oneof": [
+                    "protected"
+                  ]
+                },
+                "_contentValid": {
+                  "oneof": [
+                    "contentValid"
+                  ]
+                }
+              }
+            },
+            "ConnectionDecision": {
+              "fields": {
+                "authorized": {
+                  "type": "bool",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "playing": {
+                  "type": "bool",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "terminal": {
+                  "type": "bool",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "remainingMs": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "initialReviewRemainingMs": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_authorized": {
+                  "oneof": [
+                    "authorized"
+                  ]
+                },
+                "_playing": {
+                  "oneof": [
+                    "playing"
+                  ]
+                },
+                "_terminal": {
+                  "oneof": [
+                    "terminal"
+                  ]
+                },
+                "_reason": {
+                  "oneof": [
+                    "reason"
+                  ]
+                },
+                "_remainingMs": {
+                  "oneof": [
+                    "remainingMs"
+                  ]
+                },
+                "_initialReviewRemainingMs": {
+                  "oneof": [
+                    "initialReviewRemainingMs"
+                  ]
+                }
+              }
+            },
+            "ConnectionSample": {
+              "fields": {
+                "originRequestId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "channel": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "credentialId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sampleKey": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_originRequestId": {
+                  "oneof": [
+                    "originRequestId"
+                  ]
+                },
+                "_channel": {
+                  "oneof": [
+                    "channel"
+                  ]
+                },
+                "_credentialId": {
+                  "oneof": [
+                    "credentialId"
+                  ]
+                },
+                "_sampleKey": {
+                  "oneof": [
+                    "sampleKey"
+                  ]
+                }
+              }
+            },
+            "ConnectionCredential": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "credentialId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "accessRemainingMs": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "originRequestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "sampleKey": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                }
+              },
+              "oneofs": {
+                "_principalId": {
+                  "oneof": [
+                    "principalId"
+                  ]
+                },
+                "_sessionId": {
+                  "oneof": [
+                    "sessionId"
+                  ]
+                },
+                "_sessionEpoch": {
+                  "oneof": [
+                    "sessionEpoch"
+                  ]
+                },
+                "_credentialId": {
+                  "oneof": [
+                    "credentialId"
+                  ]
+                },
+                "_accessRemainingMs": {
+                  "oneof": [
+                    "accessRemainingMs"
+                  ]
+                },
+                "_originRequestId": {
+                  "oneof": [
+                    "originRequestId"
+                  ]
+                },
+                "_sampleKey": {
+                  "oneof": [
+                    "sampleKey"
+                  ]
+                }
+              }
+            },
+            "ConnectionAdmission": {
+              "fields": {
+                "serviceId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "participantId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "generation": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "proto3_optional": true
+                  }
+                },
+                "scope": {
+                  "type": "ConnectionScope",
+                  "id": 5
+                },
+                "owner": {
+                  "type": "ConnectionOwner",
+                  "id": 6
+                },
+                "originalStart": {
+                  "type": "ConnectionStart",
+                  "id": 7
+                },
+                "immutable": {
+                  "type": "ConnectionImmutable",
+                  "id": 8
+                },
+                "currentReport": {
+                  "type": "ConnectionReport",
+                  "id": 9
+                },
+                "decision": {
+                  "type": "ConnectionDecision",
+                  "id": 10
+                },
+                "sample": {
+                  "type": "ConnectionSample",
+                  "id": 11
+                }
+              },
+              "oneofs": {
+                "_serviceId": {
+                  "oneof": [
+                    "serviceId"
+                  ]
+                },
+                "_serviceEpoch": {
+                  "oneof": [
+                    "serviceEpoch"
+                  ]
+                },
+                "_participantId": {
+                  "oneof": [
+                    "participantId"
+                  ]
+                },
+                "_generation": {
+                  "oneof": [
+                    "generation"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

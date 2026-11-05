@@ -1,0 +1,24 @@
+{
+  "revision": "race-goals-1",
+  "scope": "Pure catalogue types; no Race RPC, admission or persistence contract yet.",
+  "limits": {"goals":16,"namedBosses":16,"entrants":120,"parallelIndex":10,"hpObservation":2147483647,"goldObservation":2147483647,"elapsedMs":9007199254740991,"durationMs":604800000},
+  "goals": [
+    {"id":"classic_ending","category":"ending","parameters":{},"presets":[],"difficulty":"hard","randomEligible":false,"description":"Complete the traditional underground Gold/Greed ending after the other goals.","value":"sticky boolean; other endings do not count"},
+    {"id":"collect_orbs","category":"exploration","parameters":{"target":{"type":"integer","min":1,"max":33}},"presets":[1,3,5,7,11,15,20,33],"difficultyBands":[[3,"easy"],[7,"medium"],[11,"hard"],[33,"extreme"]],"randomMax":11,"description":"Collect distinct Orbs of True Knowledge in the admitted race world.","value":"distinct canonical orb IDs, including verified world offsets; never a client-supplied total"},
+    {"id":"defeat_bosses","category":"combat","parameters":{"target":{"type":"integer","min":1,"max":16}},"presets":[1,2,3,5],"difficultyBands":[[1,"medium"],[3,"hard"],[16,"extreme"]],"randomMax":3,"description":"Confirm final defeats of distinct supported boss types.","value":"distinct boss-type IDs; phases and Parallel World repeats never add another type"},
+    {"id":"defeat_named_bosses","category":"combat","parameters":{"bossIds":{"type":"ids","registry":"bosses","max":16}},"presets":[],"description":"Defeat every selected boss; other bosses cannot substitute.","value":"all-of selected IDs; each first accepted defeat time is retained"},
+    {"id":"visit_biome","category":"exploration","parameters":{"biomeId":{"type":"id","registry":"biomes"}},"presets":[],"description":"Enter the selected verified biome with the player in any world.","value":"sticky visit; camera location and merely adjacent regions do not count"},
+    {"id":"visit_parallel_world","category":"exploration","parameters":{"direction":{"type":"enum","values":["east","west"]},"index":{"type":"integer","min":1,"max":10}},"presets":[1,2,3],"difficultyBands":[[1,"hard"],[10,"extreme"]],"randomMax":1,"description":"Enter the selected direction and numbered Parallel World region.","value":"furthest verified entered region separately east/west; higher same-direction index satisfies lower"},
+    {"id":"reach_max_hp","category":"resources","parameters":{"target":{"type":"integer","min":500,"max":25000}},"presets":[500,1000,2000,5000,10000,25000],"difficultyBands":[[500,"easy"],[2000,"medium"],[10000,"hard"],[25000,"extreme"]],"randomMax":10000,"description":"Reach the threshold of maximum HP, in displayed HP units.","value":"high-water maximum HP; current HP damage is irrelevant; completion survives max-HP loss"},
+    {"id":"accumulate_gold","category":"resources","parameters":{"target":{"type":"integer","min":10000,"max":1000000}},"presets":[10000,25000,50000,100000,250000,1000000],"difficultyBands":[[10000,"easy"],[50000,"medium"],[250000,"hard"],[1000000,"extreme"]],"randomMax":250000,"description":"Hold the required wallet balance at one time.","value":"wallet high-water; spending does not undo completion; deposits/withdrawals and lifetime sums are not observations"}
+  ],
+  "observations": [
+    {"kind":"orb","fields":{"orbId":"number"}},
+    {"kind":"boss","fields":{"bossId":"string"}},
+    {"kind":"biome","fields":{"biomeId":"string"}},
+    {"kind":"parallel","fields":{"direction":"'east' | 'west'","index":"number"}},
+    {"kind":"max_hp","fields":{"value":"number"}},
+    {"kind":"gold","fields":{"value":"number"}},
+    {"kind":"ending","fields":{"ending":"'classic' | 'other'"}}
+  ]
+}

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+const source=readFileSync(new URL('../ui/app.js',import.meta.url),'utf8').split('const el=')[0];
+const context=vm.createContext({});vm.runInContext(source,context);
+const describe=value=>context.recoveryDescription(value);
+assert.match(describe({phase:'Ready',current_world:'world',held:true,awaiting_host_start:true}),/Waiting for host Start.*protected/);
+assert.match(describe({phase:'Playing',current_world:'world'}),/^Playing/);
+assert.match(describe({phase:'Checking',waiting_for_game:true,app_connected:true}),/App connected.*Waiting for game updates.*protected/);
+assert.match(describe({phase:'Checking',waiting_for_game:true,app_connected:true,host_started:true}),/Host Start confirmed.*waiting for game updates/);
+assert.match(describe({phase:'Ended',terminal_reason:'excluded',waiting_for_game:true}),/^excluded/);
+assert.match(describe({phase:'Offline',waiting_for_game:true}),/offline/);
+for(const value of [{phase:'Ready',awaiting_host_start:true},{phase:'Checking',waiting_for_game:true,app_connected:true}])assert.doesNotMatch(describe(value),/reconnecting|paused/i);
+console.log('LC1 presence UI: 8 assertions pass');

@@ -1,0 +1,14 @@
+// Server-owned bounded source-profile review; never installs or starts a service.
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const root=new URL('../../../',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
+const path='apps/desktop/g3-native-review-request.json',bytes=await readFile(new URL(path,root)),m=JSON.parse(bytes);
+if(sha(bytes)!=='4260b08f02ab7ba4204478ab361f11b26f751c9b54af3478a85ff0dc08de498b')throw Error('Review request changed');
+const old=JSON.parse(await readFile(new URL('deploy/profiles/g2-inspect-multibuild-candidate.json',root)));
+if(JSON.stringify(m.requestedCapabilities)!==JSON.stringify(['core.seed','core.ghost'])||m.actualNoitaEvidence||m.installApproved||m.packaged)throw Error('Review scope differs');
+for(const p of m.pins)if(sha(await readFile(new URL(p.path,root)))!==p.sha256)throw Error('Pin changed: '+p.path);
+for(const pair of m.requestedBuildPairs)if(!old.profile.supportedBuilds.some(v=>v.id===pair.id&&v.store===pair.store&&v.gameExeSha256===pair.gameExeSha256&&v.originalLuaSha256===pair.originalLuaSha256))throw Error('Unreviewed exact game/Lua pair');
+const pin=path=>m.pins.find(p=>p.path===path).sha256;
+const profile={id:'nt2-g3-native-development-1',evidenceStatus:'candidate-engine-evidence-pending',gameExeSha256:m.requestedBuildPairs[0].gameExeSha256,originalLuaSha256:m.requestedBuildPairs[0].originalLuaSha256,bridgeSha256:pin('spikes/noita-entry/.build/g3-transport/nt2_g3_transport.dll'),modSha256:pin(m.entrySource),gameFamilyId:'noita-jan2025-x86-luajit-core',supportedBuilds:m.requestedBuildPairs.map(v=>({id:v.id,store:v.store,branch:'unclassified',buildIdentity:'PE32 x86; Jan25-2025 reference pair',gameExeSha256:v.gameExeSha256,originalLuaSha256:v.originalLuaSha256,evidenceStatus:'candidate-engine-evidence-pending'}))};
+const result={id:profile.id,status:'source-reviewed-development-only',serviceId:'nt2-g3-native-development',namespacePrefix:'g3_',lobbyRevision:'g2-draft-5',gameplayRevision:m.schemaRevision,schemaSha256:m.schemaSha256,compatibility:{gameVersion:m.gameVersion,modVersion:m.modVersion,bridgeVersion:m.bridgeVersion,capabilities:m.requestedCapabilities,modes:['core'],settingKeys:[]},profile,provenance:{manifest:{path,revision:m.revision,sha256:sha(bytes)},pins:m.pins,review:'docs/g3/coordinator-review-20261006-overnight4.md',framing:m.framing,limits:'Source-profile authorization only. No actual Noita compatibility, installation, packaging, production release, gold or social capability approval.',joinedEvidence:'Actual OS pipe and HTTPS fixtures remain separate; nonempty authenticated native/Core/HTTPS composition and owner two-PC evidence pending.'},installApproved:false,actualNoitaEvidence:false};
+await writeFile(new URL('deploy/profiles/g3-native-development-candidate.json',root),JSON.stringify(result,null,2)+'\n');

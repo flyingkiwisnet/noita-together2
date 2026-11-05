@@ -1,0 +1,49 @@
+// Matching normal A2 freshness delivery. Earlier frozen artifacts remain immutable.
+import {readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';
+import {inspectNativeExports,safeArtifactPath,type ArtifactPin} from './composition-profile.js';
+import {validateBuildRegistry} from '../g2-next/build-registry.js';
+export const rejoinPackageInput={path:'apps/desktop/a2-freshness-package-inputs-20261022.json',sha256:'da1c5889e08cd8ab1abe4a4d6be9f04ba6029971b07cce02a0ae31de1ed5d80e'};
+export const rejoinRuntimePath='deploy/profiles/g3-a2-freshness-runtime.20261022.json',rejoinSourcePath='deploy/profiles/g3-a2-freshness-source.20261022.json';
+const root=new URL('../../../../',import.meta.url),sha=(b:Buffer|string)=>createHash('sha256').update(b).digest('hex');
+const demand=(v:unknown,m:string)=>{if(!v)throw Error('A2 package: '+m);};
+const additions=['a2_text.lua','a2_capture.lua','a2_ui_model.lua','a2_biomes.lua','a2_input_lock.lua','a2_renderer.lua','a2_native_input.lua','poi_proximity.lua','ui/keyboard.png','ui/player_ghosts.png','ui/hide_player_ghosts.png','ui/chat.png','ui/hide_chat.png','ui/player_list.png','ui/radar.png','ui/poi_emitter.png'];
+export async function rejoinPackageDefinition(){
+ const checked=async(p:ArtifactPin)=>{safeArtifactPath(p.path);demand(/^[a-f0-9]{64}$/.test(p.sha256),'hash');const b=await readFile(new URL(p.path,root));demand(sha(b)===p.sha256,'changed '+p.path);return b;};
+ const c=JSON.parse((await checked(rejoinPackageInput)).toString());
+ const acceptedFlow=c.acceptedFlow,accepted=JSON.parse((await checked(acceptedFlow)).toString());
+ demand(acceptedFlow.path==="apps/desktop/a2-hud-freshness-checks-20261022.json"&&accepted.checksPassed===true&&accepted.status==="source-ready-for-Root-review; no package/install","reviewed freshness checks");
+ for(const p of [...accepted.sourceInputs,...accepted.logs])await checked(p);
+ const acceptedLog=accepted.logs.find((p:ArtifactPin)=>p.path.endsWith("integration-a2_freshness_delayed_read_and_game_jitter_actual_broker-20261022-011520.txt"));demand(acceptedLog,"passing focused freshness log");await checked(acceptedLog);
+ demand(c.revision==="g3-lifecycle-lc1-package-client-inputs-1"&&c.canonicalWaitingRevision==="g3-waiting-entry-candidate-3","normal package revision");
+ demand(c.nativeAbi===2&&c.brokerApi===3&&c.startupWireRevision===9&&c.fixtureOnly===false&&c.normalDllsBuilt===true&&c.published===false&&c.actualNoitaEvidence===false,'normal A2 input');
+ demand(c.canonicalLifecycle?.path==='packages/contracts/g3-lifecycle/schema.json'&&c.canonicalRejoinSchema?.path==='packages/contracts/g3-rejoin/schema.json','canonical lifecycle/rejoin');await checked(c.canonicalLifecycle);await checked(c.canonicalRejoinSchema);
+ const basePin={path:'deploy/profiles/g3-a2-correction-runtime.20261022-delivery2.json',sha256:'6d02832e52151f8ea8dd34effdfab29153621aebc9ed35a03c1ba8b9b66c2ecb'},base=JSON.parse((await checked(basePin)).toString());
+ demand(c.runtimeFileCount===66&&c.runtimeMappings?.length===66&&c.sourcePins?.length>=8&&c.sourcePins.length<=256,'exact66-file closure');
+ const sources=new Map<string,string>();for(const p of c.sourcePins){demand(!sources.has(p.path),'duplicate source');sources.set(p.path,p.sha256);await checked(p);}
+ for(const p of ['native/g3-ipc/broker.cpp','native/g3-ipc/wrapper.cpp','native/g3-ipc/abi.h','native/g3-ipc/build.ps1'])demand(sources.has(p),'native provenance '+p);
+ demand(c.nativeReuse?.rebuilt===false&&c.nativeReuse.normalImagesMatched===3&&c.nativeReuse.nativeSourcePinsMatched===4,'explicit normal native reuse');
+ const priorInput=JSON.parse((await checked(c.nativeReuse.input)).toString());
+ for(const p of ['native/g3-ipc/broker.cpp','native/g3-ipc/wrapper.cpp','native/g3-ipc/abi.h','native/g3-ipc/build.ps1'])demand(priorInput.sourcePins.some((v:any)=>v.path===p&&v.sha256===sources.get(p)),'unchanged reused native source '+p);
+ const mapped=new Map<string,any>();for(const m of c.runtimeMappings){safeArtifactPath(m.path);safeArtifactPath(m.sourcePath);demand(m.path.startsWith('mods/noita_together2/')&&!mapped.has(m.path),'mapping');mapped.set(m.path,m);await checked({path:m.sourcePath,sha256:m.sha256});}
+ const allowed=new Set<string>(base.runtimeMappings.map((m:any)=>m.path));for(const p of allowed)demand(mapped.has(p),'retained runtime '+p);
+ for(const p of additions){const sourcePath='mod/noita_together2/files/g3/'+p,dest='mods/noita_together2/files/g3/'+p;demand(mapped.get(dest)?.sourcePath===sourcePath,'fixed A2 mapping '+p);allowed.add(dest);}
+ demand([...mapped.keys()].every(p=>allowed.has(p)),'unknown A2 dependency');
+ const entry=mapped.get('mods/noita_together2/init.lua');demand(entry.sourcePath==='mod/noita_together2/init-g3-seed-loot.lua'&&sources.get(entry.sourcePath)===entry.sha256,'entry provenance');
+ demand(c.normalArtifacts?.length===3&&new Set(c.normalArtifacts.map((a:any)=>a.mode)).size===3,'three normal images');
+ await checked(c.normalNativeBuildLog);
+ const normal=[];for(const a of c.normalArtifacts){
+  const old=base.nativeArtifacts.find((x:any)=>x.mode===a.mode);demand(old&&a.private===false&&a.testFlags===false&&a.path.startsWith('spikes/noita-entry/.build/'),'normal image');
+  demand(a.sha256===old.sha256&&priorInput.normalArtifacts.some((v:any)=>v.mode===a.mode&&v.sha256===a.sha256),'exact reused normal image '+a.mode);
+  const command=(await checked(a.buildCommand)).toString();demand(command.includes('/Brepro')&&command.includes('-arch=x86')&&command.includes('broker.cpp')&&command.includes('wrapper.cpp')&&!/\/DNT2_(IPC_PRIVATE|TEST_|PIPE_PREFIX)/.test(command),'normal reproducible build');
+  const exports=inspectNativeExports(await checked(a)),expected=[...old.exports].sort();demand(JSON.stringify(exports)===JSON.stringify(expected)&&JSON.stringify([...a.exports].sort())===JSON.stringify(exports),'exact A2 exports '+a.mode);
+  demand(c.runtimeMappings.some((m:any)=>m.sourcePath===a.path&&m.sha256===a.sha256),'native mapping');normal.push({...a,exports,loaded:false,installed:false});
+ }
+ for(const m of c.runtimeMappings)if(m.path.endsWith('.dll'))demand(normal.some(a=>a.path===m.sourcePath&&a.sha256===m.sha256),'foreign image');
+ const id='nt2-g3-a2-freshness-dev-20261022',registry={...base.buildRegistry,id,modSha256:entry.sha256,bridgeSha256:normal.find(a=>a.mode==='primary')!.sha256};validateBuildRegistry(registry);
+ const socialPath='packages/contracts/g3-social/schema.json',socialBytes=await readFile(new URL(socialPath,root));demand(sources.get(socialPath)===sha(socialBytes),'canonical social provenance');
+ const runtime={...base,id,revision:'nt2-g3-a2-freshness-runtime-20261022',status:'reviewed-A2-freshness-actual-game-check-pending',socialSchemaSha256:sha(socialBytes),buildRegistry:registry,profile:{...base.profile,...registry},compositionInput:rejoinPackageInput,lifecycle:{...base.lifecycle,acceptedFlow,schema:c.canonicalLifecycle},requiredLocalFiles:c.runtimeMappings.map(({path,sha256}:any)=>({path,sha256})),runtimeMappings:c.runtimeMappings,nativeArtifacts:normal,provenance:{clientDependency:rejoinPackageInput,canonicalLifecycle:c.canonicalLifecycle,canonicalRejoinSchema:c.canonicalRejoinSchema,canonicalSocial:{path:socialPath,sha256:sha(socialBytes)},acceptedFlow,acceptedLog,pins:c.sourcePins},closure:{...base.closure,localDependencies:66},evidence:{...base.evidence,matchedCompositionPassed:false,historicalA2Composition:true,diagnosticDelivery:false,freshnessDelivery:true,sourceFreshnessReviewed:true,actualNoitaA2:false},remainingEvidence:'Owner actual Noita two-PC A2 HUD/chat/POI/dismissal/Continue/outage/End smoke pending'};
+ const bytes=JSON.stringify(runtime,null,2)+'\n',source={revision:'nt2-g3-a2-freshness-source-20261022',activeGate:'G3A/A2 player information and world messages',checkpoint:'matching-A2-freshness-package',sourceApproved:true,developmentOnly:true,testBuild:true,installApproved:false,productionApproved:false,packaged:false,actualNoitaEvidence:false,input:rejoinPackageInput,baseline:basePin,acceptedFlow,acceptedLog,runtimeApproval:{path:rejoinRuntimePath,sha256:sha(bytes)},pins:c.sourcePins,nativeArtifacts:normal,remaining:['Root final publication','Owner actual Noita A2 evidence']};
+ return {runtime,bytes,source,sourceBytes:JSON.stringify(source,null,2)+'\n'};
+}
+export async function generateRejoinPackage(check=false){const d=await rejoinPackageDefinition();for(const [p,b]of [[rejoinRuntimePath,d.bytes],[rejoinSourcePath,d.sourceBytes]]){const u=new URL(p!,root);if(check)demand(await readFile(u,'utf8')===b,'resource drift');else try{await writeFile(u,b!,{flag:'wx'});}catch(e){if((e as NodeJS.ErrnoException).code!=='EEXIST'||await readFile(u,'utf8')!==b)throw e;}}return d;}
+export async function verifyRejoinPackage(reader:(u:URL)=>Promise<Buffer>=u=>readFile(u)){const d=await rejoinPackageDefinition();for(const [p,b]of [[rejoinRuntimePath,d.bytes],[rejoinSourcePath,d.sourceBytes]])demand((await reader(new URL(p!,root))).equals(Buffer.from(b!)),'resource drift');return {...d.runtime,runtimeResourceJson:d.bytes,runtimeApproval:{path:rejoinRuntimePath,sha256:sha(d.bytes)},desktopApproval:{path:rejoinSourcePath,sha256:sha(d.sourceBytes)}};}

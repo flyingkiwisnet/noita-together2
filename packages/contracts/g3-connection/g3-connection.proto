@@ -1,0 +1,170 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.connection;
+
+message Empty {
+}
+
+message ConnectionScope {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string roomId = 4;
+  optional string runId = 5;
+  optional string runEpoch = 6;
+  optional uint32 configRevision = 7;
+  optional string attachmentId = 8;
+  optional string worldToken = 9;
+}
+
+message ConnectionOwner {
+  optional string familyId = 1;
+  optional string desktopId = 2;
+  optional string desktopSessionEpoch = 3;
+  optional string gameSessionId = 4;
+  optional string gameSessionEpoch = 5;
+  optional string attachmentId = 6;
+  optional string gameInstanceId = 7;
+}
+
+message ConnectionInspection {
+  optional string desktopId = 1;
+  optional string attachmentId = 2;
+  optional string worldToken = 3;
+  optional uint32 observationRevision = 4;
+  optional string contentDigest = 5;
+  optional string capturedAt = 6;
+  optional string gameSessionId = 7;
+  optional string gameSessionEpoch = 8;
+  optional string desktopSessionEpoch = 9;
+  optional string gameInstanceId = 10;
+  optional string actualSeed = 11;
+  optional string seedPolicy = 12;
+  optional bool randomizeLoot = 13;
+}
+
+message ConnectionStart {
+  optional string requestId = 1;
+  optional string authorizedAt = 2;
+  ConnectionInspection selectedInspection = 3;
+}
+
+message ConnectionImmutable {
+  optional string authorizationId = 1;
+  optional string startRequestId = 2;
+  optional string authorizedAt = 3;
+  ConnectionInspection selectedInspection = 4;
+}
+
+message ConnectionReport {
+  optional uint32 revision = 1;
+  optional string contentDigest = 2;
+  optional string capturedAt = 3;
+  optional bool complete = 4;
+  optional bool loaded = 5;
+  optional bool protected = 6;
+  optional bool contentValid = 7;
+}
+
+message ConnectionDecision {
+  optional bool authorized = 1;
+  optional bool playing = 2;
+  optional bool terminal = 3;
+  optional string reason = 4;
+  optional uint32 remainingMs = 5;
+  optional uint32 initialReviewRemainingMs = 6;
+}
+
+message ConnectionSample {
+  optional string originRequestId = 1;
+  optional string channel = 2;
+  optional string credentialId = 3;
+  optional string sampleKey = 4;
+}
+
+message ConnectionCredential {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string credentialId = 4;
+  optional uint32 accessRemainingMs = 5;
+  optional string originRequestId = 6;
+  optional string sampleKey = 7;
+}
+
+message ConnectionAdmission {
+  optional string serviceId = 1;
+  optional string serviceEpoch = 2;
+  optional string participantId = 3;
+  optional uint32 generation = 4;
+  ConnectionScope scope = 5;
+  ConnectionOwner owner = 6;
+  ConnectionStart originalStart = 7;
+  ConnectionImmutable immutable = 8;
+  ConnectionReport currentReport = 9;
+  ConnectionDecision decision = 10;
+  ConnectionSample sample = 11;
+}
+
+message OriginalOperation {
+  optional string requestId = 1;
+  optional string kind = 2;
+  optional string fingerprint = 3;
+  optional string originalSessionId = 4;
+  optional string originalSessionEpoch = 5;
+  optional uint32 originalOwnerGeneration = 6;
+  optional string participantId = 7;
+  optional string roomId = 8;
+  optional string runId = 9;
+  optional string worldToken = 10;
+  optional uint32 configRevision = 11;
+  optional string originalServiceEpoch = 12;
+  optional string accountId = 13;
+  optional string deviceId = 14;
+}
+
+message Outcome {
+  OriginalOperation original = 1;
+  optional string originalOutcome = 2;
+  optional string coverage = 3;
+  optional string currentDisposition = 4;
+  optional string currentReason = 5;
+  optional uint32 currentGeneration = 6;
+  optional string effectId = 7;
+  optional uint32 retryAfterMs = 8;
+}
+
+message AdmissionRead {
+  optional string roomId = 1;
+  optional string participantId = 2;
+}
+
+message Error {
+  optional string code = 1;
+  optional uint32 retryAfterMs = 2;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  oneof payload {
+    AdmissionRead admission = 10;
+    OriginalOperation outcome = 11;
+  }
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  ConnectionAdmission admission = 10;
+  Outcome outcome = 11;
+  Error error = 12;
+  ConnectionCredential credentialValidity = 13;
+}

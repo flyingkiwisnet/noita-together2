@@ -1,0 +1,35 @@
+{
+  "name": "noita-together-2",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0 <23",
+    "npm": ">=10 <12"
+  },
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/service",
+    "packages/contracts",
+    "packages/domain",
+    "packages/test-kit",
+    "apps/web"
+  ],
+  "scripts": {
+    "contracts:check": "node packages/contracts/scripts/generate-g1.mjs --check && node packages/contracts/scripts/generate-g2.mjs --check && node packages/contracts/scripts/generate-g2-next.mjs --check && node packages/contracts/scripts/generate-g3.mjs --check && node packages/contracts/scripts/generate-g3-social.mjs --check && node packages/contracts/scripts/generate-social-replay-vectors.mjs --check && node packages/contracts/scripts/generate-g3-history.mjs --check && node packages/contracts/scripts/generate-g3-stats.mjs --check && node packages/contracts/scripts/generate-g3-hourglass.mjs --check && node packages/contracts/scripts/generate-g3-hourglass-v2.mjs --check && node packages/contracts/scripts/generate-g3-nemesis.mjs --check && node packages/contracts/scripts/generate-g3-live.mjs --check && node packages/contracts/scripts/generate-g3-race-goals.mjs --check && node packages/contracts/scripts/generate-g3-race.mjs --check",
+    "check:server": "tsc --noEmit",
+    "check:web": "npm --workspace @nt2/web run check",
+    "build:server": "tsc -p tsconfig.build.json && node apps/service/scripts/build-resources.mjs",
+    "build:web": "npm --workspace @nt2/web run build",
+    "test:source": "tsx --test packages/contracts/test/*.test.ts apps/service/test/g3-connection-flow.test.ts apps/service/test/a2-social.test.ts && npm --workspace @nt2/web test",
+    "dev:mock": "tsx apps/service/src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/pg": "8.23.1",
+    "@types/ws": "8.18.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "ws": "8.22.0"
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "major": 1,
+  "revision": "g3-race-1",
+  "limits": {
+    "bytes": 262144,
+    "fields": 20000,
+    "depth": 8,
+    "page": 8,
+    "batch": 32,
+    "eventsPerRun": 65536
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "VERSION_MISMATCH",
+    "STALE_EPOCH",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "CONFLICT",
+    "STALE_REVISION",
+    "CAPACITY",
+    "SERVICE_UNAVAILABLE",
+    "SEQUENCE_GAP"
+  ],
+  "messages": {
+    "Empty": {
+      "fields": {}
+    },
+    "RaceGoal": {
+      "fields": {
+        "instanceId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "id": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "target": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "bossIds": {
+          "id": 4,
+          "type": "string",
+          "max": 16,
+          "repeated": true,
+          "itemMax": 64
+        },
+        "biomeId": {
+          "id": 5,
+          "type": "string",
+          "max": 64
+        },
+        "direction": {
+          "id": 6,
+          "type": "string",
+          "max": 4,
+          "values": [
+            "east",
+            "west"
+          ]
+        },
+        "index": {
+          "id": 7,
+          "type": "uint32",
+          "max": 10
+        }
+      }
+    },
+    "RaceConfig": {
+      "fields": {
+        "registryRevision": {
+          "id": 1,
+          "type": "string",
+          "max": 32
+        },
+        "goals": {
+          "id": 2,
+          "type": "RaceGoal",
+          "max": 16,
+          "repeated": true
+        },
+        "durationMs": {
+          "id": 3,
+          "type": "uint32",
+          "max": 604800000
+        }
+      }
+    },
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 36
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 36
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Observation": {
+      "fields": {
+        "kind": {
+          "id": 1,
+          "type": "string",
+          "max": 12,
+          "values": [
+            "orb",
+            "boss",
+            "biome",
+            "parallel",
+            "max_hp",
+            "gold",
+            "ending"
+          ]
+        },
+        "orbId": {
+          "id": 2,
+          "type": "uint32",
+          "max": 267
+        },
+        "bossId": {
+          "id": 3,
+          "type": "string",
+          "max": 64
+        },
+        "biomeId": {
+          "id": 4,
+          "type": "string",
+          "max": 64
+        },
+        "direction": {
+          "id": 5,
+          "type": "string",
+          "max": 4,
+          "values": [
+            "east",
+            "west"
+          ]
+        },
+        "index": {
+          "id": 6,
+          "type": "uint32",
+          "max": 10
+        },
+        "value": {
+          "id": 7,
+          "type": "string",
+          "max": 32
+        },
+        "ending": {
+          "id": 8,
+          "type": "string",
+          "max": 7,
+          "values": [
+            "classic",
+            "other"
+          ]
+        }
+      }
+    },
+    "Commit": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "sequence": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "observations": {
+          "id": 3,
+          "type": "Observation",
+          "max": 32,
+          "repeated": true
+        },
+        "terminal": {
+          "id": 4,
+          "type": "string",
+          "max": 6,
+          "values": [
+            "none",
+            "dead",
+            "ending"
+          ]
+        }
+      }
+    },
+    "Read": {
+      "fields": {
+        "locator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "afterRow": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "limit": {
+          "id": 3,
+          "type": "uint32",
+          "max": 8
+        },
+        "runKey": {
+          "id": 4,
+          "type": "string",
+          "max": 36
+        },
+        "snapshotRevision": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        },
+        "self": {
+          "id": 6,
+          "type": "bool"
+        }
+      }
+    },
+    "Credit": {
+      "fields": {
+        "id": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "firstAtMs": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        }
+      }
+    },
+    "Progress": {
+      "fields": {
+        "instanceId": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        },
+        "value": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "currentValue": {
+          "id": 3,
+          "type": "string",
+          "max": 32
+        },
+        "target": {
+          "id": 4,
+          "type": "string",
+          "max": 32
+        },
+        "complete": {
+          "id": 5,
+          "type": "bool"
+        },
+        "completedAtMs": {
+          "id": 6,
+          "type": "string",
+          "max": 16
+        },
+        "credits": {
+          "id": 7,
+          "type": "Credit",
+          "max": 36,
+          "repeated": true
+        }
+      }
+    },
+    "Entrant": {
+      "fields": {
+        "rowKey": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "displayName": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "status": {
+          "id": 3,
+          "type": "string",
+          "max": 8,
+          "values": [
+            "racing",
+            "finished",
+            "dead",
+            "dnf"
+          ]
+        },
+        "completedGoals": {
+          "id": 4,
+          "type": "uint32",
+          "max": 16
+        },
+        "finalCountAtMs": {
+          "id": 5,
+          "type": "string",
+          "max": 16
+        },
+        "finishOrder": {
+          "id": 6,
+          "type": "uint32",
+          "max": 32
+        },
+        "rank": {
+          "id": 7,
+          "type": "uint32",
+          "max": 32
+        },
+        "progress": {
+          "id": 8,
+          "type": "Progress",
+          "max": 16,
+          "repeated": true
+        },
+        "acceptedSequence": {
+          "id": 9,
+          "type": "uint32"
+        }
+      }
+    },
+    "Snapshot": {
+      "fields": {
+        "locator": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "runKey": {
+          "id": 2,
+          "type": "string",
+          "max": 36
+        },
+        "revision": {
+          "id": 3,
+          "type": "string",
+          "max": 20
+        },
+        "registryRevision": {
+          "id": 4,
+          "type": "string",
+          "max": 32
+        },
+        "config": {
+          "id": 5,
+          "type": "RaceConfig"
+        },
+        "status": {
+          "id": 6,
+          "type": "string",
+          "max": 8,
+          "values": [
+            "running",
+            "ended"
+          ]
+        },
+        "startedAt": {
+          "id": 7,
+          "type": "string",
+          "max": 32
+        },
+        "deadlineAt": {
+          "id": 8,
+          "type": "string",
+          "max": 32
+        },
+        "endedAt": {
+          "id": 9,
+          "type": "string",
+          "max": 32
+        },
+        "elapsedMs": {
+          "id": 10,
+          "type": "string",
+          "max": 16
+        },
+        "collectionState": {
+          "id": 11,
+          "type": "string",
+          "max": 12,
+          "values": [
+            "none",
+            "available",
+            "expired"
+          ]
+        },
+        "entrants": {
+          "id": 12,
+          "type": "Entrant",
+          "max": 8,
+          "repeated": true
+        },
+        "nextRow": {
+          "id": 13,
+          "type": "string",
+          "max": 36
+        },
+        "lobbyName": {
+          "id": 14,
+          "type": "string",
+          "max": 80
+        },
+        "selfRow": {
+          "id": 15,
+          "type": "string",
+          "max": 36
+        },
+        "endReason": {
+          "id": 16,
+          "type": "string",
+          "max": 32
+        },
+        "lobbyMode": {
+          "id": 17,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Receipt": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 36
+        },
+        "sequence": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "acceptedAtMs": {
+          "id": 3,
+          "type": "string",
+          "max": 16
+        },
+        "revision": {
+          "id": 4,
+          "type": "string",
+          "max": 20
+        },
+        "status": {
+          "id": 5,
+          "type": "string",
+          "max": 8,
+          "values": [
+            "racing",
+            "finished",
+            "dead",
+            "dnf"
+          ]
+        },
+        "completedGoals": {
+          "id": 6,
+          "type": "uint32",
+          "max": 16
+        },
+        "finishOrder": {
+          "id": 7,
+          "type": "uint32",
+          "max": 32
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 7,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "commit": {
+          "id": 10,
+          "type": "Commit"
+        },
+        "read": {
+          "id": 11,
+          "type": "Read"
+        }
+      },
+      "oneof": [
+        "commit",
+        "read"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "receipt": {
+          "id": 6,
+          "type": "Receipt"
+        },
+        "snapshot": {
+          "id": 7,
+          "type": "Snapshot"
+        },
+        "error": {
+          "id": 8,
+          "type": "Error"
+        }
+      }
+    }
+  }
+}

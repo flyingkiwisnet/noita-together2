@@ -1,0 +1,322 @@
+{
+  "revision": "g3-c1-1",
+  "fixtures": [
+    {
+      "type": "RuleSnapshot",
+      "json": {
+        "revision": 1,
+        "sequence": "0",
+        "rules": {
+          "NT_sync_hearts": true,
+          "NT_sync_orbs": true,
+          "NT_sync_shift": true,
+          "NT_team_perks": true,
+          "NT_sync_perks": false,
+          "NT_alt_heartache": false,
+          "NT_ban_perks": false,
+          "NT_sync_orbs_no_curse": false,
+          "NT_ondeath_kick": false,
+          "NT_sync_orb_count": 0,
+          "NT_death_penalty": "end"
+        }
+      },
+      "hex": "08011201301a1908011001180120012800300038004000480050005a03656e64"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-c1-1",
+        "serviceId": "c1-fixture",
+        "serviceEpoch": "epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "c1-event-1",
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "scope": {
+          "roomId": "11111111-1111-4111-8111-111111111111",
+          "runId": "22222222-2222-4222-8222-222222222222",
+          "runEpoch": "33333333-3333-4333-8333-333333333333",
+          "configRevision": 1,
+          "attachmentId": "44444444-4444-4444-8444-444444444444",
+          "worldToken": "c1-world-a"
+        },
+        "ownerGeneration": 1,
+        "publish": {
+          "eventId": "55555555-5555-4555-8555-555555555555",
+          "rulesRevision": 1,
+          "payload": {
+            "heart": {}
+          },
+          "senderDisposition": "applied"
+        }
+      },
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a0a67616d652d65706f6368320a63312d6576656e742d313a2431313131313131312d313131312d343131312d383131312d31313131313131313131313142a6010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a2433333333333333332d333333332d343333332d383333332d33333333333333333333333320012a2434343434343434342d343434342d343434342d383434342d343434343434343434343434320a63312d776f726c642d61480162350a2435353535353535352d353535352d343535352d383535352d35353535353535353535353510011a020a0022076170706c696564"
+    },
+    {
+      "type": "Delivery",
+      "json": {
+        "eventId": "55555555-5555-4555-8555-555555555555",
+        "sequence": "1",
+        "rulesRevision": 1,
+        "sourcePrincipalId": "66666666-6666-4666-8666-666666666666",
+        "sourceWorldToken": "c1-world-a",
+        "sourceName": "Collector",
+        "payload": {
+          "heart": {}
+        },
+        "state": "pending",
+        "reason": "",
+        "senderDisposition": "applied",
+        "capturedRules": {
+          "NT_sync_hearts": true,
+          "NT_sync_orbs": true,
+          "NT_sync_shift": true,
+          "NT_team_perks": true,
+          "NT_sync_perks": false,
+          "NT_alt_heartache": false,
+          "NT_ban_perks": false,
+          "NT_sync_orbs_no_curse": false,
+          "NT_ondeath_kick": false,
+          "NT_sync_orb_count": 0,
+          "NT_death_penalty": "end"
+        }
+      },
+      "hex": "0a2435353535353535352d353535352d343535352d383535352d3535353535353535353535351201311801222436363636363636362d363636362d343636362d383636362d3636363636363636363636362a0a63312d776f726c642d613209436f6c6c6563746f723a020a00420770656e64696e674a0052076170706c6965645a1908011001180120012800300038004000480050005a03656e64"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-c1-1",
+        "serviceId": "c1-fixture",
+        "serviceEpoch": "epoch",
+        "sessionEpoch": "game-epoch",
+        "requestId": "c1-rules-2",
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "scope": {
+          "roomId": "11111111-1111-4111-8111-111111111111",
+          "runId": "22222222-2222-4222-8222-222222222222",
+          "runEpoch": "33333333-3333-4333-8333-333333333333",
+          "configRevision": 1,
+          "attachmentId": "44444444-4444-4444-8444-444444444444",
+          "worldToken": "c1-world-a"
+        },
+        "ownerGeneration": 1,
+        "rulesSet": {
+          "expectedRevision": 1,
+          "rules": {
+            "NT_sync_hearts": true,
+            "NT_sync_orbs": true,
+            "NT_sync_shift": true,
+            "NT_team_perks": true,
+            "NT_sync_perks": false,
+            "NT_alt_heartache": false,
+            "NT_ban_perks": true,
+            "NT_sync_orbs_no_curse": false,
+            "NT_ondeath_kick": false,
+            "NT_sync_orb_count": 0,
+            "NT_death_penalty": "end"
+          }
+        }
+      },
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a0a67616d652d65706f6368320a63312d72756c65732d323a2431313131313131312d313131312d343131312d383131312d31313131313131313131313142a6010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a2433333333333333332d333333332d343333332d383333332d33333333333333333333333320012a2434343434343434342d343434342d343434342d383434342d343434343434343434343434320a63312d776f726c642d6148015a1d0801121908011001180120012800300038014000480050005a03656e64"
+    },
+    {
+      "type": "Receipt",
+      "json": {
+        "eventId": "55555555-5555-4555-8555-555555555555",
+        "sequence": "1",
+        "state": "skipped",
+        "reason": "sharing_disabled"
+      },
+      "hex": "0a2435353535353535352d353535352d343535352d383535352d3535353535353535353535351201311a07736b6970706564221073686172696e675f64697361626c6564"
+    },
+    {
+      "type": "Life",
+      "json": {
+        "principalId": "66666666-6666-4666-8666-666666666666",
+        "worldToken": "c1-world-a",
+        "state": "respawning",
+        "deathEventId": "55555555-5555-4555-8555-555555555555",
+        "rulesRevision": 1
+      },
+      "hex": "0a2436363636363636362d363636362d343636362d383636362d363636363636363636363636120a63312d776f726c642d611a0a7265737061776e696e67222435353535353535352d353535352d343535352d383535352d3535353535353535353535352801"
+    },
+    {
+      "type": "RuleSnapshot",
+      "json": {
+        "revision": 2,
+        "sequence": "2",
+        "rules": {
+          "NT_sync_hearts": true,
+          "NT_sync_orbs": true,
+          "NT_sync_shift": true,
+          "NT_team_perks": true,
+          "NT_sync_perks": false,
+          "NT_alt_heartache": false,
+          "NT_ban_perks": true,
+          "NT_sync_orbs_no_curse": false,
+          "NT_ondeath_kick": false,
+          "NT_sync_orb_count": 0,
+          "NT_death_penalty": "end"
+        }
+      },
+      "hex": "08021201321a1908011001180120012800300038014000480050005a03656e64"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-c1-1",
+        "serviceId": "c1-fixture",
+        "serviceEpoch": "epoch",
+        "requestId": "c1-recipient-page",
+        "scope": {
+          "roomId": "11111111-1111-4111-8111-111111111111",
+          "runId": "22222222-2222-4222-8222-222222222222",
+          "runEpoch": "33333333-3333-4333-8333-333333333333",
+          "configRevision": 1,
+          "attachmentId": "44444444-4444-4444-8444-444444444444",
+          "worldToken": "c1-world-a"
+        },
+        "ownerGeneration": 1,
+        "snapshot": {
+          "revision": 2,
+          "sequence": "2",
+          "rules": {
+            "NT_sync_hearts": true,
+            "NT_sync_orbs": true,
+            "NT_sync_shift": true,
+            "NT_team_perks": true,
+            "NT_sync_perks": false,
+            "NT_alt_heartache": false,
+            "NT_ban_perks": true,
+            "NT_sync_orbs_no_curse": false,
+            "NT_ondeath_kick": false,
+            "NT_sync_orb_count": 0,
+            "NT_death_penalty": "end"
+          }
+        },
+        "deliveries": [
+          {
+            "eventId": "55555555-5555-4555-8555-555555555555",
+            "sequence": "1",
+            "rulesRevision": 1,
+            "sourcePrincipalId": "66666666-6666-4666-8666-666666666666",
+            "sourceWorldToken": "c1-world-a",
+            "sourceName": "Collector",
+            "payload": {
+              "heart": {}
+            },
+            "state": "pending",
+            "reason": "",
+            "senderDisposition": "applied",
+            "capturedRules": {
+              "NT_sync_hearts": true,
+              "NT_sync_orbs": true,
+              "NT_sync_shift": true,
+              "NT_team_perks": true,
+              "NT_sync_perks": false,
+              "NT_alt_heartache": false,
+              "NT_ban_perks": false,
+              "NT_sync_orbs_no_curse": false,
+              "NT_ondeath_kick": false,
+              "NT_sync_orb_count": 0,
+              "NT_death_penalty": "end"
+            }
+          }
+        ],
+        "memberCount": 2,
+        "sequence": "2"
+      },
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a1163312d726563697069656e742d7061676532a6010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a2433333333333333332d333333332d343333332d383333332d33333333333333333333333320012a2434343434343434342d343434342d343434342d383434342d343434343434343434343434320a63312d776f726c642d613801422008021201321a1908011001180120012800300038014000480050005a03656e64529b010a2435353535353535352d353535352d343535352d383535352d3535353535353535353535351201311801222436363636363636362d363636362d343636362d383636362d3636363636363636363636362a0a63312d776f726c642d613209436f6c6c6563746f723a020a00420770656e64696e674a0052076170706c6965645a1908011001180120012800300038004000480050005a03656e6468028a010132"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-c1-1",
+        "serviceId": "c1-fixture",
+        "serviceEpoch": "epoch",
+        "sessionEpoch": "current-desktop-epoch",
+        "requestId": "retired-death-outcome",
+        "sourceOutcome": {
+          "original": {
+            "roomId": "11111111-1111-4111-8111-111111111111",
+            "runId": "22222222-2222-4222-8222-222222222222",
+            "worldToken": "c1-world-a",
+            "configRevision": 1,
+            "publish": {
+              "eventId": "55555555-5555-4555-8555-555555555555",
+              "rulesRevision": 1,
+              "payload": {
+                "death": {
+                  "state": "terminal",
+                  "cause": "normal"
+                }
+              },
+              "senderDisposition": "pending"
+            }
+          },
+          "receipt": {
+            "state": "applied"
+          }
+        }
+      },
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a1563757272656e742d6465736b746f702d65706f63683215726574697265642d64656174682d6f7574636f6d658201b1010aa3010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a0a63312d776f726c642d6120012a470a2435353535353535352d353535352d343535352d383535352d35353535353535353535353510011a142a120a087465726d696e616c12066e6f726d616c220770656e64696e6712090a076170706c696564"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-c1-1",
+        "serviceId": "c1-fixture",
+        "serviceEpoch": "epoch",
+        "requestId": "retired-death-outcome",
+        "sourceOutcome": {
+          "original": {
+            "roomId": "11111111-1111-4111-8111-111111111111",
+            "runId": "22222222-2222-4222-8222-222222222222",
+            "worldToken": "c1-world-a",
+            "configRevision": 1,
+            "publish": {
+              "eventId": "55555555-5555-4555-8555-555555555555",
+              "rulesRevision": 1,
+              "payload": {
+                "death": {
+                  "state": "terminal",
+                  "cause": "normal"
+                }
+              },
+              "senderDisposition": "pending"
+            }
+          },
+          "outcome": "committed",
+          "coverage": "exact_durable_record",
+          "sourceDisposition": "applied",
+          "sourceReason": "",
+          "acceptedSequence": "3",
+          "rulesRevision": 1,
+          "effectAuthority": false,
+          "selfReported": true,
+          "savedEffectProof": false,
+          "duplicate": false
+        }
+      },
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a15726574697265642d64656174682d6f7574636f6d659201df010aa3010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a0a63312d776f726c642d6120012a470a2435353535353535352d353535352d343535352d383535352d35353535353535353535353510011a142a120a087465726d696e616c12066e6f726d616c220770656e64696e671209636f6d6d69747465641a1465786163745f64757261626c655f7265636f726422076170706c6965642a0032013338014000480150005800"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "Request",
+      "json": {
+        "rulesGet": {},
+        "publish": {}
+      }
+    },
+    {
+      "type": "Request",
+      "hex": "0801120767332d63312d311a0a63312d66697874757265220565706f63682a0a67616d652d65706f6368320a63312d6576656e742d313a2431313131313131312d313131312d343131312d383131312d31313131313131313131313142a6010a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a2433333333333333332d333333332d343333332d383333332d33333333333333333333333320012a2434343434343434342d343434342d343434342d383434342d343434343434343434343434320a63312d776f726c642d61480162350a2435353535353535352d353535352d343535352d383535352d35353535353535353535353510011a020a0022076170706c696564f80701"
+    }
+  ]
+}

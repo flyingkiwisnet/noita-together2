@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g1-beta-export"
+description = "Enables the g1_beta_export command without any pre-configured scope."
+commands.allow = ["g1_beta_export"]
+
+[[permission]]
+identifier = "deny-g1-beta-export"
+description = "Denies the g1_beta_export command without any pre-configured scope."
+commands.deny = ["g1_beta_export"]

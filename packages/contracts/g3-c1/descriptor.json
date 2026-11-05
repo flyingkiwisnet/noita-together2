@@ -1,0 +1,1054 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "c1": {
+          "nested": {
+            "Scope": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Empty": {
+              "fields": {}
+            },
+            "Rules": {
+              "fields": {
+                "NT_sync_hearts": {
+                  "type": "bool",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_sync_orbs": {
+                  "type": "bool",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_sync_shift": {
+                  "type": "bool",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_team_perks": {
+                  "type": "bool",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_sync_perks": {
+                  "type": "bool",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_alt_heartache": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_ban_perks": {
+                  "type": "bool",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_sync_orbs_no_curse": {
+                  "type": "bool",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_ondeath_kick": {
+                  "type": "bool",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_sync_orb_count": {
+                  "type": "uint32",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "NT_death_penalty": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "RuleSnapshot": {
+              "fields": {
+                "revision": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rules": {
+                  "type": "Rules",
+                  "id": 3
+                }
+              }
+            },
+            "RuleSet": {
+              "fields": {
+                "expectedRevision": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rules": {
+                  "type": "Rules",
+                  "id": 2
+                }
+              }
+            },
+            "Heart": {
+              "fields": {}
+            },
+            "Orb": {
+              "fields": {
+                "orbId": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Perk": {
+              "fields": {
+                "perkId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Fungal": {
+              "fields": {
+                "fromMaterials": {
+                  "type": "string",
+                  "id": 1,
+                  "rule": "repeated"
+                },
+                "toMaterial": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "displayMaterial": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Death": {
+              "fields": {
+                "state": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "cause": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "progression": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Payload": {
+              "fields": {
+                "heart": {
+                  "type": "Heart",
+                  "id": 1
+                },
+                "orb": {
+                  "type": "Orb",
+                  "id": 2
+                },
+                "perk": {
+                  "type": "Perk",
+                  "id": 3
+                },
+                "fungal": {
+                  "type": "Fungal",
+                  "id": 4
+                },
+                "death": {
+                  "type": "Death",
+                  "id": 5
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "heart",
+                    "orb",
+                    "perk",
+                    "fungal",
+                    "death"
+                  ]
+                }
+              }
+            },
+            "Publish": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rulesRevision": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "payload": {
+                  "type": "Payload",
+                  "id": 3
+                },
+                "senderDisposition": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Delivery": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rulesRevision": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourcePrincipalId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourceWorldToken": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourceName": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "payload": {
+                  "type": "Payload",
+                  "id": 7
+                },
+                "state": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "senderDisposition": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "capturedRules": {
+                  "type": "Rules",
+                  "id": 11
+                }
+              }
+            },
+            "Receipt": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Page": {
+              "fields": {
+                "limit": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "LifeUpdate": {
+              "fields": {
+                "deathEventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Life": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "deathEventId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rulesRevision": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Member": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "roomId": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 8
+                },
+                "ownerGeneration": {
+                  "type": "uint32",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rulesGet": {
+                  "type": "Empty",
+                  "id": 10
+                },
+                "rulesSet": {
+                  "type": "RuleSet",
+                  "id": 11
+                },
+                "publish": {
+                  "type": "Publish",
+                  "id": 12
+                },
+                "deliveries": {
+                  "type": "Page",
+                  "id": 13
+                },
+                "receipt": {
+                  "type": "Receipt",
+                  "id": 14
+                },
+                "life": {
+                  "type": "LifeUpdate",
+                  "id": 15
+                },
+                "sourceOutcome": {
+                  "type": "SourceOutcomeRequest",
+                  "id": 16
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "rulesGet",
+                    "rulesSet",
+                    "publish",
+                    "deliveries",
+                    "receipt",
+                    "life",
+                    "sourceOutcome"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 6
+                },
+                "ownerGeneration": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "snapshot": {
+                  "type": "RuleSnapshot",
+                  "id": 8
+                },
+                "event": {
+                  "type": "Delivery",
+                  "id": 9
+                },
+                "deliveries": {
+                  "type": "Delivery",
+                  "id": 10,
+                  "rule": "repeated"
+                },
+                "duplicate": {
+                  "type": "bool",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "members": {
+                  "type": "Member",
+                  "id": 12,
+                  "rule": "repeated"
+                },
+                "memberCount": {
+                  "type": "uint32",
+                  "id": 13,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "lives": {
+                  "type": "Life",
+                  "id": 14,
+                  "rule": "repeated"
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 15
+                },
+                "more": {
+                  "type": "bool",
+                  "id": 16,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "string",
+                  "id": 17,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourceOutcome": {
+                  "type": "SourceOutcome",
+                  "id": 18
+                }
+              }
+            },
+            "SourceOriginal": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "publish": {
+                  "type": "Publish",
+                  "id": 5
+                }
+              }
+            },
+            "SourceDisposition": {
+              "fields": {
+                "state": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "SourceOutcomeRequest": {
+              "fields": {
+                "original": {
+                  "type": "SourceOriginal",
+                  "id": 1
+                },
+                "receipt": {
+                  "type": "SourceDisposition",
+                  "id": 2
+                }
+              }
+            },
+            "SourceOutcome": {
+              "fields": {
+                "original": {
+                  "type": "SourceOriginal",
+                  "id": 1
+                },
+                "outcome": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "coverage": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourceDisposition": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sourceReason": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "acceptedSequence": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rulesRevision": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "effectAuthority": {
+                  "type": "bool",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "selfReported": {
+                  "type": "bool",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "savedEffectProof": {
+                  "type": "bool",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "duplicate": {
+                  "type": "bool",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

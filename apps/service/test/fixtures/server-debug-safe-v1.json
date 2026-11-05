@@ -1,0 +1,205 @@
+{
+  "manifest": {
+    "schema": "nt2-server-debug-1",
+    "component": "server",
+    "runtimeId": "nt2-debug-safe-fixture",
+    "serviceTag": "d81ec1c58d427d08",
+    "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+    "pid": 46184,
+    "startedAt": "2026-10-23T06:23:55.764Z",
+    "updatedAt": "2026-10-23T06:23:55.778Z",
+    "closed": true,
+    "debugEnabled": true,
+    "firstLoss": true,
+    "files": {
+      "events": "events.jsonl",
+      "firstLoss": "first-loss.json"
+    },
+    "eventsBytes": 1545,
+    "dropped": 0,
+    "truncated": false,
+    "errors": 0,
+    "limits": {
+      "eventsBytes": 2097152,
+      "firstLossBytes": 393216,
+      "sessions": 8,
+      "ring": 128,
+      "queue": 256,
+      "after": 64,
+      "critical": 32
+    }
+  },
+  "events": [
+    {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 1,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 0,
+      "serviceTimeMs": 1000,
+      "kind": "service_start"
+    },
+    {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 3,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 0,
+      "serviceTimeMs": 1000,
+      "kind": "sample_removed",
+      "reason": "pose_ttl",
+      "sampleAgeMs": 2001,
+      "sampleGeneration": 1,
+      "memberGeneration": 1,
+      "lastAcceptedPoseSequence": 21,
+      "eligible": true
+    },
+    {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 4,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 0,
+      "serviceTimeMs": 1000,
+      "kind": "snapshot_empty",
+      "reason": "eligible_peer_sample_absent",
+      "peerCount": 0,
+      "eligiblePeers": 1
+    },
+    {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 5,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 1,
+      "serviceTimeMs": 1000,
+      "kind": "recovery",
+      "reason": "peer_sample_returned",
+      "peerCount": 1
+    },
+    {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 6,
+      "utc": "2026-10-23T06:23:55.767Z",
+      "monoMs": 1,
+      "serviceTimeMs": 1000,
+      "kind": "service_stop",
+      "reason": "shutdown"
+    }
+  ],
+  "firstLoss": {
+    "schema": "nt2-server-debug-1",
+    "runtimeId": "nt2-debug-safe-fixture",
+    "serviceTag": "d81ec1c58d427d08",
+    "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+    "trigger": {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 4,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 0,
+      "serviceTimeMs": 1000,
+      "kind": "snapshot_empty",
+      "reason": "eligible_peer_sample_absent",
+      "peerCount": 0,
+      "eligiblePeers": 1
+    },
+    "before": [
+      {
+        "schema": "nt2-server-debug-1",
+        "runtimeId": "nt2-debug-safe-fixture",
+        "serviceTag": "d81ec1c58d427d08",
+        "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+        "sequence": 1,
+        "utc": "2026-10-23T06:23:55.766Z",
+        "monoMs": 0,
+        "serviceTimeMs": 1000,
+        "kind": "service_start"
+      },
+      {
+        "schema": "nt2-server-debug-1",
+        "runtimeId": "nt2-debug-safe-fixture",
+        "serviceTag": "d81ec1c58d427d08",
+        "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+        "sequence": 2,
+        "utc": "2026-10-23T06:23:55.766Z",
+        "monoMs": 0,
+        "serviceTimeMs": 1000,
+        "kind": "pose_accepted",
+        "poseSequence": 21,
+        "sessionTag": "4da38111d1fee9e9"
+      },
+      {
+        "schema": "nt2-server-debug-1",
+        "runtimeId": "nt2-debug-safe-fixture",
+        "serviceTag": "d81ec1c58d427d08",
+        "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+        "sequence": 3,
+        "utc": "2026-10-23T06:23:55.766Z",
+        "monoMs": 0,
+        "serviceTimeMs": 1000,
+        "kind": "sample_removed",
+        "reason": "pose_ttl",
+        "sampleAgeMs": 2001,
+        "sampleGeneration": 1,
+        "memberGeneration": 1,
+        "lastAcceptedPoseSequence": 21,
+        "eligible": true
+      }
+    ],
+    "after": [
+      {
+        "schema": "nt2-server-debug-1",
+        "runtimeId": "nt2-debug-safe-fixture",
+        "serviceTag": "d81ec1c58d427d08",
+        "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+        "sequence": 5,
+        "utc": "2026-10-23T06:23:55.766Z",
+        "monoMs": 1,
+        "serviceTimeMs": 1000,
+        "kind": "recovery",
+        "reason": "peer_sample_returned",
+        "peerCount": 1
+      },
+      {
+        "schema": "nt2-server-debug-1",
+        "runtimeId": "nt2-debug-safe-fixture",
+        "serviceTag": "d81ec1c58d427d08",
+        "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+        "sequence": 6,
+        "utc": "2026-10-23T06:23:55.767Z",
+        "monoMs": 1,
+        "serviceTimeMs": 1000,
+        "kind": "service_stop",
+        "reason": "shutdown"
+      }
+    ],
+    "recovery": {
+      "schema": "nt2-server-debug-1",
+      "runtimeId": "nt2-debug-safe-fixture",
+      "serviceTag": "d81ec1c58d427d08",
+      "serverSession": "ec5810e8-c726-47bb-8f00-62991b938263",
+      "sequence": 5,
+      "utc": "2026-10-23T06:23:55.766Z",
+      "monoMs": 1,
+      "serviceTimeMs": 1000,
+      "kind": "recovery",
+      "reason": "peer_sample_returned",
+      "peerCount": 1
+    },
+    "truncatedContext": false
+  }
+}

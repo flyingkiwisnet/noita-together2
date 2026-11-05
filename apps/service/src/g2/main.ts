@@ -1,0 +1,31 @@
+import {readFile} from 'node:fs/promises';
+import {createG2App} from './app.js';
+import {g1Compatibility} from '../../../../packages/test-kit/src/g1.js';
+import type {Keys} from '../g1/security.js';
+import {dirname,resolve} from 'node:path';
+import {validateLanConfig,localInterface,validateCertificate} from './lan.js';
+if(process.env.NT2_G2_MOCK!=='1'||process.env.NODE_ENV==='production')throw Error('G2 development launcher requires NT2_G2_MOCK=1 and refuses production');
+const lanPath=process.env.NT2_G2_LAN_CONFIG;
+const lan=lanPath?validateLanConfig(JSON.parse(await readFile(lanPath,'utf8'))):undefined;
+if(lan)localInterface(lan.ip);
+const secret=lanPath?dirname(resolve(lanPath)):undefined;
+const keys=JSON.parse(await readFile(secret?resolve(secret,'keys.json'):'secrets/g2-dev-4351.json','utf8')) as Keys;
+if(keys.issuer!==(lan?.origin??'http://127.0.0.1:4351'))throw Error('G2 development issuer must match canonical origin');
+const selection=process.env.NT2_G2_PROFILE??(lan?'candidate':'simulated');if(!['simulated','candidate'].includes(selection)||(lan&&selection!=='candidate'))throw Error('LAN testing requires the candidate profile');
+let tls: {pfx:Buffer;passphrase:string}|undefined;
+if(lan&&secret){
+ const publicFolder=resolve('deploy/g2-lan/public');
+ validateCertificate(await readFile(resolve(publicFolder,'server.cer')),await readFile(resolve(publicFolder,'ca.cer')),lan.ip);
+ const metadata=JSON.parse(await readFile(resolve(publicFolder,'bundle.json'),'utf8'));
+ if(metadata.origin!==lan.origin||metadata.serviceId!==lan.serviceId)throw Error('LAN public trust bundle does not match launch configuration');
+ const {passphrase}=JSON.parse(await readFile(resolve(secret,'tls.json'),'utf8'));
+ if(typeof passphrase!=='string'||passphrase.length<32)throw Error('Invalid TLS secret');
+ tls={pfx:await readFile(resolve(secret,'server.pfx')),passphrase};
+}
+const candidate=JSON.parse(await readFile(new URL('../../../../deploy/profiles/g2-candidate.json',import.meta.url),'utf8'));
+const compatibility=selection==='candidate'?{...g1Compatibility,gameVersion:candidate.gameVersion,modVersion:candidate.modVersion,bridgeVersion:candidate.bridgeVersion,capabilities:['core.seed'],modes:['core'],settingKeys:[]}:g1Compatibility;
+const profile=selection==='candidate'?candidate.profile:{id:'g2-simulated-1',evidenceStatus:'simulated-game-facts'};
+const {app}=await createG2App({databaseUrl:process.env.NT2_G2_DATABASE_URL??'postgres://nt2_g1:local-fixture-only@127.0.0.1:54328/nt2_g1',namespace:lan?.namespace??'g2_dev',serviceId:lan?.serviceId??'nt2-g2-local',keys,mockEnabled:true,compatibility,profile,website:true,...(tls&&lan?{tls,canonicalOrigin:lan.origin}:{})});
+await app.listen({host:lan?.ip??'127.0.0.1',port:lan?.port??4351});
+for(const signal of ['SIGINT','SIGTERM'] as const)process.once(signal,()=>{void app.close();});
+console.log(`G2 development website/service listening on ${lan?.origin??'http://127.0.0.1:4351'}; profile=${selection}; serviceId=${lan?.serviceId??'nt2-g2-local'}; actual-game acceptance pending.`);

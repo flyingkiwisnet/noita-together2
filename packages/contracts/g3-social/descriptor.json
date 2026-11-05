@@ -1,0 +1,547 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "social": {
+          "nested": {
+            "Scope": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 3
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 5
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 6
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Hud": {
+              "fields": {
+                "hpMilli": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "maxHpMilli": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "sampo": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "hpKnown": {
+                  "type": "bool",
+                  "id": 4
+                },
+                "sampoKnown": {
+                  "type": "bool",
+                  "id": 5
+                },
+                "biome": {
+                  "type": "string",
+                  "id": 6
+                }
+              }
+            },
+            "Emote": {
+              "fields": {
+                "emoteId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "active": {
+                  "type": "bool",
+                  "id": 2
+                }
+              }
+            },
+            "Cosmetic": {
+              "fields": {
+                "robeId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "hat": {
+                  "type": "bool",
+                  "id": 2
+                },
+                "amulet": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "gem": {
+                  "type": "bool",
+                  "id": 4
+                }
+              }
+            },
+            "Poi": {
+              "fields": {
+                "text": {
+                  "type": "string",
+                  "id": 1
+                },
+                "xMilli": {
+                  "type": "string",
+                  "id": 2
+                },
+                "yMilli": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "Publish": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "hud": {
+                  "type": "Hud",
+                  "id": 10
+                },
+                "emote": {
+                  "type": "Emote",
+                  "id": 11
+                },
+                "cosmetic": {
+                  "type": "Cosmetic",
+                  "id": 12
+                },
+                "poi": {
+                  "type": "Poi",
+                  "id": 13
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "hud",
+                    "emote",
+                    "cosmetic",
+                    "poi"
+                  ]
+                }
+              }
+            },
+            "Page": {
+              "fields": {
+                "afterSequence": {
+                  "type": "string",
+                  "id": 1
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 2
+                }
+              }
+            },
+            "Snapshot": {
+              "fields": {
+                "afterKey": {
+                  "type": "string",
+                  "id": 1
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 2
+                }
+              }
+            },
+            "Dismiss": {
+              "fields": {
+                "poiSequence": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Projection": {
+              "fields": {
+                "principalId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 4
+                },
+                "eventId": {
+                  "type": "string",
+                  "id": 5
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 6
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 7
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "id": 8
+                },
+                "hud": {
+                  "type": "Hud",
+                  "id": 10
+                },
+                "emote": {
+                  "type": "EmoteState",
+                  "id": 11
+                },
+                "cosmetic": {
+                  "type": "Cosmetic",
+                  "id": 12
+                },
+                "provenance": {
+                  "type": "string",
+                  "id": 9
+                },
+                "hudStateRevision": {
+                  "type": "uint32",
+                  "id": 14
+                },
+                "presentationRevision": {
+                  "type": "uint32",
+                  "id": 15
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "hud",
+                    "emote",
+                    "cosmetic"
+                  ]
+                }
+              }
+            },
+            "Marker": {
+              "fields": {
+                "poiSequence": {
+                  "type": "string",
+                  "id": 1
+                },
+                "eventId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "principalId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 5
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 6
+                },
+                "poi": {
+                  "type": "Poi",
+                  "id": 7
+                },
+                "capturedAt": {
+                  "type": "string",
+                  "id": 8
+                },
+                "provenance": {
+                  "type": "string",
+                  "id": 9
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 7
+                },
+                "publish": {
+                  "type": "Publish",
+                  "id": 20
+                },
+                "snapshot": {
+                  "type": "Snapshot",
+                  "id": 21
+                },
+                "poiSnapshot": {
+                  "type": "Page",
+                  "id": 22
+                },
+                "poiOutbox": {
+                  "type": "Page",
+                  "id": 23
+                },
+                "dismissPoi": {
+                  "type": "Dismiss",
+                  "id": 24
+                },
+                "roster": {
+                  "type": "Snapshot",
+                  "id": 25
+                },
+                "poiOutcome": {
+                  "type": "PoiLookup",
+                  "id": 26
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "publish",
+                    "snapshot",
+                    "poiSnapshot",
+                    "poiOutbox",
+                    "dismissPoi",
+                    "roster",
+                    "poiOutcome"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 7
+                },
+                "acceptedEventId": {
+                  "type": "string",
+                  "id": 8
+                },
+                "duplicate": {
+                  "type": "bool",
+                  "id": 9
+                },
+                "projections": {
+                  "type": "Projection",
+                  "id": 10,
+                  "rule": "repeated"
+                },
+                "markers": {
+                  "type": "Marker",
+                  "id": 11,
+                  "rule": "repeated"
+                },
+                "nextKey": {
+                  "type": "string",
+                  "id": 12
+                },
+                "nextSequence": {
+                  "type": "string",
+                  "id": 13
+                },
+                "highSequence": {
+                  "type": "string",
+                  "id": 14
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 15
+                },
+                "players": {
+                  "type": "Player",
+                  "id": 20,
+                  "rule": "repeated"
+                },
+                "poiOutcome": {
+                  "type": "PoiOutcome",
+                  "id": 21
+                },
+                "rosterComplete": {
+                  "type": "bool",
+                  "id": 22
+                }
+              }
+            },
+            "EmoteState": {
+              "fields": {
+                "emoteId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "active": {
+                  "type": "bool",
+                  "id": 2
+                },
+                "durationFrames": {
+                  "type": "uint32",
+                  "id": 3
+                },
+                "ageMs": {
+                  "type": "uint32",
+                  "id": 4
+                }
+              }
+            },
+            "Player": {
+              "fields": {
+                "playerId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "principalId": {
+                  "type": "string",
+                  "id": 2
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "gameSessionId": {
+                  "type": "string",
+                  "id": 4
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 5
+                },
+                "state": {
+                  "type": "string",
+                  "id": 6
+                },
+                "inventoryRevision": {
+                  "type": "uint32",
+                  "id": 7
+                },
+                "heldWandSpriteId": {
+                  "type": "string",
+                  "id": 8
+                },
+                "raceRowKey": {
+                  "type": "string",
+                  "id": 9
+                },
+                "raceStatus": {
+                  "type": "string",
+                  "id": 10
+                },
+                "completedGoals": {
+                  "type": "uint32",
+                  "id": 11
+                }
+              }
+            },
+            "PoiLookup": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "PoiOutcome": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1
+                },
+                "status": {
+                  "type": "string",
+                  "id": 2
+                },
+                "marker": {
+                  "type": "Marker",
+                  "id": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

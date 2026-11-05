@@ -1,0 +1,79 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.auth1;
+
+message Provider {
+  optional string id = 1;
+  optional bool available = 2;
+  optional string reason = 3;
+}
+
+message Discovery {
+  optional string revision = 1;
+  optional string serviceId = 2;
+  optional string serviceEpoch = 3;
+  repeated Provider providers = 4;
+  optional uint32 signInSeconds = 5;
+  optional string accountEndpoint = 6;
+  optional string passwordChangeUrl = 7;
+}
+
+message Entitlements {
+  optional bool customLobbyName = 1;
+  optional uint32 capacityLimit = 2;
+  optional uint32 standardCapacityLimit = 3;
+  optional uint32 powerCapacityLimit = 4;
+  optional string generatedLobbyName = 5;
+  optional bool testingMode = 6;
+  optional bool manageUsers = 7;
+  optional bool manageAllRoles = 8;
+}
+
+message Account {
+  optional string accountId = 1;
+  optional string displayName = 2;
+  optional string provider = 3;
+  optional string role = 4;
+  optional bool enabled = 5;
+  optional uint32 revision = 6;
+  optional string lastSignInAt = 7;
+  Entitlements entitlements = 8;
+}
+
+message Error {
+  optional string code = 1;
+}
+
+message AccountResponse {
+  optional string revision = 1;
+  optional string serviceId = 2;
+  optional string serviceEpoch = 3;
+  oneof payload {
+    Account account = 4;
+    Error error = 5;
+  }
+}
+
+message Empty {
+}
+
+message RoleChange {
+  optional string accountId = 1;
+  optional string role = 2;
+  optional uint32 revision = 3;
+  optional string operationId = 4;
+  optional string reason = 5;
+}
+
+message LocalCreate {
+  optional string username = 1;
+  optional string displayName = 2;
+  optional string operationId = 3;
+}
+
+message LocalReset {
+  optional string accountId = 1;
+  optional uint32 revision = 2;
+  optional string operationId = 3;
+  optional string reason = 4;
+}

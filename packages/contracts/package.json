@@ -1,0 +1,1 @@
+{"name":"@nt2/contracts","version":"0.0.0","private":true,"type":"module","exports":{".":"./src/index.ts","./pairing":"./src/pairing.ts","./g1":"./src/g1.ts"},"dependencies":{"protobufjs":"8.8.0"}}

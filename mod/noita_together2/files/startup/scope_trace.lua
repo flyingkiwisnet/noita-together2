@@ -1,0 +1,1 @@
+-- Inert bounded scope observations; never execute appends.

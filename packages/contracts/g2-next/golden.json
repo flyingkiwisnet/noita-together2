@@ -1,0 +1,700 @@
+{
+  "revision": "g2-draft-5",
+  "fixtures": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomGet": {}
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374ea0100"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "guestIssue": {
+          "deviceId": "desktop-a",
+          "displayName": "Alex",
+          "issuanceProof": "rust-held-random-proof"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d726571756573748203290a096465736b746f702d611204416c65781a16727573742d68656c642d72616e646f6d2d70726f6f66"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "authBegin": {
+          "deviceId": "desktop-a",
+          "appInstanceId": "app-a",
+          "provider": "twitch",
+          "proofChallenge": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "callbackPort": 49152,
+          "callbackState": "rust-held-local-state"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d726571756573748a03770a096465736b746f702d6112056170702d611a06747769746368224061616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161288080033215727573742d68656c642d6c6f63616c2d7374617465"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomId": "room",
+        "expectedRevision": 2,
+        "configRevision": 1,
+        "prepare": {}
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d726571756573743a04726f6f6d40024801aa0300"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "gameObservation": {
+          "attachmentId": "attachment-a",
+          "gameInstanceId": "game-a",
+          "worldToken": "world-a",
+          "observationRevision": 1,
+          "actualSeed": "424242",
+          "activeMods": [
+            "noita_together2",
+            "example"
+          ],
+          "inventoryComplete": true,
+          "beta": "unknown",
+          "protected": true,
+          "loaded": true,
+          "seedStatus": "known",
+          "modVersion": "test",
+          "bridgeVersion": "test",
+          "compatibilityProvenance": "game-thread-client-observation"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374b20389010a0c6174746163686d656e742d61120667616d652d611a07776f726c642d6120012a06343234323432320f6e6f6974615f746f6765746865723232076578616d706c6538014207756e6b6e6f776e480150018a01056b6e6f776e9a010474657374a2010474657374aa011e67616d652d7468726561642d636c69656e742d6f62736572766174696f6e"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "finalStart": {
+          "participants": [
+            {
+              "desktopId": "desktop-a",
+              "attachmentId": "attachment-a",
+              "worldToken": "world-a",
+              "observationRevision": 1,
+              "contentDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          ]
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374c203680a660a096465736b746f702d61120c6174746163686d656e742d611a07776f726c642d6120012a4062626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "serviceEpoch": "service-epoch",
+        "requestId": "golden-request",
+        "credentials": {
+          "accountId": "principal-a",
+          "kind": "desktop",
+          "principal": {
+            "principalId": "principal-a",
+            "kind": "guest",
+            "displayName": "Alex",
+            "source": "guest"
+          }
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220d736572766963652d65706f63682a0e676f6c64656e2d7265717565737442391a0b7072696e636970616c2d6132076465736b746f7052210a0b7072696e636970616c2d61120567756573741a04416c657822056775657374"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "serviceEpoch": "service-epoch",
+        "requestId": "golden-request",
+        "release": {
+          "authorizationId": "authorization-a",
+          "startRequestId": "start-request-a",
+          "contractRevision": "g2-draft-5",
+          "serviceId": "nt2-g2-next-local",
+          "serviceEpoch": "service-epoch",
+          "roomId": "room-a",
+          "runId": "run-a",
+          "runEpoch": "run-epoch",
+          "configRevision": 1,
+          "desktopId": "desktop-a",
+          "desktopSessionEpoch": "desktop-epoch",
+          "gameSessionId": "game-session-a",
+          "gameSessionEpoch": "game-epoch",
+          "attachmentId": "attachment-a",
+          "gameInstanceId": "game-a",
+          "worldToken": "world-a",
+          "observationRevision": 1,
+          "contentDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "capturedAt": "2026-10-06T00:00:00.000Z",
+          "authorizedAt": "2026-10-06T00:00:01.000Z",
+          "releaseExpiresAt": "2026-10-06T00:30:00.000Z",
+          "phase": "restoring",
+          "enteredPlayingAt": "2026-10-06T00:00:02.000Z"
+        },
+        "gameStatus": {
+          "phase": "restoring"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220d736572766963652d65706f63682a0e676f6c64656e2d72657175657374a20180030a0f617574686f72697a6174696f6e2d61120f73746172742d726571756573742d611a0a67322d64726166742d3522116e74322d67322d6e6578742d6c6f63616c2a0d736572766963652d65706f63683206726f6f6d2d613a0572756e2d61420972756e2d65706f6368480152096465736b746f702d615a0d6465736b746f702d65706f6368620e67616d652d73657373696f6e2d616a0a67616d652d65706f6368720c6174746163686d656e742d617a0667616d652d61820107776f726c642d61880101920140626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262629a0118323032362d31302d30365430303a30303a30302e3030305aa20118323032362d31302d30365430303a30303a30312e3030305aaa0118323032362d31302d30365430303a33303a30302e3030305ab20109726573746f72696e67ba0118323032362d31302d30365430303a30303a30322e3030305aaa010b0a09726573746f72696e67"
+    },
+    {
+      "type": "CompatibilityProfile",
+      "json": {
+        "id": "nt2-g2-inspect-native-1",
+        "evidenceStatus": "candidate-engine-evidence-pending",
+        "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+        "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+        "bridgeSha256": "33db38181059bcd14c2d8011b8622b7c702bfcb19c042c84799b3e4b6b20de9f",
+        "modSha256": "b3a6f943b91c6eea99d75fa1c7e53fa00909b756f00303e94190d7a1291b5a18",
+        "gameFamilyId": "noita-jan2025-x86-luajit-core",
+        "supportedBuilds": [
+          {
+            "id": "steam-jan2025-x86",
+            "store": "steam",
+            "branch": "unclassified",
+            "buildIdentity": "PE32 x86; Jan25-2025 timestamp",
+            "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+            "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+            "evidenceStatus": "candidate-engine-evidence-pending"
+          },
+          {
+            "id": "gog-jan2025-x86",
+            "store": "gog",
+            "branch": "unclassified",
+            "buildIdentity": "PE32 x86; Jan25-2025 timestamp; supplied executable 15449600 bytes",
+            "gameExeSha256": "f0f5ffd1c64558663ac7cffaf689f4899732a56494c3530b806bf3357d094363",
+            "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+            "evidenceStatus": "candidate-engine-evidence-pending"
+          }
+        ]
+      },
+      "hex": "0a176e74322d67322d696e73706563742d6e61746976652d31122163616e6469646174652d656e67696e652d65766964656e63652d70656e64696e671a40383038643261306162353165613062343665396164326165623333323761346230636533666561653034663332626132363332366266353835623537373962642240386135636136326237376262353730386131623435633835383038636666313139313239396265333462343961333631363833353466336262383736323065632a40333364623338313831303539626364313463326438303131623836323262376337303262666362313963303432633834373939623365346236623230646539663240623361366639343362393163366565613939643735666131633765353366613030393039623735366630303330336539343139306437613132393162356131383a1d6e6f6974612d6a616e323032352d7838362d6c75616a69742d636f726542ef010a11737465616d2d6a616e323032352d7838361205737465616d1a0c756e636c6173736966696564221e50453332207838363b204a616e32352d323032352074696d657374616d702a40383038643261306162353165613062343665396164326165623333323761346230636533666561653034663332626132363332366266353835623537373962643240386135636136326237376262353730386131623435633835383038636666313139313239396265333462343961333631363833353466336262383736323065633a2163616e6469646174652d656e67696e652d65766964656e63652d70656e64696e67428f020a0f676f672d6a616e323032352d7838361203676f671a0c756e636c6173736966696564224250453332207838363b204a616e32352d323032352074696d657374616d703b20737570706c6965642065786563757461626c652031353434393630302062797465732a40663066356666643163363435353836363361633763666661663638396634383939373332613536343934633335333062383036626633333537643039343336333240386135636136326237376262353730386131623435633835383038636666313139313239396265333462343961333631363833353466336262383736323065633a2163616e6469646174652d656e67696e652d65766964656e63652d70656e64696e67"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomId": "room-a",
+        "configRevision": 1,
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "preparationRenew": {
+          "preparationId": "preparation-a"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d726571756573743a06726f6f6d2d614801520572756e2d615a0972756e2d65706f6368e2030f0a0d7072657061726174696f6e2d61"
+    },
+    {
+      "type": "Member",
+      "json": {
+        "desktopId": "desktop-a",
+        "present": true,
+        "readiness": "waiting_noita",
+        "readinessReason": "actual_game_required",
+        "consentedConfigRevision": 1,
+        "included": true
+      },
+      "hex": "12096465736b746f702d611801520d77616974696e675f6e6f6974615a1461637475616c5f67616d655f726571756972656460016801"
+    },
+    {
+      "type": "Member",
+      "json": {
+        "desktopId": "desktop-b",
+        "present": true,
+        "ready": true,
+        "attached": true,
+        "seedApplied": true,
+        "loaded": true,
+        "readiness": "ready",
+        "consentedConfigRevision": 1,
+        "included": true
+      },
+      "hex": "12096465736b746f702d62180120013001380140015205726561647960016801"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "serviceEpoch": "service-epoch",
+        "requestId": "golden-request",
+        "room": {
+          "roomId": "room-a",
+          "name": "Visible lobby",
+          "state": "staging",
+          "revision": 2,
+          "configRevision": 1,
+          "config": {
+            "seed": 424242,
+            "mode": "core",
+            "settings": [
+              {
+                "key": "exampleRule",
+                "value": "displayed"
+              }
+            ],
+            "requiredCapabilities": [
+              "core.seed"
+            ]
+          }
+        },
+        "admission": {
+          "roomId": "room-a",
+          "name": "Visible lobby",
+          "state": "staging",
+          "revision": 2,
+          "configRevision": 1,
+          "visibility": "public",
+          "joinAllowed": true
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220d736572766963652d65706f63682a0e676f6c64656e2d726571756573744a550a06726f6f6d2d61120d56697369626c65206c6f626279220773746167696e67280230013a2f08b2f2191204636f72651a180a0b6578616d706c6552756c651209646973706c617965642209636f72652e736565645a2e0a06726f6f6d2d61120d56697369626c65206c6f6262791a0773746167696e672002280132067075626c69633801"
+    },
+    {
+      "type": "Config",
+      "json": {
+        "seed": 424242,
+        "mode": "core",
+        "requiredCapabilities": [
+          "core.seed-policy.v1"
+        ],
+        "seedPolicy": "shared-fixed"
+      },
+      "hex": "08b2f2191204636f72652213636f72652e736565642d706f6c6963792e76312a0c7368617265642d6669786564"
+    },
+    {
+      "type": "Config",
+      "json": {
+        "seed": 424242,
+        "mode": "core",
+        "requiredCapabilities": [
+          "core.seed-policy.v1",
+          "core.randomize-loot.v1"
+        ],
+        "seedPolicy": "shared-fixed",
+        "randomizeLoot": true
+      },
+      "hex": "08b2f2191204636f72652213636f72652e736565642d706f6c6963792e76312216636f72652e72616e646f6d697a652d6c6f6f742e76312a0c7368617265642d66697865643001"
+    },
+    {
+      "type": "Config",
+      "json": {
+        "mode": "core",
+        "requiredCapabilities": [
+          "core.seed-policy.v1",
+          "core.randomize-loot.v1"
+        ],
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true
+      },
+      "hex": "1204636f72652213636f72652e736565642d706f6c6963792e76312216636f72652e72616e646f6d697a652d6c6f6f742e76312a0d7368617265642d72616e646f6d3001"
+    },
+    {
+      "type": "Config",
+      "json": {
+        "seed": 123456,
+        "mode": "core",
+        "requiredCapabilities": [
+          "core.seed-policy.v1",
+          "core.randomize-loot.v1"
+        ],
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true
+      },
+      "hex": "08c0c4071204636f72652213636f72652e736565642d706f6c6963792e76312216636f72652e72616e646f6d697a652d6c6f6f742e76312a0d7368617265642d72616e646f6d3001"
+    },
+    {
+      "type": "Config",
+      "json": {
+        "mode": "core",
+        "requiredCapabilities": [
+          "core.seed-policy.v1"
+        ],
+        "seedPolicy": "individual-random"
+      },
+      "hex": "1204636f72652213636f72652e736565642d706f6c6963792e76312a11696e646976696475616c2d72616e646f6d"
+    },
+    {
+      "type": "GameRelease",
+      "json": {
+        "authorizationId": "authorization-a",
+        "startRequestId": "start-request-a",
+        "contractRevision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "serviceEpoch": "service-epoch",
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "desktopId": "desktop-a",
+        "desktopSessionEpoch": "desktop-epoch",
+        "gameSessionId": "game-session-a",
+        "gameSessionEpoch": "game-epoch",
+        "attachmentId": "attachment-a",
+        "gameInstanceId": "game-a",
+        "worldToken": "world-a",
+        "observationRevision": 1,
+        "contentDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "capturedAt": "2026-10-06T00:00:00.000Z",
+        "authorizedAt": "2026-10-06T00:00:01.000Z",
+        "releaseExpiresAt": "2026-10-06T00:30:00.000Z",
+        "phase": "restoring",
+        "enteredPlayingAt": "2026-10-06T00:00:02.000Z",
+        "actualSeed": "123456",
+        "seedPolicy": "shared-random",
+        "randomizeLoot": true
+      },
+      "hex": "0a0f617574686f72697a6174696f6e2d61120f73746172742d726571756573742d611a0a67322d64726166742d3522116e74322d67322d6e6578742d6c6f63616c2a0d736572766963652d65706f63683206726f6f6d2d613a0572756e2d61420972756e2d65706f6368480152096465736b746f702d615a0d6465736b746f702d65706f6368620e67616d652d73657373696f6e2d616a0a67616d652d65706f6368720c6174746163686d656e742d617a0667616d652d61820107776f726c642d61880101920140626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262629a0118323032362d31302d30365430303a30303a30302e3030305aa20118323032362d31302d30365430303a30303a30312e3030305aaa0118323032362d31302d30365430303a33303a30302e3030305ab20109726573746f72696e67ba0118323032362d31302d30365430303a30303a30322e3030305ac20106313233343536ca010d7368617265642d72616e646f6dd00101"
+    },
+    {
+      "type": "GameRelease",
+      "json": {
+        "authorizationId": "authorization-a",
+        "startRequestId": "start-request-a",
+        "contractRevision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "serviceEpoch": "service-epoch",
+        "roomId": "room-a",
+        "runId": "run-a",
+        "runEpoch": "run-epoch",
+        "configRevision": 1,
+        "desktopId": "desktop-a",
+        "desktopSessionEpoch": "desktop-epoch",
+        "gameSessionId": "game-session-a",
+        "gameSessionEpoch": "game-epoch",
+        "attachmentId": "attachment-a",
+        "gameInstanceId": "game-a",
+        "worldToken": "world-a",
+        "observationRevision": 1,
+        "contentDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "capturedAt": "2026-10-06T00:00:00.000Z",
+        "authorizedAt": "2026-10-06T00:00:01.000Z",
+        "releaseExpiresAt": "2026-10-06T00:30:00.000Z",
+        "phase": "restoring",
+        "enteredPlayingAt": "2026-10-06T00:00:02.000Z",
+        "actualSeed": "987",
+        "seedPolicy": "individual-random"
+      },
+      "hex": "0a0f617574686f72697a6174696f6e2d61120f73746172742d726571756573742d611a0a67322d64726166742d3522116e74322d67322d6e6578742d6c6f63616c2a0d736572766963652d65706f63683206726f6f6d2d613a0572756e2d61420972756e2d65706f6368480152096465736b746f702d615a0d6465736b746f702d65706f6368620e67616d652d73657373696f6e2d616a0a67616d652d65706f6368720c6174746163686d656e742d617a0667616d652d61820107776f726c642d61880101920140626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262629a0118323032362d31302d30365430303a30303a30302e3030305aa20118323032362d31302d30365430303a30303a30312e3030305aaa0118323032362d31302d30365430303a33303a30302e3030305ab20109726573746f72696e67ba0118323032362d31302d30365430303a30303a30322e3030305ac20103393837ca0111696e646976696475616c2d72616e646f6d"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomId": "room-a",
+        "expectedRevision": 3,
+        "configRevision": 1,
+        "roomDelete": {}
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d726571756573743a06726f6f6d2d6140034801ea0300"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "deletedRoomId": "room-a"
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c2a0e676f6c64656e2d72657175657374e20506726f6f6d2d61"
+    },
+    {
+      "type": "BrowserLoginResponse",
+      "json": {
+        "credentials": {
+          "accessToken": "synthetic-browser-access-not-a-token",
+          "refreshSecret": "synthetic-browser-refresh-not-a-secret",
+          "accountId": "principal-a",
+          "sessionId": "browser-session-a",
+          "sessionEpoch": "browser-epoch-a",
+          "kind": "browser",
+          "deviceId": "fixture-browser",
+          "expiresAt": "2026-10-15T01:15:00.000Z"
+        },
+        "credentialValidity": {
+          "principalId": "principal-a",
+          "sessionId": "browser-session-a",
+          "sessionEpoch": "browser-epoch-a",
+          "credentialId": "fixture-credential-id",
+          "accessRemainingMs": 800000,
+          "originRequestId": "fixture-browser-login-original",
+          "sampleKey": "1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      },
+      "hex": "0ab3010a2473796e7468657469632d62726f777365722d6163636573732d6e6f742d612d746f6b656e122673796e7468657469632d62726f777365722d726566726573682d6e6f742d612d7365637265741a0b7072696e636970616c2d61221162726f777365722d73657373696f6e2d612a0f62726f777365722d65706f63682d61320762726f777365723a0f666978747572652d62726f777365724218323032362d31302d31355430313a31353a30302e3030305a1aae010a0b7072696e636970616c2d61121162726f777365722d73657373696f6e2d611a0f62726f777365722d65706f63682d612215666978747572652d63726564656e7469616c2d69642880ea30321e666978747572652d62726f777365722d6c6f67696e2d6f726967696e616c3a4031313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131"
+    },
+    {
+      "type": "BrowserLoginResponse",
+      "json": {
+        "credentials": {
+          "accessToken": "synthetic-browser-access-not-a-token",
+          "refreshSecret": "synthetic-browser-refresh-not-a-secret",
+          "accountId": "principal-a",
+          "sessionId": "browser-session-a",
+          "sessionEpoch": "browser-epoch-a",
+          "kind": "browser",
+          "deviceId": "fixture-browser",
+          "expiresAt": "2026-10-15T01:15:00.000Z"
+        },
+        "credentialValidity": {
+          "principalId": "principal-a",
+          "sessionId": "browser-session-a",
+          "sessionEpoch": "browser-epoch-a",
+          "credentialId": "fixture-credential-id",
+          "accessRemainingMs": 799000,
+          "originRequestId": "fixture-browser-login-original",
+          "sampleKey": "1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      },
+      "hex": "0ab3010a2473796e7468657469632d62726f777365722d6163636573732d6e6f742d612d746f6b656e122673796e7468657469632d62726f777365722d726566726573682d6e6f742d612d7365637265741a0b7072696e636970616c2d61221162726f777365722d73657373696f6e2d612a0f62726f777365722d65706f63682d61320762726f777365723a0f666978747572652d62726f777365724218323032362d31302d31355430313a31353a30302e3030305a1aae010a0b7072696e636970616c2d61121162726f777365722d73657373696f6e2d611a0f62726f777365722d65706f63682d612215666978747572652d63726564656e7469616c2d69642898e230321e666978747572652d62726f777365722d6c6f67696e2d6f726967696e616c3a4031313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomPlayerDetails": {
+          "accountId": "11111111-1111-4111-8111-111111111111",
+          "desktopId": "22222222-2222-4222-8222-222222222222"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374f2034c0a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d323232323232323232323232"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomBanList": {
+          "afterAccountId": "11111111-1111-4111-8111-111111111111",
+          "limit": 32
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374fa03280a2431313131313131312d313131312d343131312d383131312d3131313131313131313131311020"
+    },
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomModerate": {
+          "accountId": "11111111-1111-4111-8111-111111111111",
+          "action": "mute",
+          "desktopId": "22222222-2222-4222-8222-222222222222"
+        }
+      },
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374fa02520a2431313131313131312d313131312d343131312d383131312d31313131313131313131313112046d7574651a2432323232323232322d323232322d343232322d383232322d323232323232323232323232"
+    },
+    {
+      "type": "PlayerDetails",
+      "json": {
+        "accountId": "11111111-1111-4111-8111-111111111111",
+        "desktopId": "22222222-2222-4222-8222-222222222222",
+        "principal": {
+          "principalId": "11111111-1111-4111-8111-111111111111",
+          "kind": "registered",
+          "displayName": "Fixture player",
+          "source": "twitch"
+        },
+        "role": "user",
+        "roomRevision": 4,
+        "actions": [
+          "kick",
+          "ban",
+          "mute"
+        ]
+      },
+      "hex": "0a2431313131313131312d313131312d343131312d383131312d313131313131313131313131122432323232323232322d323232322d343232322d383232322d3232323232323232323232321a4a0a2431313131313131312d313131312d343131312d383131312d313131313131313131313131120a726567697374657265641a0e4669787475726520706c617965722206747769746368220475736572380442046b69636b420362616e42046d757465"
+    },
+    {
+      "type": "RoomCreate",
+      "json": {
+        "name": "Fixture lobby",
+        "config": {
+          "mode": "core",
+          "requiredCapabilities": [
+            "core.seed",
+            "core.seed-policy.v1",
+            "core.randomize-loot.v1"
+          ],
+          "seedPolicy": "shared-random",
+          "randomizeLoot": true
+        },
+        "visibility": "public",
+        "capacity": 8,
+        "password": "synthetic-lobby-password"
+      },
+      "hex": "0a0d46697874757265206c6f626279124f1204636f72652209636f72652e736565642213636f72652e736565642d706f6c6963792e76312216636f72652e72616e646f6d697a652d6c6f6f742e76312a0d7368617265642d72616e646f6d30011a067075626c69632808321873796e7468657469632d6c6f6262792d70617373776f7264"
+    },
+    {
+      "type": "RoomSummary",
+      "json": {
+        "roomId": "22222222-2222-4222-8222-222222222222",
+        "name": "Fixture lobby",
+        "state": "staging",
+        "capacity": 8,
+        "host": {
+          "principalId": "11111111-1111-4111-8111-111111111111",
+          "kind": "registered",
+          "displayName": "Fixture host",
+          "source": "google"
+        },
+        "mode": "core",
+        "playerCount": 2
+      },
+      "hex": "0a2432323232323232322d323232322d343232322d383232322d323232323232323232323232120d46697874757265206c6f6262791a0773746167696e6740085a480a2431313131313131312d313131312d343131312d383131312d313131313131313131313131120a726567697374657265641a0c4669787475726520686f73742206676f6f676c656204636f72656802"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "unknown-json-field",
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomGet": {},
+        "sender": "host"
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "conflicting-command",
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g2-draft-5",
+        "serviceId": "nt2-g2-next-local",
+        "requestId": "golden-request",
+        "roomGet": {},
+        "logout": {}
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "unknown-wire-field",
+      "type": "Request",
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374ea01007801",
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "duplicate-wire-field",
+      "type": "Request",
+      "hex": "0801120a67322d64726166742d351a116e74322d67322d6e6578742d6c6f63616c220e676f6c64656e2d72657175657374ea01000801",
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "AuthBegin",
+      "hex": "0a01ff",
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "private-data-in-summary",
+      "type": "RoomSummary",
+      "json": {
+        "roomId": "11111111-1111-4111-8111-111111111111",
+        "config": {
+          "seed": 424242
+        }
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "unknown-seed-policy",
+      "type": "Config",
+      "json": {
+        "seed": 1,
+        "seedPolicy": "arbitrary",
+        "randomizeLoot": false
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "individual-forced-seed",
+      "type": "Config",
+      "json": {
+        "seed": 1,
+        "seedPolicy": "individual-random",
+        "randomizeLoot": false
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "individual-extra-loot",
+      "type": "Config",
+      "json": {
+        "seed": 0,
+        "seedPolicy": "individual-random",
+        "randomizeLoot": true
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "untyped-loot",
+      "type": "Config",
+      "json": {
+        "seed": 1,
+        "seedPolicy": "shared-fixed",
+        "randomizeLoot": "true"
+      },
+      "error": "INVALID_MESSAGE"
+    },
+    {
+      "name": "omitted-policy-loot",
+      "type": "Config",
+      "json": {
+        "seed": 1,
+        "randomizeLoot": true
+      },
+      "error": "INVALID_MESSAGE"
+    }
+  ]
+}

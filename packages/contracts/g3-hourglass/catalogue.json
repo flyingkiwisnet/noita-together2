@@ -1,0 +1,170 @@
+{
+  "revision": "nt2-hourglass-builtins-1",
+  "capability": "core.hourglass",
+  "modes": [
+    "core"
+  ],
+  "settingKeys": [],
+  "target": "other eligible attached room games; exclude sender principal",
+  "provenance": "validated-client-report",
+  "trigger": {
+    "site": "snowcastle_hourglass",
+    "sharedActivationId": "One UUID assigned to the locally spawned competing trigger group; persist original through retry",
+    "competingRadius": 150,
+    "feedback": "noitatogether_hourglass_gave_boon",
+    "source": "noita_mod/core/files/append/snowcastle_cavern.lua:1-14; noita_mod/core/files/scripts/hourglass_events.lua:5-25"
+  },
+  "entries": [
+    {
+      "id": "ambrosia",
+      "materialId": "magic_liquid_protection_all",
+      "localHandlerId": "hourglass.ambrosia",
+      "durationFrames": 7200,
+      "effect": "Weak Ambrosia; advertised 50% reduction to most damage types",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 95,
+        "end": 95
+      },
+      "localOnly": {
+        "localAsset": "mods/noita-together/files/effects/weak_ambrosia.xml",
+        "icon": "mods/noita-together/files/ui_gfx/status_indicators/nt_hourglass_protection_half.png",
+        "title": "noitatogether_hourglass_boost_title",
+        "subtitle": "noitatogether_hourglass_ambrosia_subtitle",
+        "hudIcon": true,
+        "headIcon": true
+      }
+    },
+    {
+      "id": "berserk",
+      "materialId": "magic_liquid_berserk",
+      "localHandlerId": "hourglass.berserk",
+      "durationFrames": 7200,
+      "effect": "Damage multiplier",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 110,
+        "end": 110
+      },
+      "localOnly": {
+        "localAsset": "data/entities/misc/effect_damage_multiplier.xml",
+        "icon": "data/ui_gfx/status_indicators/berserk.png",
+        "title": "noitatogether_hourglass_boost_title",
+        "subtitle": "noitatogether_hourglass_berserk_subtitle",
+        "hudIcon": true,
+        "headIcon": true
+      }
+    },
+    {
+      "id": "charm",
+      "materialId": "magic_liquid_charm",
+      "localHandlerId": "hourglass.charm",
+      "durationFrames": null,
+      "effect": "Long regeneration field",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 125,
+        "end": 125
+      },
+      "localOnly": {
+        "localAsset": "data/entities/projectiles/deck/regeneration_field_long.xml",
+        "icon": null,
+        "title": "noitatogether_hourglass_boon_title",
+        "subtitle": null,
+        "hudIcon": false,
+        "headIcon": false
+      }
+    },
+    {
+      "id": "confusion",
+      "materialId": "material_confusion",
+      "localHandlerId": "hourglass.confusion",
+      "durationFrames": null,
+      "effect": "Ingest 300 fungi, adjust stomach fullness; party/no-player notice",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 131,
+        "end": 131
+      },
+      "localOnly": {
+        "localAsset": null,
+        "icon": null,
+        "title": "noitatogether_hourglass_fungus_title",
+        "subtitle": "noitatogether_hourglass_fungus_subtitle_yes",
+        "noPlayerSubtitle": "noitatogether_hourglass_fungus_subtitle_no",
+        "ingestMaterial": "fungi",
+        "ingestAmount": 300,
+        "stomachAdjustment": -300,
+        "hudIcon": false,
+        "headIcon": false
+      }
+    },
+    {
+      "id": "speed",
+      "materialId": "magic_liquid_movement_faster",
+      "localHandlerId": "hourglass.speed",
+      "durationFrames": 7200,
+      "effect": "Faster movement",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 147,
+        "end": 147
+      },
+      "localOnly": {
+        "localAsset": "data/entities/misc/effect_movement_faster_2x.xml",
+        "icon": "data/ui_gfx/status_indicators/movement_faster.png",
+        "title": "noitatogether_hourglass_boost_title",
+        "subtitle": "noitatogether_hourglass_speed_subtitle",
+        "hudIcon": true,
+        "headIcon": true
+      }
+    },
+    {
+      "id": "levitation",
+      "materialId": "magic_liquid_faster_levitation",
+      "localHandlerId": "hourglass.levitation",
+      "durationFrames": 7200,
+      "effect": "Faster levitation",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 163,
+        "end": 163
+      },
+      "localOnly": {
+        "localAsset": "data/entities/misc/effect_faster_levitation.xml",
+        "icon": "data/ui_gfx/status_indicators/levitation.png",
+        "title": "noitatogether_hourglass_boost_title",
+        "subtitle": "noitatogether_hourglass_levitatium_subtitle",
+        "hudIcon": true,
+        "headIcon": true
+      }
+    },
+    {
+      "id": "speed_and_levitation",
+      "materialId": "magic_liquid_faster_levitation_and_movement",
+      "localHandlerId": "hourglass.speed_and_levitation",
+      "durationFrames": 7200,
+      "effect": "Faster movement and levitation",
+      "sourceRef": {
+        "file": "noita_mod/core/files/scripts/hourglass_events.lua",
+        "start": 179,
+        "end": 179
+      },
+      "localOnly": {
+        "localAsset": "mods/noita-together/files/effects/hourglass_hastium.xml",
+        "icon": "mods/noita-together/files/ui_gfx/status_indicators/nt_hourglass_speed_levitation.png",
+        "title": "noitatogether_hourglass_boost_title",
+        "subtitle": "noitatogether_hourglass_hastium_subtitle",
+        "hudIcon": true,
+        "headIcon": true
+      }
+    }
+  ],
+  "extensionPolicy": "Trusted locally reviewed versioned manifest only; replace/disable explicit; handlers/assets local-only. No current third-party approval; unknown IDs refused. No network callback/path/code.",
+  "limitations": [
+    "Catalogue is server-owned provisional mapping; actual client local handler/runtime effects pending",
+    "Five requested durations7200 frames; charm uses local asset duration, confusion has no invented duration",
+    "256 non-evicted activations per owned state partition is provisional capacity, not full long-run parity",
+    "No hourglass room toggle in audited source; NT_GAMEMODE_CO_OP maps to core, Nemesis refused"
+  ]
+}

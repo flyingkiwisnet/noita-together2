@@ -1,0 +1,17 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "status": {},
+      "offline": {}
+    },
+    "reason": "conflicting operations"
+  },
+  {
+    "type": "Resume",
+    "json": {
+      "resumeProof": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "reason": "proof bounds"
+  }
+]

@@ -1,0 +1,145 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.race;
+
+message Empty {
+}
+
+message RaceGoal {
+  optional string instanceId = 1;
+  optional string id = 2;
+  optional uint32 target = 3;
+  repeated string bossIds = 4;
+  optional string biomeId = 5;
+  optional string direction = 6;
+  optional uint32 index = 7;
+}
+
+message RaceConfig {
+  optional string registryRevision = 1;
+  repeated RaceGoal goals = 2;
+  optional uint32 durationMs = 3;
+}
+
+message Scope {
+  optional string roomId = 1;
+  optional string runId = 2;
+  optional string runEpoch = 3;
+  optional uint32 configRevision = 4;
+  optional string attachmentId = 5;
+  optional string worldToken = 6;
+}
+
+message Observation {
+  optional string kind = 1;
+  optional uint32 orbId = 2;
+  optional string bossId = 3;
+  optional string biomeId = 4;
+  optional string direction = 5;
+  optional uint32 index = 6;
+  optional string value = 7;
+  optional string ending = 8;
+}
+
+message Commit {
+  optional string eventId = 1;
+  optional uint32 sequence = 2;
+  repeated Observation observations = 3;
+  optional string terminal = 4;
+}
+
+message Read {
+  optional string locator = 1;
+  optional string afterRow = 2;
+  optional uint32 limit = 3;
+  optional string runKey = 4;
+  optional string snapshotRevision = 5;
+  optional bool self = 6;
+}
+
+message Credit {
+  optional string id = 1;
+  optional string firstAtMs = 2;
+}
+
+message Progress {
+  optional string instanceId = 1;
+  optional string value = 2;
+  optional string currentValue = 3;
+  optional string target = 4;
+  optional bool complete = 5;
+  optional string completedAtMs = 6;
+  repeated Credit credits = 7;
+}
+
+message Entrant {
+  optional string rowKey = 1;
+  optional string displayName = 2;
+  optional string status = 3;
+  optional uint32 completedGoals = 4;
+  optional string finalCountAtMs = 5;
+  optional uint32 finishOrder = 6;
+  optional uint32 rank = 7;
+  repeated Progress progress = 8;
+  optional uint32 acceptedSequence = 9;
+}
+
+message Snapshot {
+  optional string locator = 1;
+  optional string runKey = 2;
+  optional string revision = 3;
+  optional string registryRevision = 4;
+  RaceConfig config = 5;
+  optional string status = 6;
+  optional string startedAt = 7;
+  optional string deadlineAt = 8;
+  optional string endedAt = 9;
+  optional string elapsedMs = 10;
+  optional string collectionState = 11;
+  repeated Entrant entrants = 12;
+  optional string nextRow = 13;
+  optional string lobbyName = 14;
+  optional string selfRow = 15;
+  optional string endReason = 16;
+  optional string lobbyMode = 17;
+}
+
+message Receipt {
+  optional string eventId = 1;
+  optional uint32 sequence = 2;
+  optional string acceptedAtMs = 3;
+  optional string revision = 4;
+  optional string status = 5;
+  optional uint32 completedGoals = 6;
+  optional uint32 finishOrder = 7;
+}
+
+message Error {
+  optional string code = 1;
+}
+
+message Request {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string sessionEpoch = 5;
+  optional string requestId = 6;
+  Scope scope = 7;
+  optional uint32 ownerGeneration = 8;
+  oneof payload {
+    Commit commit = 10;
+    Read read = 11;
+  }
+}
+
+message Response {
+  optional uint32 major = 1;
+  optional string revision = 2;
+  optional string serviceId = 3;
+  optional string serviceEpoch = 4;
+  optional string requestId = 5;
+  Receipt receipt = 6;
+  Snapshot snapshot = 7;
+  Error error = 8;
+}

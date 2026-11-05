@@ -1,0 +1,53 @@
+[
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-c2-1",
+      "requestId": "bind",
+      "arenaBind": {
+        "progression": 0,
+        "arenaToken": "00000000-0000-4000-8000-000000000001"
+      }
+    }
+  },
+  {
+    "type": "Request",
+    "json": {
+      "major": 1,
+      "revision": "g3-c2-1",
+      "requestId": "near",
+      "near": {
+        "encounterId": "00000000-0000-4000-8000-000000000002",
+        "arenaToken": "00000000-0000-4000-8000-000000000001",
+        "near": true,
+        "readinessEpoch": "00000000-0000-4000-8000-000000000003"
+      }
+    }
+  },
+  {
+    "type": "Response",
+    "json": {
+      "major": 1,
+      "revision": "g3-c2-1",
+      "requestId": "state",
+      "snapshot": {
+        "sequence": "2",
+        "rules": {
+          "revision": 1,
+          "sequence": "0",
+          "rules": {
+            "NT_sync_steve": true
+          }
+        },
+        "encounter": {
+          "encounterId": "00000000-0000-4000-8000-000000000002",
+          "progression": 0,
+          "stage": "unlocked",
+          "revision": "2",
+          "participants": []
+        }
+      }
+    }
+  }
+]

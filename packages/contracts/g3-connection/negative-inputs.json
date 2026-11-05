@@ -1,0 +1,25 @@
+[
+  {
+    "type": "ConnectionDecision",
+    "json": {
+      "authorized": true,
+      "playing": true,
+      "terminal": false,
+      "reason": "",
+      "remainingMs": 30001,
+      "initialReviewRemainingMs": 0
+    }
+  },
+  {
+    "type": "ConnectionCredential",
+    "json": {
+      "principalId": "p",
+      "sessionId": "s",
+      "sessionEpoch": "e",
+      "credentialId": "j",
+      "accessRemainingMs": 900001,
+      "originRequestId": "r",
+      "sampleKey": "k"
+    }
+  }
+]

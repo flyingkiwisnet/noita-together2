@@ -1,0 +1,875 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "race": {
+          "nested": {
+            "Empty": {
+              "fields": {}
+            },
+            "RaceGoal": {
+              "fields": {
+                "instanceId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "target": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "bossIds": {
+                  "type": "string",
+                  "id": 4,
+                  "rule": "repeated"
+                },
+                "biomeId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "direction": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "index": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "RaceConfig": {
+              "fields": {
+                "registryRevision": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "goals": {
+                  "type": "RaceGoal",
+                  "id": 2,
+                  "rule": "repeated"
+                },
+                "durationMs": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Scope": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Observation": {
+              "fields": {
+                "kind": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "orbId": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "bossId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "biomeId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "direction": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "index": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "ending": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Commit": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "observations": {
+                  "type": "Observation",
+                  "id": 3,
+                  "rule": "repeated"
+                },
+                "terminal": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Read": {
+              "fields": {
+                "locator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "afterRow": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runKey": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "snapshotRevision": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "self": {
+                  "type": "bool",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Credit": {
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "firstAtMs": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Progress": {
+              "fields": {
+                "instanceId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "currentValue": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "target": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "complete": {
+                  "type": "bool",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "completedAtMs": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "credits": {
+                  "type": "Credit",
+                  "id": 7,
+                  "rule": "repeated"
+                }
+              }
+            },
+            "Entrant": {
+              "fields": {
+                "rowKey": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "completedGoals": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "finalCountAtMs": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "finishOrder": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rank": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "progress": {
+                  "type": "Progress",
+                  "id": 8,
+                  "rule": "repeated"
+                },
+                "acceptedSequence": {
+                  "type": "uint32",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Snapshot": {
+              "fields": {
+                "locator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runKey": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "registryRevision": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "config": {
+                  "type": "RaceConfig",
+                  "id": 5
+                },
+                "status": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "startedAt": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "deadlineAt": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "endedAt": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "elapsedMs": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "collectionState": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "entrants": {
+                  "type": "Entrant",
+                  "id": 12,
+                  "rule": "repeated"
+                },
+                "nextRow": {
+                  "type": "string",
+                  "id": 13,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "lobbyName": {
+                  "type": "string",
+                  "id": 14,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "selfRow": {
+                  "type": "string",
+                  "id": 15,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "endReason": {
+                  "type": "string",
+                  "id": 16,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "lobbyMode": {
+                  "type": "string",
+                  "id": 17,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Receipt": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sequence": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "acceptedAtMs": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "completedGoals": {
+                  "type": "uint32",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "finishOrder": {
+                  "type": "uint32",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 7
+                },
+                "ownerGeneration": {
+                  "type": "uint32",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "commit": {
+                  "type": "Commit",
+                  "id": 10
+                },
+                "read": {
+                  "type": "Read",
+                  "id": 11
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "commit",
+                    "read"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "receipt": {
+                  "type": "Receipt",
+                  "id": 6
+                },
+                "snapshot": {
+                  "type": "Snapshot",
+                  "id": 7
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 8
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

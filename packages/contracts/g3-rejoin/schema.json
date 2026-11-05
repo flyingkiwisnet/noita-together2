@@ -1,0 +1,1160 @@
+{
+  "major": 1,
+  "revision": "g3-rejoin-1",
+  "limits": {
+    "bytes": 65536,
+    "fields": 2048,
+    "depth": 8,
+    "rooms": 32,
+    "members": 32,
+    "capabilities": 128,
+    "configBytes": 8192
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "VERSION_MISMATCH",
+    "SERVICE_MISMATCH",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "EXPIRED",
+    "CANCELLED",
+    "CONFLICT",
+    "STALE_REVISION",
+    "STALE_EPOCH",
+    "NOT_FOUND",
+    "ALREADY_EXCHANGED",
+    "REFRESH_REUSED",
+    "PROVIDER_UNAVAILABLE",
+    "NOT_READY",
+    "ROSTER_MISMATCH",
+    "INVALID_STATE",
+    "INCOMPATIBLE_GAME",
+    "RESTART_REQUIRED",
+    "CAPACITY",
+    "SERVICE_UNAVAILABLE",
+    "INTERNAL",
+    "PASSWORD_REQUIRED",
+    "ACCOUNT_REQUIRED",
+    "REPORT_REQUIRED",
+    "REPORT_CHANGED",
+    "OWNER_ACTIVE",
+    "RETURN_INELIGIBLE",
+    "REVIEW_REQUIRED"
+  ],
+  "messages": {
+    "Empty": {
+      "fields": {}
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "message": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "retryAfterMs": {
+          "id": 3,
+          "type": "uint32",
+          "maxValue": 60000
+        }
+      }
+    },
+    "Credentials": {
+      "fields": {
+        "accessToken": {
+          "id": 1,
+          "type": "string",
+          "max": 4096
+        },
+        "refreshSecret": {
+          "id": 2,
+          "type": "string",
+          "max": 256
+        },
+        "accountId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "sessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "kind": {
+          "id": 6,
+          "type": "string",
+          "max": 16
+        },
+        "deviceId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "expiresAt": {
+          "id": 8,
+          "type": "string",
+          "max": 40
+        },
+        "attachmentId": {
+          "id": 9,
+          "type": "string",
+          "max": 128
+        },
+        "principal": {
+          "id": 10,
+          "type": "Principal"
+        }
+      }
+    },
+    "Principal": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "kind": {
+          "id": 2,
+          "type": "string",
+          "max": 16
+        },
+        "displayName": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "source": {
+          "id": 4,
+          "type": "string",
+          "max": 32
+        }
+      }
+    },
+    "GameObservation": {
+      "fields": {
+        "attachmentId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "gameInstanceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "observationRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "actualSeed": {
+          "id": 5,
+          "type": "string",
+          "max": 20
+        },
+        "activeMods": {
+          "id": 6,
+          "type": "string",
+          "repeated": true,
+          "max": 256,
+          "itemMax": 128
+        },
+        "inventoryComplete": {
+          "id": 7,
+          "type": "bool"
+        },
+        "beta": {
+          "id": 8,
+          "type": "string",
+          "max": 16
+        },
+        "protected": {
+          "id": 9,
+          "type": "bool"
+        },
+        "loaded": {
+          "id": 10,
+          "type": "bool"
+        },
+        "seedStatus": {
+          "id": 17,
+          "type": "string",
+          "max": 16
+        },
+        "collectorFailure": {
+          "id": 18,
+          "type": "string",
+          "max": 32
+        },
+        "modVersion": {
+          "id": 19,
+          "type": "string",
+          "max": 128
+        },
+        "bridgeVersion": {
+          "id": 20,
+          "type": "string",
+          "max": 128
+        },
+        "compatibilityProvenance": {
+          "id": 21,
+          "type": "string",
+          "max": 64
+        }
+      }
+    },
+    "GameRelease": {
+      "fields": {
+        "authorizationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "startRequestId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "contractRevision": {
+          "id": 3,
+          "type": "string",
+          "max": 32
+        },
+        "serviceId": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "roomId": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "runId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "runEpoch": {
+          "id": 8,
+          "type": "string",
+          "max": 128
+        },
+        "configRevision": {
+          "id": 9,
+          "type": "uint32"
+        },
+        "desktopId": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "desktopSessionEpoch": {
+          "id": 11,
+          "type": "string",
+          "max": 128
+        },
+        "gameSessionId": {
+          "id": 12,
+          "type": "string",
+          "max": 128
+        },
+        "gameSessionEpoch": {
+          "id": 13,
+          "type": "string",
+          "max": 128
+        },
+        "attachmentId": {
+          "id": 14,
+          "type": "string",
+          "max": 128
+        },
+        "gameInstanceId": {
+          "id": 15,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 16,
+          "type": "string",
+          "max": 128
+        },
+        "observationRevision": {
+          "id": 17,
+          "type": "uint32"
+        },
+        "contentDigest": {
+          "id": 18,
+          "type": "string",
+          "max": 64
+        },
+        "capturedAt": {
+          "id": 19,
+          "type": "string",
+          "max": 40
+        },
+        "authorizedAt": {
+          "id": 20,
+          "type": "string",
+          "max": 40
+        },
+        "releaseExpiresAt": {
+          "id": 21,
+          "type": "string",
+          "max": 40
+        },
+        "phase": {
+          "id": 22,
+          "type": "string",
+          "max": 16
+        },
+        "enteredPlayingAt": {
+          "id": 23,
+          "type": "string",
+          "max": 40
+        },
+        "actualSeed": {
+          "id": 24,
+          "type": "string",
+          "max": 20
+        },
+        "seedPolicy": {
+          "id": 25,
+          "type": "string",
+          "max": 32
+        },
+        "randomizeLoot": {
+          "id": 26,
+          "type": "bool"
+        }
+      }
+    },
+    "Association": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "roomId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "runId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "participantId": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "accountId": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "originalStartId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "configRevision": {
+          "id": 8,
+          "type": "uint32"
+        },
+        "actualSeed": {
+          "id": 9,
+          "type": "string",
+          "max": 20
+        },
+        "seedPolicy": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "randomizeLoot": {
+          "id": 11,
+          "type": "bool"
+        }
+      }
+    },
+    "Participant": {
+      "fields": {
+        "association": {
+          "id": 1,
+          "type": "Association"
+        },
+        "state": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "reason": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "generation": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "serviceEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "desktopId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "gameSessionId": {
+          "id": 8,
+          "type": "string",
+          "max": 128
+        },
+        "attachmentId": {
+          "id": 9,
+          "type": "string",
+          "max": 128
+        },
+        "leaseExpiresAt": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "returnEligible": {
+          "id": 11,
+          "type": "bool"
+        },
+        "reviewRequired": {
+          "id": 12,
+          "type": "bool"
+        },
+        "pendingObservationRevision": {
+          "id": 13,
+          "type": "uint32"
+        },
+        "pendingContentDigest": {
+          "id": 14,
+          "type": "string",
+          "max": 128
+        },
+        "originalReport": {
+          "id": 15,
+          "type": "GameObservation"
+        },
+        "pendingReport": {
+          "id": 16,
+          "type": "GameObservation"
+        }
+      }
+    },
+    "Resume": {
+      "fields": {
+        "resumeProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43
+        },
+        "gameInstanceId": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "gameVersion": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "modVersion": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "bridgeVersion": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "capabilities": {
+          "id": 6,
+          "type": "string",
+          "max": 32,
+          "repeated": true,
+          "itemMax": 128
+        }
+      }
+    },
+    "Review": {
+      "fields": {
+        "participantId": {
+          "id": 1,
+          "type": "string",
+          "max": 128
+        },
+        "observationRevision": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "contentDigest": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128
+        },
+        "roomId": {
+          "id": 7,
+          "type": "string",
+          "max": 128
+        },
+        "runId": {
+          "id": 8,
+          "type": "string",
+          "max": 128
+        },
+        "participantId": {
+          "id": 9,
+          "type": "string",
+          "max": 128
+        },
+        "worldToken": {
+          "id": 10,
+          "type": "string",
+          "max": 128
+        },
+        "configRevision": {
+          "id": 11,
+          "type": "uint32"
+        },
+        "generation": {
+          "id": 12,
+          "type": "uint32"
+        },
+        "status": {
+          "id": 20,
+          "type": "Empty"
+        },
+        "resume": {
+          "id": 21,
+          "type": "Resume"
+        },
+        "observe": {
+          "id": 22,
+          "type": "GameObservation"
+        },
+        "pulse": {
+          "id": 23,
+          "type": "Empty"
+        },
+        "offline": {
+          "id": 24,
+          "type": "Offline"
+        },
+        "review": {
+          "id": 25,
+          "type": "Review"
+        },
+        "list": {
+          "id": 26,
+          "type": "Empty"
+        },
+        "observationReport": {
+          "id": 27,
+          "type": "string",
+          "max": 16
+        }
+      },
+      "oneof": [
+        "status",
+        "resume",
+        "observe",
+        "pulse",
+        "offline",
+        "review",
+        "list"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 128
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 128
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 128
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 128
+        },
+        "participant": {
+          "id": 6,
+          "type": "Participant"
+        },
+        "credentials": {
+          "id": 7,
+          "type": "Credentials"
+        },
+        "resumeProof": {
+          "id": 8,
+          "type": "string",
+          "max": 43
+        },
+        "release": {
+          "id": 9,
+          "type": "GameRelease"
+        },
+        "error": {
+          "id": 10,
+          "type": "Error"
+        },
+        "participants": {
+          "id": 11,
+          "type": "Participant",
+          "repeated": true,
+          "max": 32
+        },
+        "credentialValidity": {
+          "id": 91,
+          "type": "ConnectionCredential"
+        },
+        "canonicalAdmission": {
+          "id": 90,
+          "type": "ConnectionAdmission"
+        }
+      }
+    },
+    "Offline": {
+      "fields": {
+        "resumeProof": {
+          "id": 1,
+          "type": "string",
+          "max": 43
+        }
+      }
+    },
+    "ConnectionScope": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "roomId": {
+          "id": 4,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runId": {
+          "id": 5,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "runEpoch": {
+          "id": 6,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "configRevision": {
+          "id": 7,
+          "type": "uint32",
+          "required": true
+        },
+        "attachmentId": {
+          "id": 8,
+          "type": "string",
+          "max": 80,
+          "required": true
+        },
+        "worldToken": {
+          "id": 9,
+          "type": "string",
+          "max": 80,
+          "required": true
+        }
+      }
+    },
+    "ConnectionOwner": {
+      "fields": {
+        "familyId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionInspection": {
+      "fields": {
+        "desktopId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "attachmentId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "observationRevision": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "contentDigest": {
+          "id": 5,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "capturedAt": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionId": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameSessionEpoch": {
+          "id": 8,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "desktopSessionEpoch": {
+          "id": 9,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "gameInstanceId": {
+          "id": 10,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "actualSeed": {
+          "id": 11,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "seedPolicy": {
+          "id": 12,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "randomizeLoot": {
+          "id": 13,
+          "type": "bool"
+        }
+      }
+    },
+    "ConnectionStart": {
+      "fields": {
+        "requestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 3,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionImmutable": {
+      "fields": {
+        "authorizationId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "startRequestId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "authorizedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "selectedInspection": {
+          "id": 4,
+          "type": "ConnectionInspection",
+          "required": false
+        }
+      }
+    },
+    "ConnectionReport": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32",
+          "required": false
+        },
+        "contentDigest": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "capturedAt": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "complete": {
+          "id": 4,
+          "type": "bool",
+          "required": true
+        },
+        "loaded": {
+          "id": 5,
+          "type": "bool",
+          "required": true
+        },
+        "protected": {
+          "id": 6,
+          "type": "bool",
+          "required": true
+        },
+        "contentValid": {
+          "id": 7,
+          "type": "bool",
+          "required": true
+        }
+      }
+    },
+    "ConnectionDecision": {
+      "fields": {
+        "authorized": {
+          "id": 1,
+          "type": "bool",
+          "required": true
+        },
+        "playing": {
+          "id": 2,
+          "type": "bool",
+          "required": true
+        },
+        "terminal": {
+          "id": 3,
+          "type": "bool",
+          "required": true
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "remainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 30000,
+          "required": true
+        },
+        "initialReviewRemainingMs": {
+          "id": 6,
+          "type": "uint32",
+          "maxValue": 3600000,
+          "required": true
+        }
+      }
+    },
+    "ConnectionSample": {
+      "fields": {
+        "originRequestId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "channel": {
+          "id": 2,
+          "type": "string",
+          "max": 32,
+          "required": true
+        },
+        "credentialId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionCredential": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionId": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sessionEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "credentialId": {
+          "id": 4,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "accessRemainingMs": {
+          "id": 5,
+          "type": "uint32",
+          "maxValue": 900000,
+          "required": true
+        },
+        "originRequestId": {
+          "id": 6,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "sampleKey": {
+          "id": 7,
+          "type": "string",
+          "max": 128,
+          "required": true
+        }
+      }
+    },
+    "ConnectionAdmission": {
+      "fields": {
+        "serviceId": {
+          "id": 1,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "serviceEpoch": {
+          "id": 2,
+          "type": "string",
+          "max": 128,
+          "required": true
+        },
+        "participantId": {
+          "id": 3,
+          "type": "string",
+          "max": 128,
+          "required": false
+        },
+        "generation": {
+          "id": 4,
+          "type": "uint32",
+          "required": true
+        },
+        "scope": {
+          "id": 5,
+          "type": "ConnectionScope",
+          "required": true
+        },
+        "owner": {
+          "id": 6,
+          "type": "ConnectionOwner",
+          "required": true
+        },
+        "originalStart": {
+          "id": 7,
+          "type": "ConnectionStart",
+          "required": true
+        },
+        "immutable": {
+          "id": 8,
+          "type": "ConnectionImmutable",
+          "required": true
+        },
+        "currentReport": {
+          "id": 9,
+          "type": "ConnectionReport",
+          "required": true
+        },
+        "decision": {
+          "id": 10,
+          "type": "ConnectionDecision",
+          "required": true
+        },
+        "sample": {
+          "id": 11,
+          "type": "ConnectionSample",
+          "required": true
+        }
+      }
+    }
+  }
+}

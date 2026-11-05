@@ -1,0 +1,685 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.g2next;
+
+message Info {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  repeated string capabilities = 5;
+  Compatibility compatibility = 6;
+  Limits limits = 7;
+  bool mockProvider = 8;
+  string contractStatus = 9;
+  CompatibilityProfile profile = 10;
+  string connectionFlowRevision = 11;
+}
+
+message Compatibility {
+  string gameVersion = 1;
+  string modVersion = 2;
+  string bridgeVersion = 3;
+  repeated string capabilities = 4;
+  repeated string modes = 5;
+  repeated string settingKeys = 6;
+}
+
+message Limits {
+  uint32 bytes = 1;
+  uint32 fields = 2;
+  uint32 depth = 3;
+  uint32 rooms = 4;
+  uint32 members = 5;
+  uint32 capabilities = 6;
+  uint32 configBytes = 7;
+  uint32 requestWork = 8;
+  uint32 databaseWork = 9;
+  uint32 acquireMs = 10;
+  uint32 statementMs = 11;
+  uint32 lockMs = 12;
+  uint32 transactionMs = 13;
+  uint32 requestMs = 14;
+}
+
+message BrowserLoginResponse {
+  Credentials credentials = 1;
+  Error error = 2;
+  ConnectionCredential credentialValidity = 3;
+}
+
+message BrowserLogin {
+  string subject = 1;
+  string deviceId = 2;
+  string requestId = 3;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string requestId = 4;
+  string serviceEpoch = 5;
+  string sessionEpoch = 6;
+  string roomId = 7;
+  uint32 expectedRevision = 8;
+  uint32 configRevision = 9;
+  string runId = 10;
+  string runEpoch = 11;
+  oneof payload {
+    Refresh refresh = 25;
+    Empty logout = 26;
+    RoomCreate roomCreate = 27;
+    ListRooms roomList = 28;
+    Empty roomGet = 29;
+    RoomJoin roomJoin = 30;
+    Empty roomLeave = 31;
+    Presence presence = 32;
+    Ready ready = 33;
+    Config configure = 34;
+    Empty cancelRun = 36;
+    Empty endRun = 37;
+    GameAttach gameAttach = 38;
+    Empty roomPreview = 42;
+    RoomAccess roomAccess = 43;
+    ChatSend chatSend = 44;
+    ChatList chatList = 45;
+    RoomPolicy roomPolicy = 46;
+    RoomModerate roomModerate = 47;
+    GuestIssue guestIssue = 48;
+    AuthBegin authBegin = 49;
+    AuthProof authStatus = 50;
+    AuthProof authCancel = 51;
+    AuthExchange authExchange = 52;
+    Prepare prepare = 53;
+    GameObservation gameObservation = 54;
+    InspectionList inspectionList = 55;
+    FinalStart finalStart = 56;
+    GamePulse gamePulse = 57;
+    GameRenew gameRenew = 58;
+    PreparationCancel preparationCancel = 59;
+    PreparationRenew preparationRenew = 60;
+    Empty roomDelete = 61;
+    PlayerTarget roomPlayerDetails = 62;
+    RoomBanList roomBanList = 63;
+  }
+}
+
+message Empty {
+}
+
+message PairBegin {
+  string deviceId = 1;
+}
+
+message PairApprove {
+  string attemptId = 1;
+  string code = 2;
+}
+
+message PairProof {
+  string attemptId = 1;
+  string proof = 2;
+  string deviceId = 3;
+}
+
+message Refresh {
+  string secret = 1;
+  string deviceId = 2;
+}
+
+message RoomCreate {
+  string name = 1;
+  Config config = 2;
+  string visibility = 3;
+  bool allowGuests = 4;
+  uint32 capacity = 5;
+  string password = 6;
+}
+
+message RoomAccess {
+  string visibility = 1;
+  repeated string admittedAccountIds = 2;
+}
+
+message ListRooms {
+  uint32 limit = 1;
+  string afterRoomId = 2;
+}
+
+message Setting {
+  string key = 1;
+  string value = 2;
+}
+
+message Config {
+  uint32 seed = 1;
+  string mode = 2;
+  repeated Setting settings = 3;
+  repeated string requiredCapabilities = 4;
+  string seedPolicy = 5;
+  bool randomizeLoot = 6;
+  RaceConfig race = 7;
+}
+
+message Presence {
+  bool present = 1;
+}
+
+message Ready {
+  bool ready = 1;
+}
+
+message Start {
+  repeated string participantDesktopIds = 1;
+  repeated string excludedDesktopIds = 2;
+}
+
+message GameAttach {
+  string gameInstanceId = 1;
+  string gameVersion = 2;
+  string modVersion = 3;
+  string bridgeVersion = 4;
+  repeated string capabilities = 5;
+  string preparationId = 6;
+}
+
+message GameFact {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string requestId = 5;
+  Error error = 6;
+  Pairing pairing = 7;
+  Credentials credentials = 8;
+  Room room = 9;
+  repeated RoomSummary rooms = 10;
+  RoomSummary admission = 11;
+  string nextRoomId = 12;
+  repeated ChatMessage chatMessages = 13;
+  uint32 chatNextSequence = 14;
+  bool chatReset = 15;
+  AuthAttempt authAttempt = 16;
+  repeated Inspection inspections = 17;
+  string inspectionNextDesktopId = 18;
+  Preparation preparation = 19;
+  GameRelease release = 20;
+  GameStatus gameStatus = 21;
+  ConnectionCredential credentialValidity = 91;
+  ConnectionAdmission canonicalAdmission = 90;
+  string deletedRoomId = 92;
+  PlayerDetails playerDetails = 93;
+  repeated PlayerDetails roomBans = 94;
+  string nextRoomBanAccountId = 95;
+  RoomAccess access = 96;
+}
+
+message Error {
+  string code = 1;
+  string message = 2;
+  uint32 retryAfterMs = 3;
+}
+
+message Pairing {
+  string attemptId = 1;
+  string code = 2;
+  string proof = 3;
+  string state = 4;
+  string expiresAt = 5;
+}
+
+message Credentials {
+  string accessToken = 1;
+  string refreshSecret = 2;
+  string accountId = 3;
+  string sessionId = 4;
+  string sessionEpoch = 5;
+  string kind = 6;
+  string deviceId = 7;
+  string expiresAt = 8;
+  string attachmentId = 9;
+  Principal principal = 10;
+}
+
+message RoomSummary {
+  string roomId = 1;
+  string name = 2;
+  string state = 3;
+  uint32 revision = 4;
+  uint32 configRevision = 5;
+  string visibility = 6;
+  bool joinAllowed = 7;
+  uint32 capacity = 8;
+  bool passwordRequired = 9;
+  bool allowGuests = 10;
+  Principal host = 11;
+  string mode = 12;
+  uint32 playerCount = 13;
+  bool joinLocked = 14;
+  optional bool publicStats = 15;
+  string statsLocator = 16;
+  bool statsAllowed = 17;
+}
+
+message Member {
+  string accountId = 1;
+  string desktopId = 2;
+  bool present = 3;
+  bool ready = 4;
+  bool selected = 5;
+  bool attached = 6;
+  bool seedApplied = 7;
+  bool loaded = 8;
+  Principal principal = 9;
+  string readiness = 10;
+  string readinessReason = 11;
+  uint32 consentedConfigRevision = 12;
+  bool included = 13;
+  bool chatMuted = 14;
+}
+
+message Room {
+  string roomId = 1;
+  string name = 2;
+  string hostAccountId = 3;
+  string state = 4;
+  uint32 revision = 5;
+  uint32 configRevision = 6;
+  Config config = 7;
+  string runId = 8;
+  string runEpoch = 9;
+  string preparationExpiresAt = 10;
+  repeated Member members = 11;
+  uint32 capacity = 12;
+  bool passwordRequired = 13;
+  bool allowGuests = 14;
+  string reviewExpiresAt = 15;
+  Principal host = 16;
+  bool joinLocked = 17;
+  string visibility = 18;
+  optional bool publicStats = 19;
+  string statsLocator = 20;
+}
+
+message RoomJoin {
+  string password = 1;
+}
+
+message ChatSend {
+  string text = 1;
+}
+
+message ChatList {
+  uint32 afterSequence = 1;
+  uint32 limit = 2;
+}
+
+message ChatMessage {
+  uint32 sequence = 1;
+  string accountId = 2;
+  string sessionKind = 3;
+  string sentAt = 4;
+  string text = 5;
+  Principal principal = 6;
+}
+
+message RoomPolicy {
+  uint32 capacity = 1;
+  string password = 2;
+  bool allowGuests = 3;
+  string name = 4;
+  bool joinLocked = 5;
+  optional bool publicStats = 6;
+}
+
+message RoomModerate {
+  string accountId = 1;
+  string action = 2;
+  string desktopId = 3;
+}
+
+message CompatibilityProfile {
+  string id = 1;
+  string evidenceStatus = 2;
+  string gameExeSha256 = 3;
+  string originalLuaSha256 = 4;
+  string bridgeSha256 = 5;
+  string modSha256 = 6;
+  string gameFamilyId = 7;
+  repeated GameBuildVariant supportedBuilds = 8;
+}
+
+message Principal {
+  string principalId = 1;
+  string kind = 2;
+  string displayName = 3;
+  string source = 4;
+}
+
+message GuestIssue {
+  string deviceId = 1;
+  string displayName = 2;
+  string issuanceProof = 3;
+}
+
+message AuthBegin {
+  string deviceId = 1;
+  string appInstanceId = 2;
+  string provider = 3;
+  string proofChallenge = 4;
+  uint32 callbackPort = 5;
+  string callbackState = 6;
+}
+
+message AuthProof {
+  string attemptId = 1;
+  string deviceId = 2;
+  string appInstanceId = 3;
+  string initiatorProof = 4;
+}
+
+message AuthExchange {
+  string attemptId = 1;
+  string deviceId = 2;
+  string appInstanceId = 3;
+  string initiatorProof = 4;
+  string completionGrant = 5;
+}
+
+message AuthAttempt {
+  string attemptId = 1;
+  string state = 2;
+  string provider = 3;
+  string launchUrl = 4;
+  string expiresAt = 5;
+  string grantExpiresAt = 6;
+}
+
+message Prepare {
+  uint32 reviewMinutes = 1;
+}
+
+message GameObservation {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+  string worldToken = 3;
+  uint32 observationRevision = 4;
+  string actualSeed = 5;
+  repeated string activeMods = 6;
+  bool inventoryComplete = 7;
+  string beta = 8;
+  bool protected = 9;
+  bool loaded = 10;
+  string seedStatus = 17;
+  string collectorFailure = 18;
+  string modVersion = 19;
+  string bridgeVersion = 20;
+  string compatibilityProvenance = 21;
+}
+
+message Inspection {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+  string worldToken = 3;
+  uint32 observationRevision = 4;
+  string actualSeed = 5;
+  repeated string activeMods = 6;
+  bool inventoryComplete = 7;
+  string beta = 8;
+  bool protected = 9;
+  bool loaded = 10;
+  string desktopId = 11;
+  string contentDigest = 12;
+  string capturedAt = 13;
+  string presenceUntil = 14;
+  string validUntil = 15;
+  string compatibility = 16;
+  string seedStatus = 17;
+  string collectorFailure = 18;
+  string modVersion = 19;
+  string bridgeVersion = 20;
+  string compatibilityProvenance = 21;
+}
+
+message InspectionList {
+  string afterDesktopId = 1;
+  uint32 limit = 2;
+}
+
+message InspectedParticipant {
+  string desktopId = 1;
+  string attachmentId = 2;
+  string worldToken = 3;
+  uint32 observationRevision = 4;
+  string contentDigest = 5;
+}
+
+message FinalStart {
+  repeated InspectedParticipant participants = 1;
+  repeated string excludedDesktopIds = 2;
+}
+
+message GamePulse {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+  string worldToken = 3;
+}
+
+message Preparation {
+  string preparationId = 1;
+  string serviceId = 2;
+  string serviceEpoch = 3;
+  string roomId = 4;
+  string runId = 5;
+  string runEpoch = 6;
+  uint32 configRevision = 7;
+  string desktopId = 8;
+  string desktopSessionEpoch = 9;
+  string expiresAt = 10;
+  string reviewExpiresAt = 11;
+  string state = 12;
+}
+
+message PreparationCancel {
+  string preparationId = 1;
+}
+
+message GameRenew {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+  string worldToken = 3;
+  string gameSessionId = 4;
+  string gameSessionEpoch = 5;
+}
+
+message GameRelease {
+  string authorizationId = 1;
+  string startRequestId = 2;
+  string contractRevision = 3;
+  string serviceId = 4;
+  string serviceEpoch = 5;
+  string roomId = 6;
+  string runId = 7;
+  string runEpoch = 8;
+  uint32 configRevision = 9;
+  string desktopId = 10;
+  string desktopSessionEpoch = 11;
+  string gameSessionId = 12;
+  string gameSessionEpoch = 13;
+  string attachmentId = 14;
+  string gameInstanceId = 15;
+  string worldToken = 16;
+  uint32 observationRevision = 17;
+  string contentDigest = 18;
+  string capturedAt = 19;
+  string authorizedAt = 20;
+  string releaseExpiresAt = 21;
+  string phase = 22;
+  string enteredPlayingAt = 23;
+  string actualSeed = 24;
+  string seedPolicy = 25;
+  bool randomizeLoot = 26;
+}
+
+message GameStatus {
+  string phase = 1;
+  string reason = 2;
+}
+
+message GameBuildVariant {
+  string id = 1;
+  string store = 2;
+  string branch = 3;
+  string buildIdentity = 4;
+  string gameExeSha256 = 5;
+  string originalLuaSha256 = 6;
+  string evidenceStatus = 7;
+}
+
+message PreparationRenew {
+  string preparationId = 1;
+}
+
+message ConnectionScope {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string roomId = 4;
+  optional string runId = 5;
+  optional string runEpoch = 6;
+  optional uint32 configRevision = 7;
+  optional string attachmentId = 8;
+  optional string worldToken = 9;
+}
+
+message ConnectionOwner {
+  optional string familyId = 1;
+  optional string desktopId = 2;
+  optional string desktopSessionEpoch = 3;
+  optional string gameSessionId = 4;
+  optional string gameSessionEpoch = 5;
+  optional string attachmentId = 6;
+  optional string gameInstanceId = 7;
+}
+
+message ConnectionInspection {
+  optional string desktopId = 1;
+  optional string attachmentId = 2;
+  optional string worldToken = 3;
+  optional uint32 observationRevision = 4;
+  optional string contentDigest = 5;
+  optional string capturedAt = 6;
+  optional string gameSessionId = 7;
+  optional string gameSessionEpoch = 8;
+  optional string desktopSessionEpoch = 9;
+  optional string gameInstanceId = 10;
+  optional string actualSeed = 11;
+  optional string seedPolicy = 12;
+  optional bool randomizeLoot = 13;
+}
+
+message ConnectionStart {
+  optional string requestId = 1;
+  optional string authorizedAt = 2;
+  ConnectionInspection selectedInspection = 3;
+}
+
+message ConnectionImmutable {
+  optional string authorizationId = 1;
+  optional string startRequestId = 2;
+  optional string authorizedAt = 3;
+  ConnectionInspection selectedInspection = 4;
+}
+
+message ConnectionReport {
+  optional uint32 revision = 1;
+  optional string contentDigest = 2;
+  optional string capturedAt = 3;
+  optional bool complete = 4;
+  optional bool loaded = 5;
+  optional bool protected = 6;
+  optional bool contentValid = 7;
+}
+
+message ConnectionDecision {
+  optional bool authorized = 1;
+  optional bool playing = 2;
+  optional bool terminal = 3;
+  optional string reason = 4;
+  optional uint32 remainingMs = 5;
+  optional uint32 initialReviewRemainingMs = 6;
+}
+
+message ConnectionSample {
+  optional string originRequestId = 1;
+  optional string channel = 2;
+  optional string credentialId = 3;
+  optional string sampleKey = 4;
+}
+
+message ConnectionCredential {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string credentialId = 4;
+  optional uint32 accessRemainingMs = 5;
+  optional string originRequestId = 6;
+  optional string sampleKey = 7;
+}
+
+message ConnectionAdmission {
+  optional string serviceId = 1;
+  optional string serviceEpoch = 2;
+  optional string participantId = 3;
+  optional uint32 generation = 4;
+  ConnectionScope scope = 5;
+  ConnectionOwner owner = 6;
+  ConnectionStart originalStart = 7;
+  ConnectionImmutable immutable = 8;
+  ConnectionReport currentReport = 9;
+  ConnectionDecision decision = 10;
+  ConnectionSample sample = 11;
+}
+
+message PlayerTarget {
+  string accountId = 1;
+  string desktopId = 2;
+}
+
+message PlayerDetails {
+  string accountId = 1;
+  string desktopId = 2;
+  Principal principal = 3;
+  string role = 4;
+  bool chatMuted = 5;
+  bool banned = 6;
+  uint32 roomRevision = 7;
+  repeated string actions = 8;
+}
+
+message RoomBanList {
+  string afterAccountId = 1;
+  uint32 limit = 2;
+}
+
+message RaceGoal {
+  string instanceId = 1;
+  string id = 2;
+  uint32 target = 3;
+  repeated string bossIds = 4;
+  string biomeId = 5;
+  string direction = 6;
+  uint32 index = 7;
+}
+
+message RaceConfig {
+  string registryRevision = 1;
+  repeated RaceGoal goals = 2;
+  uint32 durationMs = 3;
+}

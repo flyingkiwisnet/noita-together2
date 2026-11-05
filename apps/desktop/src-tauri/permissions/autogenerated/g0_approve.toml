@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g0-approve"
+description = "Enables the g0_approve command without any pre-configured scope."
+commands.allow = ["g0_approve"]
+
+[[permission]]
+identifier = "deny-g0-approve"
+description = "Denies the g0_approve command without any pre-configured scope."
+commands.deny = ["g0_approve"]

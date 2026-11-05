@@ -1,0 +1,29 @@
+{
+  "id": "nt2-g2-inspect-native-1",
+  "evidenceStatus": "candidate-engine-evidence-pending",
+  "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+  "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+  "bridgeSha256": "33db38181059bcd14c2d8011b8622b7c702bfcb19c042c84799b3e4b6b20de9f",
+  "modSha256": "b3a6f943b91c6eea99d75fa1c7e53fa00909b756f00303e94190d7a1291b5a18",
+  "gameFamilyId": "noita-jan2025-x86-luajit-core",
+  "supportedBuilds": [
+    {
+      "id": "steam-jan2025-x86",
+      "store": "steam",
+      "branch": "unclassified",
+      "buildIdentity": "PE32 x86; Jan25-2025 timestamp",
+      "gameExeSha256": "808d2a0ab51ea0b46e9ad2aeb3327a4b0ce3feae04f32ba26326bf585b5779bd",
+      "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+      "evidenceStatus": "candidate-engine-evidence-pending"
+    },
+    {
+      "id": "gog-jan2025-x86",
+      "store": "gog",
+      "branch": "unclassified",
+      "buildIdentity": "PE32 x86; Jan25-2025 timestamp; supplied executable 15449600 bytes",
+      "gameExeSha256": "f0f5ffd1c64558663ac7cffaf689f4899732a56494c3530b806bf3357d094363",
+      "originalLuaSha256": "8a5ca62b77bb5708a1b45c85808cff1191299be34b49a36168354f3bb87620ec",
+      "evidenceStatus": "candidate-engine-evidence-pending"
+    }
+  ]
+}

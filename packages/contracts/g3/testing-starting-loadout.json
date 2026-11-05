@@ -1,0 +1,22 @@
+{
+  "revision": "nt2-testing-starting-loadout-1",
+  "settingKey": "NT_testing_mode",
+  "wire": "Config.settings",
+  "values": ["false", "true"],
+  "default": false,
+  "label": "Testing mode",
+  "freeze": "Existing run configuration revision and digest; fresh approved New Game only",
+  "authorization": "Explicit development service feature and room host; future Dev role required to enable",
+  "pickups": {
+    "tinkerPerk": "EDIT_WANDS_EVERYWHERE",
+    "tinkerCount": 1,
+    "noMoreShufflePerk": "NO_MORE_SHUFFLE",
+    "noMoreShuffleCount": 1,
+    "randomPerks": 3,
+    "randomPerkExclusions": ["EDIT_WANDS_EVERYWHERE", "NO_MORE_SHUFFLE"],
+    "randomWands": 3,
+    "wandSpacingPixels": 44,
+    "wandIds": ["wand_level_02", "wand_level_02_better", "wand_level_03", "wand_unshuffle_01", "wand_unshuffle_02", "wand_unshuffle_03"]
+  },
+  "reference": "<Noita installation>/mods/nightmare/data/scripts/biomes/mountain/mountain_hall.lua: spawn_all_perks / spawn_all_shopitems"
+}

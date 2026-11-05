@@ -1,0 +1,665 @@
+{
+  "nested": {
+    "nt2": {
+      "nested": {
+        "stats": {
+          "nested": {
+            "Empty": {
+              "fields": {}
+            },
+            "Discover": {
+              "fields": {
+                "afterLocator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Read": {
+              "fields": {
+                "locator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "afterRow": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "limit": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runKey": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "summaryRevision": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Scope": {
+              "fields": {
+                "roomId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runId": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runEpoch": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "configRevision": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "attachmentId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "worldToken": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Observe": {
+              "fields": {
+                "eventId": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "kind": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "progression": {
+                  "type": "uint32",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "orbId": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Lobby": {
+              "fields": {
+                "locator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "mode": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "occupancy": {
+                  "type": "uint32",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "capacity": {
+                  "type": "uint32",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "publicStats": {
+                  "type": "bool",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Row": {
+              "fields": {
+                "rowKey": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "displayName": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "hearts": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "orbs": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "steveKills": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "deaths": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "wins": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "goldDeposited": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "goldWithdrawn": {
+                  "type": "string",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "itemsDeposited": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "itemsClaimed": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Summary": {
+              "fields": {
+                "locator": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runKey": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "summaryRevision": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "collectionState": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "runStatus": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "startedAt": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "endedAt": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "elapsedSeconds": {
+                  "type": "string",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "rows": {
+                  "type": "Row",
+                  "id": 9,
+                  "rule": "repeated"
+                },
+                "nextRow": {
+                  "type": "string",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "lobbyName": {
+                  "type": "string",
+                  "id": 11,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "retentionDays": {
+                  "type": "uint32",
+                  "id": 12,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "gameReported": {
+                  "type": "bool",
+                  "id": 13,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Error": {
+              "fields": {
+                "code": {
+                  "type": "string",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                }
+              }
+            },
+            "Request": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "sessionEpoch": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 6,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "scope": {
+                  "type": "Scope",
+                  "id": 7
+                },
+                "ownerGeneration": {
+                  "type": "uint32",
+                  "id": 8,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "discover": {
+                  "type": "Discover",
+                  "id": 9
+                },
+                "read": {
+                  "type": "Read",
+                  "id": 10
+                },
+                "observe": {
+                  "type": "Observe",
+                  "id": 11
+                }
+              },
+              "oneofs": {
+                "payload": {
+                  "oneof": [
+                    "discover",
+                    "read",
+                    "observe"
+                  ]
+                }
+              }
+            },
+            "Response": {
+              "fields": {
+                "major": {
+                  "type": "uint32",
+                  "id": 1,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "revision": {
+                  "type": "string",
+                  "id": 2,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceId": {
+                  "type": "string",
+                  "id": 3,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "serviceEpoch": {
+                  "type": "string",
+                  "id": 4,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "requestId": {
+                  "type": "string",
+                  "id": 5,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "lobbies": {
+                  "type": "Lobby",
+                  "id": 6,
+                  "rule": "repeated"
+                },
+                "nextLocator": {
+                  "type": "string",
+                  "id": 7,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "summary": {
+                  "type": "Summary",
+                  "id": 8
+                },
+                "accepted": {
+                  "type": "bool",
+                  "id": 9,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "duplicate": {
+                  "type": "bool",
+                  "id": 10,
+                  "options": {
+                    "features": {
+                      "field_presence": "EXPLICIT"
+                    }
+                  }
+                },
+                "error": {
+                  "type": "Error",
+                  "id": 11
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

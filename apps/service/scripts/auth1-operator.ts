@@ -1,0 +1,35 @@
+// Explicitly targeted, audited operator bootstrap/recovery. Never migrates or
+// starts a service, and never accepts a password on the command line.
+import pg from 'pg';import {readFile,open,unlink} from 'node:fs/promises';import {resolve} from 'node:path';import {fileURLToPath} from 'node:url';import {userInfo} from 'node:os';import {randomUUID} from 'node:crypto';import {execFile} from 'node:child_process';import {promisify} from 'node:util';
+import {Accounts} from '../src/auth1/accounts.js';import {RejoinAuth} from '../src/rejoin/auth.js';import {AUTH1_ROLES,type AccountRole} from '../../../packages/domain/src/auth1.js';import {configureTransactionTimeout,type Database,type Tx} from '../src/g1/database.js';import {waitFor} from '../src/g1/work.js';
+export async function auth1Operator(args:string[],env:NodeJS.ProcessEnv=process.env,onPlan?:((value:unknown)=>void)){
+ const options:Record<string,string>={};for(let i=0;i<args.length;i+=2){const k=args[i],v=args[i+1];if(!k||!['--config','--action','--account-id','--role','--reason','--confirm-target','--secret-output'].includes(k)||!v||Object.hasOwn(options,k))throw Error('Use --config FILE --action inspect|set-role|reset-local --account-id UUID [--role ROLE --reason TEXT --confirm-target SERVICE/SCHEMA --secret-output FRESH_PRIVATE_FILE]');options[k]=v;}
+ if(!options['--config']||!options['--account-id']||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(options['--account-id']))throw Error('Explicit target config and immutable account UUID required');
+ const target=JSON.parse(await readFile(options['--config'],'utf8'));if(!target||Object.keys(target).sort().join(',')!=='databaseHost,databaseName,databasePort,databaseUrlEnv,namespace,serviceId'||!/^g3_[a-z0-9_]{1,59}$/.test(target.namespace)||typeof target.serviceId!=='string'||!target.serviceId||!/^NT2_[A-Z0-9_]+$/.test(target.databaseUrlEnv))throw Error('Explicit service/schema/database target configuration required');
+ const url=new URL(env[target.databaseUrlEnv]??'');if(!['postgres:','postgresql:'].includes(url.protocol)||url.hostname!==target.databaseHost||Number(url.port||5432)!==target.databasePort||decodeURIComponent(url.pathname.slice(1))!==target.databaseName||url.search||url.hash)throw Error('Database URL differs from explicit operator target');
+ const action=options['--action'];if(!['inspect','set-role','reset-local'].includes(action??''))throw Error('Explicit action required');if(action!=='inspect'&&(options['--confirm-target']!==target.serviceId+'/'+target.namespace||!options['--reason']||options['--reason'].length>256))throw Error('Writes require --reason and exact --confirm-target SERVICE/SCHEMA');
+ if(action==='set-role'&&!AUTH1_ROLES.includes(options['--role'] as AccountRole))throw Error('Invalid role');if(action==='reset-local'&&!options['--secret-output'])throw Error('Local recovery requires a fresh --secret-output private file; passwords are never printed');
+ const pool=new pg.Pool({connectionString:url.href,max:2,connectionTimeoutMillis:3000,query_timeout:8000,options:`-c search_path=${target.namespace},pg_catalog -c statement_timeout=7000 -c lock_timeout=3000 -c idle_in_transaction_session_timeout=10000`,onConnect:client=>configureTransactionTimeout(client,10000)});
+ const transaction:Database['transaction']=async fn=>{
+  const tx=await pool.connect(),controller=new AbortController();let released=false;
+  const destroy=()=>{if(!released){released=true;tx.release(true);}};
+  const clientError=()=>controller.abort();tx.on('error',clientError);controller.signal.addEventListener('abort',destroy,{once:true});
+  const timer=setTimeout(()=>controller.abort(),10000);timer.unref();
+  try{return await waitFor((async()=>{await tx.query('BEGIN');await tx.query('SELECT pg_advisory_xact_lock(hashtext($1))',['nt2-g1-mutation:'+target.namespace]);const identity=(await tx.query('SELECT service_id FROM service_identity')).rows[0];if(identity?.service_id!==target.serviceId||!(await tx.query('SELECT 1 FROM schema_migrations WHERE version=127')).rowCount)throw Error('Wrong service identity or AUTH1 migration not installed; no automatic migration');const result=await fn(tx);if(controller.signal.aborted)throw Error('Operator transaction expired');await tx.query('COMMIT');return result;})(),controller.signal);}
+  catch(e){if(!released){try{await tx.query('ROLLBACK');}catch{destroy();}}throw e;}
+  finally{clearTimeout(timer);controller.signal.removeEventListener('abort',destroy);if(!released){tx.removeListener('error',clientError);released=true;tx.release();}}
+ };
+ const store={now:Date.now,db:{namespace:target.namespace,transaction},account:async()=>{throw Error('Operator tooling never creates an account');},revoke:async(tx:Tx,id:string)=>RejoinAuth.prototype.revoke.call({now:Date.now} as RejoinAuth,tx,id)},accounts=new Accounts(store),operator='cli:'+userInfo().username;let secretFile:Awaited<ReturnType<typeof open>>|undefined,secretPath:string|undefined;
+ try{
+  const account=await transaction(tx=>accounts.role(tx,options['--account-id']!));const display={target:{serviceId:target.serviceId,namespace:target.namespace,databaseHost:target.databaseHost,databasePort:target.databasePort,databaseName:target.databaseName},account:accounts.project(account)};
+  if(action==='inspect')return display;
+  onPlan?.({...display,action,proposedRole:action==='set-role'?options['--role']:account.role});
+  if(action==='set-role')return {...display,updated:await transaction(tx=>accounts.setRole(tx,undefined,{accountId:account.id,role:options['--role'] as AccountRole,revision:account.role_revision,operationId:randomUUID(),reason:options['--reason']!},operator))};
+  secretPath=resolve(options['--secret-output']!);secretFile=await open(secretPath,'wx',0o600);
+  if(process.platform==='win32'){const run=promisify(execFile),who=await run('whoami.exe',['/user','/fo','csv','/nh'],{windowsHide:true,timeout:5000,maxBuffer:4096}),sid=who.stdout.match(/S-1-[0-9-]+/)?.[0];if(!sid)throw Error('Cannot establish private output owner');await run('icacls.exe',[secretPath,'/inheritance:r','/grant:r','*'+sid+':F'],{windowsHide:true,timeout:5000,maxBuffer:4096});}
+  const result=await accounts.issueLocal(undefined,{accountId:account.id,operationId:randomUUID(),reason:options['--reason']!},operator);await secretFile.writeFile(JSON.stringify({accountId:result.account.accountId,temporaryPassword:result.temporaryPassword,temporaryExpiresAt:result.temporaryExpiresAt}));await secretFile.close();secretFile=undefined;return {...display,recovered:true,secretOutput:secretPath};
+ }finally{if(secretFile){await secretFile.close();if(secretPath)await unlink(secretPath);}await pool.end();}
+}
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+ try{console.log(JSON.stringify(await auth1Operator(process.argv.slice(2),process.env,plan=>console.log(JSON.stringify({plan})))));}catch(e){const code=(e as any)?.code;console.error(code&&/^[A-Z_]{1,64}$/.test(code)?code:'Operator action refused: check explicit target, immutable ID, permissions and confirmation. No credentials are printed.');process.exitCode=1;}
+}

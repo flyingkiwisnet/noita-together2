@@ -1,0 +1,13 @@
+CREATE TABLE schema_migrations (version integer PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE service_identity (singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton), service_id text NOT NULL UNIQUE, epoch uuid NOT NULL);
+CREATE TABLE accounts (id uuid PRIMARY KEY, provider_namespace text NOT NULL, provider_subject text NOT NULL, disabled boolean NOT NULL DEFAULT false, UNIQUE(provider_namespace,provider_subject));
+CREATE TABLE devices (account_id uuid NOT NULL REFERENCES accounts(id), device_id text NOT NULL CHECK(length(device_id) BETWEEN 1 AND 128), PRIMARY KEY(account_id,device_id));
+CREATE TABLE session_families (id uuid PRIMARY KEY, account_id uuid NOT NULL REFERENCES accounts(id), device_id text NOT NULL, kind text NOT NULL CHECK(kind IN ('browser','desktop')), revoked_at timestamptz, expires_at timestamptz NOT NULL, FOREIGN KEY(account_id,device_id) REFERENCES devices(account_id,device_id));
+CREATE INDEX live_families ON session_families(account_id,kind) WHERE revoked_at IS NULL;
+CREATE TABLE sessions (id uuid PRIMARY KEY, family_id uuid NOT NULL REFERENCES session_families(id), kind text NOT NULL CHECK(kind IN ('browser','desktop','game')), epoch uuid NOT NULL, parent_id uuid REFERENCES sessions(id), revoked_at timestamptz, CHECK ((kind='game')=(parent_id IS NOT NULL)));
+CREATE TABLE access_tokens (id uuid PRIMARY KEY, session_id uuid NOT NULL REFERENCES sessions(id), expires_at timestamptz NOT NULL, revoked_at timestamptz);
+CREATE INDEX access_session ON access_tokens(session_id);
+CREATE TABLE refresh_tokens (hash text PRIMARY KEY, family_id uuid NOT NULL REFERENCES session_families(id), session_id uuid NOT NULL REFERENCES sessions(id), expires_at timestamptz NOT NULL, spent_at timestamptz, request_id text, fingerprint text, recovery_ciphertext text, recovery_until timestamptz);
+CREATE TABLE pairing_attempts (id uuid PRIMARY KEY, device_id text NOT NULL, proof_hash text NOT NULL, code_hash text NOT NULL, state text NOT NULL CHECK(state IN ('pending','approved','exchanged','cancelled','expired')), account_id uuid REFERENCES accounts(id), expires_at timestamptz NOT NULL, request_id text, fingerprint text, recovery_ciphertext text, recovery_until timestamptz);
+CREATE TABLE auth_requests (scope text NOT NULL, request_id text NOT NULL, fingerprint text NOT NULL, recovery_ciphertext text NOT NULL, recovery_until timestamptz NOT NULL, PRIMARY KEY(scope,request_id));
+INSERT INTO schema_migrations(version) VALUES (1);

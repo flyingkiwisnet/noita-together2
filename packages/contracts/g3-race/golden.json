@@ -1,0 +1,136 @@
+{
+  "revision": "g3-race-1",
+  "fixtures": [
+    {
+      "type": "Request",
+      "json": {
+        "major": 1,
+        "revision": "g3-race-1",
+        "requestId": "race-read",
+        "read": {
+          "locator": "10000000-0000-4000-8000-000000000001",
+          "limit": 8
+        }
+      },
+      "hex": "0801120967332d726163652d313209726163652d726561645a280a2431303030303030302d303030302d343030302d383030302d3030303030303030303030311808"
+    },
+    {
+      "type": "Commit",
+      "json": {
+        "eventId": "10000000-0000-4000-8000-000000000002",
+        "sequence": 1,
+        "observations": [
+          {
+            "kind": "gold",
+            "value": "10000"
+          }
+        ],
+        "terminal": "none"
+      },
+      "hex": "0a2431303030303030302d303030302d343030302d383030302d30303030303030303030303210011a0d0a04676f6c643a05313030303022046e6f6e65"
+    },
+    {
+      "type": "Commit",
+      "json": {
+        "eventId": "20000000-0000-4000-8000-000000000001",
+        "sequence": 2,
+        "observations": [
+          {
+            "kind": "max_hp",
+            "value": "500"
+          },
+          {
+            "kind": "ending",
+            "ending": "classic"
+          }
+        ],
+        "terminal": "dead"
+      },
+      "hex": "0a2432303030303030302d303030302d343030302d383030302d30303030303030303030303110021a0d0a066d61785f68703a033530301a110a06656e64696e674207636c6173736963220464656164"
+    },
+    {
+      "type": "Response",
+      "json": {
+        "major": 1,
+        "revision": "g3-race-1",
+        "serviceId": "fixture",
+        "serviceEpoch": "epoch",
+        "requestId": "race-terminal",
+        "receipt": {
+          "eventId": "20000000-0000-4000-8000-000000000001",
+          "sequence": 2,
+          "acceptedAtMs": "1500",
+          "revision": "3",
+          "status": "finished",
+          "completedGoals": 1,
+          "finishOrder": 1
+        }
+      },
+      "hex": "0801120967332d726163652d311a0766697874757265220565706f63682a0d726163652d7465726d696e616c323f0a2432303030303030302d303030302d343030302d383030302d30303030303030303030303110021a04313530302201332a0866696e697368656430013801"
+    },
+    {
+      "type": "Snapshot",
+      "json": {
+        "locator": "10000000-0000-4000-8000-000000000001",
+        "runKey": "10000000-0000-4000-8000-000000000002",
+        "revision": "3",
+        "registryRevision": "race-goals-1",
+        "config": {
+          "registryRevision": "race-goals-1",
+          "goals": [
+            {
+              "instanceId": "hp500",
+              "id": "reach_max_hp",
+              "target": 500
+            }
+          ],
+          "durationMs": 60000
+        },
+        "status": "running",
+        "startedAt": "2026-11-05T00:00:00Z",
+        "deadlineAt": "2026-11-05T00:01:00Z",
+        "elapsedMs": "1500",
+        "collectionState": "available",
+        "entrants": [
+          {
+            "rowKey": "10000000-0000-4000-8000-000000000003",
+            "displayName": "Fixture",
+            "status": "finished",
+            "completedGoals": 1,
+            "finalCountAtMs": "1500",
+            "finishOrder": 1,
+            "rank": 1,
+            "progress": [
+              {
+                "instanceId": "hp500",
+                "value": "500",
+                "currentValue": "500",
+                "target": "500",
+                "complete": true,
+                "completedAtMs": "1500"
+              }
+            ],
+            "acceptedSequence": 2
+          }
+        ],
+        "lobbyMode": "race"
+      },
+      "hex": "0a2431303030303030302d303030302d343030302d383030302d303030303030303030303031122431303030303030302d303030302d343030302d383030302d3030303030303030303030321a0133220c726163652d676f616c732d312a2c0a0c726163652d676f616c732d3112180a056870353030120c72656163685f6d61785f687018f40318e0d403320772756e6e696e673a14323032362d31312d30355430303a30303a30305a4214323032362d31312d30355430303a30313a30305a5204313530305a09617661696c61626c6562670a2431303030303030302d303030302d343030302d383030302d3030303030303030303030331207466978747572651a0866696e697368656420012a043135303030013801421e0a05687035303012033530301a033530302203353030280132043135303048028a010472616365"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "Request",
+      "json": {
+        "commit": {},
+        "read": {}
+      }
+    },
+    {
+      "type": "Commit",
+      "json": {
+        "terminal": "arbitrary"
+      }
+    }
+  ]
+}

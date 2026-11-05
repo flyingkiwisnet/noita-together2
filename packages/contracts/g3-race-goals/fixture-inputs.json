@@ -1,0 +1,578 @@
+{
+  "evidence": "Synthetic evaluator fixtures only; boss_a through boss_d and test_biome are not supported Noita content.",
+  "registry": {
+    "revision": "race-goals-1",
+    "goalSupport": {
+      "classic_ending": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "collect_orbs": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "defeat_bosses": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "defeat_named_bosses": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "visit_biome": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "visit_parallel_world": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "reach_max_hp": {
+        "available": true,
+        "reason": "synthetic"
+      },
+      "accumulate_gold": {
+        "available": true,
+        "reason": "synthetic"
+      }
+    },
+    "orbs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      256,
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265,
+      266
+    ],
+    "bosses": [
+      {
+        "id": "boss_a",
+        "name": "Fixture A",
+        "available": true,
+        "difficulty": "medium",
+        "randomEligible": true,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "synthetic"
+      },
+      {
+        "id": "boss_b",
+        "name": "Fixture B",
+        "available": true,
+        "difficulty": "hard",
+        "randomEligible": true,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "synthetic"
+      },
+      {
+        "id": "boss_c",
+        "name": "Fixture C",
+        "available": true,
+        "difficulty": "hard",
+        "randomEligible": true,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "synthetic"
+      },
+      {
+        "id": "boss_d",
+        "name": "Fixture D",
+        "available": true,
+        "difficulty": "extreme",
+        "randomEligible": false,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "synthetic"
+      },
+      {
+        "id": "unverified",
+        "name": "Unavailable fixture",
+        "available": false,
+        "difficulty": "hard",
+        "randomEligible": false,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "unverified"
+      }
+    ],
+    "biomes": [
+      {
+        "id": "test_biome",
+        "name": "Fixture biome",
+        "available": true,
+        "difficulty": "medium",
+        "randomEligible": true,
+        "aliases": [],
+        "prerequisites": [],
+        "detector": "synthetic"
+      }
+    ]
+  },
+  "evaluations": [
+    {
+      "name": "maximum HP high-water and sticky completion",
+      "goal": {
+        "instanceId": "hp",
+        "id": "reach_max_hp",
+        "parameters": {
+          "target": 500
+        }
+      },
+      "events": [
+        {
+          "kind": "max_hp",
+          "value": 400
+        },
+        {
+          "kind": "max_hp",
+          "value": 500
+        },
+        {
+          "kind": "max_hp",
+          "value": 250
+        }
+      ],
+      "expected": {
+        "value": 500,
+        "currentValue": 250,
+        "target": 500,
+        "complete": true,
+        "completedAtMs": 200
+      }
+    },
+    {
+      "name": "wallet is not lifetime gold",
+      "goal": {
+        "instanceId": "gold",
+        "id": "accumulate_gold",
+        "parameters": {
+          "target": 10000
+        }
+      },
+      "events": [
+        {
+          "kind": "gold",
+          "value": 6000
+        },
+        {
+          "kind": "gold",
+          "value": 5000
+        },
+        {
+          "kind": "gold",
+          "value": 10000
+        },
+        {
+          "kind": "gold",
+          "value": 100
+        }
+      ],
+      "expected": {
+        "value": 10000,
+        "currentValue": 100,
+        "target": 10000,
+        "complete": true,
+        "completedAtMs": 300
+      }
+    },
+    {
+      "name": "distinct orb world identities and duplicate",
+      "goal": {
+        "instanceId": "orbs",
+        "id": "collect_orbs",
+        "parameters": {
+          "target": 3
+        }
+      },
+      "events": [
+        {
+          "kind": "orb",
+          "orbId": 0
+        },
+        {
+          "kind": "orb",
+          "orbId": 0
+        },
+        {
+          "kind": "orb",
+          "orbId": 128
+        },
+        {
+          "kind": "orb",
+          "orbId": 256
+        },
+        {
+          "kind": "orb",
+          "orbId": 128
+        }
+      ],
+      "expected": {
+        "value": 3,
+        "currentValue": 3,
+        "target": 3,
+        "complete": true,
+        "completedAtMs": 400
+      }
+    },
+    {
+      "name": "distinct boss types despite repeats",
+      "goal": {
+        "instanceId": "bosses",
+        "id": "defeat_bosses",
+        "parameters": {
+          "target": 2
+        }
+      },
+      "events": [
+        {
+          "kind": "boss",
+          "bossId": "boss_a"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_a"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_b"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_b"
+        }
+      ],
+      "expected": {
+        "value": 2,
+        "currentValue": 2,
+        "target": 2,
+        "complete": true,
+        "completedAtMs": 300
+      }
+    },
+    {
+      "name": "named all-of ignores other boss",
+      "goal": {
+        "instanceId": "named",
+        "id": "defeat_named_bosses",
+        "parameters": {
+          "bossIds": [
+            "boss_a",
+            "boss_b",
+            "boss_c"
+          ]
+        }
+      },
+      "events": [
+        {
+          "kind": "boss",
+          "bossId": "boss_d"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_a"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_a"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_b"
+        },
+        {
+          "kind": "boss",
+          "bossId": "boss_c"
+        }
+      ],
+      "expected": {
+        "value": 3,
+        "currentValue": 3,
+        "target": 3,
+        "complete": true,
+        "completedAtMs": 500
+      }
+    },
+    {
+      "name": "parallel direction and further index",
+      "goal": {
+        "instanceId": "east",
+        "id": "visit_parallel_world",
+        "parameters": {
+          "direction": "east",
+          "index": 1
+        }
+      },
+      "events": [
+        {
+          "kind": "parallel",
+          "direction": "west",
+          "index": 3
+        },
+        {
+          "kind": "parallel",
+          "direction": "east",
+          "index": 3
+        },
+        {
+          "kind": "parallel",
+          "direction": "east",
+          "index": 1
+        }
+      ],
+      "expected": {
+        "value": 3,
+        "currentValue": 1,
+        "target": 1,
+        "complete": true,
+        "completedAtMs": 200
+      }
+    },
+    {
+      "name": "biome visit stays complete",
+      "goal": {
+        "instanceId": "biome",
+        "id": "visit_biome",
+        "parameters": {
+          "biomeId": "test_biome"
+        }
+      },
+      "events": [
+        {
+          "kind": "biome",
+          "biomeId": "test_biome"
+        },
+        {
+          "kind": "biome",
+          "biomeId": "test_biome"
+        }
+      ],
+      "expected": {
+        "value": 1,
+        "currentValue": 1,
+        "target": 1,
+        "complete": true,
+        "completedAtMs": 100
+      }
+    },
+    {
+      "name": "only classic ending counts",
+      "goal": {
+        "instanceId": "ending",
+        "id": "classic_ending",
+        "parameters": {}
+      },
+      "events": [
+        {
+          "kind": "ending",
+          "ending": "other"
+        },
+        {
+          "kind": "ending",
+          "ending": "classic"
+        },
+        {
+          "kind": "ending",
+          "ending": "classic"
+        }
+      ],
+      "expected": {
+        "value": 1,
+        "currentValue": 1,
+        "target": 1,
+        "complete": true,
+        "completedAtMs": 200
+      }
+    }
+  ],
+  "ranking": {
+    "goals": [
+      {
+        "instanceId": "hp",
+        "id": "reach_max_hp",
+        "parameters": {
+          "target": 500
+        }
+      },
+      {
+        "instanceId": "gold",
+        "id": "accumulate_gold",
+        "parameters": {
+          "target": 10000
+        }
+      },
+      {
+        "instanceId": "orbs",
+        "id": "collect_orbs",
+        "parameters": {
+          "target": 1
+        }
+      }
+    ],
+    "entrants": [
+      {
+        "participantId": "10000000-0000-4000-8000-000000000001",
+        "status": "finished",
+        "finishOrder": 1,
+        "completions": [
+          {
+            "instanceId": "hp",
+            "elapsedMs": 500
+          },
+          {
+            "instanceId": "gold",
+            "elapsedMs": 800
+          },
+          {
+            "instanceId": "orbs",
+            "elapsedMs": 1000
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000002",
+        "status": "finished",
+        "finishOrder": 2,
+        "completions": [
+          {
+            "instanceId": "hp",
+            "elapsedMs": 200
+          },
+          {
+            "instanceId": "gold",
+            "elapsedMs": 900
+          },
+          {
+            "instanceId": "orbs",
+            "elapsedMs": 1000
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000003",
+        "status": "dead",
+        "finishOrder": null,
+        "completions": [
+          {
+            "instanceId": "hp",
+            "elapsedMs": 490
+          },
+          {
+            "instanceId": "gold",
+            "elapsedMs": 500
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000004",
+        "status": "dnf",
+        "finishOrder": null,
+        "completions": [
+          {
+            "instanceId": "gold",
+            "elapsedMs": 1
+          },
+          {
+            "instanceId": "hp",
+            "elapsedMs": 600
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000005",
+        "status": "dnf",
+        "finishOrder": null,
+        "completions": [
+          {
+            "instanceId": "orbs",
+            "elapsedMs": 100
+          },
+          {
+            "instanceId": "gold",
+            "elapsedMs": 500
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000006",
+        "status": "dead",
+        "finishOrder": null,
+        "completions": [
+          {
+            "instanceId": "hp",
+            "elapsedMs": 50
+          }
+        ]
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000007",
+        "status": "dnf",
+        "finishOrder": null,
+        "completions": []
+      },
+      {
+        "participantId": "10000000-0000-4000-8000-000000000008",
+        "status": "dead",
+        "finishOrder": null,
+        "completions": []
+      }
+    ],
+    "expectedSuffixOrder": [
+      "001",
+      "002",
+      "003",
+      "005",
+      "004",
+      "006",
+      "007",
+      "008"
+    ],
+    "expectedRanks": [
+      1,
+      2,
+      3,
+      3,
+      5,
+      6,
+      7,
+      7
+    ],
+    "expectedCountTimes": [
+      1000,
+      1000,
+      500,
+      500,
+      600,
+      50,
+      null,
+      null
+    ]
+  }
+}

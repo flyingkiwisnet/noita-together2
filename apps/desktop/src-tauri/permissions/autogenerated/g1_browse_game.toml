@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-g1-browse-game"
+description = "Enables the g1_browse_game command without any pre-configured scope."
+commands.allow = ["g1_browse_game"]
+
+[[permission]]
+identifier = "deny-g1-browse-game"
+description = "Denies the g1_browse_game command without any pre-configured scope."
+commands.deny = ["g1_browse_game"]

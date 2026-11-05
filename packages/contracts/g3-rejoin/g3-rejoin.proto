@@ -1,0 +1,273 @@
+// GENERATED from schema.json. Do not edit.
+syntax = "proto3";
+package nt2.rejoin;
+
+message Empty {
+}
+
+message Error {
+  string code = 1;
+  string message = 2;
+  uint32 retryAfterMs = 3;
+}
+
+message Credentials {
+  string accessToken = 1;
+  string refreshSecret = 2;
+  string accountId = 3;
+  string sessionId = 4;
+  string sessionEpoch = 5;
+  string kind = 6;
+  string deviceId = 7;
+  string expiresAt = 8;
+  string attachmentId = 9;
+  Principal principal = 10;
+}
+
+message Principal {
+  string principalId = 1;
+  string kind = 2;
+  string displayName = 3;
+  string source = 4;
+}
+
+message GameObservation {
+  string attachmentId = 1;
+  string gameInstanceId = 2;
+  string worldToken = 3;
+  uint32 observationRevision = 4;
+  string actualSeed = 5;
+  repeated string activeMods = 6;
+  bool inventoryComplete = 7;
+  string beta = 8;
+  bool protected = 9;
+  bool loaded = 10;
+  string seedStatus = 17;
+  string collectorFailure = 18;
+  string modVersion = 19;
+  string bridgeVersion = 20;
+  string compatibilityProvenance = 21;
+}
+
+message GameRelease {
+  string authorizationId = 1;
+  string startRequestId = 2;
+  string contractRevision = 3;
+  string serviceId = 4;
+  string serviceEpoch = 5;
+  string roomId = 6;
+  string runId = 7;
+  string runEpoch = 8;
+  uint32 configRevision = 9;
+  string desktopId = 10;
+  string desktopSessionEpoch = 11;
+  string gameSessionId = 12;
+  string gameSessionEpoch = 13;
+  string attachmentId = 14;
+  string gameInstanceId = 15;
+  string worldToken = 16;
+  uint32 observationRevision = 17;
+  string contentDigest = 18;
+  string capturedAt = 19;
+  string authorizedAt = 20;
+  string releaseExpiresAt = 21;
+  string phase = 22;
+  string enteredPlayingAt = 23;
+  string actualSeed = 24;
+  string seedPolicy = 25;
+  bool randomizeLoot = 26;
+}
+
+message Association {
+  string serviceId = 1;
+  string roomId = 2;
+  string runId = 3;
+  string participantId = 4;
+  string worldToken = 5;
+  string accountId = 6;
+  string originalStartId = 7;
+  uint32 configRevision = 8;
+  string actualSeed = 9;
+  string seedPolicy = 10;
+  bool randomizeLoot = 11;
+}
+
+message Participant {
+  Association association = 1;
+  string state = 2;
+  string reason = 3;
+  uint32 generation = 4;
+  string serviceEpoch = 5;
+  string runEpoch = 6;
+  string desktopId = 7;
+  string gameSessionId = 8;
+  string attachmentId = 9;
+  string leaseExpiresAt = 10;
+  bool returnEligible = 11;
+  bool reviewRequired = 12;
+  uint32 pendingObservationRevision = 13;
+  string pendingContentDigest = 14;
+  GameObservation originalReport = 15;
+  GameObservation pendingReport = 16;
+}
+
+message Resume {
+  string resumeProof = 1;
+  string gameInstanceId = 2;
+  string gameVersion = 3;
+  string modVersion = 4;
+  string bridgeVersion = 5;
+  repeated string capabilities = 6;
+}
+
+message Review {
+  string participantId = 1;
+  uint32 observationRevision = 2;
+  string contentDigest = 3;
+}
+
+message Request {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string sessionEpoch = 5;
+  string requestId = 6;
+  string roomId = 7;
+  string runId = 8;
+  string participantId = 9;
+  string worldToken = 10;
+  uint32 configRevision = 11;
+  uint32 generation = 12;
+  string observationReport = 27;
+  oneof payload {
+    Empty status = 20;
+    Resume resume = 21;
+    GameObservation observe = 22;
+    Empty pulse = 23;
+    Offline offline = 24;
+    Review review = 25;
+    Empty list = 26;
+  }
+}
+
+message Response {
+  uint32 major = 1;
+  string revision = 2;
+  string serviceId = 3;
+  string serviceEpoch = 4;
+  string requestId = 5;
+  Participant participant = 6;
+  Credentials credentials = 7;
+  string resumeProof = 8;
+  GameRelease release = 9;
+  Error error = 10;
+  repeated Participant participants = 11;
+  ConnectionCredential credentialValidity = 91;
+  ConnectionAdmission canonicalAdmission = 90;
+}
+
+message Offline {
+  string resumeProof = 1;
+}
+
+message ConnectionScope {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string roomId = 4;
+  optional string runId = 5;
+  optional string runEpoch = 6;
+  optional uint32 configRevision = 7;
+  optional string attachmentId = 8;
+  optional string worldToken = 9;
+}
+
+message ConnectionOwner {
+  optional string familyId = 1;
+  optional string desktopId = 2;
+  optional string desktopSessionEpoch = 3;
+  optional string gameSessionId = 4;
+  optional string gameSessionEpoch = 5;
+  optional string attachmentId = 6;
+  optional string gameInstanceId = 7;
+}
+
+message ConnectionInspection {
+  optional string desktopId = 1;
+  optional string attachmentId = 2;
+  optional string worldToken = 3;
+  optional uint32 observationRevision = 4;
+  optional string contentDigest = 5;
+  optional string capturedAt = 6;
+  optional string gameSessionId = 7;
+  optional string gameSessionEpoch = 8;
+  optional string desktopSessionEpoch = 9;
+  optional string gameInstanceId = 10;
+  optional string actualSeed = 11;
+  optional string seedPolicy = 12;
+  optional bool randomizeLoot = 13;
+}
+
+message ConnectionStart {
+  optional string requestId = 1;
+  optional string authorizedAt = 2;
+  ConnectionInspection selectedInspection = 3;
+}
+
+message ConnectionImmutable {
+  optional string authorizationId = 1;
+  optional string startRequestId = 2;
+  optional string authorizedAt = 3;
+  ConnectionInspection selectedInspection = 4;
+}
+
+message ConnectionReport {
+  optional uint32 revision = 1;
+  optional string contentDigest = 2;
+  optional string capturedAt = 3;
+  optional bool complete = 4;
+  optional bool loaded = 5;
+  optional bool protected = 6;
+  optional bool contentValid = 7;
+}
+
+message ConnectionDecision {
+  optional bool authorized = 1;
+  optional bool playing = 2;
+  optional bool terminal = 3;
+  optional string reason = 4;
+  optional uint32 remainingMs = 5;
+  optional uint32 initialReviewRemainingMs = 6;
+}
+
+message ConnectionSample {
+  optional string originRequestId = 1;
+  optional string channel = 2;
+  optional string credentialId = 3;
+  optional string sampleKey = 4;
+}
+
+message ConnectionCredential {
+  optional string principalId = 1;
+  optional string sessionId = 2;
+  optional string sessionEpoch = 3;
+  optional string credentialId = 4;
+  optional uint32 accessRemainingMs = 5;
+  optional string originRequestId = 6;
+  optional string sampleKey = 7;
+}
+
+message ConnectionAdmission {
+  optional string serviceId = 1;
+  optional string serviceEpoch = 2;
+  optional string participantId = 3;
+  optional uint32 generation = 4;
+  ConnectionScope scope = 5;
+  ConnectionOwner owner = 6;
+  ConnectionStart originalStart = 7;
+  ConnectionImmutable immutable = 8;
+  ConnectionReport currentReport = 9;
+  ConnectionDecision decision = 10;
+  ConnectionSample sample = 11;
+}

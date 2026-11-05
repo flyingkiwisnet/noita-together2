@@ -1,0 +1,737 @@
+{
+  "revision": "g3-c1-1",
+  "major": 1,
+  "limits": {
+    "bytes": 32768,
+    "fields": 2048,
+    "depth": 10
+  },
+  "errors": [
+    "INVALID_MESSAGE",
+    "UNAUTHENTICATED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "STALE_EPOCH",
+    "CONFLICT",
+    "CAPACITY",
+    "UNSUPPORTED_CONTENT"
+  ],
+  "messages": {
+    "Scope": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "runEpoch": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "attachmentId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Empty": {
+      "fields": {}
+    },
+    "Rules": {
+      "fields": {
+        "NT_sync_hearts": {
+          "id": 1,
+          "type": "bool"
+        },
+        "NT_sync_orbs": {
+          "id": 2,
+          "type": "bool"
+        },
+        "NT_sync_shift": {
+          "id": 3,
+          "type": "bool"
+        },
+        "NT_team_perks": {
+          "id": 4,
+          "type": "bool"
+        },
+        "NT_sync_perks": {
+          "id": 5,
+          "type": "bool"
+        },
+        "NT_alt_heartache": {
+          "id": 6,
+          "type": "bool"
+        },
+        "NT_ban_perks": {
+          "id": 7,
+          "type": "bool"
+        },
+        "NT_sync_orbs_no_curse": {
+          "id": 8,
+          "type": "bool"
+        },
+        "NT_ondeath_kick": {
+          "id": 9,
+          "type": "bool"
+        },
+        "NT_sync_orb_count": {
+          "id": 10,
+          "type": "uint32"
+        },
+        "NT_death_penalty": {
+          "id": 11,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "end",
+            "weak_respawn",
+            "full_respawn"
+          ]
+        }
+      }
+    },
+    "RuleSnapshot": {
+      "fields": {
+        "revision": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "rules": {
+          "id": 3,
+          "type": "Rules"
+        }
+      }
+    },
+    "RuleSet": {
+      "fields": {
+        "expectedRevision": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "rules": {
+          "id": 2,
+          "type": "Rules"
+        }
+      }
+    },
+    "Heart": {
+      "fields": {}
+    },
+    "Orb": {
+      "fields": {
+        "orbId": {
+          "id": 1,
+          "type": "uint32"
+        }
+      }
+    },
+    "Perk": {
+      "fields": {
+        "perkId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Fungal": {
+      "fields": {
+        "fromMaterials": {
+          "id": 1,
+          "type": "string",
+          "max": 32,
+          "repeated": true,
+          "itemMax": 80
+        },
+        "toMaterial": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "displayMaterial": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        }
+      }
+    },
+    "Death": {
+      "fields": {
+        "state": {
+          "id": 1,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "terminal",
+            "respawning",
+            "won"
+          ]
+        },
+        "cause": {
+          "id": 2,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "normal",
+            "polymorph",
+            "low_life"
+          ]
+        },
+        "progression": {
+          "id": 3,
+          "type": "uint32"
+        }
+      }
+    },
+    "Payload": {
+      "fields": {
+        "heart": {
+          "id": 1,
+          "type": "Heart"
+        },
+        "orb": {
+          "id": 2,
+          "type": "Orb"
+        },
+        "perk": {
+          "id": 3,
+          "type": "Perk"
+        },
+        "fungal": {
+          "id": 4,
+          "type": "Fungal"
+        },
+        "death": {
+          "id": 5,
+          "type": "Death"
+        }
+      },
+      "oneof": [
+        "heart",
+        "orb",
+        "perk",
+        "fungal",
+        "death"
+      ]
+    },
+    "Publish": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "rulesRevision": {
+          "id": 2,
+          "type": "uint32"
+        },
+        "payload": {
+          "id": 3,
+          "type": "Payload"
+        },
+        "senderDisposition": {
+          "id": 4,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "pending",
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        }
+      }
+    },
+    "Delivery": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "rulesRevision": {
+          "id": 3,
+          "type": "uint32"
+        },
+        "sourcePrincipalId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "sourceWorldToken": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "sourceName": {
+          "id": 6,
+          "type": "string",
+          "max": 96
+        },
+        "payload": {
+          "id": 7,
+          "type": "Payload"
+        },
+        "state": {
+          "id": 8,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "pending",
+            "applying",
+            "applied",
+            "skipped",
+            "terminal",
+            "rejected",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 9,
+          "type": "string",
+          "max": 40
+        },
+        "senderDisposition": {
+          "id": 10,
+          "type": "string",
+          "max": 16
+        },
+        "capturedRules": {
+          "id": 11,
+          "type": "Rules"
+        }
+      }
+    },
+    "Receipt": {
+      "fields": {
+        "eventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "sequence": {
+          "id": 2,
+          "type": "string",
+          "max": 20
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 4,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Page": {
+      "fields": {
+        "limit": {
+          "id": 1,
+          "type": "uint32",
+          "max": 8
+        }
+      }
+    },
+    "LifeUpdate": {
+      "fields": {
+        "deathEventId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "state": {
+          "id": 2,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "playing",
+            "terminal",
+            "won"
+          ]
+        }
+      }
+    },
+    "Life": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "state": {
+          "id": 3,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "playing",
+            "respawning",
+            "terminal",
+            "won"
+          ]
+        },
+        "deathEventId": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "rulesRevision": {
+          "id": 5,
+          "type": "uint32"
+        }
+      }
+    },
+    "Member": {
+      "fields": {
+        "principalId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "displayName": {
+          "id": 2,
+          "type": "string",
+          "max": 96
+        }
+      }
+    },
+    "Error": {
+      "fields": {
+        "code": {
+          "id": 1,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "Request": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "sessionEpoch": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 6,
+          "type": "string",
+          "max": 80
+        },
+        "roomId": {
+          "id": 7,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 8,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 9,
+          "type": "uint32"
+        },
+        "rulesGet": {
+          "id": 10,
+          "type": "Empty"
+        },
+        "rulesSet": {
+          "id": 11,
+          "type": "RuleSet"
+        },
+        "publish": {
+          "id": 12,
+          "type": "Publish"
+        },
+        "deliveries": {
+          "id": 13,
+          "type": "Page"
+        },
+        "receipt": {
+          "id": 14,
+          "type": "Receipt"
+        },
+        "life": {
+          "id": 15,
+          "type": "LifeUpdate"
+        },
+        "sourceOutcome": {
+          "id": 16,
+          "type": "SourceOutcomeRequest"
+        }
+      },
+      "oneof": [
+        "rulesGet",
+        "rulesSet",
+        "publish",
+        "deliveries",
+        "receipt",
+        "life",
+        "sourceOutcome"
+      ]
+    },
+    "Response": {
+      "fields": {
+        "major": {
+          "id": 1,
+          "type": "uint32"
+        },
+        "revision": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        },
+        "serviceId": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "serviceEpoch": {
+          "id": 4,
+          "type": "string",
+          "max": 80
+        },
+        "requestId": {
+          "id": 5,
+          "type": "string",
+          "max": 80
+        },
+        "scope": {
+          "id": 6,
+          "type": "Scope"
+        },
+        "ownerGeneration": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "snapshot": {
+          "id": 8,
+          "type": "RuleSnapshot"
+        },
+        "event": {
+          "id": 9,
+          "type": "Delivery"
+        },
+        "deliveries": {
+          "id": 10,
+          "type": "Delivery",
+          "max": 8,
+          "repeated": true
+        },
+        "duplicate": {
+          "id": 11,
+          "type": "bool"
+        },
+        "members": {
+          "id": 12,
+          "type": "Member",
+          "max": 32,
+          "repeated": true
+        },
+        "memberCount": {
+          "id": 13,
+          "type": "uint32",
+          "max": 32
+        },
+        "lives": {
+          "id": 14,
+          "type": "Life",
+          "max": 32,
+          "repeated": true
+        },
+        "error": {
+          "id": 15,
+          "type": "Error"
+        },
+        "more": {
+          "id": 16,
+          "type": "bool"
+        },
+        "sequence": {
+          "id": 17,
+          "type": "string",
+          "max": 20
+        },
+        "sourceOutcome": {
+          "id": 18,
+          "type": "SourceOutcome"
+        }
+      }
+    },
+    "SourceOriginal": {
+      "fields": {
+        "roomId": {
+          "id": 1,
+          "type": "string",
+          "max": 80
+        },
+        "runId": {
+          "id": 2,
+          "type": "string",
+          "max": 80
+        },
+        "worldToken": {
+          "id": 3,
+          "type": "string",
+          "max": 80
+        },
+        "configRevision": {
+          "id": 4,
+          "type": "uint32"
+        },
+        "publish": {
+          "id": 5,
+          "type": "Publish"
+        }
+      }
+    },
+    "SourceDisposition": {
+      "fields": {
+        "state": {
+          "id": 1,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "applied",
+            "skipped",
+            "uncertain"
+          ]
+        },
+        "reason": {
+          "id": 2,
+          "type": "string",
+          "max": 40
+        }
+      }
+    },
+    "SourceOutcomeRequest": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "SourceOriginal"
+        },
+        "receipt": {
+          "id": 2,
+          "type": "SourceDisposition"
+        }
+      }
+    },
+    "SourceOutcome": {
+      "fields": {
+        "original": {
+          "id": 1,
+          "type": "SourceOriginal"
+        },
+        "outcome": {
+          "id": 2,
+          "type": "string",
+          "max": 16,
+          "values": [
+            "committed",
+            "unresolved"
+          ]
+        },
+        "coverage": {
+          "id": 3,
+          "type": "string",
+          "max": 40,
+          "values": [
+            "exact_durable_record",
+            "absent_expired_or_uncovered"
+          ]
+        },
+        "sourceDisposition": {
+          "id": 4,
+          "type": "string",
+          "max": 16
+        },
+        "sourceReason": {
+          "id": 5,
+          "type": "string",
+          "max": 40
+        },
+        "acceptedSequence": {
+          "id": 6,
+          "type": "string",
+          "max": 20
+        },
+        "rulesRevision": {
+          "id": 7,
+          "type": "uint32"
+        },
+        "effectAuthority": {
+          "id": 8,
+          "type": "bool"
+        },
+        "selfReported": {
+          "id": 9,
+          "type": "bool"
+        },
+        "savedEffectProof": {
+          "id": 10,
+          "type": "bool"
+        },
+        "duplicate": {
+          "id": 11,
+          "type": "bool"
+        }
+      }
+    }
+  }
+}
